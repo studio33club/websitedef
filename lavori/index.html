@@ -1,4 +1,4 @@
-<!-- VERSIONE 3 · pagina page-lavori -->
+<!-- VERSIONE 6 · pagina page-lavori -->
 <!DOCTYPE html>
 <html lang="it">
 <head>
@@ -1168,6 +1168,12 @@ body.lang-fr [data-lang="fr"]{display:inline}
 .nav-lang span.active{color:rgba(26,26,26,.88);border-bottom-color:rgba(26,26,26,.88)}
 .drawer-lang{gap:1rem}
 @media(max-width:900px){.nav-lang{gap:.55rem;font-size:10.5px}}
+
+/* ── ARTICOLI LAVORI: fix layout mobile (colonna immagine fissa a 340px rompeva il testo) ── */
+@media(max-width:900px){
+  .lav-art{padding:2.5rem 1.5rem!important}
+  .lav-grid{grid-template-columns:1fr!important;gap:1.5rem!important}
+}
 </style>
 <script type="application/ld+json">
 {
@@ -1368,10 +1374,10 @@ body.lang-fr [data-lang="fr"]{display:inline}
     </div>
   </div>
 
-  <article id="a-deep-listening-afternoon" style="border-top:var(--bd);padding:4.5rem 4rem">
+  <article id="a-deep-listening-afternoon" class="lav-art" style="border-top:var(--bd);padding:4.5rem 4rem">
     <div class="lbl" style="margin-bottom:1rem">Live Event · 2 Marzo 2026</div>
     <h2 style="font-family:var(--fd);font-size:clamp(25.0px,2.4vw,31.0px);font-weight:400;line-height:1.25;color:var(--w);margin-bottom:1.6rem">A Deep Listening Afternoon</h2>
-    <div style="display:grid;grid-template-columns:340px 1fr;gap:3rem;align-items:start">
+    <div class="lav-grid" style="display:grid;grid-template-columns:340px 1fr;gap:3rem;align-items:start">
       <div style="aspect-ratio:4/3;overflow:hidden;background:rgba(26,26,26,0.06)">
         <div style="width:100%;height:100%;background-image:url('../proj-a-deep-listening-afternoon.jpg');background-size:cover;background-position:center"></div>
       </div>
@@ -1388,10 +1394,10 @@ body.lang-fr [data-lang="fr"]{display:inline}
     <span data-lang="es">Volver a los trabajos →</span>
     <span data-lang="fr">Retour aux travaux →</span></a>
   </article>
-  <article id="as-roma" style="border-top:var(--bd);padding:4.5rem 4rem">
+  <article id="as-roma" class="lav-art" style="border-top:var(--bd);padding:4.5rem 4rem">
     <div class="lbl" style="margin-bottom:1rem">Video Production · 5 Dicembre 2025</div>
     <h2 style="font-family:var(--fd);font-size:clamp(25.0px,2.4vw,31.0px);font-weight:400;line-height:1.25;color:var(--w);margin-bottom:1.6rem">AS Roma in Studio 33</h2>
-    <div style="display:grid;grid-template-columns:340px 1fr;gap:3rem;align-items:start">
+    <div class="lav-grid" style="display:grid;grid-template-columns:340px 1fr;gap:3rem;align-items:start">
       <div style="aspect-ratio:4/3;overflow:hidden;background:rgba(26,26,26,0.06)">
         <div style="width:100%;height:100%;background-image:url('../proj-as-roma.jpg');background-size:cover;background-position:center"></div>
       </div>
@@ -1399,14 +1405,19 @@ body.lang-fr [data-lang="fr"]{display:inline}
           <p>In occasione del lancio del vinile di celebrazione dei 50 anni dell&#x27;inno dell&#x27;AS Roma, Studio 33 è orgogliosa di essere location per lo shooting di presentazione.</p>
       </div>
     </div>
+    <div style="margin-top:2.5rem;max-width:420px">
+      <video controls playsinline style="width:100%;aspect-ratio:480/854;background:#000;display:block" poster="../proj-as-roma.jpg">
+        <source src="../ASromaStudio33.mp4" type="video/mp4">
+      </video>
+    </div>
     <a class="btn" href="../produzione/#proj-grid" style="margin-top:2rem"><span data-lang="it">Torna ai lavori →</span><span data-lang="en">Back to works →</span>
     <span data-lang="es">Volver a los trabajos →</span>
     <span data-lang="fr">Retour aux travaux →</span></a>
   </article>
-  <article id="almost-famous" style="border-top:var(--bd);padding:4.5rem 4rem">
+  <article id="almost-famous" class="lav-art" style="border-top:var(--bd);padding:4.5rem 4rem">
     <div class="lbl" style="margin-bottom:1rem">Live Event · 13 Novembre 2025</div>
     <h2 style="font-family:var(--fd);font-size:clamp(25.0px,2.4vw,31.0px);font-weight:400;line-height:1.25;color:var(--w);margin-bottom:1.6rem">Almost Famous feat.555</h2>
-    <div style="display:grid;grid-template-columns:340px 1fr;gap:3rem;align-items:start">
+    <div class="lav-grid" style="display:grid;grid-template-columns:340px 1fr;gap:3rem;align-items:start">
       <div style="aspect-ratio:4/3;overflow:hidden;background:rgba(26,26,26,0.06)">
         <div style="width:100%;height:100%;background-image:url('../proj-almost-famous.jpg');background-size:cover;background-position:center"></div>
       </div>
@@ -1421,10 +1432,10 @@ body.lang-fr [data-lang="fr"]{display:inline}
     <span data-lang="es">Volver a los trabajos →</span>
     <span data-lang="fr">Retour aux travaux →</span></a>
   </article>
-  <article id="saverio-raimondo" style="border-top:var(--bd);padding:4.5rem 4rem">
+  <article id="saverio-raimondo" class="lav-art" style="border-top:var(--bd);padding:4.5rem 4rem">
     <div class="lbl" style="margin-bottom:1rem">Live Event · 20 Gennaio 2023</div>
     <h2 style="font-family:var(--fd);font-size:clamp(25.0px,2.4vw,31.0px);font-weight:400;line-height:1.25;color:var(--w);margin-bottom:1.6rem">Saverio Raimondo Live at Studio 33</h2>
-    <div style="display:grid;grid-template-columns:340px 1fr;gap:3rem;align-items:start">
+    <div class="lav-grid" style="display:grid;grid-template-columns:340px 1fr;gap:3rem;align-items:start">
       <div style="aspect-ratio:4/3;overflow:hidden;background:rgba(26,26,26,0.06)">
         <div style="width:100%;height:100%;background-image:url('../proj-saverio-raimondo.jpg');background-size:cover;background-position:center"></div>
       </div>
@@ -1433,14 +1444,17 @@ body.lang-fr [data-lang="fr"]{display:inline}
           <p>L&#x27;album è stato registrato dal vivo a Studio 33, davanti a un pubblico adulto e consenziente dotato di senso dell&#x27;umorismo. A produrlo la podcast company Hypercast, Cristiana Baldassari Agenzia e DNA Concerti, oltre allo stesso Raimondo.</p>
       </div>
     </div>
+    <div style="margin-top:2.5rem;max-width:500px">
+      <iframe style="border-radius:12px" src="https://open.spotify.com/embed/album/1BWGXI3Ukm9X76HPPNcllz?utm_source=generator&amp;si=8fba8d71f93048c7" width="100%" height="352" frameborder="0" allowfullscreen allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy" title="Saverio Raimondo — Live a Studio 33 (album Spotify)"></iframe>
+    </div>
     <a class="btn" href="../produzione/#proj-grid" style="margin-top:2rem"><span data-lang="it">Torna ai lavori →</span><span data-lang="en">Back to works →</span>
     <span data-lang="es">Volver a los trabajos →</span>
     <span data-lang="fr">Retour aux travaux →</span></a>
   </article>
-  <article id="hypercast" style="border-top:var(--bd);padding:4.5rem 4rem">
+  <article id="hypercast" class="lav-art" style="border-top:var(--bd);padding:4.5rem 4rem">
     <div class="lbl" style="margin-bottom:1rem">Podcast · 17 Gennaio 2022</div>
     <h2 style="font-family:var(--fd);font-size:clamp(25.0px,2.4vw,31.0px);font-weight:400;line-height:1.25;color:var(--w);margin-bottom:1.6rem">Hypercast. The podcast service company.</h2>
-    <div style="display:grid;grid-template-columns:340px 1fr;gap:3rem;align-items:start">
+    <div class="lav-grid" style="display:grid;grid-template-columns:340px 1fr;gap:3rem;align-items:start">
       <div style="aspect-ratio:4/3;overflow:hidden;background:rgba(26,26,26,0.06)">
         <div style="width:100%;height:100%;background-image:url('../proj-hypercast.jpg');background-size:cover;background-position:center"></div>
       </div>
@@ -1453,10 +1467,10 @@ body.lang-fr [data-lang="fr"]{display:inline}
     <span data-lang="es">Volver a los trabajos →</span>
     <span data-lang="fr">Retour aux travaux →</span></a>
   </article>
-  <article id="hyperjazz" style="border-top:var(--bd);padding:4.5rem 4rem">
+  <article id="hyperjazz" class="lav-art" style="border-top:var(--bd);padding:4.5rem 4rem">
     <div class="lbl" style="margin-bottom:1rem">Live Event · 23 Dicembre 2021</div>
     <h2 style="font-family:var(--fd);font-size:clamp(25.0px,2.4vw,31.0px);font-weight:400;line-height:1.25;color:var(--w);margin-bottom:1.6rem">Hyperjazz Weekender 2021</h2>
-    <div style="display:grid;grid-template-columns:340px 1fr;gap:3rem;align-items:start">
+    <div class="lav-grid" style="display:grid;grid-template-columns:340px 1fr;gap:3rem;align-items:start">
       <div style="aspect-ratio:4/3;overflow:hidden;background:rgba(26,26,26,0.06)">
         <div style="width:100%;height:100%;background-image:url('../proj-hyperjazz.jpg');background-size:cover;background-position:center"></div>
       </div>
@@ -1468,10 +1482,10 @@ body.lang-fr [data-lang="fr"]{display:inline}
     <span data-lang="es">Volver a los trabajos →</span>
     <span data-lang="fr">Retour aux travaux →</span></a>
   </article>
-  <article id="amref" style="border-top:var(--bd);padding:4.5rem 4rem">
+  <article id="amref" class="lav-art" style="border-top:var(--bd);padding:4.5rem 4rem">
     <div class="lbl" style="margin-bottom:1rem">Branded Podcast · 21 Giugno 2021</div>
     <h2 style="font-family:var(--fd);font-size:clamp(25.0px,2.4vw,31.0px);font-weight:400;line-height:1.25;color:var(--w);margin-bottom:1.6rem">Studio 33 × AMREF</h2>
-    <div style="display:grid;grid-template-columns:340px 1fr;gap:3rem;align-items:start">
+    <div class="lav-grid" style="display:grid;grid-template-columns:340px 1fr;gap:3rem;align-items:start">
       <div style="aspect-ratio:4/3;overflow:hidden;background:rgba(26,26,26,0.06)">
         <div style="width:100%;height:100%;background-image:url('../proj-amref.jpg');background-size:cover;background-position:center"></div>
       </div>
@@ -1480,14 +1494,21 @@ body.lang-fr [data-lang="fr"]{display:inline}
           <p>Amref continua il suo lavoro per una nuova narrazione dell&#x27;Africa, dopo il lancio del report L&#x27;Africa Mediata.</p>
       </div>
     </div>
+    <a href="https://www.africarivista.it/il-leone-la-gazzella-e-i-miti-da-sfatare-sullafrica/186653/" target="_blank" rel="noopener" style="margin-top:2.5rem;display:flex;align-items:center;justify-content:space-between;gap:1rem;padding:1.4rem 1.6rem;border:.5px solid rgba(26,26,26,0.16);text-decoration:none;color:inherit;transition:background .18s ease" onmouseover="this.style.background='rgba(26,26,26,0.04)'" onmouseout="this.style.background='none'">
+      <span>
+        <span style="display:block;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:rgba(26,26,26,0.62);margin-bottom:.35rem">Africa Rivista</span>
+        <span style="display:block;font-size:16px;color:var(--w)">Il leone, la gazzella e i miti da sfatare sull&#x27;Africa</span>
+      </span>
+      <span style="font-size:20px;flex-shrink:0">→</span>
+    </a>
     <a class="btn" href="../produzione/#proj-grid" style="margin-top:2rem"><span data-lang="it">Torna ai lavori →</span><span data-lang="en">Back to works →</span>
     <span data-lang="es">Volver a los trabajos →</span>
     <span data-lang="fr">Retour aux travaux →</span></a>
   </article>
-  <article id="music-cities" style="border-top:var(--bd);padding:4.5rem 4rem">
+  <article id="music-cities" class="lav-art" style="border-top:var(--bd);padding:4.5rem 4rem">
     <div class="lbl" style="margin-bottom:1rem">Podcast · 22 Marzo 2021</div>
     <h2 style="font-family:var(--fd);font-size:clamp(25.0px,2.4vw,31.0px);font-weight:400;line-height:1.25;color:var(--w);margin-bottom:1.6rem">Music &amp; the Cities. Il podcast.</h2>
-    <div style="display:grid;grid-template-columns:340px 1fr;gap:3rem;align-items:start">
+    <div class="lav-grid" style="display:grid;grid-template-columns:340px 1fr;gap:3rem;align-items:start">
       <div style="aspect-ratio:4/3;overflow:hidden;background:rgba(26,26,26,0.06)">
         <div style="width:100%;height:100%;background-image:url('../proj-music-cities.jpg');background-size:cover;background-position:center"></div>
       </div>
@@ -1495,14 +1516,17 @@ body.lang-fr [data-lang="fr"]{display:inline}
           <p>Una produzione Studio 33 e Happy Few — un podcast sui suoni e le città, su come la musica definisce i luoghi del mondo.</p>
       </div>
     </div>
+    <div style="margin-top:2.5rem;max-width:640px">
+      <iframe src="https://widget.spreaker.com/player?episode_id=43524535&amp;theme=light&amp;playlist=false" width="100%" height="200" frameborder="0" title="Music &amp; the Cities — Bologna (Spreaker)"></iframe>
+    </div>
     <a class="btn" href="../produzione/#proj-grid" style="margin-top:2rem"><span data-lang="it">Torna ai lavori →</span><span data-lang="en">Back to works →</span>
     <span data-lang="es">Volver a los trabajos →</span>
     <span data-lang="fr">Retour aux travaux →</span></a>
   </article>
-  <article id="linecheck" style="border-top:var(--bd);padding:4.5rem 4rem">
+  <article id="linecheck" class="lav-art" style="border-top:var(--bd);padding:4.5rem 4rem">
     <div class="lbl" style="margin-bottom:1rem">Live Event · 23 Novembre 2020</div>
     <h2 style="font-family:var(--fd);font-size:clamp(25.0px,2.4vw,31.0px);font-weight:400;line-height:1.25;color:var(--w);margin-bottom:1.6rem">Studio 33 × Linecheck 2020</h2>
-    <div style="display:grid;grid-template-columns:340px 1fr;gap:3rem;align-items:start">
+    <div class="lav-grid" style="display:grid;grid-template-columns:340px 1fr;gap:3rem;align-items:start">
       <div style="aspect-ratio:4/3;overflow:hidden;background:rgba(26,26,26,0.06)">
         <div style="width:100%;height:100%;background-image:url('../proj-linecheck.jpg');background-size:cover;background-position:center"></div>
       </div>
@@ -1512,14 +1536,21 @@ body.lang-fr [data-lang="fr"]{display:inline}
           <p>Un viaggio di 20 minuti dentro le categorie musicali di base, gli aneddoti tratti dalla vita dei musicisti, le metodologie che permettono di applicare i principi vincenti della musica suonata al mondo del management. Con qualche sorpresa sonora, e con testi di riferimento per approfondire.</p>
       </div>
     </div>
+    <div style="margin-top:2.5rem;max-width:640px;aspect-ratio:640/360">
+      <iframe title="vimeo-player" src="https://player.vimeo.com/video/480788205?h=4a4d56fc28" style="width:100%;height:100%;border:none;display:block" referrerpolicy="strict-origin-when-cross-origin" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" allowfullscreen></iframe>
+    </div>
+    <div style="margin-top:1.5rem;max-width:597px">
+      <iframe src="https://www.slideshare.net/slideshow/embed_code/key/1OyjHx0xlQ3VXu?startSlide=1" width="100%" height="486" frameborder="0" marginwidth="0" marginheight="0" scrolling="no" style="border:.5px solid rgba(26,26,26,0.32);margin-bottom:.5rem;max-width:100%" allowfullscreen title="The Music of Business — SlideShare"></iframe>
+      <div style="font-size:13px;color:rgba(26,26,26,0.62)"><strong><a href="https://www.slideshare.net/slideshow/the-music-of-business-239406906/239406906" title="The Music of Business" target="_blank" rel="noopener" style="color:inherit">The Music of Business</a></strong> from <strong><a href="https://www.slideshare.net/enzoabbate" target="_blank" rel="noopener" style="color:inherit">Enzo (Crescenzo) Abbate</a></strong></div>
+    </div>
     <a class="btn" href="../produzione/#proj-grid" style="margin-top:2rem"><span data-lang="it">Torna ai lavori →</span><span data-lang="en">Back to works →</span>
     <span data-lang="es">Volver a los trabajos →</span>
     <span data-lang="fr">Retour aux travaux →</span></a>
   </article>
-  <article id="place-to-be" style="border-top:var(--bd);padding:4.5rem 4rem">
+  <article id="place-to-be" class="lav-art" style="border-top:var(--bd);padding:4.5rem 4rem">
     <div class="lbl" style="margin-bottom:1rem">Live Event · 15 Ottobre 2020</div>
     <h2 style="font-family:var(--fd);font-size:clamp(25.0px,2.4vw,31.0px);font-weight:400;line-height:1.25;color:var(--w);margin-bottom:1.6rem">Place to Be – Studio 33 × IMF</h2>
-    <div style="display:grid;grid-template-columns:340px 1fr;gap:3rem;align-items:start">
+    <div class="lav-grid" style="display:grid;grid-template-columns:340px 1fr;gap:3rem;align-items:start">
       <div style="aspect-ratio:4/3;overflow:hidden;background:rgba(26,26,26,0.06)">
         <div style="width:100%;height:100%;background-image:url('../proj-place-to-be.jpg');background-size:cover;background-position:center"></div>
       </div>
@@ -1528,6 +1559,9 @@ body.lang-fr [data-lang="fr"]{display:inline}
           <p>Place to Be è un progetto di IMF (Italian Music Festivals) promosso dal Ministero degli Affari Esteri e della Cooperazione Internazionale nel palinsesto di Estate all&#x27;italiana Festival, nel quadro delle misure a sostegno delle imprese culturali e creative italiane e mirate alla costruzione di una nuova narrazione internazionale dell&#x27;Italia nel mondo post-COVID.</p>
           <p>Place to Be è un format esclusivo, in cui si fondono narrazione del paesaggio e creatività, valorizzazione territoriale e performing arts: una serie di produzioni originali mette in vetrina luoghi speciali e inconsueti, ospitando alcuni tra i migliori artisti italiani del panorama musicale contemporaneo e d&#x27;avanguardia. Tre territori straordinari, capaci di rappresentare una sintesi geografica del nostro paese, con la supervisione artistica di Raffaele Costantino.</p>
       </div>
+    </div>
+    <div style="margin-top:2.5rem;max-width:640px;aspect-ratio:16/9">
+      <iframe width="100%" height="100%" style="display:block" src="https://www.youtube-nocookie.com/embed/CgF_Y3J_BIo" title="Nu Genea @ Monferrato / Place To Be" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
     </div>
     <a class="btn" href="../produzione/#proj-grid" style="margin-top:2rem"><span data-lang="it">Torna ai lavori →</span><span data-lang="en">Back to works →</span>
     <span data-lang="es">Volver a los trabajos →</span>
