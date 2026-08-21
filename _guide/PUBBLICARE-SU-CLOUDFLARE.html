@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="it"><head><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Studio 33 — Pubblicare su Cloudflare Pages</title>
+<link rel="preconnect" href="https://rsms.me">
+<link rel="stylesheet" href="https://rsms.me/inter/inter.css">
+<style>*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{--ink:#1a1a1a;--g1:rgba(26,26,26,.74);--g2:rgba(26,26,26,.62);
+ --g3:rgba(26,26,26,.48);--line:rgba(26,26,26,.11);--bg:#f7f6f4}
+html{scroll-behavior:smooth}
+body{font-family:'Inter',system-ui,sans-serif;font-size:17px;line-height:1.75;
+ color:var(--g1);background:#fff;-webkit-font-smoothing:antialiased;letter-spacing:-.003em}
+.wrap{display:grid;grid-template-columns:230px 1fr;max-width:1120px;margin:0 auto;gap:3.5rem;padding:0 2.5rem}
+.toc{position:sticky;top:0;align-self:start;padding:3.5rem 0;max-height:100vh;overflow-y:auto}
+.toc-t{font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--g3);margin-bottom:1.1rem;font-weight:600}
+.toc ol{list-style:none}
+.toc a{display:block;padding:.42rem 0;font-size:13.5px;color:var(--g2);text-decoration:none}
+.toc a:hover{color:var(--ink)}
+main{padding:3.5rem 0 6rem;min-width:0}
+h1{font-size:clamp(2rem,4vw,2.9rem);font-weight:200;letter-spacing:-.035em;line-height:1.08;color:var(--ink);margin-bottom:1rem}
+h1+p{font-size:19px;color:var(--g2);margin-bottom:3rem;padding-bottom:2rem;border-bottom:1px solid var(--line)}
+h2{font-size:1.6rem;font-weight:300;letter-spacing:-.028em;color:var(--ink);margin:4rem 0 1.2rem;padding-top:2rem;border-top:1px solid var(--line)}
+h2:first-of-type{margin-top:0;border-top:none;padding-top:0}
+h3{font-size:1.12rem;font-weight:500;color:var(--ink);margin:2.4rem 0 .8rem}
+p{margin-bottom:1.1rem;max-width:70ch}
+strong{color:var(--ink);font-weight:600}
+a{color:var(--ink);text-decoration:none;border-bottom:1px solid var(--line)}
+a:hover{border-bottom-color:var(--ink)}
+ul,ol{margin:0 0 1.3rem 0;padding-left:1.3rem;max-width:70ch}
+li{margin-bottom:.42rem}
+code{font-family:ui-monospace,Menlo,monospace;font-size:.87em;background:var(--bg);padding:.16em .42em;border-radius:3px;color:var(--ink)}
+pre{background:var(--bg);border:1px solid var(--line);padding:1.2rem 1.4rem;overflow-x:auto;margin:1.2rem 0 1.6rem}
+pre code{background:none;padding:0;font-size:13.5px;line-height:1.65;display:block}
+table{width:100%;border-collapse:collapse;margin:1.2rem 0 2rem;font-size:14.5px}
+th{text-align:left;font-size:10.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--g3);font-weight:600;padding:.7rem .9rem .7rem 0;border-bottom:1px solid rgba(26,26,26,.2)}
+td{padding:.8rem .9rem .8rem 0;border-bottom:1px solid rgba(26,26,26,.07);vertical-align:top;line-height:1.6}
+blockquote{border-left:2px solid var(--line);padding-left:1.3rem;margin:1.4rem 0;color:var(--g2)}
+hr{border:none;border-top:1px solid var(--line);margin:3rem 0}
+input[type=checkbox]{margin-right:.5rem;accent-color:var(--ink)}
+@media print{.toc{display:none}.wrap{grid-template-columns:1fr;padding:0}body{font-size:11pt}}
+@media(max-width:980px){.wrap{grid-template-columns:1fr;gap:0;padding:0 1.4rem}
+ .toc{position:static;max-height:none;padding:2.5rem 0 0;border-bottom:1px solid var(--line)}
+ .toc ol{columns:2}main{padding-top:2rem}table{font-size:13.5px;display:block;overflow-x:auto}}</style></head><body>
+<div class="wrap">
+<nav class="toc"><div class="toc-t">Indice</div><ol><li><a href="#perch-cloudflare-invece-di-github-pages">Perché Cloudflare invece di GitHub Pages</a></li><li><a href="#cosa-gi-stato-preparato">Cosa è già stato preparato</a></li><li><a href="#passo-1-creare-il-nuovo-repository">PASSO 1 — Creare il nuovo repository</a></li><li><a href="#passo-2-caricare-i-file">PASSO 2 — Caricare i file</a></li><li><a href="#passo-3-collegare-cloudflare">PASSO 3 — Collegare Cloudflare</a></li><li><a href="#passo-4-verificare">PASSO 4 — Verificare</a></li><li><a href="#passo-5-aggiornare-il-sito-d-ora-in-poi">PASSO 5 — Aggiornare il sito, d'ora in poi</a></li><li><a href="#passo-6-collegare-studio33club-com-opzionale">PASSO 6 — Collegare studio33club.com (opzionale)</a></li><li><a href="#cosa-resta-da-fare">Cosa resta da fare</a></li><li><a href="#note-tecniche">Note tecniche</a></li><li><a href="#se-qualcosa-non-va">Se qualcosa non va</a></li></ol></nav>
+<main><h1>Pubblicare Studio 33 su Cloudflare Pages</h1>
+<p>Guida completa: nuovo repository GitHub → Cloudflare Pages → dominio personalizzato.
+Tutto gratuito, senza limiti di banda.</p>
+<hr />
+<h2 id="perch-cloudflare-invece-di-github-pages">Perché Cloudflare invece di GitHub Pages</h2>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>GitHub Pages</th>
+<th>Cloudflare Pages</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Banda</td>
+<td>100 GB/mese</td>
+<td><strong>illimitata</strong></td>
+</tr>
+<tr>
+<td>Rete</td>
+<td>CDN base</td>
+<td><strong>330+ data center</strong></td>
+</tr>
+<tr>
+<td>Repository privato</td>
+<td>a pagamento</td>
+<td><strong>gratuito</strong></td>
+</tr>
+<tr>
+<td>Anteprima per ogni modifica</td>
+<td>no</td>
+<td><strong>sì</strong></td>
+</tr>
+<tr>
+<td>Protezione DDoS</td>
+<td>base</td>
+<td><strong>inclusa</strong></td>
+</tr>
+<tr>
+<td>Statistiche visite</td>
+<td>no</td>
+<td><strong>incluse, senza cookie</strong></td>
+</tr>
+<tr>
+<td>File oltre 100 MB</td>
+<td>vietati</td>
+<td>vietati (uguale)</td>
+</tr>
+</tbody>
+</table>
+<p>Il vantaggio pratico più concreto per Studio 33 è la velocità in Italia e la banda illimitata, utile se i video vengono guardati molto.</p>
+<hr />
+<h2 id="cosa-gi-stato-preparato">Cosa è già stato preparato</h2>
+<p>I file in questa cartella sono <strong>già pronti per Cloudflare</strong>. In particolare ho fatto una modifica indispensabile:</p>
+<blockquote>
+<p><strong>47 indirizzi immagine sono stati convertiti da assoluti a relativi.</strong>
+Prima puntavano a <code>bernardini250576.github.io/studio33/</code>; se avessi caricato il file così com'era, le immagini avrebbero continuato a essere scaricate dal vecchio sito GitHub anche sul nuovo dominio. Ora usano percorsi relativi (<code>./nome-file.jpg</code>) e funzionano ovunque.</p>
+</blockquote>
+<p>Ho anche aggiunto un file <code>_headers</code> che dice a Cloudflare come gestire la cache: le immagini restano in memoria un anno, l'HTML viene ricontrollato a ogni visita così le modifiche si vedono subito.</p>
+<hr />
+<h2 id="passo-1-creare-il-nuovo-repository">PASSO 1 — Creare il nuovo repository</h2>
+<ol>
+<li>Vai su <strong>github.com</strong> → pulsante verde <strong>New</strong> (o <code>github.com/new</code>)</li>
+<li>Compila:</li>
+<li><strong>Repository name</strong>: <code>studio33-web</code></li>
+<li><strong>Description</strong>: <code>Sito Studio 33 — Trastevere, Roma</code></li>
+<li><strong>Public</strong> oppure <strong>Private</strong> (con Cloudflare funzionano entrambi)</li>
+<li><strong>Non</strong> spuntare "Add a README file"</li>
+<li>Clicca <strong>Create repository</strong></li>
+</ol>
+<p>Lascia aperta la pagina: ti servirà l'indirizzo che compare.</p>
+<hr />
+<h2 id="passo-2-caricare-i-file">PASSO 2 — Caricare i file</h2>
+<p>Crea una cartella nuova sul computer, per esempio <code>C:\Users\fabio.bernardini\studio33-web</code>, e copiaci dentro <strong>tutto il contenuto di questa cartella</strong>.</p>
+<p>Aggiungi anche i tre video, che stanno nella vecchia cartella:</p>
+<pre><code>
+
+
+</code></pre>
+<p>Poi apri il Prompt dei comandi:</p>
+<pre><code class="language-bash">cd C:\Users\fabio.bernardini\studio33-web
+
+git init
+git add .
+git commit -m &quot;Sito Studio 33 - versione iniziale&quot;
+git branch -M main
+git remote add origin https://github.com/bernardini250576/studio33-web.git
+git push -u origin main
+</code></pre>
+<blockquote>
+<p>Se il push chiede la password, serve un <strong>Personal Access Token</strong>:
+GitHub → Settings → Developer settings → Personal access tokens → Tokens (classic) → Generate new token → spunta <code>repo</code> → copia il codice e usalo al posto della password.</p>
+</blockquote>
+<hr />
+<h2 id="passo-3-collegare-cloudflare">PASSO 3 — Collegare Cloudflare</h2>
+<ol>
+<li>Registrati su <strong>dash.cloudflare.com</strong> (gratuito, serve solo un'email)</li>
+<li>Nel menu di sinistra apri <strong>Workers &amp; Pages</strong></li>
+<li>Clicca <strong>Create application</strong> → scheda <strong>Pages</strong> → <strong>Connect to Git</strong></li>
+<li>Scegli <strong>GitHub</strong> e autorizza Cloudflare</li>
+</ol>
+<blockquote>
+<p>Ti chiederà quali repository può leggere: seleziona <strong>solo</strong> <code>studio33-web</code>, non serve dargli accesso a tutto.</p>
+</blockquote>
+<ol>
+<li>
+<p>Seleziona <code>studio33-web</code> e clicca <strong>Begin setup</strong></p>
+</li>
+<li>
+<p>Nella schermata <strong>Set up builds and deployments</strong> compila così:</p>
+</li>
+</ol>
+<table>
+<thead>
+<tr>
+<th>Campo</th>
+<th>Valore</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Project name</td>
+<td><code>studio33</code></td>
+</tr>
+<tr>
+<td>Production branch</td>
+<td><code>main</code></td>
+</tr>
+<tr>
+<td>Framework preset</td>
+<td><strong>None</strong></td>
+</tr>
+<tr>
+<td>Build command</td>
+<td><strong>lascia vuoto</strong></td>
+</tr>
+<tr>
+<td>Build output directory</td>
+<td><strong>lascia vuoto</strong> (o scrivi <code>/</code>)</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>Il sito è HTML puro: non serve nessuna compilazione. Se metti un comando di build il deploy fallisce.</p>
+</blockquote>
+<ol>
+<li>Clicca <strong>Save and Deploy</strong></li>
+</ol>
+<p>Dopo circa un minuto il sito è online su:</p>
+<pre><code>https://studio33.pages.dev
+</code></pre>
+<hr />
+<h2 id="passo-4-verificare">PASSO 4 — Verificare</h2>
+<p>Apri l'indirizzo e controlla:</p>
+<ul>
+<li>[ ] Le immagini si vedono tutte (se sono bianche, i percorsi relativi non hanno funzionato)</li>
+<li>[ ] Il carosello della Home ruota</li>
+<li>[ ] I video partono cliccando le card in Works</li>
+<li>[ ] Il menu funziona su tutte le 9 pagine</li>
+<li>[ ] Il selettore lingua IT · EN · ES · FR cambia i testi</li>
+<li>[ ] Su telefono compare il menu hamburger</li>
+</ul>
+<hr />
+<h2 id="passo-5-aggiornare-il-sito-d-ora-in-poi">PASSO 5 — Aggiornare il sito, d'ora in poi</h2>
+<p>Da qui in avanti il flusso è identico a prima:</p>
+<pre><code class="language-bash">cd C:\Users\fabio.bernardini\studio33-web
+
+git add .
+git commit -m &quot;Descrivi la modifica&quot;
+git push
+</code></pre>
+<p>Cloudflare se ne accorge da solo e ripubblica in <strong>meno di trenta secondi</strong>. Nessun pannello da aprire.</p>
+<p>Trovi lo storico dei rilasci in <strong>Workers &amp; Pages → studio33 → Deployments</strong>, e da lì puoi anche <strong>tornare a una versione precedente</strong> con un clic (pulsante <em>Rollback</em>) — molto più comodo dei comandi git.</p>
+<hr />
+<h2 id="passo-6-collegare-studio33club-com-opzionale">PASSO 6 — Collegare studio33club.com (opzionale)</h2>
+<p>Quando vorrai usare il dominio ufficiale invece di <code>studio33.pages.dev</code>:</p>
+<ol>
+<li>In Cloudflare vai su <strong>Workers &amp; Pages → studio33 → Custom domains</strong></li>
+<li>Clicca <strong>Set up a domain</strong> e scrivi <code>studio33club.com</code></li>
+<li>Cloudflare ti indicherà i <strong>nameserver</strong> da impostare presso chi ti ha venduto il dominio (Aruba, Register.it, GoDaddy…)</li>
+<li>Entra nel pannello del registrar e sostituisci i nameserver con quelli forniti da Cloudflare</li>
+<li>Attendi la propagazione: da un'ora a 24 ore</li>
+</ol>
+<p>Il certificato HTTPS viene creato e rinnovato da solo, gratis, senza fare nulla.</p>
+<blockquote>
+<p>⚠️ <strong>Attenzione</strong>: il dominio <code>studio33club.com</code> oggi punta al sito WordPress. Cambiando i nameserver, quel sito smette di essere raggiungibile. Fallo solo quando sei sicuro di voler sostituire il vecchio sito.</p>
+</blockquote>
+<hr />
+<h2 id="cosa-resta-da-fare">Cosa resta da fare</h2>
+<h3>Il modulo contatti</h3>
+<p>Continua a non inviare finché non colleghi Formspree: cerca <code>YOUR_FORM_ID</code> in <code>index.html</code> e sostituiscilo con l'ID che ottieni registrandoti su <strong>formspree.io</strong> (gratuito, 50 invii al mese).</p>
+<h3>Il banner "ANTEPRIMA / BOZZA"</h3>
+<p>Quando il sito diventa ufficiale, va tolto. Cerca <code>draft-banner</code> in <code>index.html</code> e rimuovi tutto il blocco <code>&lt;div id="draft-banner"&gt;…&lt;/div&gt;</code>.</p>
+<h3>Il canonical</h3>
+<p>Nel file punta a <code>studio33.pages.dev</code>. Quando collegherai il dominio definitivo, cerca <code>rel="canonical"</code> e sostituisci con <code>https://studio33club.com/</code>. Stessa cosa per <code>og:url</code>, <code>og:image</code> e <code>twitter:image</code>.</p>
+<h3>Lo spot da 30 secondi</h3>
+<p>Pesa 159 MB e nessuna piattaforma Git lo accetta. Va caricato su YouTube e collegato come gli altri video.</p>
+<hr />
+<h2 id="note-tecniche">Note tecniche</h2>
+<p><strong>Il file <code>_headers</code></strong> controlla cache e sicurezza. Le immagini restano in cache un anno perché non cambiano mai nome; l'HTML viene ricontrollato a ogni visita, così gli aggiornamenti compaiono subito. Contiene anche alcune intestazioni di sicurezza standard.</p>
+<p><strong>Le statistiche.</strong> In <strong>Workers &amp; Pages → studio33 → Analytics</strong> trovi visite, paesi di provenienza e pagine più viste. Non usa cookie, quindi non serve modificare la Privacy Policy.</p>
+<p><strong>Anteprime automatiche.</strong> Se un domani lavorerai su un ramo separato (<code>git checkout -b prova</code>), Cloudflare genera un indirizzo di anteprima dedicato senza toccare il sito pubblico.</p>
+<p><strong>Limiti del piano gratuito.</strong> 500 build al mese, un build alla volta, file singoli fino a 25 MB. Per un sito come questo sono margini ampi.</p>
+<hr />
+<h2 id="se-qualcosa-non-va">Se qualcosa non va</h2>
+<table>
+<thead>
+<tr>
+<th>Problema</th>
+<th>Causa</th>
+<th>Soluzione</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Pagina bianca dopo il deploy</td>
+<td>build output directory sbagliata</td>
+<td>lasciala vuota, non scrivere <code>dist</code> o <code>build</code></td>
+</tr>
+<tr>
+<td>Immagini assenti</td>
+<td>file non caricati o nome errato</td>
+<td>controlla con <code>git status</code> che siano tutti tracciati</td>
+</tr>
+<tr>
+<td>Il deploy fallisce</td>
+<td>build command impostato</td>
+<td>deve essere <strong>vuoto</strong></td>
+</tr>
+<tr>
+<td>Modifiche non visibili</td>
+<td>cache del browser</td>
+<td><code>Ctrl + Shift + R</code></td>
+</tr>
+<tr>
+<td>Errore "file too large"</td>
+<td>file oltre 25 MB</td>
+<td>rimuovilo o caricalo altrove</td>
+</tr>
+<tr>
+<td>Il dominio non funziona</td>
+<td>nameserver non propagati</td>
+<td>attendi fino a 24 ore</td>
+</tr>
+</tbody>
+</table>
+<p>Per tutto il resto — modificare testi, aggiungere video o fotografie — vale il <strong>MANUALE.html</strong> già presente in questa cartella.</p></main>
+</div></body></html>

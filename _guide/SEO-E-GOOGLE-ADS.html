@@ -1,0 +1,315 @@
+<!DOCTYPE html><html lang="it"><head><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Studio 33 — SEO e Google Ads</title>
+<link rel="preconnect" href="https://rsms.me"><link rel="stylesheet" href="https://rsms.me/inter/inter.css">
+<style>*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{--ink:#1a1a1a;--g1:rgba(26,26,26,.74);--g2:rgba(26,26,26,.62);
+ --g3:rgba(26,26,26,.48);--line:rgba(26,26,26,.11);--bg:#f7f6f4}
+html{scroll-behavior:smooth}
+body{font-family:'Inter',system-ui,sans-serif;font-size:17px;line-height:1.75;
+ color:var(--g1);background:#fff;-webkit-font-smoothing:antialiased;letter-spacing:-.003em}
+.wrap{display:grid;grid-template-columns:230px 1fr;max-width:1120px;margin:0 auto;gap:3.5rem;padding:0 2.5rem}
+.toc{position:sticky;top:0;align-self:start;padding:3.5rem 0;max-height:100vh;overflow-y:auto}
+.toc-t{font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--g3);margin-bottom:1.1rem;font-weight:600}
+.toc ol{list-style:none}
+.toc a{display:block;padding:.42rem 0;font-size:13.5px;color:var(--g2);text-decoration:none}
+.toc a:hover{color:var(--ink)}
+main{padding:3.5rem 0 6rem;min-width:0}
+h1{font-size:clamp(2rem,4vw,2.9rem);font-weight:200;letter-spacing:-.035em;line-height:1.08;color:var(--ink);margin-bottom:1rem}
+h1+p{font-size:19px;color:var(--g2);margin-bottom:3rem;padding-bottom:2rem;border-bottom:1px solid var(--line)}
+h2{font-size:1.6rem;font-weight:300;letter-spacing:-.028em;color:var(--ink);margin:4rem 0 1.2rem;padding-top:2rem;border-top:1px solid var(--line)}
+h2:first-of-type{margin-top:0;border-top:none;padding-top:0}
+h3{font-size:1.12rem;font-weight:500;color:var(--ink);margin:2.4rem 0 .8rem}
+p{margin-bottom:1.1rem;max-width:70ch}
+strong{color:var(--ink);font-weight:600}
+a{color:var(--ink);text-decoration:none;border-bottom:1px solid var(--line)}
+a:hover{border-bottom-color:var(--ink)}
+ul,ol{margin:0 0 1.3rem 0;padding-left:1.3rem;max-width:70ch}
+li{margin-bottom:.42rem}
+code{font-family:ui-monospace,Menlo,monospace;font-size:.87em;background:var(--bg);padding:.16em .42em;border-radius:3px;color:var(--ink)}
+pre{background:var(--bg);border:1px solid var(--line);padding:1.2rem 1.4rem;overflow-x:auto;margin:1.2rem 0 1.6rem}
+pre code{background:none;padding:0;font-size:13.5px;line-height:1.65;display:block}
+table{width:100%;border-collapse:collapse;margin:1.2rem 0 2rem;font-size:14.5px}
+th{text-align:left;font-size:10.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--g3);font-weight:600;padding:.7rem .9rem .7rem 0;border-bottom:1px solid rgba(26,26,26,.2)}
+td{padding:.8rem .9rem .8rem 0;border-bottom:1px solid rgba(26,26,26,.07);vertical-align:top;line-height:1.6}
+blockquote{border-left:2px solid var(--line);padding-left:1.3rem;margin:1.4rem 0;color:var(--g2)}
+hr{border:none;border-top:1px solid var(--line);margin:3rem 0}
+input[type=checkbox]{margin-right:.5rem;accent-color:var(--ink)}
+@media print{.toc{display:none}.wrap{grid-template-columns:1fr;padding:0}body{font-size:11pt}}
+@media(max-width:980px){.wrap{grid-template-columns:1fr;gap:0;padding:0 1.4rem}
+ .toc{position:static;max-height:none;padding:2.5rem 0 0;border-bottom:1px solid var(--line)}
+ .toc ol{columns:2}main{padding-top:2rem}table{font-size:13.5px;display:block;overflow-x:auto}}</style></head><body><div class="wrap">
+<nav class="toc"><div class="toc-t">Indice</div><ol><li><a href="#premessa-sono-due-cose-diverse">Premessa: sono due cose diverse</a></li><li><a href="#parte-1-seo">PARTE 1 — SEO</a></li><li><a href="#parte-2-google-ads">PARTE 2 — Google Ads</a></li><li><a href="#ordine-di-priorit">Ordine di priorità</a></li><li><a href="#cosa-posso-fare-io">Cosa posso fare io</a></li><li><a href="#debug-tecnico-stato-attuale">Debug tecnico — stato attuale</a></li></ol></nav>
+<main><h1>Studio 33 — SEO e Google Ads</h1>
+<p>Guida operativa. Prima il posizionamento naturale su Google, poi la pubblicità a pagamento.</p>
+<hr />
+<h2 id="premessa-sono-due-cose-diverse">Premessa: sono due cose diverse</h2>
+<p><strong>SEO</strong> è comparire gratis nei risultati di Google. Richiede mesi, ma poi il traffico non costa nulla.</p>
+<p><strong>Google Ads</strong> è pagare per comparire in cima. Funziona dal primo giorno, si ferma quando smetti di pagare.</p>
+<p>Per Studio 33 hanno senso entrambe, ma con tempi diversi: gli annunci portano richieste subito mentre la SEO matura.</p>
+<hr />
+<h2 id="parte-1-seo">PARTE 1 — SEO</h2>
+<h3>Il problema strutturale da conoscere</h3>
+<p>Il sito è costruito come <strong>applicazione a pagina singola</strong>: le nove sezioni non sono file separati, sono blocchi mostrati e nascosti da un frammento di codice. L'indirizzo resta sempre lo stesso.</p>
+<p>Per un visitatore è comodo. Per Google è un limite serio:</p>
+<ul>
+<li>vede <strong>un solo indirizzo</strong> invece di nove</li>
+<li>trova <strong>nove titoli H1</strong> ammassati nella stessa pagina</li>
+<li>non può mostrare la pagina Location a chi cerca "location shooting Roma" e quella Hi-End a chi cerca "listening room Roma", perché per lui è tutto la stessa pagina</li>
+</ul>
+<p><strong>Conseguenza pratica</strong>: il sito può posizionarsi bene su <em>"Studio 33 Roma"</em> — chi già conosce il nome — ma difficilmente su ricerche generiche come <em>"studio fotografico Trastevere"</em>.</p>
+<h3>Cosa ho già sistemato</h3>
+<table>
+<thead>
+<tr>
+<th>Intervento</th>
+<th>Effetto</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>sitemap.xml</code></td>
+<td>Google sa quale indirizzo indicizzare</td>
+</tr>
+<tr>
+<td><code>robots.txt</code></td>
+<td>indica dove trovare la sitemap</td>
+</tr>
+<tr>
+<td><code>hreflang</code> × 4 lingue</td>
+<td>Google capisce che esistono italiano, inglese, spagnolo e francese</td>
+</tr>
+<tr>
+<td>Schema.org esteso</td>
+<td>5 servizi dichiarati, orari, zona servita, profili social</td>
+</tr>
+<tr>
+<td>Meta geografici</td>
+<td>coordinate di Trastevere per le ricerche locali</td>
+</tr>
+</tbody>
+</table>
+<p>Lo Schema arricchito è quello che può dare il risultato più visibile: aiuta a comparire nei riquadri laterali di Google con orari, telefono e indirizzo.</p>
+<h3>Cosa fare tu, in ordine</h3>
+<p><strong>1. Google Search Console</strong> — gratuito, indispensabile</p>
+<p>Vai su <code>search.google.com/search-console</code>, aggiungi la proprietà del sito, verifica la titolarità (Cloudflare permette la verifica via DNS in un clic), poi invia la sitemap: <code>sitemap.xml</code>.</p>
+<p>Da lì vedrai quali ricerche portano visite e potrai chiedere l'indicizzazione immediata.</p>
+<p><strong>2. Profilo dell'attività su Google</strong> — il più importante per un'attività locale</p>
+<p>Vai su <code>business.google.com</code> e rivendica o crea la scheda Studio 33. Compila tutto: indirizzo, orari, telefono, categoria (<em>Studio fotografico</em> come principale, aggiungendo <em>Studio di registrazione</em> e <em>Sala per eventi</em>), e <strong>carica almeno venti fotografie</strong>.</p>
+<p>Per un'attività fisica a Roma questo conta spesso più del sito stesso: è quello che appare nella mappa quando qualcuno cerca "studio fotografico Trastevere" dal telefono.</p>
+<p><strong>3. Chiedere recensioni</strong></p>
+<p>Dieci recensioni sincere da clienti reali spostano il posizionamento locale più di mesi di lavoro tecnico. Chiedile a chi ha girato lì.</p>
+<p><strong>4. Se un domani vuoi davvero posizionarti sulle ricerche generiche</strong></p>
+<p>Serve trasformare le nove sezioni in nove indirizzi veri. Due strade:</p>
+<ul>
+<li>rifare il sito su WordPress (il tema è già pronto da una fase precedente del lavoro)</li>
+<li>generare nove file HTML separati, uno per sezione, mantenendo la grafica attuale</li>
+</ul>
+<p>È un lavoro di un paio di giorni. Ha senso solo se decidi di puntare seriamente sul traffico organico.</p>
+<h3>Parole chiave su cui vale la pena competere</h3>
+<table>
+<thead>
+<tr>
+<th>Ricerca</th>
+<th>Difficoltà</th>
+<th>Dove porta</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>location shooting Roma</td>
+<td>media</td>
+<td>Location</td>
+</tr>
+<tr>
+<td>studio fotografico Trastevere</td>
+<td>bassa</td>
+<td>Location</td>
+</tr>
+<tr>
+<td>sala prove / listening room Roma</td>
+<td>bassa</td>
+<td>Hi-End</td>
+</tr>
+<tr>
+<td>studio registrazione podcast Roma</td>
+<td>media</td>
+<td>Produzione</td>
+</tr>
+<tr>
+<td>spazio eventi Trastevere</td>
+<td>media</td>
+<td>Location</td>
+</tr>
+<tr>
+<td>scuola musicoterapia Roma</td>
+<td>bassa</td>
+<td>Formazione</td>
+</tr>
+<tr>
+<td>studio produzione video Roma</td>
+<td>alta</td>
+<td>Produzione</td>
+</tr>
+</tbody>
+</table>
+<p>Le ricerche a bassa difficoltà sono quelle dove si può arrivare in prima pagina senza budget.</p>
+<hr />
+<h2 id="parte-2-google-ads">PARTE 2 — Google Ads</h2>
+<h3>Prima di spendere un euro</h3>
+<p><strong>Il modulo contatti non funziona.</strong> Finché non colleghi Formspree, chi clicca l'annuncio e compila il modulo non ti manda nulla. Pagheresti per perdere richieste.</p>
+<p>Fallo prima di tutto: registrati su <code>formspree.io</code>, crea un form verso <code>shout@studio33club.com</code>, cerca <code>YOUR_FORM_ID</code> nel file e sostituiscilo.</p>
+<h3>Impostare la misurazione</h3>
+<p>Senza sapere quali clic diventano richieste, la pubblicità è denaro buttato. Servono due cose.</p>
+<p><strong>Google Ads</strong> — crea l'account su <code>ads.google.com</code>, poi vai in <em>Strumenti → Conversioni</em> e crea una conversione di tipo <em>Invio modulo</em>. Ti darà un frammento di codice.</p>
+<p><strong>Il codice va inserito nel sito.</strong> Posso farlo io: mi servono l'ID conversione e l'etichetta che Google ti fornisce.</p>
+<blockquote>
+<p>⚠️ Attenzione: Google Ads installa cookie di tracciamento. La Privacy Policy attuale dichiara che il sito <strong>non</strong> ne usa. Andrà aggiornata, e servirà un banner cookie con consenso preventivo — obbligatorio in Europa. Anche questo posso predisporlo.</p>
+</blockquote>
+<h3>Struttura campagne consigliata</h3>
+<p>Non fare una campagna sola: separa i servizi, perché hanno pubblici e valori diversi.</p>
+<p><strong>Campagna 1 — Location</strong> (priorità alta)
+Chi cerca una location ha budget e fretta. È il servizio con il ritorno migliore.</p>
+<pre><code>location shooting roma
+studio fotografico roma affitto
+location spot pubblicitario roma
+sala posa roma
+location eventi trastevere
+</code></pre>
+<p><strong>Campagna 2 — Produzione</strong></p>
+<pre><code>studio registrazione podcast roma
+produzione video roma
+studio audio professionale roma
+</code></pre>
+<p><strong>Campagna 3 — Formazione</strong> (stagionale)
+Da attivare nei mesi delle iscrizioni.</p>
+<pre><code>corso musicoterapia roma
+diventare musicoterapeuta
+scuola musicoterapia certificata
+</code></pre>
+<p><strong>Escludi sempre</strong> queste parole, che attirano clic inutili: <code>gratis</code>, <code>gratuito</code>, <code>lavoro</code>, <code>stage</code>, <code>corso gratis</code>, <code>come diventare</code>, <code>fai da te</code>, <code>usato</code>.</p>
+<h3>Budget realistico</h3>
+<p>Per un'attività locale a Roma:</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>Importo</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Prova iniziale</td>
+<td>15-20 € al giorno per 3-4 settimane</td>
+</tr>
+<tr>
+<td>Costo per clic atteso</td>
+<td>0,80-2,50 €</td>
+</tr>
+<tr>
+<td>Clic al mese</td>
+<td>250-500</td>
+</tr>
+<tr>
+<td>Richieste attese</td>
+<td>8-25</td>
+</tr>
+</tbody>
+</table>
+<p>Con un valore medio per noleggio location, bastano due o tre richieste andate a buon fine per rientrare del mese.</p>
+<h3>Come scrivere gli annunci</h3>
+<p>Google vuole più titoli tra cui scegliere. Per la campagna Location:</p>
+<p><strong>Titoli</strong></p>
+<pre><code>Location Shooting Roma · Trastevere
+Studio Fotografico 250 mq
+Set per Video, Spot e Serie TV
+Dove Hanno Girato HBO e Fremantle
+Sopralluogo Gratuito
+</code></pre>
+<p><strong>Descrizioni</strong></p>
+<pre><code>250 mq nel cuore di Trastevere. Luce naturale, ampi spazi,
+attrezzatura broadcast inclusa. Richiedi disponibilità.
+
+Studio fotografico storico dagli anni '80. Giacomelli,
+Toscani, Avedon hanno lavorato qui. Ora, il tuo progetto.
+</code></pre>
+<p>Aggiungi le <strong>estensioni</strong>: numero di telefono, indirizzo (collegando il Profilo attività), e link diretti alle sezioni.</p>
+<hr />
+<h2 id="ordine-di-priorit">Ordine di priorità</h2>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>Cosa</th>
+<th>Costo</th>
+<th>Quando si vedono i risultati</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>1</strong></td>
+<td>Collegare Formspree</td>
+<td>gratis</td>
+<td>subito — senza, tutto il resto è inutile</td>
+</tr>
+<tr>
+<td><strong>2</strong></td>
+<td>Profilo attività su Google</td>
+<td>gratis</td>
+<td>1-2 settimane</td>
+</tr>
+<tr>
+<td><strong>3</strong></td>
+<td>Search Console + sitemap</td>
+<td>gratis</td>
+<td>2-4 settimane</td>
+</tr>
+<tr>
+<td><strong>4</strong></td>
+<td>Chiedere recensioni</td>
+<td>gratis</td>
+<td>1 mese</td>
+</tr>
+<tr>
+<td><strong>5</strong></td>
+<td>Google Ads — solo Location</td>
+<td>15-20 €/giorno</td>
+<td>dal primo giorno</td>
+</tr>
+<tr>
+<td><strong>6</strong></td>
+<td>Banner cookie + privacy aggiornata</td>
+<td>gratis</td>
+<td>prima di attivare Ads</td>
+</tr>
+<tr>
+<td><strong>7</strong></td>
+<td>Nove indirizzi separati</td>
+<td>2 giorni di lavoro</td>
+<td>3-6 mesi</td>
+</tr>
+</tbody>
+</table>
+<p>I primi quattro punti sono gratuiti e vanno fatti comunque. Il quinto solo dopo il primo.</p>
+<hr />
+<h2 id="cosa-posso-fare-io">Cosa posso fare io</h2>
+<p>Dimmi quali ti servono:</p>
+<ul>
+<li>inserire il codice di monitoraggio Google Ads o Analytics</li>
+<li>creare il banner cookie a norma europea e aggiornare la Privacy Policy</li>
+<li>generare i nove file HTML separati per risolvere il limite della pagina singola</li>
+<li>preparare i testi completi degli annunci con tutte le varianti</li>
+<li>collegare Formspree, se mi passi l'ID</li>
+</ul>
+<hr />
+<h2 id="debug-tecnico-stato-attuale">Debug tecnico — stato attuale</h2>
+<p>Ho appena verificato il file dopo la sostituzione dei video:</p>
+<pre><code>✓ struttura HTML bilanciata su tutte e 9 le sezioni
+✓ JavaScript senza errori, nessuna funzione orfana
+✓ 17 video, indici corretti, nessun duplicato
+✓ 27 immagini, tutte presenti
+✓ nessun riferimento a file .mp4 rimasto
+✓ JSON-LD valido
+✓ HTML5 valido
+</code></pre>
+<p>Ho anche rimosso un residuo: il codice cercava ancora l'elemento del vecchio player video, ormai eliminato. Era protetto da un controllo e non causava errori, ma era codice morto.</p></main></div></body></html>

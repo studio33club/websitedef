@@ -1,0 +1,550 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Studio 33 — Manuale di gestione del sito</title>
+<link rel="preconnect" href="https://rsms.me">
+<link rel="stylesheet" href="https://rsms.me/inter/inter.css">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{--ink:#1a1a1a;--g1:rgba(26,26,26,.74);--g2:rgba(26,26,26,.62);
+ --g3:rgba(26,26,26,.48);--line:rgba(26,26,26,.11);--bg:#f7f6f4;
+ --ai:#0f5c4a;--ai-bg:#f0f7f5}
+html{scroll-behavior:smooth}
+body{font-family:'Inter',system-ui,sans-serif;font-size:17px;line-height:1.75;
+ color:var(--g1);background:#fff;-webkit-font-smoothing:antialiased;
+ letter-spacing:-.003em;font-feature-settings:'kern' 1,'liga' 1}
+.wrap{display:grid;grid-template-columns:250px 1fr;max-width:1180px;
+ margin:0 auto;gap:3.5rem;padding:0 2.5rem}
+.toc{position:sticky;top:0;align-self:start;padding:3.5rem 0;
+ max-height:100vh;overflow-y:auto}
+.toc-t{font-size:11px;letter-spacing:.22em;text-transform:uppercase;
+ color:var(--g3);margin-bottom:1.1rem;font-weight:600}
+.toc ol{list-style:none}
+.toc a{display:block;padding:.42rem 0;font-size:13.5px;color:var(--g2);
+ text-decoration:none;transition:color .15s}
+.toc a:hover{color:var(--ink)}
+main{padding:3.5rem 0 6rem;min-width:0}
+h1{font-size:clamp(2rem,4vw,2.9rem);font-weight:200;letter-spacing:-.035em;
+ line-height:1.08;color:var(--ink);margin-bottom:1rem}
+h1+p{font-size:19px;color:var(--g2);margin-bottom:3rem;padding-bottom:2rem;
+ border-bottom:1px solid var(--line)}
+h2{font-size:1.6rem;font-weight:300;letter-spacing:-.028em;color:var(--ink);
+ margin:4rem 0 1.2rem;padding-top:2rem;border-top:1px solid var(--line)}
+h2:first-of-type{margin-top:0;border-top:none;padding-top:0}
+h3{font-size:1.12rem;font-weight:500;letter-spacing:-.015em;color:var(--ink);
+ margin:2.4rem 0 .8rem}
+p{margin-bottom:1.1rem;max-width:70ch}
+strong{color:var(--ink);font-weight:600}
+a{color:var(--ink);text-decoration:none;border-bottom:1px solid var(--line)}
+a:hover{border-bottom-color:var(--ink)}
+ul,ol{margin:0 0 1.3rem 0;padding-left:1.3rem;max-width:70ch}
+li{margin-bottom:.42rem}
+ul li::marker{color:var(--g3)}
+code{font-family:ui-monospace,'SF Mono',Menlo,monospace;font-size:.87em;
+ background:var(--bg);padding:.16em .42em;border-radius:3px;color:var(--ink)}
+pre{background:var(--bg);border:1px solid var(--line);padding:1.2rem 1.4rem;
+ overflow-x:auto;margin:1.2rem 0 1.6rem;border-radius:2px;position:relative}
+pre code{background:none;padding:0;font-size:13.5px;line-height:1.65;display:block}
+table{width:100%;border-collapse:collapse;margin:1.2rem 0 2rem;font-size:14.5px}
+th{text-align:left;font-size:10.5px;letter-spacing:.18em;text-transform:uppercase;
+ color:var(--g3);font-weight:600;padding:.7rem .9rem .7rem 0;
+ border-bottom:1px solid rgba(26,26,26,.2)}
+td{padding:.8rem .9rem .8rem 0;border-bottom:1px solid rgba(26,26,26,.07);
+ vertical-align:top;line-height:1.6}
+td code{white-space:nowrap}
+tr:hover td{background:rgba(26,26,26,.015)}
+blockquote{border-left:2px solid var(--line);padding-left:1.3rem;
+ margin:1.4rem 0;color:var(--g2)}
+hr{border:none;border-top:1px solid var(--line);margin:3rem 0}
+input[type=checkbox]{margin-right:.5rem;accent-color:var(--ink)}
+@media print{.toc{display:none}.wrap{grid-template-columns:1fr;max-width:none;padding:0}
+ body{font-size:11pt}h2{page-break-after:avoid}pre,table{page-break-inside:avoid}}
+@media(max-width:980px){
+ .wrap{grid-template-columns:1fr;gap:0;padding:0 1.4rem}
+ .toc{position:static;max-height:none;padding:2.5rem 0 0;
+  border-bottom:1px solid var(--line);margin-bottom:1rem}
+ .toc ol{columns:2;column-gap:1.5rem}
+ main{padding-top:2rem}body{font-size:16.5px}
+ table{font-size:13.5px;display:block;overflow-x:auto}}
+@media(max-width:560px){.toc ol{columns:1}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <nav class="toc"><div class="toc-t">Indice</div><ol><li><a href="#1-come-funziona-il-sito">1. Come funziona il sito</a></li><li><a href="#2-le-due-strade-per-modificare-il-sito">2. Le due strade per modificare il sito</a></li><li><a href="#3-pubblicare-una-modifica">3. Pubblicare una modifica</a></li><li><a href="#4-comandi-utili">4. Comandi utili</a></li><li><a href="#5-modificare-il-sito-con-l-ai">5. Modificare il sito con l'AI</a></li><li><a href="#6-modificare-il-sito-a-mano">6. Modificare il sito a mano</a></li><li><a href="#7-attivare-il-modulo-contatti">7. Attivare il modulo contatti</a></li><li><a href="#8-regole-da-non-violare">8. Regole da non violare</a></li><li><a href="#9-se-qualcosa-va-storto">9. Se qualcosa va storto</a></li><li><a href="#10-struttura-del-sito">10. Struttura del sito</a></li><li><a href="#11-note-tecniche">11. Note tecniche</a></li><li><a href="#12-cosa-resta-da-fare">12. Cosa resta da fare</a></li></ol></nav>
+  <main>
+<h1>Studio 33 — Manuale di gestione del sito</h1>
+<p>Guida operativa completa. Contiene sia i <strong>comandi tecnici</strong> da eseguire, sia i <strong>prompt da dare a un'intelligenza artificiale</strong> (Claude, ChatGPT) per farsi modificare il sito senza scrivere codice.</p>
+<p>Chi legge non deve essere un programmatore.</p>
+<hr />
+<h2 id="1-come-funziona-il-sito">1. Come funziona il sito</h2>
+<p>Il sito è <strong>un solo file</strong>: <code>index.html</code>. Contiene tutto — testi, grafica, comportamento. Nessun database, nessun WordPress, nessun pannello di amministrazione.</p>
+<p>Le nove "pagine" (About, Location, Produzione…) non sono file separati: sono blocchi dentro lo stesso documento, mostrati e nascosti da un frammento di codice. Per questo l'indirizzo resta identico mentre navighi.</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Cartella sul computer</td>
+<td><code>C:\Users\fabio.bernardini\studio33</code></td>
+</tr>
+<tr>
+<td>Indirizzo pubblico</td>
+<td>https://bernardini250576.github.io/studio33/</td>
+</tr>
+<tr>
+<td>Pubblicazione</td>
+<td>GitHub Pages (gratuito)</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Nella cartella ci sono</strong>: <code>index.html</code>, 16 immagini, 3 video <code>.mp4</code>, e i file tecnici <code>.nojekyll</code>, <code>.gitignore</code>, <code>README.md</code> (non toccare questi ultimi).</p>
+<hr />
+<h2 id="2-le-due-strade-per-modificare-il-sito">2. Le due strade per modificare il sito</h2>
+<p><strong>Strada A — con l'intelligenza artificiale.</strong> Carichi <code>index.html</code> su Claude o ChatGPT, scrivi cosa vuoi cambiare, riscarichi il file modificato. Non serve conoscere il codice. È la strada consigliata per chi non è tecnico. → Vedi <strong>sezione 5</strong>.</p>
+<p><strong>Strada B — a mano.</strong> Apri il file con un editor di testo e modifichi direttamente. Più veloce per cambiare una parola, più rischioso per operazioni complesse. → Vedi <strong>sezione 6</strong>.</p>
+<p>In entrambi i casi, per mettere online la modifica servono i comandi della sezione 3.</p>
+<hr />
+<h2 id="3-pubblicare-una-modifica">3. Pubblicare una modifica</h2>
+<p>Apri il <strong>Prompt dei comandi</strong> (cerca <code>cmd</code> nel menu Start) e scrivi:</p>
+<pre><code class="language-bash">cd C:\Users\fabio.bernardini\studio33
+
+git add .
+git commit -m &quot;Descrivi qui cosa hai cambiato&quot;
+git push
+</code></pre>
+<p>Aspetta <strong>1-2 minuti</strong>, poi ricarica il sito con <code>Ctrl + Shift + R</code>. Il refresh normale non basta: mostra la versione salvata in cache.</p>
+<h3>Verificare di avere il file giusto</h3>
+<p>La prima riga di <code>index.html</code> contiene un numero di versione. Per leggerlo senza aprire il file:</p>
+<pre><code class="language-bash">findstr /C:&quot;VERSIONE&quot; index.html
+</code></pre>
+<p>Se il numero non è quello atteso, stai lavorando su una copia vecchia. <strong>Questo è l'errore più frequente</strong>: Windows spesso salva i download come <code>index (1).html</code> invece di sovrascrivere.</p>
+<h3>Se il push chiede la password</h3>
+<p>GitHub non accetta più la password dell'account. Serve un <strong>Personal Access Token</strong>:
+GitHub → Settings → Developer settings → Personal access tokens → Generate new token (classic) → spunta <code>repo</code> → copia il codice e usalo al posto della password.</p>
+<hr />
+<h2 id="4-comandi-utili">4. Comandi utili</h2>
+<table>
+<thead>
+<tr>
+<th>Comando</th>
+<th>Cosa fa</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>cd C:\Users\fabio.bernardini\studio33</code></td>
+<td>entra nella cartella del sito</td>
+</tr>
+<tr>
+<td><code>dir</code></td>
+<td>elenca i file presenti</td>
+</tr>
+<tr>
+<td><code>git status</code></td>
+<td>mostra cosa è stato modificato</td>
+</tr>
+<tr>
+<td><code>git add .</code></td>
+<td>prepara tutte le modifiche</td>
+</tr>
+<tr>
+<td><code>git commit -m "testo"</code></td>
+<td>registra le modifiche con una descrizione</td>
+</tr>
+<tr>
+<td><code>git push</code></td>
+<td>pubblica online</td>
+</tr>
+<tr>
+<td><code>git log --oneline</code></td>
+<td>elenco delle versioni precedenti</td>
+</tr>
+<tr>
+<td><code>findstr /C:"VERSIONE" index.html</code></td>
+<td>controlla la versione del file</td>
+</tr>
+</tbody>
+</table>
+<h3>Tornare indietro</h3>
+<p>Annullare l'ultima pubblicazione:</p>
+<pre><code class="language-bash">git revert HEAD
+git push
+</code></pre>
+<p>Recuperare il file com'era due versioni fa:</p>
+<pre><code class="language-bash">git checkout HEAD~2 index.html
+git commit -m &quot;Ripristino versione precedente&quot;
+git push
+</code></pre>
+<hr />
+<h2 id="5-modificare-il-sito-con-l-ai">5. Modificare il sito con l'AI</h2>
+<h3>Come si procede</h3>
+<ol>
+<li>Vai su <strong>claude.ai</strong> (consigliato per file grandi) o <strong>chatgpt.com</strong></li>
+<li><strong>Carica il file</strong> <code>index.html</code> con la graffetta</li>
+<li><strong>Scrivi il prompt</strong> (esempi qui sotto)</li>
+<li><strong>Scarica</strong> il file modificato</li>
+<li>Sostituiscilo nella cartella e pubblica con i comandi della sezione 3</li>
+</ol>
+<h3>Regola d'oro dei prompt</h3>
+<p>Un prompt efficace dice <strong>tre cose</strong>: dove intervenire, cosa cambiare, cosa non toccare.</p>
+<blockquote>
+<p>❌ <em>"Cambia il titolo"</em> — troppo vago, l'AI non sa quale</p>
+<p>✅ <em>"Nella pagina Location, cambia il titolo principale da 'La location ideale per shooting a Roma' a 'Il set che ha ospitato Giacomelli e Toscani'. Ricorda che il testo esiste in italiano e inglese: aggiorna entrambe le versioni. Non modificare altro."</em></p>
+</blockquote>
+<hr />
+<h3>5.1 Prompt pronti all'uso</h3>
+<p><strong>Aggiungere un video YouTube</strong></p>
+<pre><code>Aggiungi questo video alla pagina Works del sito:
+https://www.youtube.com/watch?v=CODICE
+
+Deve comparire sia nella griglia della pagina Works, sia nel
+carosello della Home. Verifica che l'indice in openMedia()
+corrisponda alla posizione corretta in mediaList.
+Alla fine dimmi quanti video ci sono in totale.
+</code></pre>
+<p><strong>Sostituire una fotografia</strong></p>
+<pre><code>Sostituisci l'immagine dell'intestazione della pagina Produzione
+con quella che ti allego. Ottimizzala per il web:
+massimo 1920 pixel di larghezza, sotto i 400 KB.
+Dimmi come si deve chiamare il file e dove va messo.
+</code></pre>
+<p><strong>Cambiare un testo</strong></p>
+<pre><code>Nella pagina Formazione, sostituisci il paragrafo che inizia con
+&quot;Tékhne è un progetto formativo&quot; con questo nuovo testo:
+
+[incolla qui il testo]
+
+Il sito è bilingue: aggiorna sia la versione italiana sia quella
+inglese. Non toccare il resto della pagina.
+</code></pre>
+<p><strong>Aggiungere un progetto ai Lavori</strong></p>
+<pre><code>Aggiungi un nuovo progetto alla griglia Lavori della pagina Produzione:
+
+Titolo: [titolo]
+Categoria: [es. Live Event]
+Data: [es. 20 Marzo 2026]
+Immagine: [indirizzo]
+Link: [indirizzo della pagina originale]
+Descrizione: [due righe]
+
+Aggiungilo in cima alla griglia e aggiorna il conteggio
+&quot;44 progetti&quot; nell'intestazione della sezione.
+</code></pre>
+<p><strong>Correggere un problema visivo</strong></p>
+<pre><code>Nella pagina [nome], [descrivi cosa vedi di sbagliato].
+Analizza la cascata CSS per capire quale regola sta vincendo:
+attenzione che alcune pagine hanno un blocco &lt;style&gt; locale
+che sovrascrive quello globale.
+Correggi alla fonte, non aggiungendo !important.
+</code></pre>
+<p><strong>Controllo generale prima di pubblicare</strong></p>
+<pre><code>Fai un controllo completo del file:
+- tag HTML bilanciati e nulla dopo &lt;/html&gt;
+- JavaScript senza errori di sintassi
+- tutte le funzioni chiamate sono definite
+- tutti gli id referenziati esistono nel documento
+- indici dei video coerenti con mediaList
+- validità HTML5
+Dimmi solo cosa non va, senza modificare nulla.
+</code></pre>
+<hr />
+<h3>5.2 Cosa dire sempre all'AI</h3>
+<p>Aggiungi queste istruzioni ai tuoi prompt: evitano gli errori che si sono già verificati.</p>
+<pre><code>Tieni presente che:
+- il sito è bilingue: ogni testo esiste in &lt;span data-lang=&quot;it&quot;&gt;
+  e &lt;span data-lang=&quot;en&quot;&gt;, vanno aggiornati entrambi
+- alcune pagine hanno un blocco &lt;style&gt; locale che vince
+  sul CSS globale: correggi lì, non in coda al file
+- non aggiungere mai background-size negli attributi style=&quot;&quot;
+  delle immagini: annulla le regole del foglio di stile
+- il blocco &lt;div class=&quot;vmodal&quot;&gt; deve restare dopo &lt;/main&gt;
+- non scrivere nulla dopo &lt;/html&gt;
+- aggiorna il numero di VERSIONE nella prima riga del file
+</code></pre>
+<hr />
+<h3>5.3 Verificare quello che l'AI ha prodotto</h3>
+<p>Non fidarti a scatola chiusa. Prima di pubblicare:</p>
+<ol>
+<li><strong>Apri il file scaricato</strong> con un doppio clic e naviga tutte le pagine</li>
+<li><strong>Controlla il numero di versione</strong> nella prima riga: deve essere aumentato</li>
+<li><strong>Prova su telefono</strong> riducendo la finestra del browser</li>
+<li>Se qualcosa non torna, <strong>non pubblicare</strong>: chiedi all'AI di correggere</li>
+</ol>
+<p>Se dopo la pubblicazione il sito è rotto, torna indietro con <code>git revert HEAD</code> (sezione 4).</p>
+<hr />
+<h2 id="6-modificare-il-sito-a-mano">6. Modificare il sito a mano</h2>
+<p>Apri <code>index.html</code> con <strong>Visual Studio Code</strong> (gratuito, code.visualstudio.com): colora il codice e segnala gli errori. Il Blocco Note funziona ma è scomodo.</p>
+<h3>6.1 Cambiare un testo</h3>
+<p>Cerca la frase con <code>Ctrl+F</code>. Ogni testo esiste in due lingue, affiancate:</p>
+<pre><code class="language-html">&lt;span data-lang=&quot;it&quot;&gt;Prenota una visita&lt;/span&gt;&lt;span data-lang=&quot;en&quot;&gt;Book a visit&lt;/span&gt;
+</code></pre>
+<p>Modifica <strong>entrambe</strong>. Non toccare mai ciò che sta tra <code>&lt;</code> e <code>&gt;</code>.</p>
+<h3>6.2 Aggiungere un video YouTube</h3>
+<p>Il codice del video è nell'indirizzo: in <code>youtube.com/watch?v=abc123XYZ</code> è <code>abc123XYZ</code>.</p>
+<p><strong>Primo passo</strong> — cerca <code>var mediaList</code> e aggiungi in fondo alla lista, prima della parentesi chiusa:</p>
+<pre><code class="language-javascript">{&quot;k&quot;: &quot;yt&quot;, &quot;id&quot;: &quot;abc123XYZ&quot;}
+</code></pre>
+<p>Serve la virgola prima. Conta gli elementi: se il tuo è il diciottesimo, il suo numero è <strong>17</strong> (si conta da zero).</p>
+<p><strong>Secondo passo</strong> — cerca <code>class="hv-item"</code>, copia l'ultimo blocco e incollalo sotto, cambiando numero e codice:</p>
+<pre><code class="language-html">&lt;button class=&quot;hv-item&quot; onclick=&quot;openMedia(17)&quot; aria-label=&quot;Studio 33&quot;&gt;
+  &lt;div class=&quot;hv-media&quot; style=&quot;background-image:url('https://img.youtube.com/vi/abc123XYZ/hqdefault.jpg')&quot;&gt;
+    &lt;i class=&quot;ti ti-brand-youtube hv-src&quot;&gt;&lt;/i&gt;&lt;span class=&quot;hv-play&quot;&gt;&lt;/span&gt;
+  &lt;/div&gt;
+  &lt;div class=&quot;hv-meta&quot;&gt;
+    &lt;span class=&quot;hv-cat&quot;&gt;YouTube&lt;/span&gt;
+    &lt;span class=&quot;hv-title&quot;&gt;&lt;span data-lang=&quot;it&quot;&gt;Titolo&lt;/span&gt;&lt;span data-lang=&quot;en&quot;&gt;Title&lt;/span&gt;&lt;/span&gt;
+  &lt;/div&gt;
+&lt;/button&gt;
+</code></pre>
+<p>L'anteprima arriva da sola da YouTube: nessun file da caricare.</p>
+<blockquote>
+<p>Per averlo anche nel carosello Home, ripeti cercando <code>class="car-item"</code> e usando quei nomi (<code>car-media</code>, <code>car-meta</code>, <code>car-kind</code>, <code>car-title</code>).</p>
+</blockquote>
+<h3>6.3 Sostituire una fotografia</h3>
+<ol>
+<li>Riduci l'immagine: <strong>massimo 1920 pixel, sotto i 400 KB</strong>. Usa <a href="https://squoosh.app">squoosh.app</a></li>
+<li>Copia il file nella cartella <code>studio33</code></li>
+<li>Cerca il nome della vecchia immagine in <code>index.html</code> e sostituiscilo</li>
+<li>Pubblica</li>
+</ol>
+<p><strong>Dove sono usate le immagini</strong></p>
+<table>
+<thead>
+<tr>
+<th>File</th>
+<th>Dove appare</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>home-hero.jpg</code></td>
+<td>prima slide del carosello Home</td>
+</tr>
+<tr>
+<td><code>slide-lounge / projection / cinema / neumann / booth.jpg</code></td>
+<td>slide 2-6</td>
+</tr>
+<tr>
+<td><code>audio-hero.jpg</code></td>
+<td>testata Hi-End</td>
+</tr>
+<tr>
+<td><code>prod-hero.jpg</code></td>
+<td>testata Produzione</td>
+</tr>
+<tr>
+<td><code>prod-panel.jpg</code></td>
+<td>riquadro Location in Home</td>
+</tr>
+<tr>
+<td><code>resonance-hero.jpg</code></td>
+<td>pagina Resonance</td>
+</tr>
+<tr>
+<td><code>video-spot / shooting / musica / eventi.jpg</code></td>
+<td>anteprime reel</td>
+</tr>
+<tr>
+<td><code>logo-studio33-claim.png</code></td>
+<td>logo desktop</td>
+</tr>
+<tr>
+<td><code>logo-33.png</code></td>
+<td>logo mobile e favicon</td>
+</tr>
+</tbody>
+</table>
+<h3>6.4 Aggiungere un progetto ai Lavori</h3>
+<p>Cerca <code>class="proj-card"</code>, copia un blocco e modificalo:</p>
+<pre><code class="language-html">&lt;div class=&quot;proj-card&quot; onclick=&quot;openProjModal('nome-breve')&quot; role=&quot;button&quot; tabindex=&quot;0&quot;
+     onkeydown=&quot;if(event.key==='Enter')openProjModal('nome-breve')&quot;&gt;
+  &lt;div class=&quot;proj-img&quot; data-bg=&quot;INDIRIZZO-IMMAGINE&quot; style=&quot;&quot;&gt;&lt;/div&gt;
+  &lt;div class=&quot;proj-body&quot;&gt;
+    &lt;span class=&quot;proj-tag&quot;&gt;Categoria&lt;/span&gt;
+    &lt;h3 class=&quot;proj-title&quot;&gt;Titolo del progetto&lt;/h3&gt;
+    &lt;span class=&quot;proj-date&quot;&gt;15 Marzo 2026&lt;/span&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+<p>Poi cerca <code>var projData</code> e aggiungi la scheda che si apre al clic:</p>
+<pre><code class="language-javascript">{&quot;slug&quot;:&quot;nome-breve&quot;,&quot;title&quot;:&quot;Titolo&quot;,&quot;date&quot;:&quot;15 Marzo 2026&quot;,
+ &quot;tag&quot;:&quot;Categoria&quot;,&quot;img&quot;:&quot;INDIRIZZO&quot;,&quot;url&quot;:&quot;https://...&quot;,&quot;desc&quot;:&quot;Descrizione.&quot;}
+</code></pre>
+<p>Lo <code>slug</code> deve essere <strong>identico</strong> nei due punti. Aggiorna anche il conteggio: cerca <code>44 progetti</code>.</p>
+<h3>6.5 Cambiare una voce di menu</h3>
+<p>Le voci esistono in <strong>due punti</strong> — menu desktop e menu mobile. Cerca <code>id="nl-</code> e modifica entrambe.</p>
+<hr />
+<h2 id="7-attivare-il-modulo-contatti">7. Attivare il modulo contatti</h2>
+<p><strong>Questa è l'unica funzione del sito che non funziona.</strong> Il modulo nella pagina Contattaci non invia nulla finché non lo colleghi.</p>
+<ol>
+<li>Registrati su <strong><a href="https://formspree.io">formspree.io</a></strong> — gratuito, 50 invii al mese</li>
+<li>Crea un form, destinazione <code>shout@studio33club.com</code></li>
+<li>Copia il codice che ti danno (tipo <code>xpzgkqyw</code>)</li>
+<li>In <code>index.html</code> cerca <code>YOUR_FORM_ID</code> e sostituiscilo</li>
+<li>Pubblica e invia un messaggio di prova</li>
+</ol>
+<p><strong>Prompt per l'AI:</strong></p>
+<pre><code>Ho ottenuto questo ID Formspree: xpzgkqyw
+Sostituisci YOUR_FORM_ID nel modulo della pagina Contattaci
+e verifica che l'invio funzioni senza ricaricare la pagina.
+</code></pre>
+<hr />
+<h2 id="8-regole-da-non-violare">8. Regole da non violare</h2>
+<p>Sono le cinque trappole in cui si è già caduti. Ognuna ha causato un guasto reale.</p>
+<p><strong>Non scrivere <code>background-size</code> negli attributi <code>style=""</code> delle immagini.</strong>
+Uno stile in linea batte il foglio di stile. I loghi della sezione Lavori venivano tagliati perché il codice imponeva <code>cover</code> dove serviva <code>contain</code>.</p>
+<p><strong>Non spostare la finestra dei video.</strong>
+Il blocco <code>&lt;div class="vmodal"&gt;</code> deve stare <strong>dopo</strong> <code>&lt;/main&gt;</code>. Se finisce dentro una pagina, il video non compare quando lo apri da un'altra sezione.</p>
+<p><strong>Non scrivere nulla dopo <code>&lt;/html&gt;</code>.</strong>
+Il browser desktop lo tollera, quello mobile a volte smette di disegnare la pagina.</p>
+<p><strong>I numeri di <code>openMedia(...)</code> devono corrispondere alla posizione in <code>mediaList</code>.</strong>
+Sbagliare numero significa aprire il video sbagliato. Si conta da zero.</p>
+<p><strong>Non caricare file oltre 100 MB.</strong>
+GitHub li rifiuta. Lo spot da 30 secondi (159 MB) per questo non è online.</p>
+<hr />
+<h2 id="9-se-qualcosa-va-storto">9. Se qualcosa va storto</h2>
+<table>
+<thead>
+<tr>
+<th>Sintomo</th>
+<th>Causa probabile</th>
+<th>Rimedio</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Le modifiche non si vedono</td>
+<td>cache del browser</td>
+<td><code>Ctrl + Shift + R</code></td>
+</tr>
+<tr>
+<td>Non si vedono nemmeno così</td>
+<td>file non caricato davvero</td>
+<td><code>findstr /C:"VERSIONE" index.html</code> e ripeti il push</td>
+</tr>
+<tr>
+<td>Un'immagine non appare</td>
+<td>file assente o nome errato</td>
+<td>verifica nome esatto, maiuscole comprese</td>
+</tr>
+<tr>
+<td>Un video non parte</td>
+<td>numero <code>openMedia</code> sbagliato</td>
+<td>conta la posizione in <code>mediaList</code>, da zero</td>
+</tr>
+<tr>
+<td>Pagina storta</td>
+<td>tag non chiuso</td>
+<td>carica il file su <a href="https://validator.w3.org/#validate_by_upload">validator.w3.org</a></td>
+</tr>
+<tr>
+<td>Testo bianco su bianco</td>
+<td>colore forzato con <code>!important</code></td>
+<td>cerca <code>!important</code> vicino al testo</td>
+</tr>
+<tr>
+<td><code>git push</code> respinto</td>
+<td>credenziali</td>
+<td>serve il Personal Access Token</td>
+</tr>
+<tr>
+<td><code>file too large</code></td>
+<td>file oltre 100 MB</td>
+<td>rimuovilo dalla cartella</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Prompt per l'AI in caso di guasto:</strong></p>
+<pre><code>Il sito ha questo problema: [descrivi cosa vedi].
+Analizza il file allegato e dimmi la causa esatta prima di
+correggere. Se il problema riguarda il CSS, controlla la
+cascata: quale regola sta vincendo e perché.
+</code></pre>
+<hr />
+<h2 id="10-struttura-del-sito">10. Struttura del sito</h2>
+<p><strong>Menu</strong>: About · Location · Produzione · Hi-End · Works · Formazione · Resonance · Contattaci
+(più Privacy Policy in alto a destra)</p>
+<table>
+<thead>
+<tr>
+<th>Pagina</th>
+<th>Identificativo</th>
+<th>Contenuto</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>About</td>
+<td><code>page-home</code></td>
+<td>carosello 8 foto, intro, Location e Produzione, Works, citazione Monocle, clienti</td>
+</tr>
+<tr>
+<td>Hi-End</td>
+<td><code>page-audio</code></td>
+<td>impianto Oswalds Mill Audio, 7 schede componente, catena del segnale</td>
+</tr>
+<tr>
+<td>Location</td>
+<td><code>page-location</code></td>
+<td>spazi in mq, galleria, video Arkage, attrezzatura</td>
+</tr>
+<tr>
+<td>Produzione</td>
+<td><code>page-prod</code></td>
+<td>servizi in accordion, 44 progetti</td>
+</tr>
+<tr>
+<td>Works</td>
+<td><code>page-hap</code></td>
+<td>17 video (4 reel + 13 YouTube)</td>
+</tr>
+<tr>
+<td>Formazione</td>
+<td><code>page-form</code></td>
+<td>scuola Tékhne, percorso triennale</td>
+</tr>
+<tr>
+<td>Resonance</td>
+<td><code>page-res</code></td>
+<td>rassegna stampa, press kit</td>
+</tr>
+<tr>
+<td>Contattaci</td>
+<td><code>page-book</code></td>
+<td>modulo, contatti diretti</td>
+</tr>
+<tr>
+<td>Privacy</td>
+<td><code>page-privacy</code></td>
+<td>informativa GDPR</td>
+</tr>
+</tbody>
+</table>
+<p>Il sito è <strong>bilingue</strong>: il pulsante IT/EN in alto commuta la lingua.</p>
+<hr />
+<h2 id="11-note-tecniche">11. Note tecniche</h2>
+<p>Utili se un domani interverrà uno sviluppatore.</p>
+<p><strong>Sistema visivo.</strong> Scala tipografica di dieci gradini (da 10,5 a 56 pixel), sette livelli di grigio con contrasto verificato secondo lo standard WCAG, margini laterali governati dalla variabile <code>--gut</code>. Se aggiungi una sezione, usa quei valori: non inventare misure nuove.</p>
+<p><strong>Prestazioni.</strong> Le immagini delle pagine non visibili si caricano solo all'apertura (<code>data-bg</code>). Al primo caricamento il browser scarica 14 immagini invece di 77.</p>
+<p><strong>Privacy.</strong> Nessun cookie, nessuna statistica, nessun tracciamento. I video YouTube usano <code>youtube-nocookie.com</code>. La lingua è memorizzata solo per la sessione. Se aggiungi Google Analytics, la Privacy Policy va aggiornata.</p>
+<p><strong>Accessibilità.</strong> Skip-link, <code>aria-label</code> sui pulsanti, <code>aria-current</code> sulla voce attiva, navigazione da tastiera.</p>
+<p><strong>Riferimenti.</strong> Dominio ufficiale <code>studio33club.com</code> (su WordPress.com — questo è un sito parallelo). Repository: <code>github.com/bernardini250576/studio33</code>.</p>
+<hr />
+<h2 id="12-cosa-resta-da-fare">12. Cosa resta da fare</h2>
+<ul>
+<li>[ ] <strong>Collegare Formspree</strong> — il modulo non invia (sezione 7)</li>
+<li>[ ] Caricare lo spot da 30 secondi su YouTube e collegarlo</li>
+<li>[ ] Sostituire il titolo generico "Studio 33" dei 13 video con i titoli reali</li>
+<li>[ ] Al passaggio sul dominio definitivo: aggiornare il <code>canonical</code> e togliere il banner "ANTEPRIMA / BOZZA"</li>
+</ul>
+  </main>
+</div>
+</body>
+</html>
