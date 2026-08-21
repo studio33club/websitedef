@@ -1,4 +1,4 @@
-<!-- VERSIONE 50 · pagina page-book -->
+<!-- VERSIONE 51 · pagina page-book -->
 <!DOCTYPE html>
 <html lang="it">
 <head>
@@ -1596,6 +1596,7 @@ body.lang-fr [data-lang="fr"]{display:inline}
   </div>
 </footer>
 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
 <script>
 var currentLang = 'it';
 var currentPage = 'home';
@@ -1846,6 +1847,30 @@ function closeProjModal() {
   document.body.style.overflow = '';
 }
 document.addEventListener('keydown', function(e){if(e.key==='Escape')closeProjModal();});
+
+
+
+// ── SCROLL REVEAL (GSAP + IntersectionObserver) ──
+function s33InitScrollReveal(){
+  if(typeof gsap === 'undefined' || typeof IntersectionObserver === 'undefined') return;
+  if(window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  var activePage = document.querySelector('.page.active');
+  if(!activePage) return;
+  var targets = activePage.querySelectorAll(':scope > section, :scope > div.split, :scope > div.col2, :scope > div.col3, :scope > div.col4, :scope > article');
+  var list = Array.prototype.slice.call(targets).slice(1);
+  if(!list.length) return;
+  gsap.set(list, {opacity:0, y:28});
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(entry){
+      if(entry.isIntersecting){
+        gsap.to(entry.target, {opacity:1, y:0, duration:.9, ease:'power2.out'});
+        io.unobserve(entry.target);
+      }
+    });
+  }, {threshold:0, rootMargin:'0px 0px -10% 0px'});
+  list.forEach(function(el){ io.observe(el); });
+}
+s33InitScrollReveal();
 
 </script>
 
