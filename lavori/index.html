@@ -1,4 +1,4 @@
-<!-- VERSIONE 11 · pagina page-lavori -->
+<!-- VERSIONE 12 · pagina page-lavori -->
 <!DOCTYPE html>
 <html lang="it">
 <head>
@@ -1623,6 +1623,29 @@ body.lang-fr [data-lang="fr"]{display:inline}
 var currentLang = 'it';
 var currentPage = 'home';
 
+var S33_WA_MSG = {
+  generic: {
+    it: 'Ciao! Vorrei avere informazioni su Studio 33.',
+    en: "Hi! I'd like some information about Studio 33.",
+    es: '¡Hola! Me gustaría información sobre Studio 33.',
+    fr: 'Bonjour ! Je voudrais des informations sur Studio 33.'
+  },
+  location: {
+    it: 'Ciao, vorrei informazioni sulla location di Studio 33.',
+    en: 'Hi, I would like information about the Studio 33 location.',
+    es: 'Hola, me gustaría información sobre la location de Studio 33.',
+    fr: 'Bonjour, je voudrais des informations sur la location de Studio 33.'
+  }
+};
+
+function updateWaLinks(lang) {
+  document.querySelectorAll('a[href^="https://wa.me/393347029456"]').forEach(function(a) {
+    var cat = a.getAttribute('data-wa-msg') || 'generic';
+    var msg = (S33_WA_MSG[cat] && S33_WA_MSG[cat][lang]) || S33_WA_MSG.generic[lang] || S33_WA_MSG.generic.it;
+    a.href = 'https://wa.me/393347029456?text=' + encodeURIComponent(msg);
+  });
+}
+
 function setLang(lang) {
   currentLang = lang;
   document.body.className = 'lang-' + lang;
@@ -1630,6 +1653,7 @@ function setLang(lang) {
   document.querySelectorAll('.nav-lang span, .drawer-lang span').forEach(function(s) {
     s.classList.toggle('active', s.textContent.trim().toLowerCase() === lang);
   });
+  updateWaLinks(lang);
   try { sessionStorage.setItem('s33lang', lang); } catch(e) {}
 }
 
