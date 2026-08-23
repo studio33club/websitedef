@@ -1,4 +1,4 @@
-<!-- VERSIONE 89 · pagina page-home -->
+<!-- VERSIONE 91 · pagina page-home -->
 <!DOCTYPE html>
 <html lang="it">
 <head>
@@ -730,12 +730,15 @@ blockquote{font-weight:300;letter-spacing:-.02em;line-height:1.35}
 .topbar a:hover{color:var(--w)}
 
 /* Hero carosello */
-.hero-slider{position:relative;border-bottom:var(--bds)}
+.hero-slider{position:relative;border-bottom:var(--bds);overflow:hidden}
 #heroSlide0{background-image:url('./home-02.jpg')}
 @media(max-width:900px){#heroSlide0{background-image:url('./home-02-m.jpg')}}
-.hslide{display:none;width:100%;aspect-ratio:2/1;max-height:70vh;
+.hero-track{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;
+  scroll-behavior:smooth;-webkit-overflow-scrolling:touch}
+.hero-track::-webkit-scrollbar{display:none}
+.hero-track{scrollbar-width:none}
+.hslide{flex:0 0 100%;scroll-snap-align:start;width:100%;aspect-ratio:2/1;max-height:70vh;
   background-size:cover;background-position:center}
-.hslide.on{display:block}
 .hdots{position:absolute;bottom:1.4rem;left:50%;transform:translateX(-50%);
   display:flex;gap:.6rem;z-index:3}
 .hdot{width:7px;height:7px;border-radius:50%;background:rgba(255,255,255,0.35);
@@ -1343,14 +1346,16 @@ body.lang-fr [data-lang="fr"]{display:inline}
 
   <!-- HERO CAROSELLO -->
   <div class="hero-slider">
-    <div class="hslide on" id="heroSlide0"></div>
-    <div class="hslide" data-bg="./home-01.jpg" data-bg-m="./home-01-m.jpg" style=""></div>
-    <div class="hslide" data-bg="./home-03.jpg" data-bg-m="./home-03-m.jpg" style=""></div>
-    <div class="hslide" data-bg="./home-04.jpg" data-bg-m="./home-04-m.jpg" style=""></div>
-    <div class="hslide" data-bg="./home-05.jpg" data-bg-m="./home-05-m.jpg" style=""></div>
-    <div class="hslide" data-bg="./home-06.jpg" data-bg-m="./home-06-m.jpg" style=""></div>
-    <div class="hslide" data-bg="./home-07.jpg" data-bg-m="./home-07-m.jpg" style=""></div>
-    <div class="hslide" data-bg="./home-08.jpg" data-bg-m="./home-08-m.jpg" style=""></div>
+    <div class="hero-track" id="heroTrack">
+      <div class="hslide" id="heroSlide0"></div>
+      <div class="hslide" data-bg="./home-01.jpg" data-bg-m="./home-01-m.jpg" style=""></div>
+      <div class="hslide" data-bg="./home-03.jpg" data-bg-m="./home-03-m.jpg" style=""></div>
+      <div class="hslide" data-bg="./home-04.jpg" data-bg-m="./home-04-m.jpg" style=""></div>
+      <div class="hslide" data-bg="./home-05.jpg" data-bg-m="./home-05-m.jpg" style=""></div>
+      <div class="hslide" data-bg="./home-06.jpg" data-bg-m="./home-06-m.jpg" style=""></div>
+      <div class="hslide" data-bg="./home-07.jpg" data-bg-m="./home-07-m.jpg" style=""></div>
+      <div class="hslide" data-bg="./home-08.jpg" data-bg-m="./home-08-m.jpg" style=""></div>
+    </div>
     <div class="hdots">
       <button class="hdot on" onclick="hgo(0)" aria-label="1"></button>
       <button class="hdot" onclick="hgo(1)" aria-label="2"></button>
@@ -1728,6 +1733,29 @@ body.lang-fr [data-lang="fr"]{display:inline}
 var currentLang = 'it';
 var currentPage = 'home';
 
+var S33_WA_MSG = {
+  generic: {
+    it: 'Ciao! Vorrei avere informazioni su Studio 33.',
+    en: "Hi! I'd like some information about Studio 33.",
+    es: '¡Hola! Me gustaría información sobre Studio 33.',
+    fr: 'Bonjour ! Je voudrais des informations sur Studio 33.'
+  },
+  location: {
+    it: 'Ciao, vorrei informazioni sulla location di Studio 33.',
+    en: 'Hi, I would like information about the Studio 33 location.',
+    es: 'Hola, me gustaría información sobre la location de Studio 33.',
+    fr: 'Bonjour, je voudrais des informations sur la location de Studio 33.'
+  }
+};
+
+function updateWaLinks(lang) {
+  document.querySelectorAll('a[href^="https://wa.me/393347029456"]').forEach(function(a) {
+    var cat = a.getAttribute('data-wa-msg') || 'generic';
+    var msg = (S33_WA_MSG[cat] && S33_WA_MSG[cat][lang]) || S33_WA_MSG.generic[lang] || S33_WA_MSG.generic.it;
+    a.href = 'https://wa.me/393347029456?text=' + encodeURIComponent(msg);
+  });
+}
+
 function setLang(lang) {
   currentLang = lang;
   document.body.className = 'lang-' + lang;
@@ -1735,6 +1763,7 @@ function setLang(lang) {
   document.querySelectorAll('.nav-lang span, .drawer-lang span').forEach(function(s) {
     s.classList.toggle('active', s.textContent.trim().toLowerCase() === lang);
   });
+  updateWaLinks(lang);
   try { sessionStorage.setItem('s33lang', lang); } catch(e) {}
 }
 
@@ -1880,21 +1909,14 @@ function openMedia(i){
 // ── HERO CAROSELLO ──
 var hIdx = 0, hTimer = null;
 function hgo(i){
+  var track = document.getElementById('heroTrack');
   var sl = document.querySelectorAll('.hslide'), dt = document.querySelectorAll('.hdot');
-  if(!sl.length) return;
-  // carica la slide di destinazione e la successiva (prefetch leggero)
-  var hIsMobile = window.innerWidth <= 900;
-  [i, (i+1) % sl.length].forEach(function(k){
-    var el = sl[k], u = el && el.getAttribute('data-bg');
-    if(hIsMobile && el && el.hasAttribute('data-bg-m')) u = el.getAttribute('data-bg-m');
-    if(u && !el.dataset.bgLoaded){
-      el.style.backgroundImage = "url('" + u + "')";
-      el.dataset.bgLoaded = '1';
-    }
-  });
-  sl[hIdx].classList.remove('on'); dt[hIdx].classList.remove('on');
+  if(!track || !sl.length) return;
+  i = (i + sl.length) % sl.length;
+  track.scrollTo({left: i * track.clientWidth, behavior:'smooth'});
+  if(dt[hIdx]) dt[hIdx].classList.remove('on');
   hIdx = i;
-  sl[hIdx].classList.add('on'); dt[hIdx].classList.add('on');
+  if(dt[hIdx]) dt[hIdx].classList.add('on');
 }
 function hstart(){
   if(hTimer) clearInterval(hTimer);
@@ -1905,28 +1927,43 @@ function hstart(){
 }
 hstart();
 
-// ── HERO CAROSELLO: swipe touch ──
+// ── HERO CAROSELLO: scroll nativo (swipe/wheel), pausa e resync dots ──
 (function(){
-  var slider = document.querySelector('.hero-slider');
-  if(!slider) return;
-  var startX = 0, startY = 0, tracking = false;
-  slider.addEventListener('touchstart', function(e){
-    if(e.touches.length !== 1) return;
-    startX = e.touches[0].clientX;
-    startY = e.touches[0].clientY;
-    tracking = true;
+  var track = document.getElementById('heroTrack');
+  if(!track) return;
+  var resumeTimer;
+  function pause(){
+    if(hTimer){ clearInterval(hTimer); hTimer = null; }
+    clearTimeout(resumeTimer);
+    resumeTimer = setTimeout(hstart, 6000);
+  }
+  ['pointerdown','wheel','touchstart'].forEach(function(ev){
+    track.addEventListener(ev, pause, {passive:true});
+  });
+  track.addEventListener('mouseenter', function(){ if(hTimer){ clearInterval(hTimer); hTimer = null; } });
+  track.addEventListener('mouseleave', function(){ if(!hTimer) hstart(); });
+
+  var scrollEndTimer;
+  track.addEventListener('scroll', function(){
+    clearTimeout(scrollEndTimer);
+    scrollEndTimer = setTimeout(function(){
+      var dt = document.querySelectorAll('.hdot');
+      var i = Math.round(track.scrollLeft / track.clientWidth);
+      i = Math.max(0, Math.min(i, dt.length - 1));
+      if(dt[hIdx]) dt[hIdx].classList.remove('on');
+      hIdx = i;
+      if(dt[hIdx]) dt[hIdx].classList.add('on');
+    }, 120);
   }, {passive:true});
-  slider.addEventListener('touchend', function(e){
-    if(!tracking) return;
-    tracking = false;
-    var dx = e.changedTouches[0].clientX - startX;
-    var dy = e.changedTouches[0].clientY - startY;
-    if(Math.abs(dx) < 40 || Math.abs(dx) < Math.abs(dy)) return;
-    var sl = document.querySelectorAll('.hslide');
-    if(!sl.length) return;
-    hgo(dx < 0 ? (hIdx+1) % sl.length : (hIdx-1+sl.length) % sl.length);
-    hstart();
-  }, {passive:true});
+
+  window.addEventListener('resize', function(){
+    track.scrollLeft = hIdx * track.clientWidth;
+  });
+
+  document.addEventListener('visibilitychange', function(){
+    if(document.hidden){ if(hTimer){ clearInterval(hTimer); hTimer = null; } }
+    else if(!hTimer){ hstart(); }
+  });
 })();
 
 
