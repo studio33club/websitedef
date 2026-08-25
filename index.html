@@ -1371,6 +1371,18 @@ body.lang-fr [data-lang="fr"]{display:inline}
     </div>
   </div>
 
+  <!-- RADIO TEASER -->
+  <button onclick="playRadio()" class="radio-teaser" style="display:flex;align-items:center;gap:1.2rem;width:100%;border:none;border-bottom:var(--bd);background:#fff;cursor:pointer;padding:1.3rem 4rem;text-align:left;font:inherit;color:inherit">
+    <span style="width:42px;height:42px;border-radius:50%;background:var(--w);display:flex;align-items:center;justify-content:center;flex-shrink:0">
+      <span style="border-style:solid;border-width:7px 0 7px 11px;border-color:transparent transparent transparent #fff;margin-left:2px"></span>
+    </span>
+    <span style="flex:1;min-width:0">
+      <span class="lbl" style="display:block;margin-bottom:.25rem">Studio 33 Radio · On air</span>
+      <span style="font-family:var(--fd);font-size:17px;color:var(--w)">Sacred Grooves EP01 · Andrea Benedetti</span>
+    </span>
+    <span style="font-size:11.5px;letter-spacing:.18em;text-transform:uppercase;color:rgba(26,26,26,0.48);flex-shrink:0">Ascolta →</span>
+  </button>
+
   <!-- INTRO -->
   <section class="intro">
     <div class="intro-grid">
@@ -2160,5 +2172,40 @@ s33InitScrollReveal();
     <iframe id="ytframe" title="Video Studio 33" style="display:none;width:100%;aspect-ratio:16/9;border:none;background:#000" allow="accelerometer;autoplay;clipboard-write;encrypted-media;gyroscope;picture-in-picture" allowfullscreen></iframe>
   </div>
 </div>
+
+<!-- RADIO PLAYER (fisso in fondo, stile NTS) -->
+<div id="radioBar" style="position:fixed;left:0;right:0;bottom:0;z-index:500;background:#111;color:#fff;transform:translateY(100%);transition:transform .35s ease;box-shadow:0 -6px 24px rgba(0,0,0,.28)">
+  <div style="display:flex;align-items:center;gap:1rem;padding:.7rem 1.3rem;border-bottom:1px solid rgba(255,255,255,.08)">
+    <div style="flex:1;min-width:0">
+      <div style="font-family:var(--fb);font-size:10.5px;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.5)">Studio 33 Radio · On air</div>
+      <div style="font-family:var(--fd);font-size:15px;color:#fff;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">Sacred Grooves EP01 · Andrea Benedetti</div>
+    </div>
+    <button onclick="closeRadio()" aria-label="Chiudi player" style="background:none;border:none;color:rgba(255,255,255,.55);font-size:18px;cursor:pointer;line-height:1;padding:.5rem;flex-shrink:0">✕</button>
+  </div>
+  <div id="radioMcContainer" style="width:100%;line-height:0"></div>
+</div>
+
+<script>
+var radioLoaded = false;
+var radioOpen = false;
+function playRadio(){
+  var bar = document.getElementById('radioBar');
+  if(!radioLoaded){
+    document.getElementById('radioMcContainer').innerHTML = '<iframe width="100%" height="60" src="https://player-widget.mixcloud.com/widget/iframe/?hide_cover=1&mini=1&autoplay=1&feed=%2FStudio_33%2Fsacred-grooves-ep01-andrea-benedetti%2F" frameborder="0" allow="encrypted-media; fullscreen; autoplay; idle-detection; speaker-selection; web-share;" style="display:block"></iframe>';
+    radioLoaded = true;
+  }
+  bar.style.transform = 'translateY(0)';
+  radioOpen = true;
+  var wa = document.getElementById('wa-fixed');
+  if(wa) wa.style.bottom = '6.5rem';
+}
+function closeRadio(){
+  var bar = document.getElementById('radioBar');
+  bar.style.transform = 'translateY(100%)';
+  radioOpen = false;
+  var wa = document.getElementById('wa-fixed');
+  if(wa) wa.style.bottom = '1.5rem';
+}
+</script>
 </body>
 </html>
