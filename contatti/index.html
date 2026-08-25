@@ -302,6 +302,12 @@ body.lang-en [data-lang="block-it"]{display:none}
   .nav-links{display:none}
   .nav{padding:1.1rem 1.5rem}
 }
+/* Sotto i 1700px la riga di link (8 voci + selettore lingua) non ci sta piu' su una riga
+   e "Hi-End" si spezza a meta'; meglio passare al menu hamburger prima che a un layout rotto. */
+@media(max-width:1700px) and (min-width:901px){
+  .nav-burger{display:flex}
+  .nav-links{display:none}
+}
 @media(prefers-reduced-motion:reduce){*,*::before,*::after{transition:none!important;animation:none!important}}
 :focus-visible{outline:2px solid rgba(26,26,26,0.74);outline-offset:3px}
 
@@ -1992,5 +1998,86 @@ s33InitScrollReveal();
     <iframe id="ytframe" title="Video Studio 33" style="display:none;width:100%;aspect-ratio:16/9;border:none;background:#000" allow="accelerometer;autoplay;clipboard-write;encrypted-media;gyroscope;picture-in-picture" allowfullscreen></iframe>
   </div>
 </div>
+<!-- RADIO PLAYER (fisso in fondo, stile NTS - persistente dalla Home) -->
+<div id="radioBar" style="position:fixed;left:0;right:0;bottom:0;z-index:500;background:#111;color:#fff;transform:translateY(100%);transition:transform .35s ease;box-shadow:0 -6px 24px rgba(0,0,0,.28)">
+  <div style="display:flex;align-items:center;gap:1rem;padding:.7rem 1.3rem;border-bottom:1px solid rgba(255,255,255,.08)">
+    <div style="flex:1;min-width:0">
+      <div style="font-family:var(--fb);font-size:10.5px;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.5)">Studio 33 Radio · On air</div>
+      <div id="radioBarTitle" style="font-family:var(--fd);font-size:15px;color:#fff;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;transition:opacity .3s ease">Sacred Grooves EP01 · Andrea Benedetti</div>
+    </div>
+    <button onclick="switchRadioShow()" aria-label="Cambia show" style="background:none;border:1px solid rgba(255,255,255,.22);color:rgba(255,255,255,.75);font-family:var(--fb);font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;cursor:pointer;padding:.5rem .8rem;flex-shrink:0;border-radius:2px;white-space:nowrap">⇄ <span data-lang="it">Altro show</span><span data-lang="en">Next show</span>
+    <span data-lang="es">Otro show</span>
+    <span data-lang="fr">Autre show</span></button>
+    <button onclick="closeRadio()" aria-label="Chiudi player" style="background:none;border:none;color:rgba(255,255,255,.55);font-size:18px;cursor:pointer;line-height:1;padding:.5rem;flex-shrink:0">✕</button>
+  </div>
+  <div id="radioMcContainer" style="width:100%;height:60px;line-height:0;overflow:hidden;transition:opacity .3s ease"></div>
+</div>
+
+<script>
+var radioShows = [
+  {title:'Sacred Grooves EP01 · Andrea Benedetti', feed:'%2FStudio_33%2Fsacred-grooves-ep01-andrea-benedetti%2F'},
+  {title:'NPR World Cafe · Black Snake Moan @ Studio 33', feed:'%2FStudio_33%2Fnpr-in-studio-33-black-snake-moan-on-world-cafe-sense-of-place-rome%2F'},
+  {title:'NPR World Cafe · Ariete @ Studio 33', feed:'%2FStudio_33%2Fnpr-in-studio-33-ariete-on-world-cafe-sense-of-place-italy%2F'},
+  {title:'NPR World Cafe · Laila Al Habash @ Studio 33', feed:'%2FStudio_33%2Fnpr-in-studio-33-laila-al-habash-on-world-cafe-sense-of-place-rome%2F'},
+  {title:'Shhh/Peaceful · Jeremiah Chiu & Marta Sofia Honer Live', feed:'%2FStudio_33%2Fshhh-peaceful-in-studio-33-jeremiah-chiu-marta-sofia-honer-live%2F'},
+  {title:'Shhh/Peaceful · Jonah Parzen-Johnson & Lau Nau Live: Avant-Jazz & Electronics', feed:'%2FStudio_33%2Fshhhpeaceful-in-studio-33-jonah-parzen-johnson-lau-nau-live-avant-jazz-electronics%2F'}
+];
+var radioIndex = 0;
+var radioLoaded = false;
+var radioOpen = false;
+
+function saveRadioState(){
+  try{
+    if(radioOpen){ localStorage.setItem('s33radio', JSON.stringify({open:true, index:radioIndex})); }
+    else{ localStorage.removeItem('s33radio'); }
+  }catch(e){}
+}
+
+function loadRadioShow(i, autoplay){
+  var show = radioShows[i];
+  var container = document.getElementById('radioMcContainer');
+  var titleEl = document.getElementById('radioBarTitle');
+  container.style.opacity = 0;
+  if(titleEl) titleEl.style.opacity = 0;
+  setTimeout(function(){
+    var ap = autoplay === false ? '' : '&autoplay=1';
+    container.innerHTML = '<iframe width="100%" height="60" src="https://player-widget.mixcloud.com/widget/iframe/?hide_cover=1&mini=1' + ap + '&feed=' + show.feed + '" frameborder="0" allow="encrypted-media; fullscreen; autoplay; idle-detection; speaker-selection; web-share;" style="display:block;height:60px;max-width:none"></iframe>';
+    if(titleEl){ titleEl.textContent = show.title; titleEl.style.opacity = 1; }
+    container.style.opacity = 1;
+    radioLoaded = true;
+  }, 300);
+}
+
+function switchRadioShow(){
+  radioIndex = (radioIndex + 1) % radioShows.length;
+  loadRadioShow(radioIndex);
+  radioOpen = true;
+  saveRadioState();
+}
+
+function closeRadio(){
+  var bar = document.getElementById('radioBar');
+  bar.style.transform = 'translateY(100%)';
+  radioOpen = false;
+  var wa = document.getElementById('wa-fixed');
+  if(wa) wa.style.bottom = '1.5rem';
+  saveRadioState();
+}
+
+(function(){
+  try{
+    var saved = JSON.parse(localStorage.getItem('s33radio'));
+    if(saved && saved.open && radioShows[saved.index] !== undefined){
+      radioIndex = saved.index;
+      loadRadioShow(radioIndex, false);
+      var bar = document.getElementById('radioBar');
+      bar.style.transform = 'translateY(0)';
+      radioOpen = true;
+      var wa = document.getElementById('wa-fixed');
+      if(wa) wa.style.bottom = '6.5rem';
+    }
+  }catch(e){}
+})();
+</script>
 </body>
 </html>
