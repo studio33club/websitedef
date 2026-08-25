@@ -1,4 +1,4 @@
-<!-- VERSIONE 65 · pagina page-hap -->
+<!-- VERSIONE 67 · pagina page-hap -->
 <!DOCTYPE html>
 <html lang="it">
 <head>
@@ -391,7 +391,8 @@ body.lang-en [data-lang="block-it"]{display:none}
 body{font-feature-settings:'kern' 1,'liga' 1,'calt' 1;text-rendering:optimizeLegibility;letter-spacing:-.003em}
 h1, h2, h3, .hero-h1, .split-h2, .ha-comp-name, 
 .hero-h1{letter-spacing:-.032em;line-height:1.02}
-p,.split-body,.hero-sub,.ha-comp-desc{letter-spacing:-.006em;max-width:68ch}
+p,.split-body,.hero-sub,.ha-comp-desc{letter-spacing:-.006em;max-width:68ch;text-align:justify}
+p strong,.split-body strong,.hero-sub strong,.ha-comp-desc strong{color:var(--w);font-weight:600}
 
 /* Label e micro-testo: tracking ampio per leggibilità */
 .lbl, .badge, .pill, .proj-tag, .press-outlet, .metric-title, .gear-col-title, .book-info-k, .bk-label, .space-name{letter-spacing:.16em;font-weight:500}
@@ -457,7 +458,7 @@ blockquote{font-weight:300;letter-spacing:-.02em;line-height:1.35}
   body{font-size:20.0px;line-height:1.65}
   .sec-header{padding-top:2.2rem;padding-bottom:1.4rem}
   .split-text,.bk-form-col,.book-info-col{padding-top:3rem;padding-bottom:3rem}
-  p,.split-body{max-width:none}
+  p,.split-body{max-width:none;text-align:left}
 }
 
 /* ── HERO HI-END AUDIO: testo su foto sempre bianco ── */
@@ -1598,6 +1599,55 @@ function setLang(lang) {
   updateWaLinks(lang);
   try { sessionStorage.setItem('s33lang', lang); } catch(e) {}
 }
+
+// TIPOGRAFIA: a capo automatico a inizio frase (evita parole orfane a fine riga)
+(function(){
+  function breakSentences(root){
+    var SENT_RE = /\.(\s+)(?=["'\u00ab\u201c\u2018]?[A-Z\u00c0-\u00d6\u00d8-\u00de])/g;
+    var walker = document.createTreeWalker(root, NodeFilter.SHOW_TEXT, null);
+    var nodes = [], n;
+    while((n = walker.nextNode())) nodes.push(n);
+    nodes.forEach(function(node){
+      var text = node.nodeValue;
+      SENT_RE.lastIndex = 0;
+      if(!SENT_RE.test(text)) return;
+      SENT_RE.lastIndex = 0;
+      var frag = document.createDocumentFragment();
+      var lastIndex = 0, m;
+      while((m = SENT_RE.exec(text))){
+        frag.appendChild(document.createTextNode(text.slice(lastIndex, m.index + 1)));
+        frag.appendChild(document.createElement('br'));
+        lastIndex = m.index + 1 + m[1].length;
+      }
+      frag.appendChild(document.createTextNode(text.slice(lastIndex)));
+      node.parentNode.replaceChild(frag, node);
+    });
+  }
+  document.querySelectorAll('p, blockquote').forEach(function(el){ breakSentences(el); });
+})();
+
+// TIPOGRAFIA: mai una parola orfana da sola sull'ultima riga
+(function(){
+  function preventWidow(el){
+    var walker = document.createTreeWalker(el, NodeFilter.SHOW_TEXT, null);
+    var last = null, n;
+    while((n = walker.nextNode())){
+      if(n.nodeValue.replace(/\s+/g,'').length) last = n;
+    }
+    if(!last) return;
+    var text = last.nodeValue;
+    var trimmed = text.replace(/\s+$/, '');
+    var trailingWS = text.slice(trimmed.length);
+    var idx = trimmed.lastIndexOf(' ');
+    if(idx === -1) return;
+    last.nodeValue = trimmed.slice(0, idx) + '\u00A0' + trimmed.slice(idx + 1) + trailingWS;
+  }
+  document.querySelectorAll('p, blockquote').forEach(function(el){
+    var langs = el.querySelectorAll('[data-lang]');
+    if(langs.length){ langs.forEach(preventWidow); }
+    else { preventWidow(el); }
+  });
+})();
 
 
 // ── BURGER MENU ──
