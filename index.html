@@ -302,6 +302,12 @@ body.lang-en [data-lang="block-it"]{display:none}
   .nav-links{display:none}
   .nav{padding:1.1rem 1.5rem}
 }
+/* Sotto i 1700px la riga di link (8 voci + selettore lingua) non ci sta piu' su una riga
+   e "Hi-End" si spezza a meta'; meglio passare al menu hamburger prima che a un layout rotto. */
+@media(max-width:1700px) and (min-width:901px){
+  .nav-burger{display:flex}
+  .nav-links{display:none}
+}
 @media(prefers-reduced-motion:reduce){*,*::before,*::after{transition:none!important;animation:none!important}}
 :focus-visible{outline:2px solid rgba(26,26,26,0.74);outline-offset:3px}
 
