@@ -1,4 +1,4 @@
-<!-- VERSIONE 94 · pagina page-home -->
+<!-- VERSIONE 97 · pagina page-home -->
 <!DOCTYPE html>
 <html lang="it">
 <head>
@@ -391,7 +391,8 @@ body.lang-en [data-lang="block-it"]{display:none}
 body{font-feature-settings:'kern' 1,'liga' 1,'calt' 1;text-rendering:optimizeLegibility;letter-spacing:-.003em}
 h1, h2, h3, .hero-h1, .split-h2, .ha-comp-name, 
 .hero-h1{letter-spacing:-.032em;line-height:1.02}
-p,.split-body,.hero-sub,.ha-comp-desc{letter-spacing:-.006em;max-width:68ch}
+p,.split-body,.hero-sub,.ha-comp-desc{letter-spacing:-.006em;max-width:68ch;text-align:justify}
+p strong,.split-body strong,.hero-sub strong,.ha-comp-desc strong{color:var(--w);font-weight:600}
 
 /* Label e micro-testo: tracking ampio per leggibilità */
 .lbl, .badge, .pill, .proj-tag, .press-outlet, .metric-title, .gear-col-title, .book-info-k, .bk-label, .space-name{letter-spacing:.16em;font-weight:500}
@@ -457,7 +458,7 @@ blockquote{font-weight:300;letter-spacing:-.02em;line-height:1.35}
   body{font-size:20.0px;line-height:1.65}
   .sec-header{padding-top:2.2rem;padding-bottom:1.4rem}
   .split-text,.bk-form-col,.book-info-col{padding-top:3rem;padding-bottom:3rem}
-  p,.split-body{max-width:none}
+  p,.split-body{max-width:none;text-align:left}
 }
 
 /* ── HERO HI-END AUDIO: testo su foto sempre bianco ── */
@@ -793,9 +794,9 @@ blockquote{font-weight:300;letter-spacing:-.02em;line-height:1.35}
 
 /* Quote Monocle */
 .mquote{padding:6rem 4rem;border-bottom:var(--bds);
-  display:grid;grid-template-columns:1.4fr 1fr;gap:4rem;align-items:end}
+  display:grid;grid-template-columns:1.4fr 1fr;gap:4rem;align-items:start}
 .mquote blockquote{font-size:clamp(25.0px,2.0vw,31.0px);font-weight:200;
-  line-height:1.5;letter-spacing:-.02em;color:rgba(26,26,26,0.88)}
+  line-height:1.5;letter-spacing:-.02em;color:rgba(26,26,26,0.88);max-width:34ch}
 .mquote-by{font-size:11.5px;letter-spacing:.22em;text-transform:uppercase;
   color:rgba(26,26,26,0.48);margin-top:1.8rem}
 .mquote p{font-size:17.0px;color:rgba(26,26,26,0.62);line-height:1.75}
@@ -1381,10 +1382,10 @@ body.lang-fr [data-lang="fr"]{display:inline}
       </div>
       <div class="intro-right">
         <p>
-          <span data-lang="it">Studio 33 è location, casa di produzione e hub creativo indipendente.</span>
-          <span data-lang="en">Studio 33 is a location, a production factory and an independent creative hub.</span>
-          <span data-lang="es">Studio 33 es localización, casa de producción y hub creativo independiente.</span>
-          <span data-lang="fr">Studio 33 est un lieu de tournage, une maison de production et un hub créatif indépendant.</span>
+          <span data-lang="it">Studio 33 è location, casa di produzione e <strong>hub creativo indipendente</strong>.</span>
+          <span data-lang="en">Studio 33 is a location, a production factory and an <strong>independent creative hub</strong>.</span>
+          <span data-lang="es">Studio 33 es localización, casa de producción y <strong>hub creativo independiente</strong>.</span>
+          <span data-lang="fr">Studio 33 est un lieu de tournage, une maison de production et un <strong>hub créatif indépendant</strong>.</span>
         </p>
         <p>
           <span data-lang="it">Qui la tecnologia broadcast-quality incontra l'intimità creativa.</span>
@@ -1393,22 +1394,22 @@ body.lang-fr [data-lang="fr"]{display:inline}
           <span data-lang="fr">Ici la technologie broadcast rencontre l'intimité créative.</span>
         </p>
         <p>
-          <span data-lang="it">Studio 33 è una piattaforma per ricerca, comunità e cultura contemporanea. Uno spazio che promuove il suono, la musica, il cinema e l'arte come fonte di ispirazione, di studio e di produzione.</span>
-          <span data-lang="en">Studio 33 is a platform for research, community and contemporary culture. A space promoting sound, music, cinema and art as a source of inspiration, study and production.</span>
-          <span data-lang="es">Studio 33 es una plataforma para la investigación, la comunidad y la cultura contemporánea. Un espacio que promueve el sonido, la música, el cine y el arte como fuente de inspiración, de estudio y de producción.</span>
-          <span data-lang="fr">Studio 33 est une plateforme pour la recherche, la communauté et la culture contemporaine. Un espace qui promeut le son, la musique, le cinéma et l'art comme source d'inspiration, d'étude et de production.</span>
+          <span data-lang="it">Studio 33 è <strong>una piattaforma per ricerca, comunità e cultura contemporanea</strong>. Uno spazio che promuove il suono, la musica, il cinema e l'arte come fonte di ispirazione, di studio e di produzione.</span>
+          <span data-lang="en">Studio 33 is <strong>a platform for research, community and contemporary culture</strong>. A space promoting sound, music, cinema and art as a source of inspiration, study and production.</span>
+          <span data-lang="es">Studio 33 es <strong>una plataforma para la investigación, la comunidad y la cultura contemporánea</strong>. Un espacio que promueve el sonido, la música, el cine y el arte como fuente de inspiración, de estudio y de producción.</span>
+          <span data-lang="fr">Studio 33 est <strong>une plateforme pour la recherche, la communauté et la culture contemporaine</strong>. Un espace qui promeut le son, la musique, le cinéma et l'art comme source d'inspiration, d'étude et de production.</span>
         </p>
         <p>
-          <span data-lang="it">Ex studio fotografico tra i vicoli di Trastevere, diventato oggi uno dei centri di gravità dell'Art and Sound thinking a Roma.</span>
-          <span data-lang="en">Once a photography studio among the alleys of Trastevere, today one of the centres of gravity of Art and Sound thinking in Rome.</span>
-          <span data-lang="es">Antiguo estudio fotográfico entre las callejuelas de Trastevere, hoy uno de los centros de gravedad del Art and Sound thinking en Roma.</span>
-          <span data-lang="fr">Ancien studio photographique dans les ruelles de Trastevere, devenu aujourd'hui l'un des centres de gravité de l'Art and Sound thinking à Rome.</span>
+          <span data-lang="it">Ex studio fotografico tra i vicoli di Trastevere, diventato oggi uno dei centri di gravità dell'<strong>Art and Sound thinking</strong> a Roma.</span>
+          <span data-lang="en">Once a photography studio among the alleys of Trastevere, today one of the centres of gravity of <strong>Art and Sound thinking</strong> in Rome.</span>
+          <span data-lang="es">Antiguo estudio fotográfico entre las callejuelas de Trastevere, hoy uno de los centros de gravedad del <strong>Art and Sound thinking</strong> en Roma.</span>
+          <span data-lang="fr">Ancien studio photographique dans les ruelles de Trastevere, devenu aujourd'hui l'un des centres de gravité de l'<strong>Art and Sound thinking</strong> à Rome.</span>
         </p>
         <p>
-          <span data-lang="it">Un salotto curato nei minimi dettagli dove perdersi tra migliaia di vinili; con spazio per produzioni audiovideo e podcast, esperienze di hi-end listening, presentazioni di progetti ispirati alla musica e formazione.</span>
-          <span data-lang="en">A meticulously curated living room where you can lose yourself among thousands of records; with space for audio-video productions and podcasts, hi-end listening experiences, presentations of music-inspired projects and training.</span>
-          <span data-lang="es">Un salón cuidado hasta el último detalle donde perderse entre miles de vinilos; con espacio para producciones audiovisuales y podcasts, experiencias de escucha hi-end, presentaciones de proyectos inspirados en la música y formación.</span>
-          <span data-lang="fr">Un salon soigné dans les moindres détails où se perdre parmi des milliers de vinyles ; avec de l'espace pour des productions audiovisuelles et des podcasts, des expériences d'écoute hi-end, des présentations de projets inspirés par la musique et de la formation.</span>
+          <span data-lang="it">Un salotto curato nei minimi dettagli dove perdersi tra <strong>migliaia di vinili</strong>; con spazio per produzioni audiovideo e podcast, esperienze di hi-end listening, presentazioni di progetti ispirati alla musica e formazione.</span>
+          <span data-lang="en">A meticulously curated living room where you can lose yourself among <strong>thousands of records</strong>; with space for audio-video productions and podcasts, hi-end listening experiences, presentations of music-inspired projects and training.</span>
+          <span data-lang="es">Un salón cuidado hasta el último detalle donde perderse entre <strong>miles de vinilos</strong>; con espacio para producciones audiovisuales y podcasts, experiencias de escucha hi-end, presentaciones de proyectos inspirados en la música y formación.</span>
+          <span data-lang="fr">Un salon soigné dans les moindres détails où se perdre parmi <strong>des milliers de vinyles</strong> ; avec de l'espace pour des productions audiovisuelles et des podcasts, des expériences d'écoute hi-end, des présentations de projets inspirés par la musique et de la formation.</span>
         </p>
         <p>
           <span data-lang="it">In poche parole, un think-tank contemporaneo a tutto tondo.</span>
@@ -1429,9 +1430,9 @@ body.lang-fr [data-lang="fr"]{display:inline}
         <h2><span data-lang="it">250 mq a Trastevere, Roma.</span><span data-lang="en">250 sqm in Trastevere, Rome.</span>
     <span data-lang="es">250 m² en Trastevere, Roma.</span>
     <span data-lang="fr">250 m² à Trastevere, Rome.</span></h2>
-        <p><span data-lang="it">Ambienti flessibili, luce naturale e ampie finestre su strada. Set per shooting fotografici, riprese video, spot e produzioni cinematografiche.</span><span data-lang="en">Flexible spaces, natural light and wide street-facing windows. A set for photo shoots, video, ad spots and film productions.</span>
-    <span data-lang="es">Ambientes flexibles, luz natural y amplios ventanales a la calle. Set para sesiones fotográficas, rodajes de vídeo, spots y producciones cinematográficas.</span>
-    <span data-lang="fr">Espaces modulables, lumière naturelle et larges fenêtres sur rue. Plateau pour shootings photo, tournages vidéo, spots et productions cinématographiques.</span></p>
+        <p><span data-lang="it">Ambienti flessibili, luce naturale e <strong>ampie finestre su strada</strong>. Set per shooting fotografici, riprese video, spot e produzioni cinematografiche.</span><span data-lang="en">Flexible spaces, natural light and <strong>wide street-facing windows</strong>. A set for photo shoots, video, ad spots and film productions.</span>
+    <span data-lang="es">Ambientes flexibles, luz natural y <strong>amplios ventanales a la calle</strong>. Set para sesiones fotográficas, rodajes de vídeo, spots y producciones cinematográficas.</span>
+    <span data-lang="fr">Espaces modulables, lumière naturelle et <strong>larges fenêtres sur rue</strong>. Plateau pour shootings photo, tournages vidéo, spots et productions cinématographiques.</span></p>
         <a class="btn" href="./location/"><span data-lang="it">Scopri la location →</span><span data-lang="en">Discover the location →</span>
     <span data-lang="es">Descubre la localización →</span>
     <span data-lang="fr">Découvrir le lieu →</span></a>
@@ -1446,9 +1447,9 @@ body.lang-fr [data-lang="fr"]{display:inline}
         <h2><span data-lang="it">Boutique production house nel centro di Roma.</span><span data-lang="en">Boutique production house in central Rome.</span>
     <span data-lang="es">Boutique production house en el centro de Roma.</span>
     <span data-lang="fr">Boutique production house au centre de Rome.</span></h2>
-        <p><span data-lang="it">Dalla pre-produzione al master finale. Video, podcast, audio branding e live streaming, con attrezzatura broadcast in-house.</span><span data-lang="en">From pre-production to final master. Video, podcasts, audio branding and live streaming, with in-house broadcast equipment.</span>
-    <span data-lang="es">De la preproducción al máster final. Vídeo, podcast, audio branding y live streaming, con equipamiento broadcast propio.</span>
-    <span data-lang="fr">De la préproduction au master final. Vidéo, podcast, audio branding et live streaming, avec un équipement broadcast en interne.</span></p>
+        <p><span data-lang="it">Dalla pre-produzione al master finale. Video, podcast, audio branding e live streaming, con <strong>attrezzatura broadcast in-house</strong>.</span><span data-lang="en">From pre-production to final master. Video, podcasts, audio branding and live streaming, with <strong>in-house broadcast equipment</strong>.</span>
+    <span data-lang="es">De la preproducción al máster final. Vídeo, podcast, audio branding y live streaming, con <strong>equipamiento broadcast propio</strong>.</span>
+    <span data-lang="fr">De la préproduction au master final. Vidéo, podcast, audio branding et live streaming, avec un <strong>équipement broadcast en interne</strong>.</span></p>
         <a class="btn" href="./produzione/"><span data-lang="it">Guarda i lavori e l'attrezzatura →</span><span data-lang="en">See our work and equipment →</span>
     <span data-lang="es">Mira los trabajos y el equipamiento →</span>
     <span data-lang="fr">Voir les travaux et l'équipement →</span></a>
@@ -1596,9 +1597,9 @@ body.lang-fr [data-lang="fr"]{display:inline}
       <div class="mquote-by">Crescenzo Abbate · Monocle</div>
     </div>
     <div>
-      <p><span data-lang="it">Studi di produzione insonorizzati, suite per il mixing musicale, zona ristorazione, trucco e parrucco, il tutto disegnato da <a href="https://it.linkedin.com/in/ana-gugic-7a489a17" target="_blank" rel="noopener">Ana Gugić</a>.</span><span data-lang="en">Soundproofed production studios, music mixing suites, catering area, make-up and hair, all designed by <a href="https://it.linkedin.com/in/ana-gugic-7a489a17" target="_blank" rel="noopener">Ana Gugić</a>.</span>
-    <span data-lang="es">Estudios de producción insonorizados, suites para la mezcla musical, zona de catering, maquillaje y peluquería, todo diseñado por <a href="https://it.linkedin.com/in/ana-gugic-7a489a17" target="_blank" rel="noopener">Ana Gugić</a>.</span>
-    <span data-lang="fr">Studios de production insonorisés, suites de mixage musical, espace restauration, maquillage et coiffure, le tout conçu par <a href="https://it.linkedin.com/in/ana-gugic-7a489a17" target="_blank" rel="noopener">Ana Gugić</a>.</span></p>
+      <p><span data-lang="it">Studi di produzione insonorizzati, <strong>suite per il mixing musicale</strong>, zona ristorazione, trucco e parrucco, il tutto disegnato da <a href="https://it.linkedin.com/in/ana-gugic-7a489a17" target="_blank" rel="noopener">Ana Gugić</a>.</span><span data-lang="en">Soundproofed production studios, <strong>music mixing suites</strong>, catering area, make-up and hair, all designed by <a href="https://it.linkedin.com/in/ana-gugic-7a489a17" target="_blank" rel="noopener">Ana Gugić</a>.</span>
+    <span data-lang="es">Estudios de producción insonorizados, <strong>suites para la mezcla musical</strong>, zona de catering, maquillaje y peluquería, todo diseñado por <a href="https://it.linkedin.com/in/ana-gugic-7a489a17" target="_blank" rel="noopener">Ana Gugić</a>.</span>
+    <span data-lang="fr">Studios de production insonorisés, <strong>suites de mixage musical</strong>, espace restauration, maquillage et coiffure, le tout conçu par <a href="https://it.linkedin.com/in/ana-gugic-7a489a17" target="_blank" rel="noopener">Ana Gugić</a>.</span></p>
       <a class="btn" href="./Monocle_Record-a-record_Studio-33.pdf" target="_blank" rel="noopener"><span data-lang="it">Leggi l'articolo completo →</span><span data-lang="en">Read the full article →</span>
     <span data-lang="es">Lee el artículo completo →</span>
     <span data-lang="fr">Lire l'article complet →</span></a>
@@ -1611,10 +1612,10 @@ body.lang-fr [data-lang="fr"]{display:inline}
     <span data-lang="es">El equipo</span>
     <span data-lang="fr">L'équipe</span></div>
     <p style="font-size:17px;line-height:1.8;color:rgba(26,26,26,0.88);max-width:68ch;margin-bottom:2.8rem">
-      <span data-lang="it">Un collettivo che unisce decenni di esperienza produttiva al dialogo costante con le forme espressive contemporanee. Cinema, fotografia, design degli spazi, cultura audiophile, produzione musicale e discografica, art thinking, intelligenza artificiale applicata a suono e immagine: continuiamo a confrontarci con chi arriva da pratiche e generazioni diverse dalla nostra, perché è da lì che nascono i linguaggi nuovi.</span>
-      <span data-lang="en">A collective that unites decades of production experience with a constant dialogue with contemporary forms of expression. Cinema, photography, spatial design, audiophile culture, music and record production, art thinking, artificial intelligence applied to sound and image: we keep engaging with people who come from different practices and generations than our own, because that's where new languages are born.</span>
-      <span data-lang="es">Un colectivo que une décadas de experiencia productiva con un diálogo constante con las formas expresivas contemporáneas. Cine, fotografía, diseño de espacios, cultura audiófila, producción musical y discográfica, art thinking, inteligencia artificial aplicada al sonido y la imagen: seguimos confrontándonos con quienes provienen de prácticas y generaciones distintas a la nuestra, porque es ahí donde nacen los nuevos lenguajes.</span>
-      <span data-lang="fr">Un collectif qui unit des décennies d'expérience de production à un dialogue constant avec les formes expressives contemporaines. Cinéma, photographie, design d'espaces, culture audiophile, production musicale et discographique, art thinking, intelligence artificielle appliquée au son et à l'image : nous continuons à nous confronter à celles et ceux qui viennent de pratiques et de générations différentes des nôtres, car c'est de là que naissent les nouveaux langages.</span>
+      <span data-lang="it">Un collettivo che unisce <strong>decenni di esperienza produttiva</strong> al dialogo costante con le forme espressive contemporanee. Cinema, fotografia, design degli spazi, cultura audiophile, produzione musicale e discografica, art thinking, intelligenza artificiale applicata a suono e immagine: continuiamo a confrontarci con chi arriva da pratiche e generazioni diverse dalla nostra, perché è da lì che nascono i linguaggi nuovi.</span>
+      <span data-lang="en">A collective that unites <strong>decades of production experience</strong> with a constant dialogue with contemporary forms of expression. Cinema, photography, spatial design, audiophile culture, music and record production, art thinking, artificial intelligence applied to sound and image: we keep engaging with people who come from different practices and generations than our own, because that's where new languages are born.</span>
+      <span data-lang="es">Un colectivo que une <strong>décadas de experiencia productiva</strong> con un diálogo constante con las formas expresivas contemporáneas. Cine, fotografía, diseño de espacios, cultura audiófila, producción musical y discográfica, art thinking, inteligencia artificial aplicada al sonido y la imagen: seguimos confrontándonos con quienes provienen de prácticas y generaciones distintas a la nuestra, porque es ahí donde nacen los nuevos lenguajes.</span>
+      <span data-lang="fr">Un collectif qui unit des <strong>décennies d'expérience de production</strong> à un dialogue constant avec les formes expressives contemporaines. Cinéma, photographie, design d'espaces, culture audiophile, production musicale et discographique, art thinking, intelligence artificielle appliquée au son et à l'image : nous continuons à nous confronter à celles et ceux qui viennent de pratiques et de générations différentes des nôtres, car c'est de là que naissent les nouveaux langages.</span>
     </p>
     <div class="col4" style="border-top:none;gap:2.6rem 2rem">
       <div>
@@ -1768,6 +1769,55 @@ function setLang(lang) {
   updateWaLinks(lang);
   try { sessionStorage.setItem('s33lang', lang); } catch(e) {}
 }
+
+// TIPOGRAFIA: a capo automatico a inizio frase (evita parole orfane a fine riga)
+(function(){
+  function breakSentences(root){
+    var SENT_RE = /\.(\s+)(?=["'\u00ab\u201c\u2018]?[A-Z\u00c0-\u00d6\u00d8-\u00de])/g;
+    var walker = document.createTreeWalker(root, NodeFilter.SHOW_TEXT, null);
+    var nodes = [], n;
+    while((n = walker.nextNode())) nodes.push(n);
+    nodes.forEach(function(node){
+      var text = node.nodeValue;
+      SENT_RE.lastIndex = 0;
+      if(!SENT_RE.test(text)) return;
+      SENT_RE.lastIndex = 0;
+      var frag = document.createDocumentFragment();
+      var lastIndex = 0, m;
+      while((m = SENT_RE.exec(text))){
+        frag.appendChild(document.createTextNode(text.slice(lastIndex, m.index + 1)));
+        frag.appendChild(document.createElement('br'));
+        lastIndex = m.index + 1 + m[1].length;
+      }
+      frag.appendChild(document.createTextNode(text.slice(lastIndex)));
+      node.parentNode.replaceChild(frag, node);
+    });
+  }
+  document.querySelectorAll('p, blockquote').forEach(function(el){ breakSentences(el); });
+})();
+
+// TIPOGRAFIA: mai una parola orfana da sola sull'ultima riga
+(function(){
+  function preventWidow(el){
+    var walker = document.createTreeWalker(el, NodeFilter.SHOW_TEXT, null);
+    var last = null, n;
+    while((n = walker.nextNode())){
+      if(n.nodeValue.replace(/\s+/g,'').length) last = n;
+    }
+    if(!last) return;
+    var text = last.nodeValue;
+    var trimmed = text.replace(/\s+$/, '');
+    var trailingWS = text.slice(trimmed.length);
+    var idx = trimmed.lastIndexOf(' ');
+    if(idx === -1) return;
+    last.nodeValue = trimmed.slice(0, idx) + '\u00A0' + trimmed.slice(idx + 1) + trailingWS;
+  }
+  document.querySelectorAll('p, blockquote').forEach(function(el){
+    var langs = el.querySelectorAll('[data-lang]');
+    if(langs.length){ langs.forEach(preventWidow); }
+    else { preventWidow(el); }
+  });
+})();
 
 
 // ── BURGER MENU ──
