@@ -1424,6 +1424,51 @@ body.lang-fr [data-lang="fr"]{display:inline}
     </div>
   </section>
 
+  <!-- ESPERIENZA AIRBNB — banner -->
+  <style>
+  .ha-airbnb-banner{position:relative;display:block;min-height:460px;overflow:hidden;border-top:var(--bd);border-bottom:var(--bd);color:#fff;text-decoration:none}
+  .ha-airbnb-bg{position:absolute;inset:0;background-size:cover;background-position:center;transition:transform .5s ease}
+  .ha-airbnb-banner:hover .ha-airbnb-bg{transform:scale(1.03)}
+  .ha-airbnb-overlay{position:absolute;inset:0;background:linear-gradient(90deg,rgba(10,10,10,.82) 0%,rgba(10,10,10,.55) 45%,rgba(10,10,10,.18) 100%)}
+  .ha-airbnb-content{position:relative;z-index:2;display:flex;flex-direction:column;justify-content:center;height:100%;min-height:460px;padding:3.5rem 4rem;max-width:620px}
+  .ha-airbnb-eyebrow{font-family:var(--fb);font-size:11.5px;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,.72);margin-bottom:1.1rem}
+  .ha-airbnb-title{font-family:var(--fd);font-weight:200;font-size:clamp(31px,3.4vw,44px);line-height:1.1;margin-bottom:1rem}
+  .ha-airbnb-title em{font-style:italic;color:rgba(255,255,255,.78)}
+  .ha-airbnb-desc{font-family:var(--fb);font-size:16.5px;line-height:1.7;color:rgba(255,255,255,.86);max-width:46ch;margin-bottom:1.6rem}
+  .ha-airbnb-cta{display:inline-flex;align-items:center;gap:.6rem;align-self:flex-start;font-family:var(--fb);font-size:11.5px;letter-spacing:.18em;text-transform:uppercase;color:#0a0a0a;background:#fff;padding:.9rem 1.6rem;transition:opacity .2s}
+  .ha-airbnb-banner:hover .ha-airbnb-cta{opacity:.85}
+  .ha-airbnb-strip{position:absolute;right:2.2rem;bottom:2.2rem;z-index:2;display:flex;gap:.6rem}
+  .ha-airbnb-strip img{width:84px;height:104px;object-fit:cover;border:1px solid rgba(255,255,255,.3)}
+  @media(max-width:900px){
+    .ha-airbnb-content{padding:2.5rem 1.5rem;max-width:none}
+    .ha-airbnb-strip{display:none}
+  }
+  </style>
+  <a class="ha-airbnb-banner" href="https://www.airbnb.it/experiences/5953956" target="_blank" rel="noopener" aria-label="Prenota l'esperienza di ascolto su Airbnb">
+    <div class="ha-airbnb-bg" style="background-image:url('../ha-airbnb-hero.jpg')"></div>
+    <div class="ha-airbnb-overlay"></div>
+    <div class="ha-airbnb-content">
+      <div class="ha-airbnb-eyebrow">Airbnb Experience · ★ 5,0 · <span data-lang="it">22 recensioni</span><span data-lang="en">22 reviews</span>
+    <span data-lang="es">22 reseñas</span>
+    <span data-lang="fr">22 avis</span></div>
+      <h2 class="ha-airbnb-title"><span data-lang="it">Immergiti nella storia del <em>cinema italiano.</em></span><span data-lang="en">Immerse yourself in the history of <em>Italian cinema.</em></span>
+    <span data-lang="es">Sumérgete en la historia del <em>cine italiano.</em></span>
+    <span data-lang="fr">Plongez dans l'histoire du <em>cinéma italien.</em></span></h2>
+      <p class="ha-airbnb-desc"><span data-lang="it">Una sessione di ascolto di 3 ore sulle colonne sonore di Fellini e Leone, guidata da noi, con aperitivo incluso.</span><span data-lang="en">A 3-hour listening session on Fellini and Leone's soundtracks, hosted by us, with drinks included.</span>
+    <span data-lang="es">Una sesión de escucha de 3 horas sobre las bandas sonoras de Fellini y Leone, guiada por nosotros, con aperitivo incluido.</span>
+    <span data-lang="fr">Une séance d'écoute de 3 heures sur les bandes originales de Fellini et Leone, animée par nous, apéritif inclus.</span></p>
+      <span class="ha-airbnb-cta"><span data-lang="it">Prenota l'esperienza →</span><span data-lang="en">Book the experience →</span>
+    <span data-lang="es">Reserva la experiencia →</span>
+    <span data-lang="fr">Réserver l'expérience →</span></span>
+    </div>
+    <div class="ha-airbnb-strip">
+      <img src="../ha-airbnb-4.jpg" alt="" loading="lazy">
+      <img src="../ha-airbnb-1.jpg" alt="" loading="lazy">
+      <img src="../ha-airbnb-2.jpg" alt="" loading="lazy">
+      <img src="../ha-airbnb-3.jpg" alt="" loading="lazy">
+    </div>
+  </a>
+
   <!-- METRICS -->
   <div class="col4">
     <div class="metric"><div class="metric-n">OMA</div><div class="metric-title">Oswalds Mill Audio</div><div class="metric-sub"><span data-lang="it">Design Jonathan Weiss, DUMBO New York, tra i più raffinati impianti hi-fi al mondo</span><span data-lang="en">Design by Jonathan Weiss, DUMBO New York, among the world's finest hi-fi systems</span>
