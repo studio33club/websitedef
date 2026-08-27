@@ -1378,15 +1378,32 @@ body.lang-fr [data-lang="fr"]{display:inline}
   </div>
 
   <!-- RADIO TEASER -->
-  <button onclick="playRadio()" class="radio-teaser" style="display:flex;align-items:center;gap:1.2rem;width:100%;border:none;border-bottom:var(--bd);background:#fff;cursor:pointer;padding:1.3rem 4rem;text-align:left;font:inherit;color:inherit">
-    <span style="width:42px;height:42px;border-radius:50%;background:var(--w);display:flex;align-items:center;justify-content:center;flex-shrink:0">
-      <span style="border-style:solid;border-width:7px 0 7px 11px;border-color:transparent transparent transparent #fff;margin-left:2px"></span>
+  <style>
+  @keyframes radioLivePulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.35;transform:scale(1.35)}}
+  .radio-teaser{transition:opacity .2s ease}
+  .radio-teaser:hover{opacity:.92}
+  .radio-teaser-play{position:relative}
+  .radio-teaser-play::before{
+    content:'';position:absolute;inset:-6px;border-radius:50%;border:1px solid rgba(255,255,255,.35);
+    animation:radioLivePulse 2.2s ease-in-out infinite;
+  }
+  </style>
+  <button onclick="playRadio()" class="radio-teaser" style="display:flex;align-items:center;gap:1.2rem;width:100%;border:none;border-bottom:1px solid rgba(255,255,255,.1);background:var(--w);cursor:pointer;padding:1.3rem 4rem;text-align:left;font:inherit;color:#fff">
+    <span class="radio-teaser-play" style="width:44px;height:44px;border-radius:50%;background:#fff;display:flex;align-items:center;justify-content:center;flex-shrink:0">
+      <span style="border-style:solid;border-width:7px 0 7px 11px;border-color:transparent transparent transparent var(--w);margin-left:2px"></span>
     </span>
     <span style="flex:1;min-width:0">
-      <span class="lbl" style="display:block;margin-bottom:.25rem">Studio 33 Radio · On air</span>
-      <span id="radioTeaserTitle" style="font-family:var(--fd);font-size:17px;color:var(--w);display:inline-block;transition:opacity .5s ease,transform .5s ease">Sacred Grooves EP01 · Andrea Benedetti</span>
+      <span style="display:flex;align-items:center;gap:.55rem;margin-bottom:.3rem">
+        <i class="ti ti-broadcast" style="font-size:15px;color:rgba(255,255,255,.6)" aria-hidden="true"></i>
+        <span class="lbl" style="color:rgba(255,255,255,.5)">Studio 33 Radio</span>
+        <span style="display:inline-flex;align-items:center;gap:.4rem;font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:#ff5252;font-weight:600">
+          <span style="width:6px;height:6px;border-radius:50%;background:#ff5252;animation:radioLivePulse 1.6s ease-in-out infinite;flex-shrink:0"></span>
+          On air
+        </span>
+      </span>
+      <span id="radioTeaserTitle" style="font-family:var(--fd);font-size:17px;color:#fff;display:inline-block;transition:opacity .5s ease,transform .5s ease">Sacred Grooves EP01 · Andrea Benedetti</span>
     </span>
-    <span style="font-size:11.5px;letter-spacing:.18em;text-transform:uppercase;color:rgba(26,26,26,0.48);flex-shrink:0"><span data-lang="it">Ascolta →</span><span data-lang="en">Listen →</span>
+    <span style="font-size:11.5px;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.55);flex-shrink:0"><span data-lang="it">Ascolta →</span><span data-lang="en">Listen →</span>
     <span data-lang="es">Escuchar →</span>
     <span data-lang="fr">Écouter →</span></span>
   </button>
