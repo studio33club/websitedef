@@ -1488,9 +1488,17 @@ body.lang-fr [data-lang="fr"]{display:inline}
 
   <!-- IL PROGRAMMA -->
   <div class="split" style="border-top:var(--bd)">
-    <div class="split-img">
-      <div class="split-img-bg" data-bg="../accordatura-jacopo-sipari.jpg" style=""></div>
-    </div>
+    <button type="button" onclick="openMedia(10)" aria-label="Guarda il video di presentazione de L'Accordatura" class="split-img" style="position:relative;cursor:pointer;border:none;padding:0;overflow:hidden;display:block;background:#000;font:inherit">
+      <img src="https://img.youtube.com/vi/fHH1BdIk1X8/hqdefault.jpg" alt="" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block">
+      <span style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;background:rgba(0,0,0,.15)">
+        <span style="width:60px;height:60px;border:.5px solid rgba(255,255,255,.6);border-radius:50%;display:flex;align-items:center;justify-content:center;background:rgba(0,0,0,.4);backdrop-filter:blur(4px)">
+          <span style="display:block;width:0;height:0;border-style:solid;border-width:10px 0 10px 16px;border-color:transparent transparent transparent rgba(255,255,255,.92);margin-left:3px"></span>
+        </span>
+      </span>
+      <span style="position:absolute;left:1.2rem;bottom:1.1rem;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:#fff;background:rgba(0,0,0,.5);padding:.35rem .8rem;backdrop-filter:blur(3px)"><span data-lang="it">Guarda il video →</span><span data-lang="en">Watch the video →</span>
+    <span data-lang="es">Ver el vídeo →</span>
+    <span data-lang="fr">Voir la vidéo →</span></span>
+    </button>
     <div class="split-text">
       <div class="lbl" style="margin-bottom:1.4rem"><span data-lang="it">Il programma</span><span data-lang="en">The programme</span>
     <span data-lang="es">El programa</span>
@@ -1621,7 +1629,7 @@ body.lang-fr [data-lang="fr"]{display:inline}
       <div class="lbl" style="margin-bottom:1rem"><span data-lang="it">Il programma completo</span><span data-lang="en">The full programme</span>
     <span data-lang="es">El programa completo</span>
     <span data-lang="fr">Le programme complet</span></div>
-      <h2 style="font-family:var(--fd);font-size:clamp(25px,2.4vw,31px);font-weight:400;color:var(--w);margin-bottom:.8rem"><span data-lang="it">Sfoglia la brochure, senza scaricarla.</span><span data-lang="en">Browse the brochure, no download needed.</span>
+      <h2 style="font-family:var(--fd);font-size:clamp(25px,2.4vw,31px);font-weight:400;color:var(--w);margin-bottom:.8rem"><span data-lang="it">Sfoglia la brochure per saperne di più.</span><span data-lang="en">Browse the brochure, no download needed.</span>
     <span data-lang="es">Hojea el dossier, sin descargarlo.</span>
     <span data-lang="fr">Feuilletez la brochure, sans la télécharger.</span></h2>
       <p style="font-size:15.5px;line-height:1.75;color:rgba(26,26,26,0.62)"><span data-lang="it">32 pagine con metodo, programma dettagliato, team e referenze. Scorrile qui sotto o aprile a schermo intero.</span>
