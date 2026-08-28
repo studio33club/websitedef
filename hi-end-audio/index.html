@@ -1445,8 +1445,16 @@ body.lang-fr [data-lang="fr"]{display:inline}
     .ha-airbnb-reviews{display:none}
   }
   @media(max-width:900px){
-    .ha-airbnb-inner{padding:2.5rem 1.5rem}
-    .ha-airbnb-content{max-width:none}
+    .ha-airbnb-inner{padding:2.5rem 1.5rem;flex-direction:column;align-items:flex-start;justify-content:center}
+    .ha-airbnb-content{max-width:none;flex-shrink:1;min-width:0;width:100%}
+    .ha-airbnb-title,.ha-airbnb-desc{max-width:none}
+    .ha-airbnb-eyebrow{letter-spacing:.14em}
+    .ha-airbnb-desc{font-size:15.5px}
+  }
+  @media(max-width:480px){
+    .ha-airbnb-banner,.ha-airbnb-inner{min-height:0}
+    .ha-airbnb-inner{padding:2.75rem 1.25rem}
+    .ha-airbnb-title{font-size:26px}
   }
   </style>
   <a class="ha-airbnb-banner" href="https://www.airbnb.it/experiences/5953956" target="_blank" rel="noopener" aria-label="Prenota l'esperienza di ascolto su Airbnb">
