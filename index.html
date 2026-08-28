@@ -2218,6 +2218,7 @@ s33InitScrollReveal();
 <script>
 var radioShows = [
   {title:'Sacred Grooves EP01 · Andrea Benedetti', feed:'%2FStudio_33%2Fsacred-grooves-ep01-andrea-benedetti%2F'},
+  {title:'Saverio Raimondo live in Studio 33', src:'./saverio-raimondo-live-studio-33.m4a'},
   {title:'NPR World Cafe · Black Snake Moan @ Studio 33', feed:'%2FStudio_33%2Fnpr-in-studio-33-black-snake-moan-on-world-cafe-sense-of-place-rome%2F'},
   {title:'NPR World Cafe · Ariete @ Studio 33', feed:'%2FStudio_33%2Fnpr-in-studio-33-ariete-on-world-cafe-sense-of-place-italy%2F'},
   {title:'NPR World Cafe · Laila Al Habash @ Studio 33', feed:'%2FStudio_33%2Fnpr-in-studio-33-laila-al-habash-on-world-cafe-sense-of-place-rome%2F'},
@@ -2261,7 +2262,14 @@ function loadRadioShow(i, autoplay){
   if(titleEl) titleEl.style.opacity = 0;
   setTimeout(function(){
     var ap = autoplay === false ? '' : '&autoplay=1';
-    container.innerHTML = '<iframe width="100%" height="60" src="https://player-widget.mixcloud.com/widget/iframe/?hide_cover=1&mini=1' + ap + '&feed=' + show.feed + '" frameborder="0" allow="encrypted-media; fullscreen; autoplay; idle-detection; speaker-selection; web-share;" style="display:block;height:60px;max-width:none"></iframe>';
+    if(show.src){
+      container.innerHTML = '<audio id="radioAudio" controls preload="metadata" ' + (autoplay === false ? '' : 'autoplay ') + 'style="display:block;width:100%;height:60px;background:#111">'
+        + '<source src="' + show.src + '" type="audio/mp4"></audio>';
+      var a = document.getElementById('radioAudio');
+      if(a && autoplay !== false){ var p = a.play(); if(p && p.catch){ p.catch(function(){}); } }
+    } else {
+      container.innerHTML = '<iframe width="100%" height="60" src="https://player-widget.mixcloud.com/widget/iframe/?hide_cover=1&mini=1' + ap + '&feed=' + show.feed + '" frameborder="0" allow="encrypted-media; fullscreen; autoplay; idle-detection; speaker-selection; web-share;" style="display:block;height:60px;max-width:none"></iframe>';
+    }
     if(titleEl){ titleEl.textContent = show.title; titleEl.style.opacity = 1; }
     container.style.opacity = 1;
     radioLoaded = true;

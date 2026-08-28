@@ -12,3 +12,7 @@
 
 /*.png
   Cache-Control: public, max-age=31536000, immutable
+
+/*.m4a
+  Cache-Control: public, max-age=31536000, immutable
+  Content-Type: audio/mp4
