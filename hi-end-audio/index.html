@@ -1473,16 +1473,16 @@ body.lang-fr [data-lang="fr"]{display:inline}
       </div>
       <div class="ha-airbnb-reviews">
         <div class="ha-airbnb-review">
-          <p>"Uno dei migliori pomeriggi che abbia trascorso da molto tempo."</p>
-          <cite>Danielle · New York</cite>
+          <p><span data-lang="it">"Uno dei migliori pomeriggi che abbia trascorso da molto tempo."</span><span data-lang="en">"One of the best afternoons I've spent in a long time."</span><span data-lang="es">"Una de las mejores tardes que he pasado en mucho tiempo."</span><span data-lang="fr">"L'un des meilleurs après-midi que j'aie passés depuis longtemps."</span></p>
+          <cite><span data-lang="it">Danielle · New York</span><span data-lang="en">Danielle · New York</span><span data-lang="es">Danielle · Nueva York</span><span data-lang="fr">Danielle · New York</span></cite>
         </div>
         <div class="ha-airbnb-review">
-          <p>"Un'esperienza unica che non puoi perderti."</p>
-          <cite>Varvn · Londra</cite>
+          <p><span data-lang="it">"Un'esperienza unica che non puoi perderti."</span><span data-lang="en">"A unique experience you can't miss."</span><span data-lang="es">"Una experiencia única que no puedes perderte."</span><span data-lang="fr">"Une expérience unique à ne pas manquer."</span></p>
+          <cite><span data-lang="it">Varvn · Londra</span><span data-lang="en">Varvn · London</span><span data-lang="es">Varvn · Londres</span><span data-lang="fr">Varvn · Londres</span></cite>
         </div>
         <div class="ha-airbnb-review">
-          <p>"Una tappa imperdibile a Roma."</p>
-          <cite>Mariana · Rio de Janeiro</cite>
+          <p><span data-lang="it">"Una tappa imperdibile a Roma."</span><span data-lang="en">"An unmissable stop in Rome."</span><span data-lang="es">"Una parada imprescindible en Roma."</span><span data-lang="fr">"Une étape incontournable à Rome."</span></p>
+          <cite><span data-lang="it">Mariana · Rio de Janeiro</span><span data-lang="en">Mariana · Rio de Janeiro</span><span data-lang="es">Mariana · Río de Janeiro</span><span data-lang="fr">Mariana · Rio de Janeiro</span></cite>
         </div>
       </div>
     </div>
@@ -1497,6 +1497,123 @@ body.lang-fr [data-lang="fr"]{display:inline}
       i = (i + 1) % slides.length;
       slides[i].classList.add('on');
     }, 4200);
+  })();
+  </script>
+
+  <script>
+  (function(){
+    // pool di recensioni: quote in 4 lingue + città localizzata (il nome resta invariato)
+    var pool = [
+      { name: "Danielle", city: { it: "New York", en: "New York", es: "Nueva York", fr: "New York" },
+        it: "Uno dei migliori pomeriggi che abbia trascorso da molto tempo.",
+        en: "One of the best afternoons I've spent in a long time.",
+        es: "Una de las mejores tardes que he pasado en mucho tiempo.",
+        fr: "L'un des meilleurs après-midi que j'aie passés depuis longtemps." },
+      { name: "Varvn", city: { it: "Londra", en: "London", es: "Londres", fr: "Londres" },
+        it: "Un'esperienza unica che non puoi perderti.",
+        en: "A unique experience you can't miss.",
+        es: "Una experiencia única que no puedes perderte.",
+        fr: "Une expérience unique à ne pas manquer." },
+      { name: "Mariana", city: { it: "Rio de Janeiro", en: "Rio de Janeiro", es: "Río de Janeiro", fr: "Rio de Janeiro" },
+        it: "Una tappa imperdibile a Roma.",
+        en: "An unmissable stop in Rome.",
+        es: "Una parada imprescindible en Roma.",
+        fr: "Une étape incontournable à Rome." },
+      { name: "Thomas", city: { it: "Berlino", en: "Berlin", es: "Berlín", fr: "Berlin" },
+        it: "Non avevo mai ascoltato la musica in questo modo. Da brividi.",
+        en: "I had never listened to music like this. Goosebumps.",
+        es: "Nunca había escuchado música así. Piel de gallina.",
+        fr: "Je n'avais jamais écouté la musique ainsi. Frissons garantis." },
+      { name: "Sophie", city: { it: "Parigi", en: "Paris", es: "París", fr: "Paris" },
+        it: "Ospiti generosi e un impianto che ti cambia le orecchie per sempre.",
+        en: "Generous hosts and a system that changes your ears forever.",
+        es: "Anfitriones generosos y un equipo que te cambia los oídos para siempre.",
+        fr: "Des hôtes généreux et un système qui transforme votre oreille à jamais." },
+      { name: "Kenji", city: { it: "Tokyo", en: "Tokyo", es: "Tokio", fr: "Tokyo" },
+        it: "Tre ore volate. Vorrei poterlo rifare ogni settimana.",
+        en: "Three hours flew by. I wish I could do it every week.",
+        es: "Tres horas que volaron. Ojalá pudiera repetirlo cada semana.",
+        fr: "Trois heures envolées. J'aimerais pouvoir recommencer chaque semaine." },
+      { name: "Elena", city: { it: "Madrid", en: "Madrid", es: "Madrid", fr: "Madrid" },
+        it: "Il posto perfetto per chi ama il cinema e il vinile.",
+        en: "The perfect place for anyone who loves cinema and vinyl.",
+        es: "El lugar perfecto para quien ama el cine y el vinilo.",
+        fr: "L'endroit parfait pour qui aime le cinéma et le vinyle." },
+      { name: "Michael", city: { it: "Melbourne", en: "Melbourne", es: "Melbourne", fr: "Melbourne" },
+        it: "Un ascolto così profondo che ti dimentichi del tempo.",
+        en: "Listening so deep you lose track of time.",
+        es: "Una escucha tan profunda que pierdes la noción del tiempo.",
+        fr: "Une écoute si profonde qu'on en oublie l'heure." },
+      { name: "Laura", city: { it: "Amsterdam", en: "Amsterdam", es: "Ámsterdam", fr: "Amsterdam" },
+        it: "Competenza, passione e un aperitivo che ci sta tutto.",
+        en: "Expertise, passion and an aperitivo that hits the spot.",
+        es: "Conocimiento, pasión y un aperitivo que cae perfecto.",
+        fr: "Expertise, passion et un apéritif qui tombe à pic." },
+      { name: "Andrés", city: { it: "Città del Messico", en: "Mexico City", es: "Ciudad de México", fr: "Mexico" },
+        it: "L'esperienza audio più bella che abbia fatto in Europa.",
+        en: "The finest audio experience I've had in Europe.",
+        es: "La mejor experiencia de audio que he tenido en Europa.",
+        fr: "La plus belle expérience audio que j'aie vécue en Europe." },
+      { name: "Rachel", city: { it: "Toronto", en: "Toronto", es: "Toronto", fr: "Toronto" },
+        it: "Fellini e Leone come non li avevo mai sentiti.",
+        en: "Fellini and Leone like I had never heard them before.",
+        es: "Fellini y Leone como nunca los había escuchado.",
+        fr: "Fellini et Leone comme je ne les avais jamais entendus." },
+      { name: "Nils", city: { it: "Copenaghen", en: "Copenhagen", es: "Copenhague", fr: "Copenhague" },
+        it: "Piccola boutique del suono, grande cuore. Consigliatissimo.",
+        en: "A small boutique of sound with a big heart. Highly recommended.",
+        es: "Una pequeña boutique del sonido con un gran corazón. Muy recomendable.",
+        fr: "Une petite boutique du son au grand cœur. Vivement recommandé." },
+      { name: "Yuki", city: { it: "Osaka", en: "Osaka", es: "Osaka", fr: "Osaka" },
+        it: "Sono partito con una playlist di brani da riscoprire da capo.",
+        en: "I left with a playlist of songs to rediscover from scratch.",
+        es: "Me fui con una lista de canciones para redescubrir desde cero.",
+        fr: "Je suis reparti avec une playlist de morceaux à redécouvrir." },
+      { name: "Clara", city: { it: "Lisbona", en: "Lisbon", es: "Lisboa", fr: "Lisbonne" },
+        it: "Un rifugio dal caos di Trastevere. Silenzio e musica vera.",
+        en: "A refuge from the chaos of Trastevere. Silence and real music.",
+        es: "Un refugio del caos de Trastevere. Silencio y música de verdad.",
+        fr: "Un refuge loin du chaos de Trastevere. Silence et vraie musique." },
+      { name: "David", city: { it: "San Francisco", en: "San Francisco", es: "San Francisco", fr: "San Francisco" },
+        it: "Pensavo di conoscere il mio disco preferito. Mi sbagliavo.",
+        en: "I thought I knew my favourite record. I was wrong.",
+        es: "Creía que conocía mi disco favorito. Estaba equivocado.",
+        fr: "Je croyais connaître mon disque préféré. Je me trompais." },
+      { name: "Ingrid", city: { it: "Stoccolma", en: "Stockholm", es: "Estocolmo", fr: "Stockholm" },
+        it: "Curati, appassionati, mai pretenziosi. Un pomeriggio raro.",
+        en: "Attentive, passionate, never pretentious. A rare afternoon.",
+        es: "Atentos, apasionados, nunca pretenciosos. Una tarde poco común.",
+        fr: "Attentionnés, passionnés, jamais prétentieux. Un après-midi rare." },
+      { name: "Marco", city: { it: "Milano", en: "Milan", es: "Milán", fr: "Milan" },
+        it: "Vengo da Milano apposta per riascoltare i miei vinili qui.",
+        en: "I come from Milan just to hear my vinyl again in this room.",
+        es: "Vengo desde Milán solo para volver a escuchar mis vinilos aquí.",
+        fr: "Je viens de Milan exprès pour réécouter mes vinyles ici." },
+      { name: "Amara", city: { it: "Lagos", en: "Lagos", es: "Lagos", fr: "Lagos" },
+        it: "Non è una demo tecnica, è un racconto sulla musica.",
+        en: "It's not a tech demo, it's a story told through music.",
+        es: "No es una demo técnica, es un relato a través de la música.",
+        fr: "Ce n'est pas une démo technique, c'est un récit par la musique." }
+    ];
+    var slots = document.querySelectorAll('.ha-airbnb-review');
+    if(!slots.length) return;
+    var langs = ['it','en','es','fr'];
+    var esc = function(s){ return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;'); };
+    for(var i = pool.length - 1; i > 0; i--){
+      var j = Math.floor(Math.random() * (i + 1));
+      var t = pool[i]; pool[i] = pool[j]; pool[j] = t;
+    }
+    slots.forEach(function(slot, k){
+      var item = pool[k % pool.length];
+      var p = slot.querySelector('p');
+      var cite = slot.querySelector('cite');
+      if(p) p.innerHTML = langs.map(function(l){
+        return '<span data-lang="' + l + '">"' + esc(item[l]) + '"</span>';
+      }).join('');
+      if(cite) cite.innerHTML = langs.map(function(l){
+        return '<span data-lang="' + l + '">' + esc(item.name + ' · ' + item.city[l]) + '</span>';
+      }).join('');
+    });
   })();
   </script>
 
