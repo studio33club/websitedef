@@ -1637,7 +1637,23 @@ body.lang-fr [data-lang="fr"]{display:inline}
     </div>
   </div>
 
-  <div class="split" style="border-top:var(--bd)">
+  <style>
+    .split.acc-promo{background:var(--nero-s);border-bottom:var(--bd)}
+    .split.acc-promo .split-text{border-right:none}
+    .split.acc-promo .lbl{color:var(--w)}
+    .split.acc-promo a.split-img{transition:none}
+    .split.acc-promo a.split-img .split-img-bg{
+      filter:grayscale(45%) brightness(.9)!important;
+      transform:scale(1.0001)!important;
+      transition:transform .65s cubic-bezier(.19,1,.22,1),filter .45s ease!important;
+    }
+    .split.acc-promo a.split-img:hover .split-img-bg{
+      filter:grayscale(0%) brightness(1.02)!important;
+      transform:scale(1.055)!important;
+    }
+    .split.acc-promo a.split-img:focus-visible{outline:2px solid rgba(26,26,26,.74);outline-offset:-4px}
+  </style>
+  <div class="split acc-promo" style="border-top:var(--bd)">
     <a class="split-img" href="../accordatura/" style="display:block;text-decoration:none" aria-label="L'Accordatura · Management by Music">
       <div class="split-img-bg" data-bg="../accordatura-hero.jpg" style=""></div>
     </a>
