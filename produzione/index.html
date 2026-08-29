@@ -1792,12 +1792,74 @@ body.lang-fr [data-lang="fr"]{display:inline}
 <!-- ══════════════════════════ PAGE: FORMAZIONE ══════════════════════════ -->
 </main>
 
-<footer class="footer" style="flex-direction:column;align-items:stretch;gap:1.2rem;padding-bottom:5rem">
-  <div style="display:flex;justify-content:space-between;align-items:center;gap:1rem;flex-wrap:wrap">
+<!-- FOOTER SITEMAP -->
+<style>
+  .foot-nav{background:var(--nero-s);border-top:var(--bd);padding:3.6rem 4rem 2.8rem}
+  .foot-nav-inner{display:grid;grid-template-columns:1.5fr 1fr 1fr 1fr minmax(300px,1.7fr);gap:2.6rem;max-width:1780px;align-items:start}
+  .foot-brand img{height:44px;width:auto;display:block;margin-bottom:1.2rem}
+  .foot-brand p{font-family:var(--fb);font-size:14.5px;line-height:1.62;color:rgba(26,26,26,0.58);max-width:40ch}
+  .foot-col h3,.foot-map h3{font-family:var(--fb);font-size:11px;font-weight:500;letter-spacing:.2em;text-transform:uppercase;color:rgba(26,26,26,0.42);margin-bottom:1rem}
+  .foot-col a,.foot-col button{display:block;width:100%;font-family:var(--fb);font-size:14.5px;line-height:1.35;color:rgba(26,26,26,0.62);text-decoration:none;background:none;border:none;padding:.4rem 0;text-align:left;cursor:pointer;transition:color .18s ease}
+  .foot-col a:hover,.foot-col button:hover{color:#1a1a1a}
+  .foot-map iframe{display:block;width:100%;height:230px;border:0;filter:grayscale(1) contrast(1.04);transition:filter .35s ease}
+  .foot-map:hover iframe{filter:grayscale(0)}
+  @media(max-width:1000px){
+    .foot-map{display:none}
+    .foot-nav-inner{grid-template-columns:1.4fr 1fr 1fr 1fr}
+  }
+  @media(max-width:820px){
+    .foot-nav{padding:2.6rem 1.5rem 2.2rem}
+    .foot-nav-inner{grid-template-columns:1fr 1fr 1fr;gap:1.8rem 1.4rem}
+    .foot-brand{grid-column:1 / -1;margin-bottom:.4rem}
+    .foot-brand p{max-width:none}
+  }
+  @media(max-width:600px){ .foot-nav-inner{grid-template-columns:1fr 1fr} }
+  @media(max-width:360px){ .foot-nav-inner{grid-template-columns:1fr} }
+</style>
+<section class="foot-nav" aria-label="Mappa del sito">
+  <div class="foot-nav-inner">
+    <div class="foot-brand">
+      <img src="../logo-studio33-claim.png" alt="Studio 33 · Vision finds fidelity">
+      <p>
+        <span data-lang="it">Studio 33 è location, casa di produzione e hub creativo indipendente a Trastevere, Roma.</span>
+        <span data-lang="en">Studio 33 is a location, a production factory and an independent creative hub in Trastevere, Rome.</span>
+        <span data-lang="es">Studio 33 es localización, casa de producción y hub creativo independiente en Trastevere, Roma.</span>
+        <span data-lang="fr">Studio 33 est un lieu de tournage, une maison de production et un hub créatif indépendant à Trastevere, Rome.</span>
+      </p>
+    </div>
+    <nav class="foot-col">
+      <h3><span data-lang="it">Esplora</span><span data-lang="en">Explore</span><span data-lang="es">Explora</span><span data-lang="fr">Explorer</span></h3>
+      <a href="../location/">Location</a>
+      <a href="../produzione/"><span data-lang="it">Produzione</span><span data-lang="en">Production</span><span data-lang="es">Producción</span><span data-lang="fr">Production</span></a>
+      <a href="../location/#gear"><span data-lang="it">Attrezzatura</span><span data-lang="en">Equipment</span><span data-lang="es">Equipamiento</span><span data-lang="fr">Équipement</span></a>
+      <a href="../hi-end-audio/">Hi-End Audio</a>
+      <a href="../works/">Works</a>
+    </nav>
+    <nav class="foot-col">
+      <h3><span data-lang="it">Cultura</span><span data-lang="en">Culture</span><span data-lang="es">Cultura</span><span data-lang="fr">Culture</span></h3>
+      <a href="../formazione/"><span data-lang="it">Formazione</span><span data-lang="en">Training</span><span data-lang="es">Formación</span><span data-lang="fr">Formation</span></a>
+      <a href="../resonance/">Resonance</a>
+      <a href="../#radio">Studio 33 Radio</a>
+    </nav>
+    <nav class="foot-col">
+      <h3><span data-lang="it">Contatti</span><span data-lang="en">Contact</span><span data-lang="es">Contacto</span><span data-lang="fr">Contact</span></h3>
+      <a href="../contatti/"><span data-lang="it">Contattaci</span><span data-lang="en">Get in touch</span><span data-lang="es">Contáctanos</span><span data-lang="fr">Nous contacter</span></a>
+      <a href="../#nl-step-form">Newsletter</a>
+    </nav>
+    <div class="foot-map">
+      <h3><span data-lang="it">Dove siamo</span><span data-lang="en">Find us</span><span data-lang="es">Dónde estamos</span><span data-lang="fr">Nous trouver</span></h3>
+      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1485.096359988516!2d12.469438845483428!3d41.88871226066967!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x132f6038be2861c7%3A0x6e01c93dbf36c169!2sStudio%2033!5e0!3m2!1sit!2sit!4v1788002420160!5m2!1sit!2sit" title="Studio 33 · Via della Paglia 3a, Trastevere, Roma" allowfullscreen="" loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe>
+    </div>
+  </div>
+</section>
+
+<footer class="footer" style="flex-direction:column;align-items:stretch;gap:1.2rem;padding-bottom:5rem;background:var(--nero-s)">
+  <div style="display:flex;justify-content:space-between;align-items:center;gap:1rem 1.8rem;flex-wrap:wrap">
     <span class="footer-copy">© 2025–2030 The Lens srls, P.IVA IT16132211000</span>
-      <a href="../credits/" style="font-size:11.5px;letter-spacing:.12em;text-transform:uppercase;color:rgba(26,26,26,0.48);margin-left:1.5rem">Credits</a>
-      <a href="../privacy/" style="font-size:11.5px;letter-spacing:.12em;text-transform:uppercase;color:rgba(26,26,26,0.48);margin-left:1.5rem">Privacy Policy</a>
-    
+    <span style="display:flex;gap:1.8rem;flex-shrink:0;margin-left:auto">
+      <a href="../credits/" style="font-size:11.5px;letter-spacing:.12em;text-transform:uppercase;color:rgba(26,26,26,0.48)">Credits</a>
+      <a href="../privacy/" style="font-size:11.5px;letter-spacing:.12em;text-transform:uppercase;color:rgba(26,26,26,0.48)">Privacy Policy</a>
+    </span>
   </div>
 </footer>
 
