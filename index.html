@@ -1761,7 +1761,7 @@ body.lang-fr [data-lang="fr"]{display:inline}
 
 </main>
 
-<!-- FOOTER SITEMAP (prova · solo home) -->
+<!-- FOOTER SITEMAP -->
 <style>
   .foot-nav{background:var(--nero-s);border-top:var(--bd);padding:3.6rem 4rem 2.8rem}
   .foot-nav-inner{display:grid;grid-template-columns:1.5fr 1fr 1fr 1fr minmax(300px,1.7fr);gap:2.6rem;max-width:1780px;align-items:start}
@@ -2453,6 +2453,7 @@ function closeRadio(){
 
 (function(){
   try{
+    if(location.hash === '#radio'){ playRadio(); return; }
     var saved = JSON.parse(localStorage.getItem('s33radio'));
     if(saved && saved.open && radioShows[saved.index] !== undefined){
       radioIndex = saved.index;
