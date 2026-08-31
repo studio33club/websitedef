@@ -1410,6 +1410,42 @@ body.lang-fr [data-lang="fr"]{display:inline}
     <span data-lang="fr">Écouter →</span></span>
   </button>
 
+  <!-- EVENT BANNER · Husk Husk -->
+  <style>
+    .evt{position:relative;display:block;background:#0b0b0b;color:#fff;text-decoration:none;overflow:hidden;border-bottom:var(--bd)}
+    .evt-grid{display:grid;grid-template-columns:.92fr 1.08fr;min-height:470px}
+    .evt-photo{position:relative;background:#000 50% 72%/cover no-repeat;background-image:url('./event-husk-husk.jpg');transition:transform .6s cubic-bezier(.19,1,.22,1)}
+    .evt-photo::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,#0b0b0b 0%,rgba(11,11,11,.35) 30%,rgba(11,11,11,0) 62%)}
+    .evt:hover .evt-photo{transform:scale(1.04)}
+    .evt-body{position:relative;z-index:1;display:flex;flex-direction:column;justify-content:center;gap:1.15rem;padding:3.6rem 4rem}
+    .evt-eyebrow{display:flex;align-items:center;gap:.65rem;font-family:var(--fb);font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:rgba(255,255,255,.62)}
+    .evt-eyebrow::before{content:"";width:6px;height:6px;border-radius:50%;background:#57c8dc;flex-shrink:0}
+    .evt-title{font-family:var(--fd);font-weight:200;font-size:clamp(31px,3.5vw,47px);line-height:1.07;color:#fff}
+    .evt-title em{font-style:italic;color:rgba(255,255,255,.68)}
+    .evt-desc{font-family:var(--fb);font-size:15.5px;line-height:1.62;color:rgba(255,255,255,.8);max-width:46ch;margin:0}
+    .evt-meta{font-family:var(--fb);font-size:11.5px;letter-spacing:.07em;text-transform:uppercase;color:rgba(255,255,255,.5)}
+    .evt-cta{align-self:flex-start;margin-top:.5rem;display:inline-flex;align-items:center;gap:.55rem;font-family:var(--fb);font-size:11.5px;letter-spacing:.2em;text-transform:uppercase;color:#0b0b0b;background:#fff;padding:.95rem 1.75rem;transition:opacity .2s ease,transform .2s ease}
+    .evt:hover .evt-cta{opacity:.9;transform:translateX(3px)}
+    @media(max-width:820px){
+      .evt-grid{grid-template-columns:1fr;min-height:0}
+      .evt-photo{order:-1;aspect-ratio:16/13;background-position:50% 68%}
+      .evt-photo::after{background:linear-gradient(0deg,#0b0b0b 0%,rgba(11,11,11,0) 55%)}
+      .evt-body{padding:2.4rem 1.5rem 2.9rem}
+    }
+  </style>
+  <a class="evt" href="https://tally.so/r/aQXkvE" target="_blank" rel="noopener" aria-label="Husk Husk live in Studio 33 · 17 settembre 2026 — registrati">
+    <div class="evt-grid">
+      <div class="evt-body">
+        <div class="evt-eyebrow"><span data-lang="it">Evento · 17 settembre 2026</span><span data-lang="en">Event · 17 September 2026</span><span data-lang="es">Evento · 17 de septiembre de 2026</span><span data-lang="fr">Événement · 17 septembre 2026</span></div>
+        <div class="evt-title">Husk Husk<br><em><span data-lang="it">live in Studio 33</span><span data-lang="en">live in Studio 33</span><span data-lang="es">en directo en Studio 33</span><span data-lang="fr">en live à Studio 33</span></em></div>
+        <p class="evt-desc"><span data-lang="it">Un nuovo set dal vivo: sampling intricato, poliritmi melodici intensi e sintesi analogica allo stato grezzo.</span><span data-lang="en">A new live set: intricate sampling, intense melodic polyrhythms and raw analogue synthesis.</span><span data-lang="es">Un nuevo directo: sampling intrincado, poliritmos melódicos intensos y síntesis analógica en estado puro.</span><span data-lang="fr">Un nouveau live : sampling complexe, polyrythmies mélodiques intenses et synthèse analogique à l'état brut.</span></p>
+        <div class="evt-meta"><span data-lang="it">Porte 20:30 · Live 21:30 · registrazione obbligatoria</span><span data-lang="en">Doors 20:30 · Live 21:30 · registration required</span><span data-lang="es">Puertas 20:30 · Directo 21:30 · inscripción obligatoria</span><span data-lang="fr">Portes 20:30 · Live 21:30 · inscription obligatoire</span></div>
+        <span class="evt-cta"><span data-lang="it">Registrati →</span><span data-lang="en">Register →</span><span data-lang="es">Regístrate →</span><span data-lang="fr">S'inscrire →</span></span>
+      </div>
+      <div class="evt-photo"></div>
+    </div>
+  </a>
+
   <!-- INTRO -->
   <section class="intro">
     <div class="intro-grid">
