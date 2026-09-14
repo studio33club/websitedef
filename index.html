@@ -1495,6 +1495,59 @@ body.lang-fr [data-lang="fr"]{display:inline}
   })();
   </script>
 
+  <!-- EVENT BANNER · Argento · Miraggi Listening Session -->
+  <style>
+    .evt2{background:#eef2f5;color:#141b22;overflow:hidden;border-bottom:var(--bd)}
+    .evt2-grid{display:grid;grid-template-columns:1.05fr .95fr;min-height:500px;max-width:1760px}
+    .evt2-col{display:flex;flex-direction:column;justify-content:center;gap:1.15rem;padding:3.4rem 4rem}
+    .evt2-eyebrow{display:flex;align-items:center;gap:.65rem;font-family:var(--fb);font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:rgba(20,27,34,.56)}
+    .evt2-eyebrow::before{content:"";width:6px;height:6px;border-radius:50%;background:#7fa8c9;flex-shrink:0}
+    .evt2-title{font-family:var(--fd);font-weight:200;font-size:clamp(31px,3.5vw,47px);line-height:1.07;color:#141b22}
+    .evt2-title em{font-style:italic;color:rgba(20,27,34,.6)}
+    .evt2-desc{font-family:var(--fb);font-size:15.5px;line-height:1.6;color:rgba(20,27,34,.72);max-width:52ch;margin:0}
+    .evt2-meta{font-family:var(--fb);font-size:11.5px;letter-spacing:.07em;text-transform:uppercase;color:rgba(20,27,34,.52)}
+    .evt2-actions{display:flex;align-items:center;gap:1.5rem;flex-wrap:wrap;margin-top:.75rem}
+    .evt2-cta{flex-shrink:0;display:inline-flex;align-items:center;gap:.55rem;font-family:var(--fb);font-size:11.5px;letter-spacing:.2em;text-transform:uppercase;color:#fff;background:#141b22;padding:.95rem 1.75rem;text-decoration:none;transition:opacity .2s ease,transform .2s ease}
+    .evt2-cta:hover{opacity:.86;transform:translateX(3px)}
+    .evt2-photo{position:relative;overflow:hidden;background:#dbe4ea}
+    .evt2-photo-img{position:absolute;inset:0;background:#dbe4ea url('./event-argento-miraggi.jpg') 50% 62% / cover no-repeat;animation:evt2push 32s ease-out both}
+    @keyframes evt2push{from{transform:scale(1.04)}to{transform:scale(1.12)}}
+    .evt2-photo::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,#eef2f5 0%,rgba(238,242,245,.42) 20%,rgba(238,242,245,0) 46%)}
+    .evt2-glint{position:absolute;inset:0;pointer-events:none;mix-blend-mode:screen;background:radial-gradient(46% 38% at 66% 74%,rgba(255,255,255,.55),transparent 70%);animation:evt2glint 9s ease-in-out infinite}
+    @keyframes evt2glint{0%,100%{opacity:.22;transform:scale(.97)}50%{opacity:.5;transform:scale(1.04)}}
+    .evt2-badge{position:absolute;z-index:2;top:1rem;right:1rem;width:44px;height:44px;border-radius:50%;background:rgba(255,255,255,.94);box-shadow:0 2px 10px rgba(20,27,34,.18);display:flex;align-items:center;justify-content:center}
+    .evt2-badge img{width:58%;height:58%;object-fit:contain;display:block}
+    @media(prefers-reduced-motion:reduce){.evt2-photo-img,.evt2-glint{animation:none}}
+    @media(max-width:900px){
+      .evt2-grid{grid-template-columns:1fr;min-height:0}
+      .evt2-col{padding:2.4rem 1.5rem 3rem}
+      .evt2-actions{flex-direction:column;align-items:stretch;gap:1.1rem}
+      .evt2-cta{align-self:flex-start}
+      .evt2-photo{order:-1;aspect-ratio:16/12}
+      .evt2-photo-img{background-position:50% 58%}
+      .evt2-photo::after{background:linear-gradient(0deg,#eef2f5 0%,rgba(238,242,245,0) 46%)}
+      .evt2-badge{width:38px;height:38px;top:.8rem;right:.8rem}
+    }
+  </style>
+  <section class="evt2" aria-label="Argento · Miraggi Listening Session, 18 settembre 2026">
+    <div class="evt2-grid">
+      <div class="evt2-col">
+        <div class="evt2-eyebrow"><span data-lang="it">Listening session · 18 settembre 2026</span><span data-lang="en">Listening session · September 18, 2026</span><span data-lang="es">Sesión de escucha · 18 de septiembre de 2026</span><span data-lang="fr">Session d'écoute · 18 septembre 2026</span></div>
+        <div class="evt2-title">Argento<br><em><span data-lang="it">Miraggi · ascolto del disco</span><span data-lang="en">Miraggi · listening to the record</span><span data-lang="es">Miraggi · escucha del disco</span><span data-lang="fr">Miraggi · écoute du disque</span></em></div>
+        <p class="evt2-desc"><span data-lang="it">Un'etichetta che stimiamo profondamente, un artista e un disco che stiamo ascoltando moltissimo in questi giorni: la ricetta perfetta per un venerdì speciale in Studio 33.</span><span data-lang="en">A label we deeply admire, an artist and a record we've been listening to a lot lately — the perfect recipe for a meaningful Friday at Studio 33.</span><span data-lang="es">Un sello que admiramos profundamente, un artista y un disco que estamos escuchando muchísimo últimamente: la receta perfecta para un viernes especial en Studio 33.</span><span data-lang="fr">Un label que nous admirons profondément, un artiste et un disque que nous écoutons énormément ces derniers temps : la recette parfaite pour un vendredi particulier au Studio 33.</span></p>
+        <div class="evt2-meta"><span data-lang="it">Venerdì 18 settembre · ore 18:00 · ingresso libero, fino a esaurimento posti</span><span data-lang="en">Friday, September 18th · 6 PM · free entry, subject to capacity</span><span data-lang="es">Viernes 18 de septiembre · 18:00 h · entrada libre, hasta completar aforo</span><span data-lang="fr">Vendredi 18 septembre · 18h00 · entrée libre, dans la limite des places disponibles</span></div>
+        <div class="evt2-actions">
+          <a class="evt2-cta" href="https://www.instagram.com/studio33trastevere/" target="_blank" rel="noopener"><span data-lang="it">Maggiori info →</span><span data-lang="en">More info →</span><span data-lang="es">Más información →</span><span data-lang="fr">Plus d'infos →</span></a>
+        </div>
+      </div>
+      <div class="evt2-photo">
+        <div class="evt2-photo-img"></div>
+        <div class="evt2-glint"></div>
+        <span class="evt2-badge"><img src="./music-from-memory-logo.svg" alt="Music From Memory" loading="lazy"></span>
+      </div>
+    </div>
+  </section>
+
   <!-- INTRO -->
   <section class="intro">
     <div class="intro-grid">
