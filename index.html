@@ -1410,59 +1410,92 @@ body.lang-fr [data-lang="fr"]{display:inline}
     <span data-lang="fr">Écouter →</span></span>
   </button>
 
-  <!-- EVENT BANNER · Argento · Miraggi Listening Session -->
+  <!-- EVENT BANNER · The Gyuto Monks Recordings Listening Session -->
   <style>
-    .evt2{background:#eef2f5;color:#141b22;overflow:hidden;border-bottom:var(--bd)}
-    .evt2-grid{display:grid;grid-template-columns:1.05fr .95fr;min-height:500px;max-width:1760px}
-    .evt2-col{display:flex;flex-direction:column;justify-content:center;gap:1.15rem;padding:3.4rem 4rem}
-    .evt2-eyebrow{display:flex;align-items:center;gap:.65rem;font-family:var(--fb);font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:rgba(20,27,34,.56)}
-    .evt2-eyebrow::before{content:"";width:6px;height:6px;border-radius:50%;background:#7fa8c9;flex-shrink:0}
-    .evt2-title{font-family:var(--fd);font-weight:200;font-size:clamp(31px,3.5vw,47px);line-height:1.07;color:#141b22}
-    .evt2-title em{font-style:italic;color:rgba(20,27,34,.6)}
-    .evt2-desc{font-family:var(--fb);font-size:15.5px;line-height:1.6;color:rgba(20,27,34,.72);max-width:52ch;margin:0}
-    .evt2-meta{font-family:var(--fb);font-size:11.5px;letter-spacing:.07em;text-transform:uppercase;color:rgba(20,27,34,.52)}
-    .evt2-actions{display:flex;align-items:center;gap:1.5rem;flex-wrap:wrap;margin-top:.75rem}
-    .evt2-cta{flex-shrink:0;display:inline-flex;align-items:center;gap:.55rem;font-family:var(--fb);font-size:11.5px;letter-spacing:.2em;text-transform:uppercase;color:#fff;background:#141b22;padding:.95rem 1.75rem;text-decoration:none;transition:opacity .2s ease,transform .2s ease}
-    .evt2-cta:hover{opacity:.86;transform:translateX(3px)}
-    .evt2-label{display:inline-flex;align-items:center;gap:.7rem;font-family:var(--fb);font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:rgba(20,27,34,.75)}
-    .evt2-label img{width:32px;height:32px;object-fit:contain;flex-shrink:0}
-    .evt2-label b{font-weight:600;white-space:nowrap}
-    .evt2-photo{position:relative;overflow:hidden;background:#dbe4ea}
-    .evt2-photo-img{position:absolute;inset:0;background:#dbe4ea url('./event-argento-miraggi.jpg') 50% 45% / cover no-repeat;animation:evt2push 32s ease-out both}
-    @keyframes evt2push{from{transform:scale(1.04)}to{transform:scale(1.12)}}
-    .evt2-photo::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,#eef2f5 0%,rgba(238,242,245,.42) 20%,rgba(238,242,245,0) 46%)}
-    .evt2-glint{position:absolute;inset:0;pointer-events:none;mix-blend-mode:screen;background:radial-gradient(46% 38% at 66% 74%,rgba(255,255,255,.55),transparent 70%);animation:evt2glint 9s ease-in-out infinite}
-    @keyframes evt2glint{0%,100%{opacity:.22;transform:scale(.97)}50%{opacity:.5;transform:scale(1.04)}}
-    @media(prefers-reduced-motion:reduce){.evt2-photo-img,.evt2-glint{animation:none}}
+    .evt3{background:#0b0b0b;color:#fff;overflow:hidden;border-bottom:var(--bd)}
+    .evt3-grid{display:grid;grid-template-columns:1.05fr .95fr;min-height:500px;max-width:1760px}
+    .evt3-col{display:flex;flex-direction:column;justify-content:center;gap:1.15rem;padding:3.4rem 4rem}
+    .evt3-eyebrow{display:flex;align-items:center;gap:.65rem;font-family:var(--fb);font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:rgba(255,255,255,.62)}
+    .evt3-eyebrow::before{content:"";width:6px;height:6px;border-radius:50%;background:#c9a15a;flex-shrink:0}
+    .evt3-title{font-family:var(--fd);font-weight:200;font-size:clamp(31px,3.5vw,47px);line-height:1.07;color:#fff}
+    .evt3-title em{font-style:italic;color:rgba(255,255,255,.68)}
+    .evt3-desc{position:relative;max-width:52ch;min-height:5rem;margin:0}
+    .evt3-slide{position:absolute;inset:0;display:block;font-family:var(--fb);font-size:15.5px;line-height:1.6;color:rgba(255,255,255,.8);opacity:0;transition:opacity .6s ease;pointer-events:none}
+    .evt3-slide.on{opacity:1;pointer-events:auto}
+    .evt3-meta{font-family:var(--fb);font-size:11.5px;letter-spacing:.07em;text-transform:uppercase;color:rgba(255,255,255,.5)}
+    .evt3-actions{display:flex;align-items:center;gap:1.5rem;flex-wrap:wrap;margin-top:.75rem}
+    .evt3-cta{flex-shrink:0;display:inline-flex;align-items:center;gap:.55rem;font-family:var(--fb);font-size:11.5px;letter-spacing:.2em;text-transform:uppercase;color:#0b0b0b;background:#fff;padding:.95rem 1.75rem;text-decoration:none;transition:opacity .2s ease,transform .2s ease}
+    .evt3-cta:hover{opacity:.9;transform:translateX(3px)}
+    .evt3-photo{position:relative;overflow:hidden;background:#000}
+    .evt3-photo-img{position:absolute;inset:0;background:#000 url('./event-gyuto-monks.jpg') 50% 42% / cover no-repeat;animation:evt3push 32s ease-out both}
+    @keyframes evt3push{from{transform:scale(1.04)}to{transform:scale(1.12)}}
+    .evt3-photo::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,#0b0b0b 0%,rgba(11,11,11,.5) 22%,rgba(11,11,11,0) 58%)}
+    @media(prefers-reduced-motion:reduce){.evt3-photo-img{animation:none}}
     @media(max-width:900px){
-      .evt2-grid{grid-template-columns:1fr;min-height:0}
-      .evt2-col{padding:2.4rem 1.5rem 3rem}
-      .evt2-actions{flex-direction:column;align-items:stretch;gap:1.1rem}
-      .evt2-cta{align-self:flex-start}
-      .evt2-label{align-self:flex-start}
-      .evt2-photo{order:-1;aspect-ratio:16/12}
-      .evt2-photo-img{background-position:50% 45%}
-      .evt2-photo::after{background:linear-gradient(0deg,#eef2f5 0%,rgba(238,242,245,0) 46%)}
+      .evt3-grid{grid-template-columns:1fr;min-height:0}
+      .evt3-col{padding:2.4rem 1.5rem 3rem}
+      .evt3-desc{max-width:none;min-height:8rem}
+      .evt3-actions{flex-direction:column;align-items:stretch;gap:1.1rem}
+      .evt3-cta{align-self:flex-start}
+      .evt3-photo{order:-1;aspect-ratio:16/12}
+      .evt3-photo-img{background-position:50% 38%}
+      .evt3-photo::after{background:linear-gradient(0deg,#0b0b0b 0%,rgba(11,11,11,0) 46%)}
     }
   </style>
-  <section class="evt2" aria-label="Argento · Miraggi Listening Session, 18 settembre 2026">
-    <div class="evt2-grid">
-      <div class="evt2-col">
-        <div class="evt2-eyebrow"><span data-lang="it">Listening session · 18 settembre 2026</span><span data-lang="en">Listening session · September 18, 2026</span><span data-lang="es">Sesión de escucha · 18 de septiembre de 2026</span><span data-lang="fr">Session d'écoute · 18 septembre 2026</span></div>
-        <div class="evt2-title">Argento<br><em><span data-lang="it">Miraggi · ascolto del disco</span><span data-lang="en">Miraggi · listening to the record</span><span data-lang="es">Miraggi · escucha del disco</span><span data-lang="fr">Miraggi · écoute du disque</span></em></div>
-        <p class="evt2-desc"><span data-lang="it">Un'etichetta che stimiamo profondamente, un artista e un disco che stiamo ascoltando moltissimo in questi giorni: la ricetta perfetta per un venerdì speciale in Studio 33.</span><span data-lang="en">A label we deeply admire, an artist and a record we've been listening to a lot lately — the perfect recipe for a meaningful Friday at Studio 33.</span><span data-lang="es">Un sello que admiramos profundamente, un artista y un disco que estamos escuchando muchísimo últimamente: la receta perfecta para un viernes especial en Studio 33.</span><span data-lang="fr">Un label que nous admirons profondément, un artiste et un disque que nous écoutons énormément ces derniers temps : la recette parfaite pour un vendredi particulier au Studio 33.</span></p>
-        <div class="evt2-meta"><span data-lang="it">Venerdì 18 settembre · ore 18:00 · ingresso libero, fino a esaurimento posti</span><span data-lang="en">Friday, September 18th · 6 PM · free entry, subject to capacity</span><span data-lang="es">Viernes 18 de septiembre · 18:00 h · entrada libre, hasta completar aforo</span><span data-lang="fr">Vendredi 18 septembre · 18h00 · entrée libre, dans la limite des places disponibles</span></div>
-        <div class="evt2-actions">
-          <a class="evt2-cta" href="https://www.instagram.com/p/DdR3YInjNwm/?img_index=3" target="_blank" rel="noopener"><span data-lang="it">Maggiori info →</span><span data-lang="en">More info →</span><span data-lang="es">Más información →</span><span data-lang="fr">Plus d'infos →</span></a>
-          <span class="evt2-label"><img src="./music-from-memory-logo.svg" alt="Music From Memory" loading="lazy"><b>Music From Memory</b></span>
+  <section class="evt3" aria-label="The Gyuto Monks Recordings, listening session, 2 ottobre 2026">
+    <div class="evt3-grid">
+      <div class="evt3-col">
+        <div class="evt3-eyebrow"><span data-lang="it">Listening session · 2 ottobre 2026</span><span data-lang="en">Listening session · October 2, 2026</span><span data-lang="es">Sesión de escucha · 2 de octubre de 2026</span><span data-lang="fr">Session d'écoute · 2 octobre 2026</span></div>
+        <div class="evt3-title">Gyuto Monks<br><em><span data-lang="it">Registrazioni</span><span data-lang="en">Recordings</span><span data-lang="es">Grabaciones</span><span data-lang="fr">Enregistrements</span></em></div>
+        <div class="evt3-desc">
+          <span class="evt3-slide on"><span data-lang="it">@spazio.supernova incontra Studio 33 per una sessione di ascolto dedicata alle registrazioni della "voce che rotola come l'oceano" dei Monaci Gyuto.</span><span data-lang="en">@spazio.supernova meets Studio 33 for a listening session dedicated to recordings of the Gyuto Monks' "ocean-rolling voice."</span><span data-lang="es">@spazio.supernova se une a Studio 33 para una sesión de escucha dedicada a las grabaciones de la "voz que rueda como el océano" de los Monjes Gyuto.</span><span data-lang="fr">@spazio.supernova rencontre Studio 33 pour une session d'écoute dédiée aux enregistrements de la « voix roulant comme l'océan » des Moines Gyuto.</span></span>
+          <span class="evt3-slide"><span data-lang="it">Conosciuti in tutto il mondo per la loro straordinaria tecnica di canto multifonico, i Monaci Gyuto appartengono alla scuola Gelug, o dei "Cappelli Gialli", fondata in Tibet nel 1474. Vivono in esilio a Sidhbari, vicino Dharamsala, in India, dall'occupazione cinese del 1959.</span><span data-lang="en">Renowned worldwide for their extraordinary technique of multiphonic chanting, the Gyuto Monks belong to the Gelug, or "Yellow Hat," school, founded in Tibet in 1474. They have lived in exile in Sidhbari, near Dharamsala, India, since the Chinese occupation of 1959.</span><span data-lang="es">Reconocidos en todo el mundo por su extraordinaria técnica de canto multifónico, los Monjes Gyuto pertenecen a la escuela Gelug, o de los "Sombreros Amarillos", fundada en el Tíbet en 1474. Viven exiliados en Sidhbari, cerca de Dharamsala, India, desde la ocupación china de 1959.</span><span data-lang="fr">Réputés dans le monde entier pour leur extraordinaire technique de chant multiphonique, les Moines Gyuto appartiennent à l'école Gelug, ou des « Bonnets Jaunes », fondée au Tibet en 1474. Ils vivent en exil à Sidhbari, près de Dharamsala, en Inde, depuis l'occupation chinoise de 1959.</span></span>
+          <span class="evt3-slide"><span data-lang="it">Il tratto più sorprendente del coro è la capacità di ogni monaco di produrre più note simultaneamente: un tono fondamentale profondo unito a due o tre armonici più acuti.</span><span data-lang="en">The choir's most striking feature is each monk's ability to produce several notes simultaneously — a deep fundamental tone combined with two or three higher overtones.</span><span data-lang="es">El rasgo más sorprendente del coro es la capacidad de cada monje de producir varias notas simultáneamente: un tono fundamental grave combinado con dos o tres armónicos más agudos.</span><span data-lang="fr">La caractéristique la plus frappante du chœur est la capacité de chaque moine à produire plusieurs notes simultanément : un ton fondamental grave combiné à deux ou trois harmoniques plus aiguës.</span></span>
+          <span class="evt3-slide"><span data-lang="it">Lontana dall'essere una performance artistica fine a sé stessa, questa è una potente pratica meditativa tantrica: le vibrazioni sub-bassi e gli armonici sono pensati per sintonizzare la mente sulle frequenze delle divinità e generare pace universale.</span><span data-lang="en">Far from being an artistic performance for its own sake, this is a powerful tantric meditative practice: the sub-bass vibrations and overtones are meant to attune the mind to the frequencies of the deities and generate universal peace.</span><span data-lang="es">Lejos de ser una performance artística en sí misma, se trata de una poderosa práctica meditativa tántrica: las vibraciones subgraves y los armónicos están pensados para sintonizar la mente con las frecuencias de las deidades y generar paz universal.</span><span data-lang="fr">Loin d'être une performance artistique en soi, il s'agit d'une puissante pratique méditative tantrique : les vibrations sub-graves et les harmoniques visent à accorder l'esprit aux fréquences des divinités et à générer une paix universelle.</span></span>
+          <span class="evt3-slide"><span data-lang="it">La serata fa parte di Khandroma, nata dalla collaborazione tra Soundwalk Collective e Patti Smith, presentata come installazione audio-visiva presso Spazio Supernova.</span><span data-lang="en">The evening is part of Khandroma, born from the collaboration between Soundwalk Collective and Patti Smith, presented as an audio-visual installation at Spazio Supernova.</span><span data-lang="es">La velada forma parte de Khandroma, nacida de la colaboración entre Soundwalk Collective y Patti Smith, presentada como instalación audiovisual en Spazio Supernova.</span><span data-lang="fr">La soirée s'inscrit dans Khandroma, née de la collaboration entre Soundwalk Collective et Patti Smith, présentée comme une installation audiovisuelle à Spazio Supernova.</span></span>
+        </div>
+        <div class="evt3-meta"><span data-lang="it">Venerdì 2 ottobre · ore 21:30 · massimo 50 persone · posti non prenotabili</span><span data-lang="en">Friday, October 2nd · 9:30 PM · max 50 people · first come, first served</span><span data-lang="es">Viernes 2 de octubre · 21:30 h · máximo 50 personas · por orden de llegada</span><span data-lang="fr">Vendredi 2 octobre · 21h30 · maximum 50 personnes · dans la limite des places disponibles</span></div>
+        <div class="evt3-actions">
+          <a class="evt3-cta" href="https://www.instagram.com/studio33trastevere/" target="_blank" rel="noopener"><span data-lang="it">Maggiori info →</span><span data-lang="en">More info →</span><span data-lang="es">Más información →</span><span data-lang="fr">Plus d'infos →</span></a>
         </div>
       </div>
-      <div class="evt2-photo">
-        <div class="evt2-photo-img"></div>
-        <div class="evt2-glint"></div>
+      <div class="evt3-photo">
+        <div class="evt3-photo-img"></div>
       </div>
     </div>
   </section>
+  <script>
+  (function(){
+    var desc = document.querySelector('.evt3-desc');
+    if(!desc) return;
+    var slides = desc.querySelectorAll('.evt3-slide');
+    // reserve height for the tallest slide so the banner never reflows
+    function sizeIt(){
+      desc.style.minHeight = '0px';
+      var max = 0;
+      slides.forEach(function(s){
+        var wasOn = s.classList.contains('on');
+        s.classList.add('on');
+        s.style.position = 'static';
+        if(s.offsetHeight > max) max = s.offsetHeight;
+        s.style.position = '';
+        if(!wasOn) s.classList.remove('on');
+      });
+      desc.style.minHeight = Math.ceil(max) + 'px';
+    }
+    sizeIt();
+    window.addEventListener('resize', sizeIt);
+    try{ new MutationObserver(sizeIt).observe(document.body, {attributes:true, attributeFilter:['class']}); }catch(e){}
+    if(slides.length > 1){
+      var i = 0;
+      setInterval(function(){
+        slides[i].classList.remove('on');
+        i = (i + 1) % slides.length;
+        slides[i].classList.add('on');
+      }, 6500);
+    }
+  })();
+  </script>
 
   <!-- INTRO -->
   <section class="intro">
