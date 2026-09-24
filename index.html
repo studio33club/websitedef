@@ -2351,7 +2351,7 @@ s33InitScrollReveal();
 
 <!-- RADIO PLAYER (fisso in fondo, stile NTS) -->
 <style>
-  .s33ap{display:flex;align-items:center;height:60px;background:#111;font-family:var(--fb);line-height:normal}
+  .s33ap,.s33mc{display:flex;align-items:center;height:60px;background:#111;font-family:var(--fb);line-height:normal}
   .s33ap-cover{width:60px;height:60px;object-fit:cover;object-position:center;flex-shrink:0;display:block;background:#222}
   .s33ap-pp{width:34px;height:34px;border-radius:50%;background:#fff;border:none;flex-shrink:0;margin:0 14px;cursor:pointer;display:flex;align-items:center;justify-content:center;padding:0;transition:transform .15s ease}
   .s33ap-pp:hover{transform:scale(1.06)}
@@ -2388,7 +2388,8 @@ var radioShows = [
   {title:'NPR World Cafe · Ariete @ Studio 33', feed:'%2FStudio_33%2Fnpr-in-studio-33-ariete-on-world-cafe-sense-of-place-italy%2F'},
   {title:'NPR World Cafe · Laila Al Habash @ Studio 33', feed:'%2FStudio_33%2Fnpr-in-studio-33-laila-al-habash-on-world-cafe-sense-of-place-rome%2F'},
   {title:'Shhh/Peaceful · Jeremiah Chiu & Marta Sofia Honer Live', feed:'%2FStudio_33%2Fshhh-peaceful-in-studio-33-jeremiah-chiu-marta-sofia-honer-live%2F'},
-  {title:'Shhh/Peaceful · Jonah Parzen-Johnson & Lau Nau Live: Avant-Jazz & Electronics', feed:'%2FStudio_33%2Fshhhpeaceful-in-studio-33-jonah-parzen-johnson-lau-nau-live-avant-jazz-electronics%2F'}
+  {title:'Shhh/Peaceful · Jonah Parzen-Johnson & Lau Nau Live: Avant-Jazz & Electronics', feed:'%2FStudio_33%2Fshhhpeaceful-in-studio-33-jonah-parzen-johnson-lau-nau-live-avant-jazz-electronics%2F'},
+  {title:'Husk Husk live in Studio 33', feed:'%2FStudio_33%2Fhusk-husk-live-in-studio-33-170926%2F', cover:'./radio-husk-husk-cover.jpg'}
 ];
 var teaserIndex = 0;
 var radioIndex = 0;
@@ -2491,7 +2492,8 @@ function loadRadioShow(i, autoplay){
         '</div>';
       initS33Audio(autoplay);
     } else {
-      container.innerHTML = '<iframe width="100%" height="60" src="https://player-widget.mixcloud.com/widget/iframe/?hide_cover=1&mini=1' + ap + '&feed=' + show.feed + '" frameborder="0" allow="encrypted-media; fullscreen; autoplay; idle-detection; speaker-selection; web-share;" style="display:block;height:60px;max-width:none"></iframe>';
+      var mcIframe = '<iframe width="100%" height="60" src="https://player-widget.mixcloud.com/widget/iframe/?hide_cover=1&mini=1' + ap + '&feed=' + show.feed + '" frameborder="0" allow="encrypted-media; fullscreen; autoplay; idle-detection; speaker-selection; web-share;" style="display:block;height:60px;max-width:none;flex:1;min-width:0"></iframe>';
+      container.innerHTML = show.cover ? ('<div class="s33mc"><img class="s33ap-cover" src="' + show.cover + '" alt="">' + mcIframe + '</div>') : mcIframe;
     }
     if(titleEl){ titleEl.textContent = show.title; titleEl.style.opacity = 1; }
     container.style.opacity = 1;
