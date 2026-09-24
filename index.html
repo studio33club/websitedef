@@ -1403,7 +1403,7 @@ body.lang-fr [data-lang="fr"]{display:inline}
           On air
         </span>
       </span>
-      <span id="radioTeaserTitle" style="font-family:var(--fd);font-size:17px;color:#fff;display:inline-block;transition:opacity .5s ease,transform .5s ease">Sacred Grooves EP01 · Andrea Benedetti</span>
+      <span id="radioTeaserTitle" style="font-family:var(--fd);font-size:17px;color:#fff;display:inline-block;transition:opacity .5s ease,transform .5s ease">Husk Husk live in Studio 33</span>
     </span>
     <span style="font-size:11.5px;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.55);flex-shrink:0"><span data-lang="it">Ascolta →</span><span data-lang="en">Listen →</span>
     <span data-lang="es">Escuchar →</span>
@@ -2370,7 +2370,7 @@ s33InitScrollReveal();
   <div style="display:flex;align-items:center;gap:1rem;padding:.7rem 1.3rem;border-bottom:1px solid rgba(255,255,255,.08)">
     <div style="flex:1;min-width:0">
       <div style="font-family:var(--fb);font-size:10.5px;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.5)">Studio 33 Radio · On air</div>
-      <div id="radioBarTitle" style="font-family:var(--fd);font-size:15px;color:#fff;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;transition:opacity .3s ease">Sacred Grooves EP01 · Andrea Benedetti</div>
+      <div id="radioBarTitle" style="font-family:var(--fd);font-size:15px;color:#fff;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;transition:opacity .3s ease">Husk Husk live in Studio 33</div>
     </div>
     <button onclick="switchRadioShow()" aria-label="Cambia show" style="background:none;border:1px solid rgba(255,255,255,.22);color:rgba(255,255,255,.75);font-family:var(--fb);font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;cursor:pointer;padding:.5rem .8rem;flex-shrink:0;border-radius:2px;white-space:nowrap">⇄ <span data-lang="it">Altro show</span><span data-lang="en">Next show</span>
     <span data-lang="es">Otro show</span>
@@ -2382,14 +2382,14 @@ s33InitScrollReveal();
 
 <script>
 var radioShows = [
+  {title:'Husk Husk live in Studio 33', feed:'%2FStudio_33%2Fhusk-husk-live-in-studio-33-170926%2F', cover:'./radio-husk-husk-cover.jpg'},
   {title:'Sacred Grooves EP01 · Andrea Benedetti', feed:'%2FStudio_33%2Fsacred-grooves-ep01-andrea-benedetti%2F'},
   {title:'Saverio Raimondo live in Studio 33', src:'./saverio-raimondo-live-studio-33.m4a', cover:'./saverio-raimondo-live-studio-33.jpg', coverFallback:'./saverio-raimondo-live-studio-33.svg'},
   {title:'NPR World Cafe · Black Snake Moan @ Studio 33', feed:'%2FStudio_33%2Fnpr-in-studio-33-black-snake-moan-on-world-cafe-sense-of-place-rome%2F'},
   {title:'NPR World Cafe · Ariete @ Studio 33', feed:'%2FStudio_33%2Fnpr-in-studio-33-ariete-on-world-cafe-sense-of-place-italy%2F'},
   {title:'NPR World Cafe · Laila Al Habash @ Studio 33', feed:'%2FStudio_33%2Fnpr-in-studio-33-laila-al-habash-on-world-cafe-sense-of-place-rome%2F'},
   {title:'Shhh/Peaceful · Jeremiah Chiu & Marta Sofia Honer Live', feed:'%2FStudio_33%2Fshhh-peaceful-in-studio-33-jeremiah-chiu-marta-sofia-honer-live%2F'},
-  {title:'Shhh/Peaceful · Jonah Parzen-Johnson & Lau Nau Live: Avant-Jazz & Electronics', feed:'%2FStudio_33%2Fshhhpeaceful-in-studio-33-jonah-parzen-johnson-lau-nau-live-avant-jazz-electronics%2F'},
-  {title:'Husk Husk live in Studio 33', feed:'%2FStudio_33%2Fhusk-husk-live-in-studio-33-170926%2F', cover:'./radio-husk-husk-cover.jpg'}
+  {title:'Shhh/Peaceful · Jonah Parzen-Johnson & Lau Nau Live: Avant-Jazz & Electronics', feed:'%2FStudio_33%2Fshhhpeaceful-in-studio-33-jonah-parzen-johnson-lau-nau-live-avant-jazz-electronics%2F'}
 ];
 var teaserIndex = 0;
 var radioIndex = 0;
