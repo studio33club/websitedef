@@ -1410,66 +1410,59 @@ body.lang-fr [data-lang="fr"]{display:inline}
     <span data-lang="fr">Écouter →</span></span>
   </button>
 
-  <!-- EVENT BANNER · The Gyuto Monks Recordings Listening Session -->
+  <!-- EVENT BANNER · Think Outside the Looongevity (Co-Stories live × Plural) -->
   <style>
-    .evt3{background:#0b0b0b;color:#fff;overflow:hidden;border-bottom:var(--bd)}
-    .evt3-grid{display:grid;grid-template-columns:1.05fr .95fr;min-height:500px;max-width:1760px}
-    .evt3-col{display:flex;flex-direction:column;justify-content:center;gap:1.15rem;padding:3.4rem 4rem}
-    .evt3-eyebrow{display:flex;align-items:center;gap:.65rem;font-family:var(--fb);font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:rgba(255,255,255,.62)}
-    .evt3-eyebrow::before{content:"";width:6px;height:6px;border-radius:50%;background:#c9a15a;flex-shrink:0}
-    .evt3-title{font-family:var(--fd);font-weight:200;font-size:clamp(31px,3.5vw,47px);line-height:1.07;color:#fff}
-    .evt3-title em{font-style:italic;color:rgba(255,255,255,.68)}
-    .evt3-desc{position:relative;max-width:52ch;min-height:5rem;margin:0}
-    .evt3-slide{position:absolute;inset:0;display:block;font-family:var(--fb);font-size:15.5px;line-height:1.6;color:rgba(255,255,255,.8);opacity:0;transition:opacity .6s ease;pointer-events:none}
-    .evt3-slide.on{opacity:1;pointer-events:auto}
-    .evt3-meta{font-family:var(--fb);font-size:11.5px;letter-spacing:.07em;text-transform:uppercase;color:rgba(255,255,255,.5)}
-    .evt3-actions{display:flex;align-items:center;gap:1.5rem;flex-wrap:wrap;margin-top:.75rem}
-    .evt3-cta{flex-shrink:0;display:inline-flex;align-items:center;gap:.55rem;font-family:var(--fb);font-size:11.5px;letter-spacing:.2em;text-transform:uppercase;color:#0b0b0b;background:#fff;padding:.95rem 1.75rem;text-decoration:none;transition:opacity .2s ease,transform .2s ease}
-    .evt3-cta:hover{opacity:.9;transform:translateX(3px)}
-    .evt3-photo{position:relative;overflow:hidden;background:#000}
-    .evt3-photo-img{position:absolute;inset:0;background:#000 url('./event-gyuto-monks.jpg') 50% 42% / cover no-repeat;animation:evt3push 32s ease-out both}
-    @keyframes evt3push{from{transform:scale(1.04)}to{transform:scale(1.12)}}
-    .evt3-photo::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,#0b0b0b 0%,rgba(11,11,11,.5) 22%,rgba(11,11,11,0) 58%)}
-    @media(prefers-reduced-motion:reduce){.evt3-photo-img{animation:none}}
+    .evt4{background:#a7b0f6;color:#0d0f1f;overflow:hidden;border-bottom:var(--bd)}
+    .evt4-grid{display:grid;grid-template-columns:.8fr 1.2fr;min-height:0;max-width:1760px}
+    .evt4-col{display:flex;flex-direction:column;justify-content:center;gap:1.15rem;padding:3.4rem 4rem}
+    .evt4-eyebrow{display:flex;align-items:center;gap:.65rem;font-family:var(--fb);font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:rgba(13,15,31,.66)}
+    .evt4-eyebrow::before{content:"";width:6px;height:6px;border-radius:50%;background:#606fe3;flex-shrink:0}
+    .evt4-desc{position:relative;max-width:52ch;min-height:5rem;margin:0}
+    .evt4-slide{position:absolute;inset:0;display:block;font-family:var(--fb);font-size:15.5px;line-height:1.6;color:rgba(13,15,31,.78);opacity:0;transition:opacity .6s ease;pointer-events:none}
+    .evt4-slide.on{opacity:1;pointer-events:auto}
+    .evt4-meta{font-family:var(--fb);font-size:11.5px;letter-spacing:.07em;text-transform:uppercase;color:rgba(13,15,31,.62);line-height:1.7}
+    .evt4-actions{display:flex;align-items:center;gap:1.5rem;flex-wrap:wrap;margin-top:.75rem}
+    .evt4-cta{flex-shrink:0;display:inline-flex;align-items:center;gap:.55rem;font-family:var(--fb);font-size:11.5px;letter-spacing:.2em;text-transform:uppercase;color:#fff;background:#0d0f1f;padding:.95rem 1.75rem;text-decoration:none;transition:opacity .2s ease,transform .2s ease}
+    .evt4-cta:hover{opacity:.86;transform:translateX(3px)}
+    .evt4-photo{position:relative;overflow:hidden;background:#5e70e3;aspect-ratio:2/1}
+    .evt4-photo img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 50%;display:block}
+    .evt4-photo::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,#a7b0f6 0%,rgba(167,176,246,0) 9%)}
     @media(max-width:900px){
-      .evt3-grid{grid-template-columns:1fr;min-height:0}
-      .evt3-col{padding:2.4rem 1.5rem 3rem}
-      .evt3-desc{max-width:none;min-height:8rem}
-      .evt3-actions{flex-direction:column;align-items:stretch;gap:1.1rem}
-      .evt3-cta{align-self:flex-start}
-      .evt3-photo{order:-1;aspect-ratio:16/12}
-      .evt3-photo-img{background-position:50% 38%}
-      .evt3-photo::after{background:linear-gradient(0deg,#0b0b0b 0%,rgba(11,11,11,0) 46%)}
+      .evt4-grid{grid-template-columns:1fr;min-height:0}
+      .evt4-col{padding:2.4rem 1.5rem 3rem}
+      .evt4-desc{max-width:none}
+      .evt4-actions{flex-direction:column;align-items:stretch;gap:1.1rem}
+      .evt4-cta{align-self:flex-start}
+      .evt4-photo{order:-1;aspect-ratio:2/1}
+      .evt4-photo::after{display:none}
     }
   </style>
-  <section class="evt3" aria-label="The Gyuto Monks Recordings, listening session, 2 ottobre 2026">
-    <div class="evt3-grid">
-      <div class="evt3-col">
-        <div class="evt3-eyebrow"><span data-lang="it">Listening session · 2 ottobre 2026</span><span data-lang="en">Listening session · October 2, 2026</span><span data-lang="es">Sesión de escucha · 2 de octubre de 2026</span><span data-lang="fr">Session d'écoute · 2 octobre 2026</span></div>
-        <div class="evt3-title">Gyuto Monks<br><em><span data-lang="it">Registrazioni</span><span data-lang="en">Recordings</span><span data-lang="es">Grabaciones</span><span data-lang="fr">Enregistrements</span></em></div>
-        <div class="evt3-desc">
-          <span class="evt3-slide on"><span data-lang="it">@spazio.supernova incontra Studio 33 per una sessione di ascolto dedicata alle registrazioni della "voce che rotola come l'oceano" dei Monaci Gyuto.</span><span data-lang="en">@spazio.supernova meets Studio 33 for a listening session dedicated to recordings of the Gyuto Monks' "ocean-rolling voice."</span><span data-lang="es">@spazio.supernova se une a Studio 33 para una sesión de escucha dedicada a las grabaciones de la "voz que rueda como el océano" de los Monjes Gyuto.</span><span data-lang="fr">@spazio.supernova rencontre Studio 33 pour une session d'écoute dédiée aux enregistrements de la « voix roulant comme l'océan » des Moines Gyuto.</span></span>
-          <span class="evt3-slide"><span data-lang="it">Conosciuti in tutto il mondo per la loro straordinaria tecnica di canto multifonico, i Monaci Gyuto appartengono alla scuola Gelug, o dei "Cappelli Gialli", fondata in Tibet nel 1474. Vivono in esilio a Sidhbari, vicino Dharamsala, in India, dall'occupazione cinese del 1959.</span><span data-lang="en">Renowned worldwide for their extraordinary technique of multiphonic chanting, the Gyuto Monks belong to the Gelug, or "Yellow Hat," school, founded in Tibet in 1474. They have lived in exile in Sidhbari, near Dharamsala, India, since the Chinese occupation of 1959.</span><span data-lang="es">Reconocidos en todo el mundo por su extraordinaria técnica de canto multifónico, los Monjes Gyuto pertenecen a la escuela Gelug, o de los "Sombreros Amarillos", fundada en el Tíbet en 1474. Viven exiliados en Sidhbari, cerca de Dharamsala, India, desde la ocupación china de 1959.</span><span data-lang="fr">Réputés dans le monde entier pour leur extraordinaire technique de chant multiphonique, les Moines Gyuto appartiennent à l'école Gelug, ou des « Bonnets Jaunes », fondée au Tibet en 1474. Ils vivent en exil à Sidhbari, près de Dharamsala, en Inde, depuis l'occupation chinoise de 1959.</span></span>
-          <span class="evt3-slide"><span data-lang="it">Il tratto più sorprendente del coro è la capacità di ogni monaco di produrre più note simultaneamente: un tono fondamentale profondo unito a due o tre armonici più acuti.</span><span data-lang="en">The choir's most striking feature is each monk's ability to produce several notes simultaneously — a deep fundamental tone combined with two or three higher overtones.</span><span data-lang="es">El rasgo más sorprendente del coro es la capacidad de cada monje de producir varias notas simultáneamente: un tono fundamental grave combinado con dos o tres armónicos más agudos.</span><span data-lang="fr">La caractéristique la plus frappante du chœur est la capacité de chaque moine à produire plusieurs notes simultanément : un ton fondamental grave combiné à deux ou trois harmoniques plus aiguës.</span></span>
-          <span class="evt3-slide"><span data-lang="it">Lontana dall'essere una performance artistica fine a sé stessa, questa è una potente pratica meditativa tantrica: le vibrazioni sub-bassi e gli armonici sono pensati per sintonizzare la mente sulle frequenze delle divinità e generare pace universale.</span><span data-lang="en">Far from being an artistic performance for its own sake, this is a powerful tantric meditative practice: the sub-bass vibrations and overtones are meant to attune the mind to the frequencies of the deities and generate universal peace.</span><span data-lang="es">Lejos de ser una performance artística en sí misma, se trata de una poderosa práctica meditativa tántrica: las vibraciones subgraves y los armónicos están pensados para sintonizar la mente con las frecuencias de las deidades y generar paz universal.</span><span data-lang="fr">Loin d'être une performance artistique en soi, il s'agit d'une puissante pratique méditative tantrique : les vibrations sub-graves et les harmoniques visent à accorder l'esprit aux fréquences des divinités et à générer une paix universelle.</span></span>
-          <span class="evt3-slide"><span data-lang="it">La serata fa parte di Khandroma, nata dalla collaborazione tra Soundwalk Collective e Patti Smith, presentata come installazione audio-visiva presso Spazio Supernova.</span><span data-lang="en">The evening is part of Khandroma, born from the collaboration between Soundwalk Collective and Patti Smith, presented as an audio-visual installation at Spazio Supernova.</span><span data-lang="es">La velada forma parte de Khandroma, nacida de la colaboración entre Soundwalk Collective y Patti Smith, presentada como instalación audiovisual en Spazio Supernova.</span><span data-lang="fr">La soirée s'inscrit dans Khandroma, née de la collaboration entre Soundwalk Collective et Patti Smith, présentée comme une installation audiovisuelle à Spazio Supernova.</span></span>
+  <section class="evt4" aria-label="Think Outside the Looongevity · Enzo Abbate, 7 ottobre 2026">
+    <div class="evt4-grid">
+      <div class="evt4-col">
+        <div class="evt4-eyebrow"><span data-lang="it">Co-Stories live · 7 ottobre 2026</span><span data-lang="en">Co-Stories live · October 7, 2026</span><span data-lang="es">Co-Stories live · 7 de octubre de 2026</span><span data-lang="fr">Co-Stories live · 7 octobre 2026</span></div>
+        <div class="evt4-desc">
+          <span class="evt4-slide on"><span data-lang="it">Una serata sulle nuove narrazioni dell'healthcare, wellness e lifestyle. Come cambia la comunicazione della salute quando il pubblico non aspetta più di stare male per occuparsene?</span><span data-lang="en">An evening on the new narratives of healthcare, wellness and lifestyle. How does health communication change when people no longer wait to fall ill before taking care of it?</span><span data-lang="es">Una velada sobre las nuevas narrativas del healthcare, el wellness y el lifestyle. ¿Cómo cambia la comunicación de la salud cuando el público ya no espera a estar mal para ocuparse de ella?</span><span data-lang="fr">Une soirée consacrée aux nouveaux récits de la healthcare, du wellness et du lifestyle. Comment la communication sur la santé change-t-elle quand le public n'attend plus d'être malade pour s'en occuper ?</span></span>
+          <span class="evt4-slide"><span data-lang="it">Come parlare di invecchiamento, prevenzione e benessere a una generazione che tratta la propria salute come un ecosistema da ottimizzare ogni giorno, tra biohacking, medicina estetica preventiva e wearable tech.</span><span data-lang="en">How to talk about ageing, prevention and wellbeing to a generation that treats its own health as an ecosystem to optimise every day, from biohacking to preventive aesthetic medicine and wearable tech.</span><span data-lang="es">Cómo hablar de envejecimiento, prevención y bienestar a una generación que trata su salud como un ecosistema que optimizar cada día, entre biohacking, medicina estética preventiva y wearable tech.</span><span data-lang="fr">Comment parler de vieillissement, de prévention et de bien-être à une génération qui traite sa santé comme un écosystème à optimiser chaque jour, entre biohacking, médecine esthétique préventive et wearable tech.</span></span>
+          <span class="evt4-slide"><span data-lang="it">Sesta edizione di Co-Stories© Live, il format ideato da PLURAL e CO-STORIES© MEDIA, a cura di Marco Diotallevi, che riunisce professionisti, artisti, aziende e pensatori sui cambiamenti culturali e sociali contemporanei. In collaborazione con Studio 33.</span><span data-lang="en">Sixth edition of Co-Stories© Live, the format created by PLURAL and CO-STORIES© MEDIA, curated by Marco Diotallevi, bringing together professionals, artists, companies and thinkers around contemporary cultural and social change. In collaboration with Studio 33.</span><span data-lang="es">Sexta edición de Co-Stories© Live, el formato creado por PLURAL y CO-STORIES© MEDIA, con la curaduría de Marco Diotallevi, que reúne a profesionales, artistas, empresas y pensadores en torno a los cambios culturales y sociales contemporáneos. En colaboración con Studio 33.</span><span data-lang="fr">Sixième édition de Co-Stories© Live, le format imaginé par PLURAL et CO-STORIES© MEDIA, sous la direction de Marco Diotallevi, qui réunit professionnels, artistes, entreprises et penseurs autour des changements culturels et sociaux contemporains. En collaboration avec Studio 33.</span></span>
+          <span class="evt4-slide"><span data-lang="it">Il talk, moderato da Marco Diotallevi, riunisce: Ennio Tasciotti (Human Longevity Program, IRCCS San Raffaele Roma), Ilaria Loria (Perrigo Italia), Olga De Giovanni (AlfaDocs), Alessia Morichi (Dr.Feel), Valeria Melocchi (Make Your Greener) ed Enzo Abbate (Studio 33).</span><span data-lang="en">The talk, moderated by Marco Diotallevi, brings together: Ennio Tasciotti (Human Longevity Program, IRCCS San Raffaele Roma), Ilaria Loria (Perrigo Italia), Olga De Giovanni (AlfaDocs), Alessia Morichi (Dr.Feel), Valeria Melocchi (Make Your Greener) and Enzo Abbate (Studio 33).</span><span data-lang="es">La charla, moderada por Marco Diotallevi, reúne a: Ennio Tasciotti (Human Longevity Program, IRCCS San Raffaele Roma), Ilaria Loria (Perrigo Italia), Olga De Giovanni (AlfaDocs), Alessia Morichi (Dr.Feel), Valeria Melocchi (Make Your Greener) y Enzo Abbate (Studio 33).</span><span data-lang="fr">Le talk, modéré par Marco Diotallevi, réunit : Ennio Tasciotti (Human Longevity Program, IRCCS San Raffaele Roma), Ilaria Loria (Perrigo Italia), Olga De Giovanni (AlfaDocs), Alessia Morichi (Dr.Feel), Valeria Melocchi (Make Your Greener) et Enzo Abbate (Studio 33).</span></span>
+          <span class="evt4-slide"><span data-lang="it">Programma: accoglienza alle 19:00, panel alle 19:30, domande dal pubblico alle 20:30, aperitivo di networking alle 20:40, chiusura alle 22:00.</span><span data-lang="en">Schedule: welcome at 7 PM, panel at 7:30 PM, audience Q&amp;A at 8:30 PM, networking aperitivo at 8:40 PM, closing at 10 PM.</span><span data-lang="es">Programa: acogida a las 19:00, panel a las 19:30, preguntas del público a las 20:30, aperitivo de networking a las 20:40, cierre a las 22:00.</span><span data-lang="fr">Programme : accueil à 19h00, panel à 19h30, questions du public à 20h30, apéritif networking à 20h40, clôture à 22h00.</span></span>
         </div>
-        <div class="evt3-meta"><span data-lang="it">Venerdì 2 ottobre · ore 21:30 · massimo 50 persone · posti non prenotabili</span><span data-lang="en">Friday, October 2nd · 9:30 PM · max 50 people · first come, first served</span><span data-lang="es">Viernes 2 de octubre · 21:30 h · máximo 50 personas · por orden de llegada</span><span data-lang="fr">Vendredi 2 octobre · 21h30 · maximum 50 personnes · dans la limite des places disponibles</span></div>
-        <div class="evt3-actions">
-          <a class="evt3-cta" href="https://www.instagram.com/studio33trastevere/" target="_blank" rel="noopener"><span data-lang="it">Maggiori info →</span><span data-lang="en">More info →</span><span data-lang="es">Más información →</span><span data-lang="fr">Plus d'infos →</span></a>
+        <div class="evt4-meta"><span data-lang="it">Mercoledì 7 ottobre · 19:00–22:00 · Studio 33, Roma</span><span data-lang="en">Wednesday, October 7th · 7–10 PM · Studio 33, Rome</span><span data-lang="es">Miércoles 7 de octubre · 19:00–22:00 h · Studio 33, Roma</span><span data-lang="fr">Mercredi 7 octobre · 19h00–22h00 · Studio 33, Rome</span></div>
+        <div class="evt4-actions">
+          <a class="evt4-cta" href="https://www.eventbrite.it/e/biglietti-think-outside-the-longevity-2002221797294?aff=oddtdtcreator&amp;utm_source=ig&amp;utm_medium=social&amp;utm_content=link_in_bio" target="_blank" rel="noopener"><span data-lang="it">Biglietti →</span><span data-lang="en">Tickets →</span><span data-lang="es">Entradas →</span><span data-lang="fr">Billets →</span></a>
         </div>
       </div>
-      <div class="evt3-photo">
-        <div class="evt3-photo-img"></div>
+      <div class="evt4-photo">
+        <img src="./event-think-outside-longevity-banner.jpg" alt="Co-Stories live presenta Think Outside the Looongevity · curated by Plural · in collaborazione con Studio 33" loading="lazy">
       </div>
     </div>
   </section>
   <script>
   (function(){
-    var desc = document.querySelector('.evt3-desc');
+    var desc = document.querySelector('.evt4-desc');
     if(!desc) return;
-    var slides = desc.querySelectorAll('.evt3-slide');
-    // reserve height for the tallest slide so the banner never reflows
+    var slides = desc.querySelectorAll('.evt4-slide');
     function sizeIt(){
       desc.style.minHeight = '0px';
       var max = 0;
@@ -1492,7 +1485,7 @@ body.lang-fr [data-lang="fr"]{display:inline}
         slides[i].classList.remove('on');
         i = (i + 1) % slides.length;
         slides[i].classList.add('on');
-      }, 6500);
+      }, 7500);
     }
   })();
   </script>
