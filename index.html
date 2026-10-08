@@ -1410,59 +1410,62 @@ body.lang-fr [data-lang="fr"]{display:inline}
     <span data-lang="fr">Écouter →</span></span>
   </button>
 
-  <!-- EVENT BANNER · Think Outside the Looongevity (Co-Stories live × Plural) -->
+  <!-- EVENT BANNER · The Contemporary Sound of Beirut (Shhh/Peaceful x Studio 33) -->
   <style>
-    .evt4{background:#a7b0f6;color:#0d0f1f;overflow:hidden;border-bottom:var(--bd)}
-    .evt4-grid{display:grid;grid-template-columns:.8fr 1.2fr;min-height:0;max-width:1760px}
-    .evt4-col{display:flex;flex-direction:column;justify-content:center;gap:1.15rem;padding:3.4rem 4rem}
-    .evt4-eyebrow{display:flex;align-items:center;gap:.65rem;font-family:var(--fb);font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:rgba(13,15,31,.66)}
-    .evt4-eyebrow::before{content:"";width:6px;height:6px;border-radius:50%;background:#606fe3;flex-shrink:0}
-    .evt4-desc{position:relative;max-width:52ch;min-height:5rem;margin:0}
-    .evt4-slide{position:absolute;inset:0;display:block;font-family:var(--fb);font-size:15.5px;line-height:1.6;color:rgba(13,15,31,.78);opacity:0;transition:opacity .6s ease;pointer-events:none}
-    .evt4-slide.on{opacity:1;pointer-events:auto}
-    .evt4-meta{font-family:var(--fb);font-size:11.5px;letter-spacing:.07em;text-transform:uppercase;color:rgba(13,15,31,.62);line-height:1.7}
-    .evt4-actions{display:flex;align-items:center;gap:1.5rem;flex-wrap:wrap;margin-top:.75rem}
-    .evt4-cta{flex-shrink:0;display:inline-flex;align-items:center;gap:.55rem;font-family:var(--fb);font-size:11.5px;letter-spacing:.2em;text-transform:uppercase;color:#fff;background:#0d0f1f;padding:.95rem 1.75rem;text-decoration:none;transition:opacity .2s ease,transform .2s ease}
-    .evt4-cta:hover{opacity:.86;transform:translateX(3px)}
-    .evt4-photo{position:relative;overflow:hidden;background:#5e70e3;aspect-ratio:2/1}
-    .evt4-photo img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 50%;display:block}
-    .evt4-photo::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,#a7b0f6 0%,rgba(167,176,246,0) 9%)}
+    .evt5{background:#0d0e0d;color:#fff;overflow:hidden;border-bottom:var(--bd)}
+    .evt5-grid{display:grid;grid-template-columns:1.05fr .95fr;min-height:520px;max-width:1760px}
+    .evt5-col{display:flex;flex-direction:column;justify-content:center;gap:1.15rem;padding:3.4rem 4rem}
+    .evt5-eyebrow{display:flex;align-items:center;gap:.65rem;font-family:var(--fb);font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:rgba(255,255,255,.62)}
+    .evt5-eyebrow::before{content:"";width:6px;height:6px;border-radius:50%;background:#8af45a;flex-shrink:0}
+    .evt5-title{font-family:var(--fd);font-weight:200;font-size:clamp(31px,3.5vw,47px);line-height:1.07;color:#fff}
+    .evt5-title em{display:block;margin-top:.35rem;font-size:.5em;font-style:italic;color:#8af45a}
+    .evt5-desc{position:relative;max-width:52ch;min-height:5rem;margin:0}
+    .evt5-slide{position:absolute;inset:0;display:block;font-family:var(--fb);font-size:15.5px;line-height:1.6;color:rgba(255,255,255,.8);opacity:0;transition:opacity .6s ease;pointer-events:none}
+    .evt5-slide.on{opacity:1;pointer-events:auto}
+    .evt5-meta{font-family:var(--fb);font-size:11.5px;letter-spacing:.07em;text-transform:uppercase;color:rgba(255,255,255,.55);line-height:1.7}
+    .evt5-actions{display:flex;align-items:center;gap:1.5rem;flex-wrap:wrap;margin-top:.75rem}
+    .evt5-cta{flex-shrink:0;display:inline-flex;align-items:center;gap:.55rem;font-family:var(--fb);font-size:11.5px;letter-spacing:.2em;text-transform:uppercase;color:#0d0e0d;background:#8af45a;padding:.95rem 1.75rem;text-decoration:none;transition:opacity .2s ease,transform .2s ease}
+    .evt5-cta:hover{opacity:.88;transform:translateX(3px)}
+    .evt5-photo{position:relative;overflow:hidden;background:#2b2b2b}
+    .evt5-photo::before{content:"";position:absolute;inset:-12%;background:url('./event-beirut-shhh-peaceful.jpg') center/cover no-repeat;filter:blur(26px) brightness(.5);transform:scale(1.1)}
+    .evt5-photo img{position:absolute;top:2rem;left:2rem;width:calc(100% - 4rem);height:calc(100% - 4rem);object-fit:contain;display:block;box-shadow:0 12px 40px rgba(0,0,0,.45)}
     @media(max-width:900px){
-      .evt4-grid{grid-template-columns:1fr;min-height:0}
-      .evt4-col{padding:2.4rem 1.5rem 3rem}
-      .evt4-desc{max-width:none}
-      .evt4-actions{flex-direction:column;align-items:stretch;gap:1.1rem}
-      .evt4-cta{align-self:flex-start}
-      .evt4-photo{order:-1;aspect-ratio:2/1}
-      .evt4-photo::after{display:none}
+      .evt5-grid{grid-template-columns:1fr;min-height:0}
+      .evt5-col{padding:2.4rem 1.5rem 3rem}
+      .evt5-desc{max-width:none}
+      .evt5-actions{flex-direction:column;align-items:stretch;gap:1.1rem}
+      .evt5-cta{align-self:flex-start}
+      .evt5-photo{order:-1;aspect-ratio:5/6}
+      .evt5-photo img{top:1.2rem;left:1.2rem;width:calc(100% - 2.4rem);height:calc(100% - 2.4rem)}
     }
   </style>
-  <section class="evt4" aria-label="Think Outside the Looongevity · Enzo Abbate, 7 ottobre 2026">
-    <div class="evt4-grid">
-      <div class="evt4-col">
-        <div class="evt4-eyebrow"><span data-lang="it">Co-Stories live · 7 ottobre 2026</span><span data-lang="en">Co-Stories live · October 7, 2026</span><span data-lang="es">Co-Stories live · 7 de octubre de 2026</span><span data-lang="fr">Co-Stories live · 7 octobre 2026</span></div>
-        <div class="evt4-desc">
-          <span class="evt4-slide on"><span data-lang="it">Una serata sulle nuove narrazioni dell'healthcare, wellness e lifestyle. Come cambia la comunicazione della salute quando il pubblico non aspetta più di stare male per occuparsene?</span><span data-lang="en">An evening on the new narratives of healthcare, wellness and lifestyle. How does health communication change when people no longer wait to fall ill before taking care of it?</span><span data-lang="es">Una velada sobre las nuevas narrativas del healthcare, el wellness y el lifestyle. ¿Cómo cambia la comunicación de la salud cuando el público ya no espera a estar mal para ocuparse de ella?</span><span data-lang="fr">Une soirée consacrée aux nouveaux récits de la healthcare, du wellness et du lifestyle. Comment la communication sur la santé change-t-elle quand le public n'attend plus d'être malade pour s'en occuper ?</span></span>
-          <span class="evt4-slide"><span data-lang="it">Come parlare di invecchiamento, prevenzione e benessere a una generazione che tratta la propria salute come un ecosistema da ottimizzare ogni giorno, tra biohacking, medicina estetica preventiva e wearable tech.</span><span data-lang="en">How to talk about ageing, prevention and wellbeing to a generation that treats its own health as an ecosystem to optimise every day, from biohacking to preventive aesthetic medicine and wearable tech.</span><span data-lang="es">Cómo hablar de envejecimiento, prevención y bienestar a una generación que trata su salud como un ecosistema que optimizar cada día, entre biohacking, medicina estética preventiva y wearable tech.</span><span data-lang="fr">Comment parler de vieillissement, de prévention et de bien-être à une génération qui traite sa santé comme un écosystème à optimiser chaque jour, entre biohacking, médecine esthétique préventive et wearable tech.</span></span>
-          <span class="evt4-slide"><span data-lang="it">Sesta edizione di Co-Stories© Live, il format ideato da PLURAL e CO-STORIES© MEDIA, a cura di Marco Diotallevi, che riunisce professionisti, artisti, aziende e pensatori sui cambiamenti culturali e sociali contemporanei. In collaborazione con Studio 33.</span><span data-lang="en">Sixth edition of Co-Stories© Live, the format created by PLURAL and CO-STORIES© MEDIA, curated by Marco Diotallevi, bringing together professionals, artists, companies and thinkers around contemporary cultural and social change. In collaboration with Studio 33.</span><span data-lang="es">Sexta edición de Co-Stories© Live, el formato creado por PLURAL y CO-STORIES© MEDIA, con la curaduría de Marco Diotallevi, que reúne a profesionales, artistas, empresas y pensadores en torno a los cambios culturales y sociales contemporáneos. En colaboración con Studio 33.</span><span data-lang="fr">Sixième édition de Co-Stories© Live, le format imaginé par PLURAL et CO-STORIES© MEDIA, sous la direction de Marco Diotallevi, qui réunit professionnels, artistes, entreprises et penseurs autour des changements culturels et sociaux contemporains. En collaboration avec Studio 33.</span></span>
-          <span class="evt4-slide"><span data-lang="it">Il talk, moderato da Marco Diotallevi, riunisce: Ennio Tasciotti (Human Longevity Program, IRCCS San Raffaele Roma), Ilaria Loria (Perrigo Italia), Olga De Giovanni (AlfaDocs), Alessia Morichi (Dr.Feel), Valeria Melocchi (Make Your Greener) ed Enzo Abbate (Studio 33).</span><span data-lang="en">The talk, moderated by Marco Diotallevi, brings together: Ennio Tasciotti (Human Longevity Program, IRCCS San Raffaele Roma), Ilaria Loria (Perrigo Italia), Olga De Giovanni (AlfaDocs), Alessia Morichi (Dr.Feel), Valeria Melocchi (Make Your Greener) and Enzo Abbate (Studio 33).</span><span data-lang="es">La charla, moderada por Marco Diotallevi, reúne a: Ennio Tasciotti (Human Longevity Program, IRCCS San Raffaele Roma), Ilaria Loria (Perrigo Italia), Olga De Giovanni (AlfaDocs), Alessia Morichi (Dr.Feel), Valeria Melocchi (Make Your Greener) y Enzo Abbate (Studio 33).</span><span data-lang="fr">Le talk, modéré par Marco Diotallevi, réunit : Ennio Tasciotti (Human Longevity Program, IRCCS San Raffaele Roma), Ilaria Loria (Perrigo Italia), Olga De Giovanni (AlfaDocs), Alessia Morichi (Dr.Feel), Valeria Melocchi (Make Your Greener) et Enzo Abbate (Studio 33).</span></span>
-          <span class="evt4-slide"><span data-lang="it">Programma: accoglienza alle 19:00, panel alle 19:30, domande dal pubblico alle 20:30, aperitivo di networking alle 20:40, chiusura alle 22:00.</span><span data-lang="en">Schedule: welcome at 7 PM, panel at 7:30 PM, audience Q&amp;A at 8:30 PM, networking aperitivo at 8:40 PM, closing at 10 PM.</span><span data-lang="es">Programa: acogida a las 19:00, panel a las 19:30, preguntas del público a las 20:30, aperitivo de networking a las 20:40, cierre a las 22:00.</span><span data-lang="fr">Programme : accueil à 19h00, panel à 19h30, questions du public à 20h30, apéritif networking à 20h40, clôture à 22h00.</span></span>
+  <section class="evt5" aria-label="The Contemporary Sound of Beirut · Joy Moughanni e 3Li3bboud, Shhh/Peaceful, 17 ottobre 2026">
+    <div class="evt5-grid">
+      <div class="evt5-col">
+        <div class="evt5-eyebrow"><span data-lang="it">Shhh/Peaceful presenta · 17 ottobre 2026</span><span data-lang="en">Shhh/Peaceful presents · October 17, 2026</span><span data-lang="es">Shhh/Peaceful presenta · 17 de octubre de 2026</span><span data-lang="fr">Shhh/Peaceful présente · 17 octobre 2026</span></div>
+        <div class="evt5-title">The Contemporary<br>Sound of Beirut<em>Joy Moughanni &amp; 3Li3bboud · live</em></div>
+        <div class="evt5-desc">
+          <span class="evt5-slide on"><span data-lang="it">Joy Moughanni (@joy_moughanni) e 3Li3bboud (@3li3bboud) sono oggi due tra le voci più attive e distintive della scena musicale sperimentale libanese.</span><span data-lang="en">Joy Moughanni (@joy_moughanni) and 3Li3bboud (@3li3bboud) are two of the most active and distinctive voices in Lebanon's experimental music scene today.</span><span data-lang="es">Joy Moughanni (@joy_moughanni) y 3Li3bboud (@3li3bboud) son hoy dos de las voces más activas y singulares de la escena musical experimental libanesa.</span><span data-lang="fr">Joy Moughanni (@joy_moughanni) et 3Li3bboud (@3li3bboud) sont aujourd'hui deux des voix les plus actives et les plus singulières de la scène musicale expérimentale libanaise.</span></span>
+          <span class="evt5-slide"><span data-lang="it">Produttore, ingegnere del suono e cantautore di Beirut, Joy Moughanni esplora elettronica sperimentale, sound art e ascolto spaziale. Il suo acclamato album d'esordio, “A Separation From Habit”, uscito per la label di culto Ruptured Records, indaga il rapporto tra suono, percezione e manipolazione personale e politica.</span><span data-lang="en">Beirut-based producer, engineer and songwriter Joy Moughanni explores experimental electronics, sound art and spatial listening. His acclaimed debut album, “A Separation From Habit”, released on the cult label Ruptured Records, explores the relationship between sound, perception and personal and political manipulation.</span><span data-lang="es">Productor, ingeniero y compositor afincado en Beirut, Joy Moughanni explora la electrónica experimental, el arte sonoro y la escucha espacial. Su aclamado álbum debut, “A Separation From Habit”, publicado en el sello de culto Ruptured Records, explora la relación entre sonido, percepción y manipulación personal y política.</span><span data-lang="fr">Producteur, ingénieur du son et auteur-compositeur basé à Beyrouth, Joy Moughanni explore l'électronique expérimentale, l'art sonore et l'écoute spatiale. Son premier album très remarqué, « A Separation From Habit », sorti sur le label culte Ruptured Records, explore le rapport entre son, perception et manipulation personnelle et politique.</span></span>
+          <span class="evt5-slide"><span data-lang="it">Originario del Sud del Libano, 3Li3bboud fonde sampling, trap, boom bap e jazz, attingendo ai suoni e alle esperienze del Sud del dopoguerra. Ha prodotto per la leggenda hip-hop El Rass; i suoi album “Things You Don’t See in the South” e “Ya Allah” esplorano luogo, memoria e vita contemporanea con un approccio profondamente basato sul sampling.</span><span data-lang="en">From South Lebanon, 3Li3bboud blends sampling, trap, boom bap and jazz, drawing on the sounds and experiences of the post-war South. He has produced for hip-hop legend El Rass, while his albums “Things You Don’t See in the South” and “Ya Allah” explore place, memory and contemporary life through a deeply sample-driven approach to beatmaking.</span><span data-lang="es">Originario del sur del Líbano, 3Li3bboud fusiona sampling, trap, boom bap y jazz, inspirándose en los sonidos y las experiencias del sur de la posguerra. Ha producido para la leyenda del hip-hop El Rass, y sus álbumes “Things You Don’t See in the South” y “Ya Allah” exploran el lugar, la memoria y la vida contemporánea con un enfoque profundamente basado en el sampling.</span><span data-lang="fr">Originaire du Sud-Liban, 3Li3bboud mêle sampling, trap, boom bap et jazz, s'inspirant des sons et des expériences du Sud de l'après-guerre. Il a produit pour la légende du hip-hop El Rass, et ses albums « Things You Don’t See in the South » et « Ya Allah » explorent le lieu, la mémoire et la vie contemporaine à travers une approche profondément axée sur le sample.</span></span>
+          <span class="evt5-slide"><span data-lang="it">Il Libano ha una lunga e vivace storia di musica sperimentale. Nel panorama di oggi, fatto di guerra e instabilità, la musica diventa uno strumento ancora più potente per farsi ascoltare, creare connessioni e resistere all'isolamento.</span><span data-lang="en">Lebanon has a long and vibrant history of experimental music. In today's landscape of war and instability, music becomes an even more powerful tool to make oneself heard, create connections and resist isolation.</span><span data-lang="es">El Líbano tiene una larga y vibrante historia de música experimental. En el panorama actual de guerra e inestabilidad, la música se convierte en una herramienta aún más poderosa para hacerse oír, crear conexiones y resistir al aislamiento.</span><span data-lang="fr">Le Liban possède une longue et riche histoire de musique expérimentale. Dans le contexte actuel de guerre et d'instabilité, la musique devient un outil encore plus puissant pour se faire entendre, créer des liens et résister à l'isolement.</span></span>
+          <span class="evt5-slide"><span data-lang="it">Dalle 15:30, nel primo pomeriggio, ne parleremo con gli artisti e con @giulio.pecci in una conversazione dedicata, prima dei live.</span><span data-lang="en">Starting early in the afternoon (3:30 PM) we'll talk about all of this with the artists and @giulio.pecci in a dedicated conversation before the live performances.</span><span data-lang="es">Desde primera hora de la tarde (15:30) hablaremos de todo esto con los artistas y con @giulio.pecci en una conversación dedicada, antes de los directos.</span><span data-lang="fr">Dès le début d'après-midi (15h30), nous en parlerons avec les artistes et @giulio.pecci lors d'une conversation dédiée, avant les concerts.</span></span>
         </div>
-        <div class="evt4-meta"><span data-lang="it">Mercoledì 7 ottobre · 19:00–22:00 · Studio 33, Roma</span><span data-lang="en">Wednesday, October 7th · 7–10 PM · Studio 33, Rome</span><span data-lang="es">Miércoles 7 de octubre · 19:00–22:00 h · Studio 33, Roma</span><span data-lang="fr">Mercredi 7 octobre · 19h00–22h00 · Studio 33, Rome</span></div>
-        <div class="evt4-actions">
-          <a class="evt4-cta" href="https://www.eventbrite.it/e/biglietti-think-outside-the-longevity-2002221797294?aff=oddtdtcreator&amp;utm_source=ig&amp;utm_medium=social&amp;utm_content=link_in_bio" target="_blank" rel="noopener"><span data-lang="it">Biglietti →</span><span data-lang="en">Tickets →</span><span data-lang="es">Entradas →</span><span data-lang="fr">Billets →</span></a>
+        <div class="evt5-meta"><span data-lang="it">Sabato 17 ottobre · ore 15:30 · Studio 33, Via della Paglia 33a, Roma<br>Produzione Studio 33</span><span data-lang="en">Saturday, October 17th · 3:30 PM · Studio 33, Via della Paglia 33a, Rome<br>Prod. by Studio 33</span><span data-lang="es">Sábado 17 de octubre · 15:30 h · Studio 33, Via della Paglia 33a, Roma<br>Producción: Studio 33</span><span data-lang="fr">Samedi 17 octobre · 15h30 · Studio 33, Via della Paglia 33a, Rome<br>Production : Studio 33</span></div>
+        <div class="evt5-actions">
+          <a class="evt5-cta" href="https://calendly.com/studio33trastevere/the-contemporary-sound-of-beirut?utm_source=ig&amp;utm_medium=social&amp;utm_content=link_in_bio&amp;utm_id=97760_v0_s00_e0_tv3" target="_blank" rel="noopener"><span data-lang="it">Prenota il tuo posto ora →</span><span data-lang="en">Book your spot now →</span><span data-lang="es">Reserva tu plaza ahora →</span><span data-lang="fr">Réservez votre place maintenant →</span></a>
         </div>
       </div>
-      <div class="evt4-photo">
-        <img src="./event-think-outside-longevity-banner.jpg" alt="Co-Stories live presenta Think Outside the Looongevity · curated by Plural · in collaborazione con Studio 33" loading="lazy">
+      <div class="evt5-photo">
+        <img src="./event-beirut-shhh-peaceful.jpg" alt="Shhh/Peaceful presents The Contemporary Sound of Beirut · Joy Moughanni (live) &amp; 3Li3bboud (live) · Studio 33, Via della Paglia 33a, Rome · 17 October 2026, 3:30 PM" loading="lazy">
       </div>
     </div>
   </section>
   <script>
   (function(){
-    var desc = document.querySelector('.evt4-desc');
+    var desc = document.querySelector('.evt5-desc');
     if(!desc) return;
-    var slides = desc.querySelectorAll('.evt4-slide');
+    var slides = desc.querySelectorAll('.evt5-slide');
     function sizeIt(){
       desc.style.minHeight = '0px';
       var max = 0;
