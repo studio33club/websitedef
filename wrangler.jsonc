@@ -1,11 +1,17 @@
 {
   "$schema": "node_modules/wrangler/config-schema.json",
   "name": "studio33",
+  "main": "src/worker.js",
   "compatibility_date": "2026-08-20",
+  "vars": {
+    "EMAILOCTOPUS_LIST_ID": "7a2918cc-c640-11f1-a70a-cf157c1bbf7e"
+  },
   "observability": {
     "enabled": true
   },
   "assets": {
-    "directory": "."
+    "directory": ".",
+    "binding": "ASSETS",
+    "run_worker_first": ["/api/*"]
   }
 }
