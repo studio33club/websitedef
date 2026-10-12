@@ -8,3 +8,5 @@ node_modules/**
 _guide/
 _guide/**
 SaverioRaimondoLiveStudio33.mp3
+src/
+src/**
