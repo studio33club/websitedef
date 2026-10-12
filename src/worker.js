@@ -13,7 +13,8 @@ async function eo(env, doFetch, method, path, body) {
 }
 
 async function subscribe(payload, env, doFetch) {
-  if (!env.EMAILOCTOPUS_API_KEY || !env.EMAILOCTOPUS_LIST_ID) return { status: 500, json: { error: 'config' } };
+  const missing = ['EMAILOCTOPUS_API_KEY', 'EMAILOCTOPUS_LIST_ID'].filter((k) => !env[k]);
+  if (missing.length) return { status: 500, json: { error: 'config', missing } };
   if (payload.company) return { status: 200, json: { ok: true } }; // honeypot
   const email = String(payload.email || '').trim();
   if (!email || email.length > 254 || !EMAIL_RE.test(email)) return { status: 400, json: { error: 'invalid_email' } };
