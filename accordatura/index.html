@@ -1669,13 +1669,15 @@ body.lang-fr [data-lang="fr"]{display:inline}
         <span data-lang="es">Eventos, producciones y novedades de Studio 33, directamente en tu correo.</span>
         <span data-lang="fr">Événements, productions et actualités de Studio 33, directement dans votre boîte mail.</span>
       </p>
-      <form action="https://studio33club.us2.list-manage.com/subscribe/post?u=8ebc1d105d8a663826ef24982&amp;id=4e0bb972f5&amp;f_id=004048e0f0" method="post" target="nl-hidden-frame" onsubmit="setTimeout(function(){document.getElementById('nl-step-form').style.display='none';document.getElementById('nl-step-success').style.display='block';},400)" style="display:flex;gap:0;max-width:520px;border:.5px solid rgba(26,26,26,0.32);transition:border-color .2s" onfocusin="this.style.borderColor='rgba(26,26,26,0.62)'" onfocusout="this.style.borderColor='rgba(26,26,26,0.32)'">
-        <input type="email" name="EMAIL" required placeholder="La tua email" aria-label="Email" style="flex:1;min-width:0;border:none;padding:1rem 1.2rem;font-family:var(--fb);font-size:16.0px;background:transparent;color:var(--w);outline:none">
-        <div aria-hidden="true" style="position:absolute;left:-5000px"><input type="text" name="b_8ebc1d105d8a663826ef24982_4e0bb972f5" tabindex="-1" value=""></div>
+      <form onsubmit="return s33Subscribe(event,this)" style="display:flex;gap:0;max-width:520px;border:.5px solid rgba(26,26,26,0.32);transition:border-color .2s" onfocusin="this.style.borderColor='rgba(26,26,26,0.62)'" onfocusout="this.style.borderColor='rgba(26,26,26,0.32)'">
+        <input type="email" name="email" autocomplete="email" required placeholder="La tua email" aria-label="Email" style="flex:1;min-width:0;border:none;padding:1rem 1.2rem;font-family:var(--fb);font-size:16.0px;background:transparent;color:var(--w);outline:none">
+        <div aria-hidden="true" style="position:absolute;left:-5000px"><input type="text" name="company" tabindex="-1" autocomplete="off" value=""></div>
         <button type="submit" style="flex-shrink:0;background:var(--w);color:#fff;border:none;font-family:var(--fb);font-size:12.5px;letter-spacing:.18em;text-transform:uppercase;padding:0 1.6rem;cursor:pointer;transition:opacity .2s" onmouseover="this.style.opacity='.8'" onmouseout="this.style.opacity='1'"><span data-lang="it">Iscriviti →</span><span data-lang="en">Subscribe →</span>
     <span data-lang="es">Suscríbete →</span>
     <span data-lang="fr">S'inscrire →</span></button>
       </form>
+      <p id="nl-err-generic" role="alert" style="display:none;max-width:520px;margin-top:.8rem;font-size:15px;line-height:1.5;color:rgba(26,26,26,0.74);font-family:var(--fb)"><span data-lang="it">Qualcosa è andato storto. Riprova tra un attimo.</span><span data-lang="en">Something went wrong. Please try again in a moment.</span><span data-lang="es">Algo salió mal. Inténtalo de nuevo en un momento.</span><span data-lang="fr">Une erreur s'est produite. Veuillez réessayer dans un instant.</span></p>
+      <p id="nl-err-invalid" role="alert" style="display:none;max-width:520px;margin-top:.8rem;font-size:15px;line-height:1.5;color:rgba(26,26,26,0.74);font-family:var(--fb)"><span data-lang="it">Controlla l'indirizzo email e riprova.</span><span data-lang="en">Please check your email address and try again.</span><span data-lang="es">Revisa tu dirección de correo e inténtalo de nuevo.</span><span data-lang="fr">Vérifiez votre adresse e-mail et réessayez.</span></p>
     </div>
     <div id="nl-step-success" style="display:none;max-width:520px">
       <div class="lbl" style="margin-bottom:1rem">Newsletter</div>
@@ -1689,7 +1691,25 @@ body.lang-fr [data-lang="fr"]{display:inline}
         <span data-lang="fr">Merci ! Vous recevrez bientôt un e-mail de bienvenue.</span>
       </p>
     </div>
-    <iframe name="nl-hidden-frame" title="newsletter" style="display:none" aria-hidden="true"></iframe>
+    <script>
+    function s33Subscribe(e,form){
+      e.preventDefault();
+      var f=document.getElementById('nl-step-form'), ok=document.getElementById('nl-step-success'),
+          eg=document.getElementById('nl-err-generic'), ei=document.getElementById('nl-err-invalid'),
+          btn=form.querySelector('button[type=submit]'),
+          m=document.body.className.match(/lang-(it|en|es|fr)/);
+      eg.style.display='none'; ei.style.display='none'; btn.disabled=true;
+      fetch('/api/subscribe',{method:'POST',headers:{'Content-Type':'application/json'},
+        body:JSON.stringify({email:form.elements.email.value.trim(),company:form.elements.company.value,lang:m?m[1]:'it'})})
+      .then(function(r){return r.json().catch(function(){return {};}).then(function(j){return {s:r.status,j:j};});})
+      .then(function(x){
+        if(x.s===200&&x.j.ok){f.style.display='none';ok.style.display='block';}
+        else{(x.j.error==='invalid_email'?ei:eg).style.display='block';btn.disabled=false;}
+      })
+      .catch(function(){eg.style.display='block';btn.disabled=false;});
+      return false;
+    }
+    </script>
   </section>
 
 </div>
