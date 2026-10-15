@@ -740,8 +740,8 @@ blockquote{font-weight:300;letter-spacing:-.02em;line-height:1.35}
 
 /* Hero carosello */
 .hero-slider{position:relative;border-bottom:var(--bds);overflow:hidden}
-#heroSlide0{background-image:url('./home-02.jpg')}
-@media(max-width:900px){#heroSlide0{background-image:url('./home-02-m.jpg')}}
+#heroSlide0{background-image:url('./home-00-live.jpg')}
+@media(max-width:900px){#heroSlide0{background-image:url('./home-00-live-m.jpg')}}
 .hero-track{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;
   scroll-behavior:smooth;-webkit-overflow-scrolling:touch}
 .hero-track::-webkit-scrollbar{display:none}
@@ -1185,7 +1185,8 @@ body.lang-fr [data-lang="fr"]{display:inline}
 @media(max-width:900px){.nav-lang{gap:.55rem;font-size:10.5px}}.team-link{border-bottom:1px solid rgba(26,26,26,0.18);transition:border-color .2s}
 .team-link:hover{border-color:rgba(26,26,26,0.88)}
 </style>
-<link rel="preload" as="image" href="./home-01.jpg" fetchpriority="high">
+<link rel="preload" as="image" href="./home-00-live.jpg" media="(min-width:901px)" fetchpriority="high">
+<link rel="preload" as="image" href="./home-00-live-m.jpg" media="(max-width:900px)" fetchpriority="high">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -1357,6 +1358,7 @@ body.lang-fr [data-lang="fr"]{display:inline}
   <div class="hero-slider">
     <div class="hero-track" id="heroTrack">
       <div class="hslide" id="heroSlide0"></div>
+      <div class="hslide" data-bg="./home-02.jpg" data-bg-m="./home-02-m.jpg" style=""></div>
       <div class="hslide" data-bg="./home-01.jpg" data-bg-m="./home-01-m.jpg" style=""></div>
       <div class="hslide" data-bg="./home-09.jpg" data-bg-m="./home-09-m.jpg" style="background-position:center top"></div>
       <div class="hslide" data-bg="./home-03.jpg" data-bg-m="./home-03-m.jpg" style=""></div>
@@ -1376,6 +1378,7 @@ body.lang-fr [data-lang="fr"]{display:inline}
       <button class="hdot" onclick="hgo(6)" aria-label="7"></button>
       <button class="hdot" onclick="hgo(7)" aria-label="8"></button>
       <button class="hdot" onclick="hgo(8)" aria-label="9"></button>
+      <button class="hdot" onclick="hgo(9)" aria-label="10"></button>
     </div>
   </div>
 
@@ -1593,89 +1596,89 @@ body.lang-fr [data-lang="fr"]{display:inline}
     <span data-lang="fr">Tout voir →</span></a>
     </div>
     <div class="carousel">
-      <button class="car-item" onclick="openMedia(0)" aria-label="Come un gruppo di DJ ha acceso Roma… e poi ha perso il controllo">
+      <button class="car-item" onclick="openMedia(0)" aria-label="The label that rewrote Jazz just came to Rome">
+        <div class="car-media" style="background-image:url('https://img.youtube.com/vi/sr6nY0VKAWg/hqdefault.jpg')"><i class="ti ti-brand-youtube car-src"></i><span class="car-play"></span><span style="position:absolute;top:.6rem;right:.6rem;width:26px;height:26px;box-shadow:0 1px 4px rgba(0,0,0,.3);border-radius:50%;overflow:hidden"><img src="../studio33-badge-logo.png" alt="Studio 33" title="Studio 33" style="width:26px;height:26px;display:block"></span></div>
+        <div class="car-meta"><span class="car-kind">YouTube</span><span class="car-title"><span data-lang="it">The label that rewrote Jazz just…</span><span data-lang="en">The label that rewrote Jazz just…</span>
+    <span data-lang="es">The label that rewrote Jazz just…</span>
+    <span data-lang="fr">The label that rewrote Jazz just…</span></span></div>
+      </button>
+      <button class="car-item" onclick="openMedia(1)" aria-label="Come un gruppo di DJ ha acceso Roma… e poi ha perso il controllo">
         <div class="car-media" style="background-image:url('https://img.youtube.com/vi/R1y85v7eOMs/hqdefault.jpg')"><i class="ti ti-brand-youtube car-src"></i><span class="car-play"></span><span style="position:absolute;top:.6rem;right:.6rem;width:26px;height:26px;box-shadow:0 1px 4px rgba(0,0,0,.3);border-radius:50%;overflow:hidden"><img src="../studio33-badge-logo.png" alt="Studio 33" title="Studio 33" style="width:26px;height:26px;display:block"></span></div>
         <div class="car-meta"><span class="car-kind">YouTube</span><span class="car-title"><span data-lang="it">Come un gruppo di DJ ha acceso Roma…</span><span data-lang="en">Come un gruppo di DJ ha acceso Roma…</span>
     <span data-lang="es">Come un gruppo di DJ ha acceso Roma…</span>
     <span data-lang="fr">Come un gruppo di DJ ha acceso Roma…</span></span></div>
       </button>
-      <button class="car-item" onclick="openMedia(1)" aria-label="Giorgio Poi e Luca Marinelli - Solo per gioco">
+      <button class="car-item" onclick="openMedia(2)" aria-label="Giorgio Poi e Luca Marinelli - Solo per gioco">
         <div class="car-media" style="background-image:url('https://img.youtube.com/vi/TAIl1kGzfgY/hqdefault.jpg')"><i class="ti ti-brand-youtube car-src"></i><span class="car-play"></span><span style="position:absolute;top:.6rem;right:.6rem;width:26px;height:26px;background:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 1px 4px rgba(0,0,0,.3)"><img src="../bomba-dischi-logo.webp" alt="Bomba Dischi" title="In collaborazione con Bomba Dischi" style="width:14px;height:auto;display:block"></span></div>
         <div class="car-meta"><span class="car-kind">YouTube</span><span class="car-title"><span data-lang="it">Giorgio Poi e Luca Marinelli…</span><span data-lang="en">Giorgio Poi e Luca Marinelli…</span>
     <span data-lang="es">Giorgio Poi e Luca Marinelli…</span>
     <span data-lang="fr">Giorgio Poi e Luca Marinelli…</span></span></div>
       </button>
-      <button class="car-item" onclick="openMedia(2)" aria-label="Studio 33 - Events">
+      <button class="car-item" onclick="openMedia(3)" aria-label="Studio 33 - Events">
         <div class="car-media" style="background-image:url('https://img.youtube.com/vi/cAbYwjUUnNM/hqdefault.jpg')"><i class="ti ti-brand-youtube car-src"></i><span class="car-play"></span><span style="position:absolute;top:.6rem;right:.6rem;width:26px;height:26px;box-shadow:0 1px 4px rgba(0,0,0,.3);border-radius:50%;overflow:hidden"><img src="../studio33-badge-logo.png" alt="Studio 33" title="Studio 33" style="width:26px;height:26px;display:block"></span></div>
         <div class="car-meta"><span class="car-kind">YouTube</span><span class="car-title"><span data-lang="it">Studio 33 - Events</span><span data-lang="en">Studio 33 - Events</span>
     <span data-lang="es">Studio 33 - Events</span>
     <span data-lang="fr">Studio 33 - Events</span></span></div>
       </button>
-      <button class="car-item" onclick="openMedia(3)" aria-label="Studio 33 - Music">
+      <button class="car-item" onclick="openMedia(4)" aria-label="Studio 33 - Music">
         <div class="car-media" style="background-image:url('https://img.youtube.com/vi/Ly_N43oBCjY/hqdefault.jpg')"><i class="ti ti-brand-youtube car-src"></i><span class="car-play"></span><span style="position:absolute;top:.6rem;right:.6rem;width:26px;height:26px;box-shadow:0 1px 4px rgba(0,0,0,.3);border-radius:50%;overflow:hidden"><img src="../studio33-badge-logo.png" alt="Studio 33" title="Studio 33" style="width:26px;height:26px;display:block"></span></div>
         <div class="car-meta"><span class="car-kind">YouTube</span><span class="car-title"><span data-lang="it">Studio 33 - Music</span><span data-lang="en">Studio 33 - Music</span>
     <span data-lang="es">Studio 33 - Music</span>
     <span data-lang="fr">Studio 33 - Music</span></span></div>
       </button>
-      <button class="car-item" onclick="openMedia(4)" aria-label="Open Day Tékhne Scuola di Musicoterapia">
+      <button class="car-item" onclick="openMedia(5)" aria-label="Open Day Tékhne Scuola di Musicoterapia">
         <div class="car-media" style="background-image:url('https://img.youtube.com/vi/GjorOQoxOmI/hqdefault.jpg')"><i class="ti ti-brand-youtube car-src"></i><span class="car-play"></span><span style="position:absolute;top:.6rem;right:.6rem;height:26px;padding:0 .5rem;background:#fff;border-radius:13px;display:flex;align-items:center;justify-content:center;box-shadow:0 1px 4px rgba(0,0,0,.3)"><img src="../tekhne-logo.png" alt="Tékhne" title="In collaborazione con Tékhne Scuola di Musicoterapia" style="height:13px;width:auto;display:block"></span></div>
         <div class="car-meta"><span class="car-kind">YouTube</span><span class="car-title"><span data-lang="it">Open Day Tékhne</span><span data-lang="en">Tékhne Open Day</span>
     <span data-lang="es">Open Day Tékhne</span>
     <span data-lang="fr">Open Day Tékhne</span></span></div>
       </button>
-      <button class="car-item" onclick="openMedia(5)" aria-label="Studio 33 - Shooting">
+      <button class="car-item" onclick="openMedia(6)" aria-label="Studio 33 - Shooting">
         <div class="car-media" style="background-image:url('https://img.youtube.com/vi/lToVif3BLOM/hqdefault.jpg')"><i class="ti ti-brand-youtube car-src"></i><span class="car-play"></span><span style="position:absolute;top:.6rem;right:.6rem;width:26px;height:26px;box-shadow:0 1px 4px rgba(0,0,0,.3);border-radius:50%;overflow:hidden"><img src="../studio33-badge-logo.png" alt="Studio 33" title="Studio 33" style="width:26px;height:26px;display:block"></span></div>
         <div class="car-meta"><span class="car-kind">YouTube</span><span class="car-title"><span data-lang="it">Studio 33 - Shooting</span><span data-lang="en">Studio 33 - Shooting</span>
     <span data-lang="es">Studio 33 - Shooting</span>
     <span data-lang="fr">Studio 33 - Shooting</span></span></div>
       </button>
-      <button class="car-item" onclick="openMedia(6)" aria-label="Laila al Habash on World Cafe - Sense of Place: Rome">
+      <button class="car-item" onclick="openMedia(7)" aria-label="Laila al Habash on World Cafe - Sense of Place: Rome">
         <div class="car-media" style="background-image:url('https://img.youtube.com/vi/CyyuGcd8tzI/hqdefault.jpg')"><i class="ti ti-brand-youtube car-src"></i><span class="car-play"></span><span style="position:absolute;top:.6rem;right:.6rem;width:26px;height:26px;background:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 1px 4px rgba(0,0,0,.3)"><img src="../npr-logo.png" alt="NPR" title="In collaborazione con NPR" style="width:20px;height:auto;display:block"></span></div>
         <div class="car-meta"><span class="car-kind">YouTube</span><span class="car-title"><span data-lang="it">Laila al Habash on World…</span><span data-lang="en">Laila al Habash on World…</span>
     <span data-lang="es">Laila al Habash on World…</span>
     <span data-lang="fr">Laila al Habash on World…</span></span></div>
       </button>
-      <button class="car-item" onclick="openMedia(7)" aria-label="Ariete on World Cafe - Sense of Place: Italy">
+      <button class="car-item" onclick="openMedia(8)" aria-label="Ariete on World Cafe - Sense of Place: Italy">
         <div class="car-media" style="background-image:url('https://img.youtube.com/vi/oFecVPRzqOk/hqdefault.jpg')"><i class="ti ti-brand-youtube car-src"></i><span class="car-play"></span><span style="position:absolute;top:.6rem;right:.6rem;width:26px;height:26px;background:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 1px 4px rgba(0,0,0,.3)"><img src="../npr-logo.png" alt="NPR" title="In collaborazione con NPR" style="width:20px;height:auto;display:block"></span></div>
         <div class="car-meta"><span class="car-kind">YouTube</span><span class="car-title"><span data-lang="it">Ariete on World Cafe…</span><span data-lang="en">Ariete on World Cafe…</span>
     <span data-lang="es">Ariete on World Cafe…</span>
     <span data-lang="fr">Ariete on World Cafe…</span></span></div>
       </button>
-      <button class="car-item" onclick="openMedia(8)" aria-label="Black Snake Moan on World Cafe - Sense of Place: Rome">
+      <button class="car-item" onclick="openMedia(9)" aria-label="Black Snake Moan on World Cafe - Sense of Place: Rome">
         <div class="car-media" style="background-image:url('https://img.youtube.com/vi/BgwqRhtAS-E/hqdefault.jpg')"><i class="ti ti-brand-youtube car-src"></i><span class="car-play"></span><span style="position:absolute;top:.6rem;right:.6rem;width:26px;height:26px;background:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 1px 4px rgba(0,0,0,.3)"><img src="../npr-logo.png" alt="NPR" title="In collaborazione con NPR" style="width:20px;height:auto;display:block"></span></div>
         <div class="car-meta"><span class="car-kind">YouTube</span><span class="car-title"><span data-lang="it">Black Snake Moan on World…</span><span data-lang="en">Black Snake Moan on World…</span>
     <span data-lang="es">Black Snake Moan on World…</span>
     <span data-lang="fr">Black Snake Moan on World…</span></span></div>
       </button>
-      <button class="car-item" onclick="openMedia(9)" aria-label="PDR #104 FABIO MACALUSO: La mia vita da bipolare">
+      <button class="car-item" onclick="openMedia(10)" aria-label="PDR #104 FABIO MACALUSO: La mia vita da bipolare">
         <div class="car-media" style="background-image:url('https://img.youtube.com/vi/vatRi9NDiOI/hqdefault.jpg')"><i class="ti ti-brand-youtube car-src"></i><span class="car-play"></span><span style="position:absolute;top:.6rem;right:.6rem;width:26px;height:26px;box-shadow:0 1px 4px rgba(0,0,0,.3);border-radius:50%;overflow:hidden"><img src="../pdr-logo-circle.png" alt="PDR - Il Podcast di Daniele Rielli" title="In collaborazione con PDR - Il Podcast di Daniele Rielli" style="width:26px;height:26px;display:block"></span></div>
         <div class="car-meta"><span class="car-kind">YouTube</span><span class="car-title"><span data-lang="it">PDR #104 FABIO MACALUSO…</span><span data-lang="en">PDR #104 FABIO MACALUSO…</span>
     <span data-lang="es">PDR #104 FABIO MACALUSO…</span>
     <span data-lang="fr">PDR #104 FABIO MACALUSO…</span></span></div>
       </button>
-      <button class="car-item" onclick="openMedia(10)" aria-label="4 exit milionarie, 18 milioni raccolti, vacanze a Chernobyl… Ciao Cicci incontra Massi Squillace">
+      <button class="car-item" onclick="openMedia(11)" aria-label="4 exit milionarie, 18 milioni raccolti, vacanze a Chernobyl… Ciao Cicci incontra Massi Squillace">
         <div class="car-media" style="background-image:url('https://img.youtube.com/vi/yDXAGZNv6ro/hqdefault.jpg')"><i class="ti ti-brand-youtube car-src"></i><span class="car-play"></span><span style="position:absolute;top:.6rem;right:.6rem;width:26px;height:26px;background:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 1px 4px rgba(0,0,0,.3)"><img src="../hypercast-logo.png" alt="Hypercast" title="In collaborazione con Hypercast" style="width:16px;height:auto;display:block"></span></div>
         <div class="car-meta"><span class="car-kind">YouTube</span><span class="car-title"><span data-lang="it">4 exit milionarie, 18 milioni…</span><span data-lang="en">4 exit milionarie, 18 milioni…</span>
     <span data-lang="es">4 exit milionarie, 18 milioni…</span>
     <span data-lang="fr">4 exit milionarie, 18 milioni…</span></span></div>
       </button>
-      <button class="car-item" onclick="openMedia(11)" aria-label="PDR #48 IL FUOCO INVISIBILE: la vera storia della strage degli ulivi. Daniele Rielli e Amedeo Balbi">
+      <button class="car-item" onclick="openMedia(12)" aria-label="PDR #48 IL FUOCO INVISIBILE: la vera storia della strage degli ulivi. Daniele Rielli e Amedeo Balbi">
         <div class="car-media" style="background-image:url('https://img.youtube.com/vi/lKp_zMsbI-I/hqdefault.jpg')"><i class="ti ti-brand-youtube car-src"></i><span class="car-play"></span><span style="position:absolute;top:.6rem;right:.6rem;width:26px;height:26px;box-shadow:0 1px 4px rgba(0,0,0,.3);border-radius:50%;overflow:hidden"><img src="../pdr-logo-circle.png" alt="PDR - Il Podcast di Daniele Rielli" title="In collaborazione con PDR - Il Podcast di Daniele Rielli" style="width:26px;height:26px;display:block"></span></div>
         <div class="car-meta"><span class="car-kind">YouTube</span><span class="car-title"><span data-lang="it">PDR #48 IL FUOCO INVISIBILE…</span><span data-lang="en">PDR #48 IL FUOCO INVISIBILE…</span>
     <span data-lang="es">PDR #48 IL FUOCO INVISIBILE…</span>
     <span data-lang="fr">PDR #48 IL FUOCO INVISIBILE…</span></span></div>
       </button>
-      <button class="car-item" onclick="openMedia(12)" aria-label="L'Accordatura Management by Music">
+      <button class="car-item" onclick="openMedia(13)" aria-label="L'Accordatura Management by Music">
         <div class="car-media" style="background-image:url('https://img.youtube.com/vi/fHH1BdIk1X8/hqdefault.jpg')"><i class="ti ti-brand-youtube car-src"></i><span class="car-play"></span><span style="position:absolute;top:.6rem;right:.6rem;width:26px;height:26px;background:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 1px 4px rgba(0,0,0,.3)"><img src="../accordatura-logo.png" alt="L'Accordatura" title="In collaborazione con L'Accordatura Management by Music" style="width:20px;height:auto;display:block"></span></div>
         <div class="car-meta"><span class="car-kind">YouTube</span><span class="car-title"><span data-lang="it">L'Accordatura Management…</span><span data-lang="en">L'Accordatura Management…</span>
     <span data-lang="es">L'Accordatura Management…</span>
     <span data-lang="fr">L'Accordatura Management…</span></span></div>
-      </button>
-      <button class="car-item" onclick="openMedia(13)" aria-label="What's the electronic mind?">
-        <div class="car-media" style="background-image:url('https://img.youtube.com/vi/1KyvuRJh6tQ/hqdefault.jpg')"><i class="ti ti-brand-youtube car-src"></i><span class="car-play"></span><span style="position:absolute;top:.6rem;right:.6rem;width:26px;height:26px;background:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 1px 4px rgba(0,0,0,.3)"><img src="../seed-studio-logo.png" alt="Seed Studio and Records" title="In collaborazione con Seed Studio and Records" style="width:18px;height:auto;display:block"></span></div>
-        <div class="car-meta"><span class="car-kind">YouTube</span><span class="car-title"><span data-lang="it">What's the electronic mind?</span><span data-lang="en">What's the electronic mind?</span>
-    <span data-lang="es">What's the electronic mind?</span>
-    <span data-lang="fr">What's the electronic mind?</span></span></div>
       </button>
       <button class="car-item" onclick="openMedia(14)" aria-label="SacredGrooves EP01 - Andrea Benedetti">
         <div class="car-media" style="background-image:url('https://img.youtube.com/vi/WyDrpVguz28/hqdefault.jpg')"><i class="ti ti-brand-youtube car-src"></i><span class="car-play"></span><span style="position:absolute;top:.6rem;right:.6rem;width:26px;height:26px;background:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 1px 4px rgba(0,0,0,.3)"><img src="../seed-studio-logo.png" alt="Seed Studio and Records" title="In collaborazione con Seed Studio and Records" style="width:18px;height:auto;display:block"></span></div>
@@ -2155,7 +2158,7 @@ function lcScroll(dir){
 
 
 // ── HAPPENING: player unificato mp4 + YouTube ──
-var mediaList = [{"k": "yt", "id": "R1y85v7eOMs"}, {"k": "yt", "id": "TAIl1kGzfgY"}, {"k": "yt", "id": "cAbYwjUUnNM"}, {"k": "yt", "id": "Ly_N43oBCjY"}, {"k": "yt", "id": "GjorOQoxOmI"}, {"k": "yt", "id": "lToVif3BLOM"}, {"k": "yt", "id": "CyyuGcd8tzI"}, {"k": "yt", "id": "oFecVPRzqOk"}, {"k": "yt", "id": "BgwqRhtAS-E"}, {"k": "yt", "id": "vatRi9NDiOI"}, {"k": "yt", "id": "yDXAGZNv6ro"}, {"k": "yt", "id": "lKp_zMsbI-I"}, {"k": "yt", "id": "fHH1BdIk1X8"}, {"k": "yt", "id": "1KyvuRJh6tQ"}, {"k": "yt", "id": "WyDrpVguz28"}, {"k": "yt", "id": "6tKxVS9Fi8A"}, {"k": "yt", "id": "B6BxBXnB2pM"}, {"k": "yt", "id": "rFxvfyGsTyc"}, {"k": "yt", "id": "cGpsayRCWAg"}, {"k": "yt", "id": "2wJ0v4LIan8"}];
+var mediaList = [{"k": "yt", "id": "sr6nY0VKAWg"}, {"k": "yt", "id": "R1y85v7eOMs"}, {"k": "yt", "id": "TAIl1kGzfgY"}, {"k": "yt", "id": "cAbYwjUUnNM"}, {"k": "yt", "id": "Ly_N43oBCjY"}, {"k": "yt", "id": "GjorOQoxOmI"}, {"k": "yt", "id": "lToVif3BLOM"}, {"k": "yt", "id": "CyyuGcd8tzI"}, {"k": "yt", "id": "oFecVPRzqOk"}, {"k": "yt", "id": "BgwqRhtAS-E"}, {"k": "yt", "id": "vatRi9NDiOI"}, {"k": "yt", "id": "yDXAGZNv6ro"}, {"k": "yt", "id": "lKp_zMsbI-I"}, {"k": "yt", "id": "fHH1BdIk1X8"}, {"k": "yt", "id": "WyDrpVguz28"}, {"k": "yt", "id": "6tKxVS9Fi8A"}, {"k": "yt", "id": "B6BxBXnB2pM"}, {"k": "yt", "id": "rFxvfyGsTyc"}, {"k": "yt", "id": "cGpsayRCWAg"}, {"k": "yt", "id": "2wJ0v4LIan8"}];
 function openMedia(i){
   var m = mediaList[i];
   if(!m || !m.id) return;
