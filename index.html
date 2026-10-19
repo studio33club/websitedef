@@ -1428,7 +1428,9 @@ body.lang-fr [data-lang="fr"]{display:inline}
     .evt6-actions{display:flex;align-items:center;gap:1.5rem;flex-wrap:wrap;margin-top:.75rem}
     .evt6-cta{flex-shrink:0;display:inline-flex;align-items:center;gap:.55rem;font-family:var(--fb);font-size:11.5px;letter-spacing:.2em;text-transform:uppercase;color:#fff;background:#eb001d;padding:.95rem 1.75rem;text-decoration:none;transition:opacity .2s ease,transform .2s ease}
     .evt6-cta:hover{opacity:.88;transform:translateX(3px)}
-    .evt6-photo{position:relative;overflow:hidden;background:#0d0d0d}
+    .evt6-photo{position:relative;display:block;overflow:hidden;background:#0d0d0d;cursor:pointer}
+    .evt6-photo img{transition:opacity .2s ease}
+    .evt6-photo:hover img{opacity:.92}
     .evt6-photo img{position:absolute;top:1.5rem;left:1.5rem;width:calc(100% - 3rem);height:calc(100% - 3rem);object-fit:contain;display:block}
     @media(max-width:900px){
       .evt6-grid{grid-template-columns:1fr;min-height:0}
@@ -1451,9 +1453,9 @@ body.lang-fr [data-lang="fr"]{display:inline}
           <a class="evt6-cta" href="https://calendly.com/studio33trastevere/mike-doughty-studio33" target="_blank" rel="noopener"><span data-lang="it">Prenota il tuo posto →</span><span data-lang="en">Book your spot →</span><span data-lang="es">Reserva tu plaza →</span><span data-lang="fr">Réservez votre place →</span></a>
         </div>
       </div>
-      <div class="evt6-photo">
+      <a class="evt6-photo" href="https://calendly.com/studio33trastevere/mike-doughty-studio33" target="_blank" rel="noopener" aria-label="Prenota il tuo posto · Mike Doughty Live in Rome">
         <img src="./event-mike-doughty.jpg" alt="Studio 33 presenta Mike Doughty (Soul Coughing, Ghost of Vroom) · Live in Rome con Andrew “Scrap” Livingston · Venerdì 6 novembre, ore 20:30 · Studio 33, via della Paglia 33a, Roma" loading="lazy">
-      </div>
+      </a>
     </div>
   </section>
 
