@@ -1251,10 +1251,10 @@ body.lang-fr [data-lang="fr"]{display:inline}
 <!-- ══ COOKIE BANNER — consenso richiesto all'ingresso (GDPR) ══ -->
 <div id="cookie-banner" style="display:none;position:fixed;bottom:0;left:0;right:0;z-index:9999;background:rgba(14,14,14,.97);backdrop-filter:blur(10px);border-top:.5px solid rgba(26,26,26,0.74);padding:.9rem 1.5rem;align-items:center;justify-content:space-between;gap:1rem;flex-wrap:wrap;font-family:var(--fb)">
   <div style="font-size:18.5px;line-height:1.5;color:rgba(26,26,26,0.88);max-width:760px">
-    <span data-lang="it">Utilizziamo cookie tecnici necessari e cookie di terze parti (Google Fonts, YouTube, mappe) per offrirti la migliore esperienza di navigazione. Puoi accettarli tutti o rifiutare quelli non essenziali. Consulta la nostra <a href="../privacy/" style="color:inherit;text-decoration:underline">Privacy Policy</a>.</span>
-    <span data-lang="en">We use necessary technical cookies and third-party cookies (Google Fonts, YouTube, maps) to give you the best browsing experience. You can accept them all or reject the non-essential ones. Read our <a href="../privacy/" style="color:inherit;text-decoration:underline">Privacy Policy</a>.</span>
-    <span data-lang="es">Utilizamos cookies técnicas necesarias y cookies de terceros (Google Fonts, YouTube, mapas) para ofrecerte la mejor experiencia de navegación. Puedes aceptarlas todas o rechazar las no esenciales. Consulta nuestra <a href="../privacy/" style="color:inherit;text-decoration:underline">Política de Privacidad</a>.</span>
-    <span data-lang="fr">Nous utilisons des cookies techniques nécessaires et des cookies tiers (Google Fonts, YouTube, cartes) pour vous offrir la meilleure expérience de navigation. Vous pouvez tous les accepter ou refuser ceux qui ne sont pas essentiels. Consultez notre <a href="../privacy/" style="color:inherit;text-decoration:underline">Politique de Confidentialité</a>.</span>
+    <span data-lang="it">Utilizziamo cookie tecnici necessari e cookie di terze parti (Google Fonts, YouTube, mappe, Google Ads) per offrirti la migliore esperienza di navigazione. Puoi accettarli tutti o rifiutare quelli non essenziali. Consulta la nostra <a href="../privacy/" style="color:inherit;text-decoration:underline">Privacy Policy</a>.</span>
+    <span data-lang="en">We use necessary technical cookies and third-party cookies (Google Fonts, YouTube, maps, Google Ads) to give you the best browsing experience. You can accept them all or reject the non-essential ones. Read our <a href="../privacy/" style="color:inherit;text-decoration:underline">Privacy Policy</a>.</span>
+    <span data-lang="es">Utilizamos cookies técnicas necesarias y cookies de terceros (Google Fonts, YouTube, mapas, Google Ads) para ofrecerte la mejor experiencia de navegación. Puedes aceptarlas todas o rechazar las no esenciales. Consulta nuestra <a href="../privacy/" style="color:inherit;text-decoration:underline">Política de Privacidad</a>.</span>
+    <span data-lang="fr">Nous utilisons des cookies techniques nécessaires et des cookies tiers (Google Fonts, YouTube, cartes, Google Ads) pour vous offrir la meilleure expérience de navigation. Vous pouvez tous les accepter ou refuser ceux qui ne sont pas essentiels. Consultez notre <a href="../privacy/" style="color:inherit;text-decoration:underline">Politique de Confidentialité</a>.</span>
   </div>
   <div class="cb-actions" style="display:flex;gap:.6rem;flex-shrink:0">
     <button onclick="s33CookieSet('rejected')" class="cb-reject" style="font-family:var(--fb);font-size:14.5px;letter-spacing:.2em;text-transform:uppercase;background:none;border:.5px solid rgba(255,255,255,0.35);padding:.45rem 1rem;cursor:pointer;transition:border-color .2s" aria-label="Rifiuta i cookie non necessari">
@@ -2019,17 +2019,37 @@ document.addEventListener('keydown', function(e){ if(e.key==='Escape') closeDraw
   }
 })();
 
-// ── COOKIE CONSENT ──
+// ── COOKIE CONSENT + GOOGLE ADS (Consent Mode v2: tutto negato finché non accetti) ──
 (function(){
   var KEY = 's33cookieConsent';
+  var ADS = 'AW-18287143012';
+  // Etichette delle conversioni (Google Ads > Obiettivi > Conversioni > azione > Impostazione tag)
+  var LABELS = { form: 'l_8CCPTp36UdEOTQ_o9E', whatsapp: 'gei3CPfp36UdEOTQ_o9E', phone: '5C-mCPrp36UdEOTQ_o9E' };
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){ dataLayer.push(arguments); }
+  window.gtag = gtag;
+  gtag('consent', 'default', { ad_storage:'denied', ad_user_data:'denied', ad_personalization:'denied', analytics_storage:'denied' });
+  var adsOn = false;
+  function enableAds(){
+    if(adsOn) return; adsOn = true;
+    gtag('consent', 'update', { ad_storage:'granted', ad_user_data:'granted', ad_personalization:'granted', analytics_storage:'granted' });
+    var s = document.createElement('script'); s.async = true;
+    s.src = 'https://www.googletagmanager.com/gtag/js?id=' + ADS;
+    document.head.appendChild(s);
+    gtag('js', new Date()); gtag('config', ADS);
+  }
+  window.s33Conv = function(name){
+    if(adsOn && LABELS[name]) gtag('event', 'conversion', { send_to: ADS + '/' + LABELS[name] });
+  };
   var el = document.getElementById('cookie-banner');
-  if(!el) return;
   var saved = null;
   try { saved = localStorage.getItem(KEY); } catch(e) {}
-  if(saved !== 'accepted' && saved !== 'rejected'){ el.style.display = 'flex'; }
+  if(saved === 'accepted') enableAds();
+  if(el && saved !== 'accepted' && saved !== 'rejected'){ el.style.display = 'flex'; }
   window.s33CookieSet = function(val){
     try { localStorage.setItem(KEY, val); } catch(e) {}
-    el.style.display = 'none';
+    if(el) el.style.display = 'none';
+    if(val === 'accepted') enableAds();
   };
 })();
 
@@ -2264,7 +2284,7 @@ s33InitScrollReveal();
 </div>
 
 <!-- WhatsApp fisso -->
-<a href="https://wa.me/393347029456" target="_blank" rel="noopener" id="wa-fixed"
+<a href="https://wa.me/393347029456" target="_blank" rel="noopener" id="wa-fixed" onclick="window.s33Conv&&s33Conv('whatsapp')"
    aria-label="Contattaci su WhatsApp"
    style="position:fixed;bottom:1.5rem;right:1.5rem;z-index:400;width:52px;height:52px;background:#25D366;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 16px rgba(37,211,102,.35);transition:transform .2s,box-shadow .2s"
    onmouseover="this.style.transform='scale(1.1)';this.style.boxShadow='0 6px 20px rgba(37,211,102,.45)'"
@@ -2274,6 +2294,17 @@ s33InitScrollReveal();
     <path d="M12 0C5.373 0 0 5.373 0 12c0 2.125.558 4.121 1.529 5.849L.057 23.5l5.797-1.522A11.933 11.933 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.853 0-3.587-.5-5.084-1.37l-.364-.215-3.438.902.917-3.349-.236-.386A9.937 9.937 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/>
   </svg>
 </a>
+<!-- Chiama fisso (sopra il WhatsApp) -->
+<style>
+#call-fixed{position:fixed;bottom:5.5rem;right:1.5rem;z-index:400;width:52px;height:52px;background:#1a1a1a;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 16px rgba(0,0,0,.25);transition:transform .2s,box-shadow .2s}
+#call-fixed:hover{transform:scale(1.1);box-shadow:0 6px 20px rgba(0,0,0,.35)}
+#call-fixed svg{width:24px;height:24px;stroke:#fff;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+</style>
+<a href="tel:+393347029456" id="call-fixed" onclick="window.s33Conv&&s33Conv('phone')">
+  <span style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap"><span data-lang="it">Chiamaci</span><span data-lang="en">Call us</span><span data-lang="es">Llámanos</span><span data-lang="fr">Appelez-nous</span></span>
+  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 4h4l2 5l-2.5 1.5a11 11 0 0 0 5 5l1.5 -2.5l5 2v4a2 2 0 0 1 -2 2a16 16 0 0 1 -15 -15a2 2 0 0 1 2 -2"/></svg>
+</a>
+
 
 <!-- Back to top -->
 <button id="btt" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Torna in cima">
@@ -2339,13 +2370,16 @@ function loadRadioShow(i, autoplay){
 
 function positionWaFixed(open){
   var wa = document.getElementById('wa-fixed');
+  var call = document.getElementById('call-fixed');
   if(!wa) return;
   if(open){
     var bar = document.getElementById('radioBar');
     var h = bar ? bar.offsetHeight : 130;
     wa.style.bottom = (h + 24) + 'px';
+    if(call) call.style.bottom = (h + 24 + 64) + 'px';
   } else {
-    wa.style.bottom = '';
+    wa.style.bottom = '1.5rem';
+    if(call) call.style.bottom = '5.5rem';
   }
 }
 
