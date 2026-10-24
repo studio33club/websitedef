@@ -1364,16 +1364,20 @@ body.lang-fr [data-lang="fr"]{display:inline}
       <div class="hslide" data-bg="./home-06.jpg" data-bg-m="./home-06-m.jpg" style=""></div>
       <div class="hslide" data-bg="./home-07.jpg" data-bg-m="./home-07-m.jpg" style=""></div>
       <div class="hslide" data-bg="./home-08.jpg" data-bg-m="./home-08-m.jpg" style=""></div>
+      <div class="hslide" data-bg="./home-10.jpg" data-bg-m="./home-10-m.jpg" style=""></div>
       <div class="hslide" data-bg="./home-02.jpg" data-bg-m="./home-02-m.jpg" style=""></div>
     </div>
     <script>
-    // Ordine casuale delle foto a ogni caricamento: mescola le slide e carica subito la prima
+    // Ordine casuale delle foto a ogni caricamento (tranne lo studio vuoto, sempre ultimo): carica subito la prima
     (function(){
       var t = document.getElementById('heroTrack');
       if(!t) return;
-      var s = [].slice.call(t.children), i, j, x;
+      var all = [].slice.call(t.children), i, j, x;
+      // la foto dello studio vuoto (home-02) resta sempre per ultima
+      var s = all.filter(function(n){ return n.getAttribute('data-bg') !== './home-02.jpg'; });
+      var last = all.filter(function(n){ return n.getAttribute('data-bg') === './home-02.jpg'; });
       for(i = s.length - 1; i > 0; i--){ j = Math.floor(Math.random() * (i + 1)); x = s[i]; s[i] = s[j]; s[j] = x; }
-      s.forEach(function(n){ t.appendChild(n); });
+      s.concat(last).forEach(function(n){ t.appendChild(n); });
       var f = s[0];
       if(f.hasAttribute('data-bg')){
         var u = f.getAttribute(window.innerWidth <= 900 && f.hasAttribute('data-bg-m') ? 'data-bg-m' : 'data-bg');
@@ -1392,6 +1396,7 @@ body.lang-fr [data-lang="fr"]{display:inline}
       <button class="hdot" onclick="hgo(7)" aria-label="8"></button>
       <button class="hdot" onclick="hgo(8)" aria-label="9"></button>
       <button class="hdot" onclick="hgo(9)" aria-label="10"></button>
+      <button class="hdot" onclick="hgo(10)" aria-label="11"></button>
     </div>
   </div>
 
