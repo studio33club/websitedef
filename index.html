@@ -1185,8 +1185,6 @@ body.lang-fr [data-lang="fr"]{display:inline}
 @media(max-width:900px){.nav-lang{gap:.55rem;font-size:10.5px}}.team-link{border-bottom:1px solid rgba(26,26,26,0.18);transition:border-color .2s}
 .team-link:hover{border-color:rgba(26,26,26,0.88)}
 </style>
-<link rel="preload" as="image" href="./home-00-live.jpg" media="(min-width:901px)" fetchpriority="high">
-<link rel="preload" as="image" href="./home-00-live-m.jpg" media="(max-width:900px)" fetchpriority="high">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -1368,6 +1366,21 @@ body.lang-fr [data-lang="fr"]{display:inline}
       <div class="hslide" data-bg="./home-08.jpg" data-bg-m="./home-08-m.jpg" style=""></div>
       <div class="hslide" data-bg="./home-02.jpg" data-bg-m="./home-02-m.jpg" style=""></div>
     </div>
+    <script>
+    // Ordine casuale delle foto a ogni caricamento: mescola le slide e carica subito la prima
+    (function(){
+      var t = document.getElementById('heroTrack');
+      if(!t) return;
+      var s = [].slice.call(t.children), i, j, x;
+      for(i = s.length - 1; i > 0; i--){ j = Math.floor(Math.random() * (i + 1)); x = s[i]; s[i] = s[j]; s[j] = x; }
+      s.forEach(function(n){ t.appendChild(n); });
+      var f = s[0];
+      if(f.hasAttribute('data-bg')){
+        var u = f.getAttribute(window.innerWidth <= 900 && f.hasAttribute('data-bg-m') ? 'data-bg-m' : 'data-bg');
+        f.style.backgroundImage = "url('" + u + "')";
+      }
+    })();
+    </script>
     <div class="hdots">
       <button class="hdot on" onclick="hgo(0)" aria-label="1"></button>
       <button class="hdot" onclick="hgo(1)" aria-label="2"></button>
