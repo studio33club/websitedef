@@ -1114,6 +1114,25 @@ img,video,iframe{max-width:100%;height:auto}
   .loc-video{grid-template-columns:1fr;padding:2rem 1.5rem;gap:2rem}
 }
 
+/* ── ATTREZZATURA ── */
+.gear-section{border-bottom:var(--bd)}
+.gear-header{padding:2rem 3rem 1.5rem;border-bottom:var(--bds);display:flex;justify-content:space-between;align-items:baseline}
+.gear-cols{display:grid;grid-template-columns:1fr 1fr 1fr;border-top:none}
+.gear-col{padding:2.2rem 2.5rem;border-right:var(--bds)}
+.gear-col:last-child{border-right:none}
+.gear-col-title{font-size:13.0px;letter-spacing:.2em;text-transform:uppercase;color:rgba(26,26,26,0.62);margin-bottom:1.2rem;display:flex;align-items:center;gap:.6rem}
+.gear-col-title i{font-size:20.0px;color:rgba(26,26,26,0.62)}
+.gear-list{list-style:none;font-size:14.5px;line-height:2;color:rgba(26,26,26,0.62)}
+.gear-list li{display:flex;align-items:baseline;gap:.5rem}
+.gear-list li::before{content:"—";color:rgba(26,26,26,0.48);flex-shrink:0}
+.gear-model{font-weight:500;color:rgba(26,26,26,0.88)}
+@media(max-width:900px){
+  .gear-cols{grid-template-columns:1fr}
+  .gear-col{border-right:none;border-bottom:var(--bds);padding:2rem 1.5rem}
+  .gear-col:last-child{border-bottom:none}
+  .gear-header{padding:1.5rem}
+}
+
 /* ── GALLERIA PRODUZIONE ── */
 .prod-gal{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;
   background:rgba(26,26,26,.11);border-top:1px solid rgba(26,26,26,.11)}
@@ -1803,6 +1822,85 @@ body.lang-fr [data-lang="fr"]{display:inline}
     <span data-lang="fr">Parlons de votre projet</span></a>
   </div>
 
+  <!-- ATTREZZATURA COMPLETA -->
+  <div class="gear-section" id="attrezzatura">
+    <div class="gear-header">
+      <div class="lbl"><span data-lang="it">Attrezzatura completa</span><span data-lang="en">Full equipment</span>
+    <span data-lang="es">Equipamiento completo</span>
+    <span data-lang="fr">Équipement complet</span></div>
+      <a class="btn" href="../Studio33-location-kit-EN.pdf" target="_blank" rel="noopener"><i class="ti ti-download" style="font-size:18.5px"></i> PDF</a>
+    </div>
+    <div class="gear-cols">
+      <div class="gear-col">
+        <div class="gear-col-title"><i class="ti ti-video"></i> Video Gear</div>
+        <ul class="gear-list">
+          <li><span class="gear-model">Blackmagic Pocket Cinema 6K G2</span></li>
+          <li>Sigma 24-70 f2.8 OS EF</li>
+          <li>Sigma 70-200 f2.8 OS EF</li>
+          <li>Nikkor 35mm, 55mm</li>
+          <li><span class="gear-model">Fujifilm GFX 100 II</span> + Fujinon 32/64/4</li>
+          <li>Sirui Cavalletto SQ75 VHS-10</li>
+          <li>Hollyland Solidcom C1 4S</li>
+        </ul>
+        <div class="gear-col-title" style="margin-top:1.5rem"><i class="ti ti-database"></i> Recording</div>
+        <ul class="gear-list">
+          <li><span class="gear-model">NAS 8-Bay</span> Intel Atom 8-Core, PCIe Gen3, 10 Gigabit</li>
+          <li>Samsung T7 1TB SSD</li>
+          <li><span class="gear-model">Blackmagic Video Assist</span> 7" 12G HDR</li>
+          <li>CFast · ExFAT / HFS+</li>
+        </ul>
+        <div class="gear-col-title" style="margin-top:1.5rem"><i class="ti ti-device-tv"></i> Streaming &amp; Projection</div>
+        <ul class="gear-list">
+          <li><span class="gear-model">Blackmagic ATEM SDI Extreme ISO</span></li>
+          <li>Multiview Monitoring</li>
+          <li><span class="gear-model">Sony 4K Laser SXRD</span> · <span data-lang="it">schermo 12mq</span><span data-lang="en">12 sqm screen</span>
+    <span data-lang="es">pantalla 12 m²</span>
+    <span data-lang="fr">écran 12 m²</span></li>
+          <li>Apple TV · Blu-Ray Panasonic</li>
+        </ul>
+      </div>
+      <div class="gear-col">
+        <div class="gear-col-title"><i class="ti ti-microphone"></i> Audio Gear</div>
+        <ul class="gear-list">
+          <li><strong style="color:rgba(26,26,26,0.88);font-size:14.5px;letter-spacing:.1em;text-transform:uppercase">Main PA</strong></li>
+          <li><span class="gear-model">Esoteric Pro Audio DUE System</span> 2800W</li>
+          <li><strong style="color:rgba(26,26,26,0.88);font-size:14.5px;letter-spacing:.1em;text-transform:uppercase">Monitors</strong></li>
+          <li><span class="gear-model">Genelec 8341 RAW</span></li>
+          <li><strong style="color:rgba(26,26,26,0.88);font-size:14.5px;letter-spacing:.1em;text-transform:uppercase">Mixer</strong></li>
+          <li><span class="gear-model">Midas M32Live</span> + DL32/DL16 Stagebox</li>
+          <li><strong style="color:rgba(26,26,26,0.88);font-size:14.5px;letter-spacing:.1em;text-transform:uppercase">Interfaces</strong></li>
+          <li>RME Fireface UC · MOTU Audio Express</li>
+          <li><strong style="color:rgba(26,26,26,0.88);font-size:14.5px;letter-spacing:.1em;text-transform:uppercase">DAW</strong></li>
+          <li><span class="gear-model">Ableton Live 11 Suite</span></li>
+          <li>Apple iMac 21.5" i7 16GB 512 Flash</li>
+        </ul>
+      </div>
+      <div class="gear-col">
+        <div class="gear-col-title"><i class="ti ti-microphone-2"></i> Microphones</div>
+        <ul class="gear-list">
+          <li><strong style="color:rgba(26,26,26,0.88);font-size:14.5px;letter-spacing:.1em;text-transform:uppercase">Condenser</strong></li>
+          <li><span class="gear-model">Neumann TLM 107 BK</span></li>
+          <li>AKG Perception 420</li>
+          <li>CAD GXL 3000</li>
+          <li><strong style="color:rgba(26,26,26,0.88);font-size:14.5px;letter-spacing:.1em;text-transform:uppercase">Dynamic</strong></li>
+          <li>Sennheiser E835 S (×2)</li>
+          <li><span class="gear-model">Shure SM58 · SM7dB</span></li>
+          <li><strong style="color:rgba(26,26,26,0.88);font-size:14.5px;letter-spacing:.1em;text-transform:uppercase">Headphones</strong></li>
+          <li>Beyerdynamic DT-770 Pro</li>
+          <li>AKG K121 Studio · K240 Studio</li>
+          <li>Sony MDR 7506 · Audio Technica</li>
+          <li><span class="gear-model">Millenium HP4LD</span> HPA 6</li>
+        </ul>
+        <div class="gear-col-title" style="margin-top:1.5rem"><i class="ti ti-camera"></i> <span data-lang="it">Extra su richiesta</span><span data-lang="en">Extra upon request</span>
+    <span data-lang="es">Extras bajo petición</span>
+    <span data-lang="fr">Extras sur demande</span></div>
+        <p style="font-size:18.5px;line-height:1.7;color:rgba(26,26,26,0.88)"><span data-lang="it">Attrezzatura fotografica aggiuntiva disponibile tramite</span><span data-lang="en">Additional photographic equipment available through</span>
+    <span data-lang="es">Equipamiento fotográfico adicional disponible a través de</span>
+    <span data-lang="fr">Équipement photographique supplémentaire disponible via</span> <a href="http://www.allucinazione.net" target="_blank" rel="noopener" style="color:rgba(26,26,26,0.88);border-bottom:.5px solid rgba(26,26,26,0.74)">allucinazione.net</a></p>
+      </div>
+    </div>
+  </div>
+
   <section style="padding:4.5rem 4rem 5rem;border-top:var(--bd)">
     <div id="nl-step-form">
       <div class="lbl" style="margin-bottom:1rem">Newsletter</div>
@@ -1902,7 +2000,7 @@ body.lang-fr [data-lang="fr"]{display:inline}
       <h3><span data-lang="it">Esplora</span><span data-lang="en">Explore</span><span data-lang="es">Explora</span><span data-lang="fr">Explorer</span></h3>
       <a href="../location/">Location</a>
       <a href="../produzione/"><span data-lang="it">Produzione</span><span data-lang="en">Production</span><span data-lang="es">Producción</span><span data-lang="fr">Production</span></a>
-      <a href="../location/#gear"><span data-lang="it">Attrezzatura</span><span data-lang="en">Equipment</span><span data-lang="es">Equipamiento</span><span data-lang="fr">Équipement</span></a>
+      <a href="../produzione/#attrezzatura"><span data-lang="it">Attrezzatura</span><span data-lang="en">Equipment</span><span data-lang="es">Equipamiento</span><span data-lang="fr">Équipement</span></a>
       <a href="../works/">Works</a>
     </nav>
     <nav class="foot-col">
