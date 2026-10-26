@@ -1421,6 +1421,11 @@ body.lang-fr [data-lang="fr"]{display:inline}
 .ev-tech{display:grid;grid-template-columns:1fr 1fr;border-top:var(--bd);border-bottom:var(--bd)}
 .ev-tech-l{padding:3.5rem 3rem;border-right:var(--bd)}
 .ev-tech-r{padding:3.5rem 3rem}
+.prod-row{display:grid;grid-template-columns:11rem 1fr;gap:1.5rem;padding:1.05rem 0;border-bottom:var(--bd)}
+.prod-row:first-child{padding-top:0}
+.prod-row:last-child{border-bottom:none;padding-bottom:0}
+.prod-k{font-family:var(--fb);font-size:11.5px;letter-spacing:.24em;text-transform:uppercase;color:rgba(26,26,26,0.48);padding-top:.35rem}
+.prod-v{font-size:18.5px;line-height:1.6;color:rgba(26,26,26,0.88)}
 .ev-info{display:grid;grid-template-columns:1fr 1fr;border-bottom:var(--bd)}
 .ev-info>div{padding:3rem}
 .ev-info>div:first-child{border-right:var(--bd)}
@@ -1465,6 +1470,7 @@ body.lang-fr [data-lang="fr"]{display:inline}
   .ev-tech,.ev-info{grid-template-columns:1fr}
   .faq-sec{grid-template-columns:1fr;gap:1.5rem;padding:2.5rem 1.5rem}
   .ev-tech-l{border-right:none;border-bottom:var(--bd);padding:2.5rem 1.5rem}
+  .prod-row{grid-template-columns:1fr;gap:.3rem}
   .ev-tech-r,.ev-info>div{padding:2.5rem 1.5rem}
   .ev-info>div:first-child{border-right:none;border-bottom:var(--bd)}
   .loc-intro{grid-template-columns:1fr}
@@ -1725,6 +1731,56 @@ body.lang-fr [data-lang="fr"]{display:inline}
     <span data-lang="es">Posibilidad de grabar el evento y recibir el vídeo montado por nuestro equipo de producción</span>
     <span data-lang="fr">Possibilité d'enregistrer l'événement et de recevoir la vidéo montée par notre équipe de production</span></li>
       </ul>
+    </div>
+  </div>
+
+  <!-- PER LE PRODUZIONI -->
+  <div class="ev-tech" id="produzioni">
+    <div class="ev-tech-l">
+      <div class="lbl" style="margin-bottom:1.2rem"><span data-lang="it">Per le produzioni</span><span data-lang="en">For productions</span>
+    <span data-lang="es">Para producciones</span>
+    <span data-lang="fr">Pour les productions</span></div>
+      <h2 style="font-size:39px;font-weight:400;line-height:1.25;color:var(--w);margin-bottom:1rem;letter-spacing:-.01em"><span data-lang="it">Le informazioni<br><em style="font-style:italic;color:rgba(26,26,26,0.88)">per chi gira.</em></span><span data-lang="en">The details<br><em style="font-style:italic;color:rgba(26,26,26,0.88)">for film crews.</em></span>
+    <span data-lang="es">La información<br><em style="font-style:italic;color:rgba(26,26,26,0.88)">para quien rueda.</em></span>
+    <span data-lang="fr">Les informations<br><em style="font-style:italic;color:rgba(26,26,26,0.88)">pour les tournages.</em></span></h2>
+      <p style="font-size:20px;line-height:1.8;color:rgba(26,26,26,0.74);margin-bottom:1.6rem"><span data-lang="it">Cinema, web e TV: i dati pratici che servono per valutare lo studio come set.</span><span data-lang="en">Film, web and TV: the practical data you need to assess the studio as a set.</span>
+    <span data-lang="es">Cine, web y TV: los datos prácticos para valorar el estudio como plató.</span>
+    <span data-lang="fr">Cinéma, web et TV : les données pratiques pour évaluer le studio comme plateau.</span></p>
+      <a class="btn" href="https://wa.me/393347029456" target="_blank" rel="noopener" data-wa-msg="location"><i class="ti ti-brand-whatsapp" style="font-size:18.5px"></i> <span data-lang="it">Richiedi un preventivo</span><span data-lang="en">Request a quote</span>
+    <span data-lang="es">Solicita un presupuesto</span>
+    <span data-lang="fr">Demander un devis</span></a>
+    </div>
+    <div class="ev-tech-r">
+      <div class="prod-row"><div class="prod-k"><span data-lang="it">Potenza elettrica</span><span data-lang="en">Electrical power</span>
+    <span data-lang="es">Potencia eléctrica</span>
+    <span data-lang="fr">Puissance électrique</span></div><div class="prod-v"><span data-lang="it">16 kW disponibili</span><span data-lang="en">16 kW available</span>
+    <span data-lang="es">16 kW disponibles</span>
+    <span data-lang="fr">16 kW disponibles</span></div></div>
+      <div class="prod-row"><div class="prod-k"><span data-lang="it">Altezza soffitto</span><span data-lang="en">Ceiling height</span>
+    <span data-lang="es">Altura del techo</span>
+    <span data-lang="fr">Hauteur sous plafond</span></div><div class="prod-v"><span data-lang="it">4,5 metri</span><span data-lang="en">4.5 metres</span>
+    <span data-lang="es">4,5 metros</span>
+    <span data-lang="fr">4,5 mètres</span></div></div>
+      <div class="prod-row"><div class="prod-k"><span data-lang="it">Oscuramento</span><span data-lang="en">Blackout</span>
+    <span data-lang="es">Oscurecimiento</span>
+    <span data-lang="fr">Occultation</span></div><div class="prod-v"><span data-lang="it">Sala oscurabile</span><span data-lang="en">Room can be darkened</span>
+    <span data-lang="es">Sala oscurecible</span>
+    <span data-lang="fr">Salle occultable</span></div></div>
+      <div class="prod-row"><div class="prod-k"><span data-lang="it">Accesso e scarico</span><span data-lang="en">Access and unloading</span>
+    <span data-lang="es">Acceso y descarga</span>
+    <span data-lang="fr">Accès et déchargement</span></div><div class="prod-v"><span data-lang="it">Scarico furgoni a piano strada, attraverso la porta di accesso e la rampa interna</span><span data-lang="en">Van unloading at street level, through the access door and internal ramp</span>
+    <span data-lang="es">Descarga de furgonetas a pie de calle, a través de la puerta de acceso y la rampa interior</span>
+    <span data-lang="fr">Déchargement des camionnettes de plain-pied, par la porte d'accès et la rampe intérieure</span></div></div>
+      <div class="prod-row"><div class="prod-k"><span data-lang="it">Parcheggio e campo base</span><span data-lang="en">Parking and base camp</span>
+    <span data-lang="es">Aparcamiento y campo base</span>
+    <span data-lang="fr">Parking et base vie</span></div><div class="prod-v"><span data-lang="it">Parcheggio troupe e spazio per il campo base nello spiazzo antistante lo studio, su prenotazione e previa richiesta dei permessi</span><span data-lang="en">Crew parking and base camp space in the forecourt in front of the studio, by reservation and subject to permits</span>
+    <span data-lang="es">Aparcamiento para el equipo y espacio para el campo base en la explanada frente al estudio, previa reserva y solicitud de permisos</span>
+    <span data-lang="fr">Parking équipe et espace base vie sur l'esplanade devant le studio, sur réservation et sous réserve des autorisations</span></div></div>
+      <div class="prod-row"><div class="prod-k"><span data-lang="it">Tariffa giornaliera</span><span data-lang="en">Daily rate</span>
+    <span data-lang="es">Tarifa diaria</span>
+    <span data-lang="fr">Tarif journalier</span></div><div class="prod-v"><span data-lang="it">Su richiesta</span><span data-lang="en">On request</span>
+    <span data-lang="es">Bajo petición</span>
+    <span data-lang="fr">Sur demande</span></div></div>
     </div>
   </div>
 
