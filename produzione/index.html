@@ -1125,9 +1125,9 @@ img,video,iframe{max-width:100%;height:auto}
 .gear-col-title{font-size:13.0px;letter-spacing:.2em;text-transform:uppercase;color:rgba(26,26,26,0.62);margin-bottom:1.2rem;display:flex;align-items:center;gap:.6rem}
 .gear-col-title i{font-size:20.0px;color:rgba(26,26,26,0.62)}
 .gear-list{list-style:none;font-size:14.5px;line-height:2;color:rgba(26,26,26,0.62)}
-.gear-list li{display:flex;align-items:baseline;gap:.5rem}
-.gear-list li::before{content:"—";color:rgba(26,26,26,0.48);flex-shrink:0}
-.gear-model{font-weight:500;color:rgba(26,26,26,0.88)}
+.gear-list li{display:block;position:relative;padding-left:1.4rem}
+.gear-list li::before{content:"—";color:rgba(26,26,26,0.48);position:absolute;left:0;margin:0}
+.gear-model{font-weight:500;color:rgba(26,26,26,0.88);white-space:nowrap}
 @media(max-width:900px){
   .gear-cols{grid-template-columns:1fr}
   .gear-col{border-right:none;border-bottom:var(--bds);padding:2rem 1.5rem}
@@ -1851,7 +1851,7 @@ body.lang-fr [data-lang="fr"]{display:inline}
     </div>
     <div class="gear-cols">
       <div class="gear-col">
-        <div class="gear-col-title"><i class="ti ti-video"></i> Video Gear</div>
+        <div class="gear-col-title"><i class="ti ti-video"></i> <span data-lang="it">Video</span><span data-lang="en">Video</span><span data-lang="es">Vídeo</span><span data-lang="fr">Vidéo</span></div>
         <ul class="gear-list">
           <li><span class="gear-model">Blackmagic Pocket Cinema 6K G2</span></li>
           <li>Sigma 24-70 f2.8 OS EF</li>
@@ -1860,55 +1860,50 @@ body.lang-fr [data-lang="fr"]{display:inline}
           <li><span class="gear-model">Fujifilm GFX 100 II</span> + Fujinon 32/64/4</li>
           <li>Sirui Cavalletto SQ75 VHS-10</li>
           <li>Hollyland Solidcom C1 4S</li>
+          <li><span data-lang="it">Luci disponibili su richiesta</span><span data-lang="en">Lighting available on request</span><span data-lang="es">Iluminación disponible bajo petición</span><span data-lang="fr">Éclairage disponible sur demande</span></li>
         </ul>
-        <div class="gear-col-title" style="margin-top:1.5rem"><i class="ti ti-database"></i> Recording</div>
+        <div class="gear-col-title" style="margin-top:1.5rem"><i class="ti ti-database"></i> <span data-lang="it">Registrazione</span><span data-lang="en">Recording</span><span data-lang="es">Grabación</span><span data-lang="fr">Enregistrement</span></div>
         <ul class="gear-list">
-          <li><span class="gear-model">NAS 8-Bay</span> Intel Atom 8-Core, PCIe Gen3, 10 Gigabit</li>
-          <li>Samsung T7 1TB SSD</li>
+          <li><span class="gear-model">NAS 8-Bay</span></li>
           <li><span class="gear-model">Blackmagic Video Assist</span> 7" 12G HDR</li>
           <li>CFast · ExFAT / HFS+</li>
         </ul>
-        <div class="gear-col-title" style="margin-top:1.5rem"><i class="ti ti-device-tv"></i> Streaming &amp; Projection</div>
+        <div class="gear-col-title" style="margin-top:1.5rem"><i class="ti ti-device-tv"></i> <span data-lang="it">Streaming e proiezione</span><span data-lang="en">Streaming &amp; Projection</span><span data-lang="es">Streaming y proyección</span><span data-lang="fr">Streaming et projection</span></div>
         <ul class="gear-list">
           <li><span class="gear-model">Blackmagic ATEM SDI Extreme ISO</span></li>
           <li>Multiview Monitoring</li>
           <li><span class="gear-model">Sony 4K Laser SXRD</span> · <span data-lang="it">schermo 12mq</span><span data-lang="en">12 sqm screen</span>
     <span data-lang="es">pantalla 12 m²</span>
     <span data-lang="fr">écran 12 m²</span></li>
-          <li>Apple TV · Blu-Ray Panasonic</li>
         </ul>
       </div>
       <div class="gear-col">
-        <div class="gear-col-title"><i class="ti ti-microphone"></i> Audio Gear</div>
+        <div class="gear-col-title"><i class="ti ti-microphone"></i> <span data-lang="it">Audio</span><span data-lang="en">Audio</span><span data-lang="es">Audio</span><span data-lang="fr">Audio</span></div>
         <ul class="gear-list">
-          <li><strong style="color:rgba(26,26,26,0.88);font-size:14.5px;letter-spacing:.1em;text-transform:uppercase">Main PA</strong></li>
+          <li><strong style="color:rgba(26,26,26,0.88);font-size:14.5px;letter-spacing:.1em;text-transform:uppercase"><span data-lang="it">Impianto principale</span><span data-lang="en">Main PA</span><span data-lang="es">Sistema principal</span><span data-lang="fr">Sonorisation principale</span></strong></li>
           <li><span class="gear-model">Esoteric Pro Audio DUE System</span> 2800W</li>
-          <li><strong style="color:rgba(26,26,26,0.88);font-size:14.5px;letter-spacing:.1em;text-transform:uppercase">Monitors</strong></li>
+          <li><strong style="color:rgba(26,26,26,0.88);font-size:14.5px;letter-spacing:.1em;text-transform:uppercase"><span data-lang="it">Monitor</span><span data-lang="en">Monitors</span><span data-lang="es">Monitores</span><span data-lang="fr">Moniteurs</span></strong></li>
           <li><span class="gear-model">Genelec 8341 RAW</span></li>
-          <li><strong style="color:rgba(26,26,26,0.88);font-size:14.5px;letter-spacing:.1em;text-transform:uppercase">Mixer</strong></li>
+          <li><strong style="color:rgba(26,26,26,0.88);font-size:14.5px;letter-spacing:.1em;text-transform:uppercase"><span data-lang="it">Mixer</span><span data-lang="en">Mixer</span><span data-lang="es">Mezclador</span><span data-lang="fr">Console</span></strong></li>
           <li><span class="gear-model">Midas M32Live</span> + DL32/DL16 Stagebox</li>
-          <li><strong style="color:rgba(26,26,26,0.88);font-size:14.5px;letter-spacing:.1em;text-transform:uppercase">Interfaces</strong></li>
+          <li><strong style="color:rgba(26,26,26,0.88);font-size:14.5px;letter-spacing:.1em;text-transform:uppercase"><span data-lang="it">Interfacce</span><span data-lang="en">Interfaces</span><span data-lang="es">Interfaces</span><span data-lang="fr">Interfaces</span></strong></li>
           <li>RME Fireface UC · MOTU Audio Express</li>
           <li><strong style="color:rgba(26,26,26,0.88);font-size:14.5px;letter-spacing:.1em;text-transform:uppercase">DAW</strong></li>
           <li><span class="gear-model">Ableton Live 11 Suite</span></li>
-          <li>Apple iMac 21.5" i7 16GB 512 Flash</li>
         </ul>
       </div>
       <div class="gear-col">
-        <div class="gear-col-title"><i class="ti ti-microphone-2"></i> Microphones</div>
+        <div class="gear-col-title"><i class="ti ti-microphone-2"></i> <span data-lang="it">Microfoni</span><span data-lang="en">Microphones</span><span data-lang="es">Micrófonos</span><span data-lang="fr">Micros</span></div>
         <ul class="gear-list">
-          <li><strong style="color:rgba(26,26,26,0.88);font-size:14.5px;letter-spacing:.1em;text-transform:uppercase">Condenser</strong></li>
+          <li><strong style="color:rgba(26,26,26,0.88);font-size:14.5px;letter-spacing:.1em;text-transform:uppercase"><span data-lang="it">A condensatore</span><span data-lang="en">Condenser</span><span data-lang="es">De condensador</span><span data-lang="fr">À condensateur</span></strong></li>
           <li><span class="gear-model">Neumann TLM 107 BK</span></li>
-          <li>AKG Perception 420</li>
-          <li>CAD GXL 3000</li>
-          <li><strong style="color:rgba(26,26,26,0.88);font-size:14.5px;letter-spacing:.1em;text-transform:uppercase">Dynamic</strong></li>
+          <li><strong style="color:rgba(26,26,26,0.88);font-size:14.5px;letter-spacing:.1em;text-transform:uppercase"><span data-lang="it">Dinamici</span><span data-lang="en">Dynamic</span><span data-lang="es">Dinámicos</span><span data-lang="fr">Dynamiques</span></strong></li>
           <li>Sennheiser E835 S (×2)</li>
           <li><span class="gear-model">Shure SM58 · SM7dB</span></li>
-          <li><strong style="color:rgba(26,26,26,0.88);font-size:14.5px;letter-spacing:.1em;text-transform:uppercase">Headphones</strong></li>
+          <li><strong style="color:rgba(26,26,26,0.88);font-size:14.5px;letter-spacing:.1em;text-transform:uppercase"><span data-lang="it">Cuffie</span><span data-lang="en">Headphones</span><span data-lang="es">Auriculares</span><span data-lang="fr">Casques</span></strong></li>
           <li>Beyerdynamic DT-770 Pro</li>
           <li>AKG K121 Studio · K240 Studio</li>
           <li>Sony MDR 7506 · Audio Technica</li>
-          <li><span class="gear-model">Millenium HP4LD</span> HPA 6</li>
         </ul>
         <div class="gear-col-title" style="margin-top:1.5rem"><i class="ti ti-camera"></i> <span data-lang="it">Extra su richiesta</span><span data-lang="en">Extra upon request</span>
     <span data-lang="es">Extras bajo petición</span>
