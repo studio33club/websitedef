@@ -1100,17 +1100,32 @@ img,video,iframe{max-width:100%;height:auto}
   .lc-prev{left:.7rem}.lc-next{right:.7rem}
 }
 
+/* ── VIDEO ARKAGE ── */
+.loc-video-play-btn{border-color:rgba(255,255,255,0.55)!important}
+.loc-video{border-bottom:var(--bd);padding:3rem;background:var(--nero-s);display:grid;grid-template-columns:1.6fr 1fr;gap:3rem;align-items:center}
+.loc-video-thumb{position:relative;cursor:pointer;border-radius:0;overflow:hidden;aspect-ratio:16/9;background:#000}
+.loc-video-thumb img{width:100%;height:100%;object-fit:cover;opacity:.82;transition:opacity .3s}
+.loc-video-thumb:hover img{opacity:.95}
+.loc-video-play{position:absolute;inset:0;display:flex;align-items:center;justify-content:center}
+.loc-video-play-btn{width:56px;height:56px;border:.5px solid rgba(255,255,255,0.55);border-radius:50%;display:flex;align-items:center;justify-content:center;background:rgba(0,0,0,.3);backdrop-filter:blur(4px);transition:background .2s,transform .2s}
+.loc-video-thumb:hover .loc-video-play-btn{background:rgba(0,0,0,.55)}
+.loc-video-play-btn::after{content:'';display:block;width:0;height:0;border-style:solid;border-width:9px 0 9px 16px;border-color:transparent transparent transparent rgba(255,255,255,0.9);margin-left:4px}
+@media(max-width:900px){
+  .loc-video{grid-template-columns:1fr;padding:2rem 1.5rem;gap:2rem}
+}
+
 /* ── GALLERIA PRODUZIONE ── */
 .prod-gal{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;
   background:rgba(26,26,26,.11);border-top:1px solid rgba(26,26,26,.11)}
 .prod-gal-item{position:relative;aspect-ratio:4/3;background-size:cover;
   background-position:center;background-color:#f0efed}
+.prod-gal-wide{grid-column:1/-1;aspect-ratio:21/9}
 .prod-gal-cap{position:absolute;left:0;bottom:0;padding:1.2rem 1.4rem;
   font-size:11.5px;letter-spacing:.2em;text-transform:uppercase;
   color:#fff;text-shadow:0 1px 10px rgba(0,0,0,.55);z-index:2}
 @media(max-width:900px){
   .prod-gal{grid-template-columns:1fr}
-  .prod-gal-item{aspect-ratio:3/2}
+  .prod-gal-item,.prod-gal-wide{aspect-ratio:3/2}
 }
 
 /* ── CAROSELLO FORMAZIONE ── */
@@ -1635,6 +1650,11 @@ body.lang-fr [data-lang="fr"]{display:inline}
 
   <!-- GALLERIA PRODUZIONE -->
   <div class="prod-gal">
+    <div class="prod-gal-item prod-gal-wide" data-bg="../loc-hero.jpg" style="background-position:center 55%">
+      <span class="prod-gal-cap"><span data-lang="it">Il set di Studio 33: luci, regia e impianto hi-end</span><span data-lang="en">The Studio 33 set: lighting, direction and hi-end sound system</span>
+    <span data-lang="es">El set de Studio 33: luces, realización y sistema hi-end</span>
+    <span data-lang="fr">Le plateau de Studio 33 : lumières, réalisation et système hi-end</span></span>
+    </div>
     <div class="prod-gal-item" data-bg="../prod-a.jpg" style="">
       <span class="prod-gal-cap"><span data-lang="it">Ripresa multicamera</span><span data-lang="en">Multi-camera shooting</span>
     <span data-lang="es">Rodaje multicámara</span>
@@ -1649,6 +1669,37 @@ body.lang-fr [data-lang="fr"]{display:inline}
       <span class="prod-gal-cap"><span data-lang="it">Studio audio insonorizzato</span><span data-lang="en">Soundproofed audio studio</span>
     <span data-lang="es">Estudio audio insonorizado</span>
     <span data-lang="fr">Studio audio insonorisé</span></span>
+    </div>
+  </div>
+
+  <!-- VIDEO ARKAGE · produzioni internazionali -->
+  <div class="loc-video">
+    <div>
+      <button type="button" class="loc-video-thumb" onclick="openMedia(17)" aria-label="Studio produzione video Roma – Arkage con Renzo Arbore – Studio 33 Trastevere" style="display:block;width:100%;border:none;padding:0;background:none;text-align:left;font:inherit;color:inherit">
+        <img src="https://img.youtube.com/vi/w2tf1YFWsoU/hqdefault.jpg" alt="Studio produzione video Roma – Arkage con Renzo Arbore – Studio 33 Trastevere" loading="lazy" style="width:100%;height:100%;object-fit:cover" onerror="this.src='https://img.youtube.com/vi/w2tf1YFWsoU/mqdefault.jpg'">
+        <div class="loc-video-play"><div class="loc-video-play-btn"></div></div>
+      </button>
+      <div style="display:flex;align-items:center;gap:.5rem;margin-top:.8rem;font-size:11px;letter-spacing:.08em;color:rgba(26,26,26,0.48)">
+        <img src="../arkage-logo.png" alt="Arkage" style="width:16px;height:16px;border-radius:3px">
+        <span>In collaborazione con <a href="https://thearkage.com/" target="_blank" rel="noopener" style="color:inherit">Arkage</a></span>
+      </div>
+    </div>
+    <div>
+      <div class="lbl" style="margin-bottom:1.2rem"><span data-lang="it">Studio 33 in azione</span><span data-lang="en">Studio 33 in action</span>
+    <span data-lang="es">Studio 33 en acción</span>
+    <span data-lang="fr">Studio 33 en action</span></div>
+      <h2 style="font-size:39.0px;font-weight:400;line-height:1.25;color:var(--w);margin-bottom:1rem;letter-spacing:-.01em">
+        <span data-lang="it">Produzioni internazionali<br>scelgono Studio 33. <em style="font-style:italic;color:rgba(26,26,26,0.88)">Ogni anno.</em></span>
+        <span data-lang="en">Fiorello, Renzo Arbore,<br>HBO Canada, <em style="font-style:italic;color:rgba(26,26,26,0.88)">Regione Lazio.</em></span>
+        <span data-lang="es">Producciones internacionales<br>eligen Studio 33. <em style="font-style:italic;color:rgba(26,26,26,0.88)">Cada año.</em></span>
+        <span data-lang="fr">Des productions internationales<br>choisissent Studio 33. <em style="font-style:italic;color:rgba(26,26,26,0.88)">Chaque année.</em></span>
+      </h2>
+      <p style="font-size:20.0px;line-height:1.8;color:rgba(26,26,26,0.88)"><span data-lang="it">Produzioni di livello internazionale scelgono Studio 33 per la sua atmosfera unica nel cuore di Trastevere. Documentari, spot, serie TV: ogni format trova lo spazio giusto.</span><span data-lang="en">International-level productions choose Studio 33 for its unique atmosphere in the heart of Trastevere. Documentaries, spots, TV series: every format finds the right space.</span>
+    <span data-lang="es">Producciones de nivel internacional eligen Studio 33 por su atmósfera única en el corazón de Trastevere. Documentales, spots, series de TV: cada formato encuentra su espacio.</span>
+    <span data-lang="fr">Des productions de niveau international choisissent Studio 33 pour son atmosphère unique au cœur de Trastevere. Documentaires, spots, séries TV : chaque format trouve sa place.</span></p>
+      <a class="btn" href="../works/" style="margin-top:1.5rem;display:inline-flex"><span data-lang="it">Guarda progetti selezionati →</span><span data-lang="en">See selected projects →</span>
+    <span data-lang="es">Ver proyectos seleccionados →</span>
+    <span data-lang="fr">Voir les projets sélectionnés →</span></a>
     </div>
   </div>
 
@@ -2117,7 +2168,7 @@ function lcScroll(dir){
 
 
 // ── HAPPENING: player unificato mp4 + YouTube ──
-var mediaList = [{"k": "yt", "id": "TAIl1kGzfgY"}, {"k": "yt", "id": "cAbYwjUUnNM"}, {"k": "yt", "id": "Ly_N43oBCjY"}, {"k": "yt", "id": "lToVif3BLOM"}, {"k": "yt", "id": "CyyuGcd8tzI"}, {"k": "yt", "id": "oFecVPRzqOk"}, {"k": "yt", "id": "BgwqRhtAS-E"}, {"k": "yt", "id": "vatRi9NDiOI"}, {"k": "yt", "id": "yDXAGZNv6ro"}, {"k": "yt", "id": "lKp_zMsbI-I"}, {"k": "yt", "id": "fHH1BdIk1X8"}, {"k": "yt", "id": "1KyvuRJh6tQ"}, {"k": "yt", "id": "WyDrpVguz28"}, {"k": "yt", "id": "6tKxVS9Fi8A"}, {"k": "yt", "id": "B6BxBXnB2pM"}, {"k": "yt", "id": "rFxvfyGsTyc"}, {"k": "yt", "id": "2wJ0v4LIan8"}];
+var mediaList = [{"k": "yt", "id": "TAIl1kGzfgY"}, {"k": "yt", "id": "cAbYwjUUnNM"}, {"k": "yt", "id": "Ly_N43oBCjY"}, {"k": "yt", "id": "lToVif3BLOM"}, {"k": "yt", "id": "CyyuGcd8tzI"}, {"k": "yt", "id": "oFecVPRzqOk"}, {"k": "yt", "id": "BgwqRhtAS-E"}, {"k": "yt", "id": "vatRi9NDiOI"}, {"k": "yt", "id": "yDXAGZNv6ro"}, {"k": "yt", "id": "lKp_zMsbI-I"}, {"k": "yt", "id": "fHH1BdIk1X8"}, {"k": "yt", "id": "1KyvuRJh6tQ"}, {"k": "yt", "id": "WyDrpVguz28"}, {"k": "yt", "id": "6tKxVS9Fi8A"}, {"k": "yt", "id": "B6BxBXnB2pM"}, {"k": "yt", "id": "rFxvfyGsTyc"}, {"k": "yt", "id": "2wJ0v4LIan8"}, {"k": "yt", "id": "w2tf1YFWsoU"}];
 function openMedia(i){
   var m = mediaList[i];
   if(!m || !m.id) return;
@@ -2335,7 +2386,7 @@ s33InitScrollReveal();
 
 <script>
 var radioShows = [
-  {title:'Sacred Grooves EP01 · Andrea Benedetti', feed:'%2FStudio_33%2Fsacred-grooves-ep01-andrea-benedetti%2F'},
+  {title:'Sacred Grooves EP01 · Andrea Benedetti', feed:'%2FStudio_33%2Fsacred-grooves-ep01-andrea-benedetti-on-dance-culture-history%2F'},
   {title:'NPR World Cafe · Black Snake Moan @ Studio 33', feed:'%2FStudio_33%2Fnpr-in-studio-33-black-snake-moan-on-world-cafe-sense-of-place-rome%2F'},
   {title:'NPR World Cafe · Ariete @ Studio 33', feed:'%2FStudio_33%2Fnpr-in-studio-33-ariete-on-world-cafe-sense-of-place-italy%2F'},
   {title:'NPR World Cafe · Laila Al Habash @ Studio 33', feed:'%2FStudio_33%2Fnpr-in-studio-33-laila-al-habash-on-world-cafe-sense-of-place-rome%2F'},
