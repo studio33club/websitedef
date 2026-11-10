@@ -1540,9 +1540,9 @@ body.lang-fr [data-lang="fr"]{display:inline}
     <h2><span data-lang="it">Cookie</span><span data-lang="en">Cookies</span>
     <span data-lang="es">Cookies</span>
     <span data-lang="fr">Cookies</span></h2>
-    <p><span data-lang="it">Senza il tuo consenso questo sito non installa cookie di profilazione né cookie di terze parti a fini pubblicitari. Se premi «Accetta», attiviamo la misurazione delle conversioni di Google Ads (vedi tabella): serve a capire quante persone arrivate da un nostro annuncio ci contattano. All'ingresso ti chiediamo comunque di accettare o rifiutare l'uso di cookie tecnici e di eventuali servizi di terze parti tramite un banner: la tua scelta viene salvata sul dispositivo e non ti verrà richiesta di nuovo, finché non la revochi.</span><span data-lang="en">Without your consent this site installs no profiling or third-party advertising cookies. If you press “Accept”, we enable Google Ads conversion measurement (see table): it helps us understand how many people who arrive from one of our ads get in touch. When you arrive we still ask you to accept or reject the use of technical cookies and any third-party services via a banner: your choice is saved on your device and won't be asked again until you withdraw it.</span>
-    <span data-lang="es">Sin tu consentimiento este sitio no instala cookies de perfilado ni cookies de terceros con fines publicitarios. Si pulsas «Aceptar», activamos la medición de conversiones de Google Ads (ver tabla): sirve para saber cuántas personas que llegan desde uno de nuestros anuncios nos contactan. Al entrar te pedimos igualmente que aceptes o rechaces el uso de cookies técnicas y de posibles servicios de terceros mediante un banner: tu elección se guarda en el dispositivo y no se te volverá a pedir hasta que la revoques.</span>
-    <span data-lang="fr">Sans votre consentement, ce site n'installe aucun cookie de profilage ni cookie tiers à des fins publicitaires. Si vous cliquez sur « Accepter », nous activons la mesure des conversions Google Ads (voir tableau) : elle nous permet de savoir combien de personnes arrivées depuis l'une de nos annonces nous contactent. À votre arrivée, nous vous demandons tout de même d'accepter ou de refuser l'utilisation de cookies techniques et d'éventuels services tiers via une bannière : votre choix est enregistré sur votre appareil et ne vous sera plus demandé, jusqu'à ce que vous le retiriez.</span></p>
+    <p><span data-lang="it">Senza il tuo consenso questo sito non installa cookie di profilazione né cookie di terze parti a fini pubblicitari. Il tag di Google Ads viene comunque caricato in modalità limitata: non salva cookie sul tuo dispositivo, ma invia a Google segnali anonimi (come indirizzo IP, pagina visitata ed eventuale conversione) per la misurazione aggregata delle campagne. Se premi «Accetta», attiviamo la misurazione completa delle conversioni di Google Ads (vedi tabella): serve a capire quante persone arrivate da un nostro annuncio ci contattano. All'ingresso ti chiediamo comunque di accettare o rifiutare l'uso di cookie tecnici e di eventuali servizi di terze parti tramite un banner: la tua scelta viene salvata sul dispositivo e non ti verrà richiesta di nuovo, finché non la revochi.</span><span data-lang="en">Without your consent this site installs no profiling or third-party advertising cookies. The Google Ads tag is still loaded in a limited mode: it stores no cookies on your device, but sends Google anonymous signals (such as IP address, page visited and any conversion) for aggregate campaign measurement. If you press “Accept”, we enable full Google Ads conversion measurement (see table): it helps us understand how many people who arrive from one of our ads get in touch. When you arrive we still ask you to accept or reject the use of technical cookies and any third-party services via a banner: your choice is saved on your device and won't be asked again until you withdraw it.</span>
+    <span data-lang="es">Sin tu consentimiento este sitio no instala cookies de perfilado ni cookies de terceros con fines publicitarios. La etiqueta de Google Ads se carga igualmente en modo limitado: no guarda cookies en tu dispositivo, pero envía a Google señales anónimas (como la dirección IP, la página visitada y una posible conversión) para la medición agregada de las campañas. Si pulsas «Aceptar», activamos la medición completa de conversiones de Google Ads (ver tabla): sirve para saber cuántas personas que llegan desde uno de nuestros anuncios nos contactan. Al entrar te pedimos igualmente que aceptes o rechaces el uso de cookies técnicas y de posibles servicios de terceros mediante un banner: tu elección se guarda en el dispositivo y no se te volverá a pedir hasta que la revoques.</span>
+    <span data-lang="fr">Sans votre consentement, ce site n'installe aucun cookie de profilage ni cookie tiers à des fins publicitaires. La balise Google Ads est tout de même chargée en mode limité : elle n'enregistre aucun cookie sur votre appareil, mais envoie à Google des signaux anonymes (comme l'adresse IP, la page visitée et une éventuelle conversion) pour la mesure agrégée des campagnes. Si vous cliquez sur « Accepter », nous activons la mesure complète des conversions Google Ads (voir tableau) : elle nous permet de savoir combien de personnes arrivées depuis l'une de nos annonces nous contactent. À votre arrivée, nous vous demandons tout de même d'accepter ou de refuser l'utilisation de cookies techniques et d'éventuels services tiers via une bannière : votre choix est enregistré sur votre appareil et ne vous sera plus demandé, jusqu'à ce que vous le retiriez.</span></p>
 
     <table class="pp-table">
       <thead>
@@ -1863,17 +1863,20 @@ document.addEventListener('keydown', function(e){ if(e.key==='Escape') closeDraw
   function gtag(){ dataLayer.push(arguments); }
   window.gtag = gtag;
   gtag('consent', 'default', { ad_storage:'denied', ad_user_data:'denied', ad_personalization:'denied', analytics_storage:'denied' });
+  // Consent Mode "advanced": il tag Google parte subito ma, finché non accetti, è in modalità
+  // limitata (nessun cookie, solo segnali anonimi); «Accetta» lo porta in modalità completa.
+  gtag('set', 'ads_data_redaction', true);
+  var s = document.createElement('script'); s.async = true;
+  s.src = 'https://www.googletagmanager.com/gtag/js?id=' + ADS;
+  document.head.appendChild(s);
+  gtag('js', new Date()); gtag('config', ADS);
   var adsOn = false;
   function enableAds(){
     if(adsOn) return; adsOn = true;
     gtag('consent', 'update', { ad_storage:'granted', ad_user_data:'granted', ad_personalization:'granted', analytics_storage:'granted' });
-    var s = document.createElement('script'); s.async = true;
-    s.src = 'https://www.googletagmanager.com/gtag/js?id=' + ADS;
-    document.head.appendChild(s);
-    gtag('js', new Date()); gtag('config', ADS);
   }
   window.s33Conv = function(name){
-    if(adsOn && LABELS[name]) gtag('event', 'conversion', { send_to: ADS + '/' + LABELS[name] });
+    if(LABELS[name]) gtag('event', 'conversion', { send_to: ADS + '/' + LABELS[name] });
   };
   var el = document.getElementById('cookie-banner');
   var saved = null;

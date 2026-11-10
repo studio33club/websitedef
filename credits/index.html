@@ -1679,17 +1679,20 @@ document.addEventListener('keydown', function(e){ if(e.key==='Escape') closeDraw
   function gtag(){ dataLayer.push(arguments); }
   window.gtag = gtag;
   gtag('consent', 'default', { ad_storage:'denied', ad_user_data:'denied', ad_personalization:'denied', analytics_storage:'denied' });
+  // Consent Mode "advanced": il tag Google parte subito ma, finché non accetti, è in modalità
+  // limitata (nessun cookie, solo segnali anonimi); «Accetta» lo porta in modalità completa.
+  gtag('set', 'ads_data_redaction', true);
+  var s = document.createElement('script'); s.async = true;
+  s.src = 'https://www.googletagmanager.com/gtag/js?id=' + ADS;
+  document.head.appendChild(s);
+  gtag('js', new Date()); gtag('config', ADS);
   var adsOn = false;
   function enableAds(){
     if(adsOn) return; adsOn = true;
     gtag('consent', 'update', { ad_storage:'granted', ad_user_data:'granted', ad_personalization:'granted', analytics_storage:'granted' });
-    var s = document.createElement('script'); s.async = true;
-    s.src = 'https://www.googletagmanager.com/gtag/js?id=' + ADS;
-    document.head.appendChild(s);
-    gtag('js', new Date()); gtag('config', ADS);
   }
   window.s33Conv = function(name){
-    if(adsOn && LABELS[name]) gtag('event', 'conversion', { send_to: ADS + '/' + LABELS[name] });
+    if(LABELS[name]) gtag('event', 'conversion', { send_to: ADS + '/' + LABELS[name] });
   };
   var el = document.getElementById('cookie-banner');
   var saved = null;
