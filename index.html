@@ -2435,7 +2435,7 @@ setInterval(rotateTeaser, 6000);
 
 function saveRadioState(){
   try{
-    if(radioOpen){ localStorage.setItem('s33radio', JSON.stringify({open:true, index:radioIndex})); }
+    if(radioOpen){ var sh = radioShows[radioIndex] || {}; localStorage.setItem('s33radio', JSON.stringify({open:true, index:radioIndex, key:sh.feed || sh.src || ''})); }
     else{ localStorage.removeItem('s33radio'); }
   }catch(e){}
 }
@@ -2495,6 +2495,9 @@ function initS33Audio(autoplay){
 
 function loadRadioShow(i, autoplay){
   var show = radioShows[i];
+  teaserIndex = i;
+  var teaserEl = document.getElementById('radioTeaserTitle');
+  if(teaserEl) teaserEl.textContent = show.title;
   var container = document.getElementById('radioMcContainer');
   var titleEl = document.getElementById('radioBarTitle');
   container.style.opacity = 0;
@@ -2571,9 +2574,12 @@ function closeRadio(){
   try{
     if(location.hash === '#radio'){ playRadio(); return; }
     var saved = JSON.parse(localStorage.getItem('s33radio'));
-    if(saved && saved.open && radioShows[saved.index] !== undefined){
-      radioIndex = saved.index;
-      teaserIndex = saved.index;
+    if(saved && saved.open){
+      var si = -1;
+      if(saved.key){ for(var k = 0; k < radioShows.length; k++){ if((radioShows[k].feed || radioShows[k].src) === saved.key){ si = k; break; } } }
+      if(si < 0) return;
+      radioIndex = si;
+      teaserIndex = si;
       loadRadioShow(radioIndex, false);
       var bar = document.getElementById('radioBar');
       bar.style.transform = 'translateY(0)';
