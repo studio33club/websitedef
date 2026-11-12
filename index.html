@@ -1430,7 +1430,7 @@ body.lang-fr [data-lang="fr"]{display:inline}
           On air
         </span>
       </span>
-      <span id="radioTeaserTitle" style="font-family:var(--fd);font-size:17px;color:#fff;display:inline-block;transition:opacity .5s ease,transform .5s ease">CCCC · Chiara Civello &amp; Clap! Clap! live in Studio 33</span>
+      <span id="radioTeaserTitle" style="font-family:var(--fd);font-size:17px;color:#fff;display:inline-block;transition:opacity .5s ease,transform .5s ease">Mike Doughty live in Studio 33 · with Andrew Scrap Livingstone</span>
     </span>
     <span style="font-size:11.5px;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.55);flex-shrink:0"><span data-lang="it">Ascolta →</span><span data-lang="en">Listen →</span>
     <span data-lang="es">Escuchar →</span>
@@ -2383,7 +2383,7 @@ s33InitScrollReveal();
   <div style="display:flex;align-items:center;gap:1rem;padding:.7rem 1.3rem;border-bottom:1px solid rgba(255,255,255,.08)">
     <div style="flex:1;min-width:0">
       <div style="font-family:var(--fb);font-size:10.5px;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.5)">Studio 33 Radio · On air</div>
-      <div id="radioBarTitle" style="font-family:var(--fd);font-size:15px;color:#fff;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;transition:opacity .3s ease">CCCC · Chiara Civello &amp; Clap! Clap! live in Studio 33</div>
+      <div id="radioBarTitle" style="font-family:var(--fd);font-size:15px;color:#fff;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;transition:opacity .3s ease">Mike Doughty live in Studio 33 · with Andrew Scrap Livingstone</div>
     </div>
     <button onclick="switchRadioShow()" aria-label="Cambia show" style="background:none;border:1px solid rgba(255,255,255,.22);color:rgba(255,255,255,.75);font-family:var(--fb);font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;cursor:pointer;padding:.5rem .8rem;flex-shrink:0;border-radius:2px;white-space:nowrap">⇄ <span data-lang="it">Altro show</span><span data-lang="en">Next show</span>
     <span data-lang="es">Otro show</span>
@@ -2395,6 +2395,7 @@ s33InitScrollReveal();
 
 <script>
 var radioShows = [
+  {title:'Mike Doughty live in Studio 33 · with Andrew Scrap Livingstone', feed:'%2FStudio_33%2Fmike-doughty-live-in-studio-33-with-andrew-scrap-livingstone%2F'},
   {title:"CCCC · Chiara Civello & Clap! Clap! live in Studio 33", feed:'%2FStudio_33%2Fcccc-chiara-civello-clap-clap-studio-33%2F'},
   {title:"Jazz Japan · Luca Collepiccolo con Riccardo Bertini", feed:'%2FStudio_33%2Fjazz-japan-di-luca-collepiccolo-con-riccardo-bertini%2F'},
   {title:"Esoterismo Rock - Massimo Guarini con Riccardo Bertini", feed:'%2FStudio_33%2Fun-viaggio-dentro-lesoterismo-nel-rock%2F'},
@@ -2408,8 +2409,7 @@ var radioShows = [
   {title:'NPR World Cafe · Ariete @ Studio 33', feed:'%2FStudio_33%2Fnpr-in-studio-33-ariete-on-world-cafe-sense-of-place-italy%2F'},
   {title:'NPR World Cafe · Laila Al Habash @ Studio 33', feed:'%2FStudio_33%2Fnpr-in-studio-33-laila-al-habash-on-world-cafe-sense-of-place-rome%2F'},
   {title:'Shhh/Peaceful · Jeremiah Chiu & Marta Sofia Honer Live', feed:'%2FStudio_33%2Fshhh-peaceful-in-studio-33-jeremiah-chiu-marta-sofia-honer-live%2F'},
-  {title:'Shhh/Peaceful · Jonah Parzen-Johnson & Lau Nau Live: Avant-Jazz & Electronics', feed:'%2FStudio_33%2Fshhhpeaceful-in-studio-33-jonah-parzen-johnson-lau-nau-live-avant-jazz-electronics%2F'},
-  {title:'Mike Doughty live in Studio 33 · with Andrew Scrap Livingstone', feed:'%2FStudio_33%2Fmike-doughty-live-in-studio-33-with-andrew-scrap-livingstone%2F'}
+  {title:'Shhh/Peaceful · Jonah Parzen-Johnson & Lau Nau Live: Avant-Jazz & Electronics', feed:'%2FStudio_33%2Fshhhpeaceful-in-studio-33-jonah-parzen-johnson-lau-nau-live-avant-jazz-electronics%2F'}
 ];
 var teaserIndex = 0;
 var radioIndex = 0;
