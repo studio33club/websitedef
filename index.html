@@ -2523,6 +2523,11 @@ function loadRadioShow(i, autoplay){
 function positionWaFixed(open){
   var wa = document.getElementById('wa-fixed');
   var call = document.getElementById('call-fixed');
+  var cb = document.getElementById('cookie-banner');
+  if(cb){
+    var rb = document.getElementById('radioBar');
+    cb.style.bottom = open ? (rb ? rb.offsetHeight : 130) + 'px' : '0';
+  }
   if(!wa) return;
   if(open){
     var bar = document.getElementById('radioBar');
