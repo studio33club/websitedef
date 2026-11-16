@@ -2022,24 +2022,70 @@ document.addEventListener('keydown', function(e){if(e.key==='Escape')closeProjMo
 
 
 // ── SCROLL REVEAL (GSAP + IntersectionObserver) ──
+// Comparsa graduale: dentro ogni sezione titoli, testi e immagini salgono e si
+// dissolvono uno dopo l'altro, con un leggero sfasamento.
 function s33InitScrollReveal(){
   if(typeof gsap === 'undefined' || typeof IntersectionObserver === 'undefined') return;
   if(window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
   var activePage = document.querySelector('.page.active');
   if(!activePage) return;
-  var targets = activePage.querySelectorAll(':scope > section, :scope > div.split, :scope > div.col2, :scope > div.col3, :scope > div.col4, :scope > article');
-  var list = Array.prototype.slice.call(targets).slice(1);
+  // tutti i blocchi della pagina, tranne aperture (hero), radio e elementi tecnici
+  var list = Array.prototype.filter.call(activePage.children, function(el){
+    if(/^(SCRIPT|STYLE|BUTTON|NAV)$/.test(el.tagName)) return false;
+    if(/hero|radio-teaser/.test(el.className || '')) return false;
+    if(el.hasAttribute('data-no-reveal')) return false;
+    return true;
+  });
+  // salta il primo blocco solo se è l'apertura della pagina (già visibile al caricamento)
+  if(list.length && list[0] === activePage.firstElementChild) list = list.slice(1);
   if(!list.length) return;
-  gsap.set(list, {opacity:0, y:28});
-  var io = new IntersectionObserver(function(entries){
-    entries.forEach(function(entry){
-      if(entry.isIntersecting){
-        gsap.to(entry.target, {opacity:1, y:0, duration:.9, ease:'power2.out'});
-        io.unobserve(entry.target);
-      }
+
+  var ITEMS = 'h1,h2,h3,h4,p,blockquote,figure,img,video,iframe,form,.lbl,.btn,.mquote-by,.hblock-img';
+  var RISE = 64, DUR = .65, STAGGER = .08, MAX_DELAY = .56, BLUR = 12;
+
+  function itemsOf(sec){
+    var found = Array.prototype.slice.call(sec.querySelectorAll(ITEMS));
+    var kept = [];
+    found.forEach(function(el){
+      if(el.closest('[data-no-reveal]')) return;
+      if(!el.offsetParent && getComputedStyle(el).position !== 'fixed') return; // nascosto (es. altra lingua)
+      for(var i=0;i<kept.length;i++){ if(kept[i].contains(el)) return; }      // già dentro un elemento animato
+      kept.push(el);
     });
-  }, {threshold:0, rootMargin:'0px 0px -10% 0px'});
-  list.forEach(function(el){ io.observe(el); });
+    return kept.length ? kept : [sec];
+  }
+
+  var all = [];
+  list.forEach(function(sec){
+    itemsOf(sec).forEach(function(el){
+      el._s33op = parseFloat(getComputedStyle(el).opacity);
+      if(isNaN(el._s33op)) el._s33op = 1;
+      // sfocatura solo dove non c'è già un filtro CSS (es. loghi in bianco e nero)
+      el._s33blur = (getComputedStyle(el).filter === 'none');
+      all.push(el);
+    });
+  });
+  gsap.set(all, {opacity:0, y:RISE});
+  all.forEach(function(el){ if(el._s33blur) gsap.set(el, {filter:'blur('+BLUR+'px)'}); });
+
+  // Ogni elemento parte quando entra nello schermo; quelli che entrano
+  // insieme partono in sequenza, dall'alto verso il basso.
+  var io = new IntersectionObserver(function(entries){
+    var batch = entries.filter(function(e){ return e.isIntersecting; })
+      .sort(function(x,y){ return (x.boundingClientRect.top - y.boundingClientRect.top) || (x.boundingClientRect.left - y.boundingClientRect.left); });
+    batch.forEach(function(entry, i){
+      var el = entry.target;
+      io.unobserve(el);
+      var to = {
+        opacity: el._s33op, y: 0, duration: DUR, ease: 'power3.out',
+        delay: Math.min(i * STAGGER, MAX_DELAY),
+        onComplete: function(){ gsap.set(el, {clearProps:'opacity,transform,filter'}); }
+      };
+      if(el._s33blur) to.filter = 'blur(0px)';
+      gsap.to(el, to);
+    });
+  }, {threshold:0, rootMargin:'0px 0px -16% 0px'});
+  all.forEach(function(el){ io.observe(el); });
 }
 s33InitScrollReveal();
 
