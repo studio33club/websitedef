@@ -2292,8 +2292,13 @@ function s33InitScrollReveal(){
   if(window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
   var activePage = document.querySelector('.page.active');
   if(!activePage) return;
-  var targets = activePage.querySelectorAll(':scope > section, :scope > div.split, :scope > div.col2, :scope > div.col3, :scope > div.col4, :scope > div.hblocks, :scope > article');
-  var list = Array.prototype.slice.call(targets);
+  // tutti i blocchi della pagina, tranne aperture (hero), radio e elementi tecnici
+  var list = Array.prototype.filter.call(activePage.children, function(el){
+    if(/^(SCRIPT|STYLE|BUTTON|NAV)$/.test(el.tagName)) return false;
+    if(/hero|radio-teaser/.test(el.className || '')) return false;
+    if(el.hasAttribute('data-no-reveal')) return false;
+    return true;
+  });
   // salta il primo blocco solo se è l'apertura della pagina (già visibile al caricamento)
   if(list.length && list[0] === activePage.firstElementChild) list = list.slice(1);
   if(!list.length) return;
@@ -2437,7 +2442,7 @@ s33InitScrollReveal();
 
 <script>
 var radioShows = [
-  {title:'Mike Doughty live in Studio 33 · with Andrew Scrap Livingstone', feed:'%2FStudio_33%2Fmike-doughty-live-in-studio-33-with-andrew-scrap-livingstone%2F'},
+  {title:'Mike Doughty live in Studio 33 · with Andrew Scrap Livingstone', feed:'%2FStudio_33%2Fmike-doughty-live-in-studio-34-with-andrew-scrap-livingstone%2F'},
   {title:"CCCC · Chiara Civello & Clap! Clap! live in Studio 33", feed:'%2FStudio_33%2Fcccc-chiara-civello-clap-clap-studio-33%2F'},
   {title:"Jazz Japan · Luca Collepiccolo con Riccardo Bertini", feed:'%2FStudio_33%2Fjazz-japan-di-luca-collepiccolo-con-riccardo-bertini%2F'},
   {title:"Esoterismo Rock - Massimo Guarini con Riccardo Bertini", feed:'%2FStudio_33%2Fun-viaggio-dentro-lesoterismo-nel-rock%2F'},
