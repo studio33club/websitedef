@@ -1366,9 +1366,8 @@ body.lang-fr [data-lang="fr"]{display:inline}
     .ex-hero-bg.on{opacity:1}
     .ex-hero-overlay{position:absolute;inset:0;background:linear-gradient(90deg,rgba(10,10,10,.86) 0%,rgba(10,10,10,.52) 38%,rgba(10,10,10,.5) 62%,rgba(10,10,10,.8) 100%)}
     .ex-hero-inner{position:relative;z-index:2;display:flex;align-items:center;justify-content:space-between;gap:3rem;min-height:min(80vh,740px);padding:4.5rem 4rem}
-    .ex-hero-content{max-width:560px;flex-shrink:0}
-    .ex-hero .ex-hero-eyebrow{font-family:var(--fb);font-size:11.5px;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,.78);margin-bottom:1.3rem}
-    .ex-hero .ex-hero-title{font-family:var(--fd);font-weight:200;font-size:clamp(34px,4vw,58px);line-height:1.08;letter-spacing:-.025em;color:#fff;margin-bottom:1.2rem;max-width:14ch}
+        .ex-hero .ex-hero-eyebrow{font-family:var(--fb);font-size:11.5px;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,.78);margin-bottom:1.3rem}
+    .ex-hero .ex-hero-title{font-family:var(--fd);font-weight:200;font-size:clamp(34px,4vw,58px);line-height:1.08;letter-spacing:-.025em;color:#fff;margin-bottom:1.2rem;max-width:15ch}
     .ex-hero .ex-hero-title em{font-style:italic;color:rgba(255,255,255,.8)}
     .ex-hero .ex-hero-desc{font-family:var(--fb);font-size:18px;line-height:1.7;color:rgba(255,255,255,.88);max-width:44ch;margin-bottom:2rem}
     .ex-hero .ex-hero-cta{border:none;cursor:pointer;display:inline-flex;align-items:center;gap:.6rem;font-family:var(--fb);font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:#0a0a0a;background:#fff;padding:1rem 1.7rem;text-decoration:none;transition:opacity .2s}
@@ -1391,6 +1390,17 @@ body.lang-fr [data-lang="fr"]{display:inline}
       .ex-hero .ex-hero-title{font-size:32px}
       .ex-hero-inner{padding:2.6rem 1.25rem}
     }
+    .ex-hero-content{display:grid;max-width:560px;flex-shrink:0}
+    .ex-scene{grid-area:1/1;opacity:0;visibility:hidden;transform:translateY(8px);transition:opacity .9s ease,transform .9s ease,visibility 0s linear .9s}
+    .ex-scene.on{opacity:1;visibility:visible;transform:none;transition:opacity .9s ease .35s,transform .9s ease .35s,visibility 0s}
+    .ex-hero-reviews{transition:opacity .8s ease,max-height .8s ease}
+    .ex-hero-reviews.off{opacity:0;visibility:hidden;pointer-events:none}
+    .ex-hero-dots{position:absolute;left:4rem;bottom:2rem;z-index:3;display:flex;gap:.5rem}
+    .ex-hero-dots button{width:34px;height:22px;padding:0;border:none;background:none;cursor:pointer;position:relative}
+    .ex-hero-dots button::after{content:"";position:absolute;left:0;right:0;top:10px;height:2px;background:rgba(255,255,255,.38);transition:background .3s}
+    .ex-hero-dots button.on::after,.ex-hero-dots button:hover::after{background:#fff}
+    @media(max-width:900px){.ex-hero-content{max-width:none;width:100%;flex-shrink:1}.ex-hero-dots{left:1.5rem;bottom:1.1rem}.ex-hero-reviews.off{max-height:0;overflow:hidden;padding:0;margin:0;border:0;gap:0}.ex-hero-reviews{max-height:700px}.ex-hero-inner{padding-bottom:4rem}}
+    @media(max-width:480px){.ex-hero-dots{left:1.25rem}.ex-hero-inner{padding-bottom:3.6rem}}
     /* ALTRE ESPERIENZE */
     .ex-soon{padding:5rem 4rem 0;border-top:none}
     .ex-soon-head{max-width:760px;margin-bottom:3rem}
@@ -1398,10 +1408,11 @@ body.lang-fr [data-lang="fr"]{display:inline}
     .ex-h2{font-family:var(--fd);font-weight:200;font-size:clamp(31px,3vw,42px);line-height:1.1;letter-spacing:-.02em;color:var(--w);margin-bottom:1.1rem}
     .ex-h2 em{font-style:italic;color:rgba(26,26,26,0.48)}
     .ex-soon-head p{font-family:var(--fb);font-size:18.5px;line-height:1.7;color:rgba(26,26,26,0.74);max-width:58ch}
-    .ex-cards{display:grid;grid-template-columns:repeat(3,1fr);border-top:var(--bd);border-bottom:var(--bd);margin:0 -4rem}
+    .ex-cards{display:grid;grid-template-columns:repeat(2,1fr);border-top:var(--bd);border-bottom:var(--bd);margin:0 -4rem}
     .ex-card{display:flex;flex-direction:column;border-right:var(--bds)}
-    .ex-card:last-child{border-right:none}
-    .ex-card-img{aspect-ratio:4/3;background-size:cover;background-position:center;background-color:#f0efed;border-bottom:var(--bds)}
+    .ex-card:nth-child(2n){border-right:none}
+    .ex-card:nth-child(-n+2){border-bottom:var(--bds)}
+    .ex-card-img{aspect-ratio:16/9;background-size:cover;background-position:center;background-color:#f0efed;border-bottom:var(--bds)}
     .ex-card-body{display:flex;flex-direction:column;flex-grow:1;padding:2.1rem 2.4rem 2.6rem}
     .ex-card-body .badge{margin-bottom:1.2rem}
     .ex-card-t{font-family:var(--fd);font-size:27px;font-weight:400;line-height:1.2;color:var(--w);margin-bottom:.9rem}
@@ -1468,23 +1479,82 @@ body.lang-fr [data-lang="fr"]{display:inline}
   </style>
 
   <section class="ex-hero" aria-labelledby="ex-h1">
-    <div class="ex-hero-bg on" style="background-image:url('../ha-airbnb-hero.jpg')"></div>
-    <div class="ex-hero-bg" style="background-image:url('../ha-airbnb-1.jpg');background-position:center 40%"></div>
-    <div class="ex-hero-bg" style="background-image:url('../ha-airbnb-2.jpg');background-position:center 38%"></div>
-    <div class="ex-hero-bg" style="background-image:url('../ha-airbnb-3.jpg');background-position:center 30%"></div>
+    <div class="ex-hero-bg on" data-scene="0" style="background-image:url('../ha-airbnb-hero.jpg')"></div>
+    <div class="ex-hero-bg" data-scene="1" style="background-image:url('../ha-airbnb-1.jpg');background-position:center 40%"></div>
+    <div class="ex-hero-bg" data-scene="2" style="background-image:url('../prod-hero-set3.jpg');background-position:center 45%"></div>
+    <div class="ex-hero-bg" data-scene="3" style="background-image:url('../ex-art-statua-2.jpg');background-position:center 40%"></div>
+    <div class="ex-hero-bg" data-scene="4" style="background-image:url('../loc-05.jpg');background-position:center 55%"></div>
     <div class="ex-hero-overlay"></div>
     <div class="ex-hero-inner">
       <div class="ex-hero-content">
-        <div class="ex-hero-eyebrow">Airbnb Experience · ★ 5,0</div>
-        <h1 class="ex-hero-title" id="ex-h1"><span data-lang="it">Immergiti nella storia del <em>cinema italiano.</em></span><span data-lang="en">Immerse yourself in the history of <em>Italian cinema.</em></span>
+        <div class="ex-scene on" data-scene="0">
+          <div class="ex-hero-eyebrow">Airbnb Experience · ★ 5,0</div>
+          <h1 class="ex-hero-title" id="ex-h1"><span data-lang="it">Immergiti nella storia del <em>cinema italiano.</em></span><span data-lang="en">Immerse yourself in the history of <em>Italian cinema.</em></span>
     <span data-lang="es">Sumérgete en la historia del <em>cine italiano.</em></span>
     <span data-lang="fr">Plongez dans l'histoire du <em>cinéma italien.</em></span></h1>
-        <p class="ex-hero-desc"><span data-lang="it">Una sessione di ascolto di 3 ore sulle colonne sonore di Fellini e Leone, guidata da noi, con aperitivo incluso.</span><span data-lang="en">A 3-hour listening session on Fellini and Leone's soundtracks, hosted by us, with drinks included.</span>
+          <p class="ex-hero-desc"><span data-lang="it">Una sessione di ascolto di 3 ore sulle colonne sonore di Fellini e Leone, guidata da noi, con aperitivo incluso.</span><span data-lang="en">A 3-hour listening session on Fellini and Leone's soundtracks, hosted by us, with drinks included.</span>
     <span data-lang="es">Una sesión de escucha de 3 horas sobre las bandas sonoras de Fellini y Leone, guiada por nosotros, con aperitivo incluido.</span>
     <span data-lang="fr">Une séance d'écoute de 3 heures sur les bandes originales de Fellini et Leone, animée par nous, apéritif inclus.</span></p>
-        <button type="button" class="ex-hero-cta" data-exp="airbnb" data-exp-name="Airbnb Experience · Immergiti nella storia del cinema italiano" onclick="exOpen(this)"><span data-lang="it">Prenota l'esperienza →</span><span data-lang="en">Book the experience →</span>
+          <button type="button" class="ex-hero-cta" data-exp="airbnb" data-exp-name="Airbnb Experience · Immergiti nella storia del cinema italiano" onclick="exOpen(this)"><span data-lang="it">Prenota l'esperienza →</span><span data-lang="en">Book the experience →</span>
     <span data-lang="es">Reserva la experiencia →</span>
     <span data-lang="fr">Réserver l'expérience →</span></button>
+        </div>
+        <div class="ex-scene" data-scene="1" aria-hidden="true">
+          <div class="ex-hero-eyebrow"><span data-lang="it">In arrivo · Edizione aperta</span><span data-lang="en">Coming soon · Open edition</span>
+          <span data-lang="es">Próximamente · Edición abierta</span>
+          <span data-lang="fr">Bientôt · Édition ouverte</span></div>
+          <h2 class="ex-hero-title"><span data-lang="it">Il cinema italiano, <em>ascoltato.</em></span><span data-lang="en">Italian cinema, <em>heard.</em></span>
+          <span data-lang="es">El cine italiano, <em>escuchado.</em></span>
+          <span data-lang="fr">Le cinéma italien, <em>écouté.</em></span></h2>
+          <p class="ex-hero-desc"><span data-lang="it">La versione pubblica e più breve dell'esperienza: un ascolto guidato delle colonne sonore del cinema italiano, sull'impianto hi-end di Studio 33.</span><span data-lang="en">The shorter, public version of the experience: a guided listening session on Italian film soundtracks, on Studio 33's hi-end sound system.</span>
+          <span data-lang="es">La versión pública y más breve de la experiencia: una escucha guiada de las bandas sonoras del cine italiano, en el sistema hi-end de Studio 33.</span>
+          <span data-lang="fr">La version publique et plus courte de l'expérience : une écoute guidée des bandes originales du cinéma italien, sur le système hi-end de Studio 33.</span></p>
+          <button type="button" class="ex-hero-cta" tabindex="-1" data-exp="cinema" data-exp-name="Il cinema italiano, ascoltato · edizione aperta" onclick="exOpen(this)"><span data-lang="it">Richiedi informazioni →</span><span data-lang="en">Request information →</span>
+          <span data-lang="es">Solicitar información →</span>
+          <span data-lang="fr">Demander des informations →</span></button>
+        </div>
+        <div class="ex-scene" data-scene="2" aria-hidden="true">
+          <div class="ex-hero-eyebrow"><span data-lang="it">In arrivo · Ragazzi 11–16 anni</span><span data-lang="en">Coming soon · Ages 11–16</span>
+          <span data-lang="es">Próximamente · Jóvenes de 11 a 16 años</span>
+          <span data-lang="fr">Bientôt · Ados de 11 à 16 ans</span></div>
+          <h2 class="ex-hero-title"><span data-lang="it">Prima volta <em>in studio.</em></span><span data-lang="en">First time <em>in the studio.</em></span>
+          <span data-lang="es">Primera vez <em>en el estudio.</em></span>
+          <span data-lang="fr">Première fois <em>en studio.</em></span></h2>
+          <p class="ex-hero-desc"><span data-lang="it">La prima volta in uno studio vero: un giro dello studio, un momento di ascolto e la registrazione in cabina.</span><span data-lang="en">A first time in a real studio: a tour of the studio, a listening session and a recording in the booth.</span>
+          <span data-lang="es">La primera vez en un estudio de verdad: una visita al estudio, un momento de escucha y la grabación en cabina.</span>
+          <span data-lang="fr">La première fois dans un vrai studio : une visite du studio, un moment d'écoute et l'enregistrement en cabine.</span></p>
+          <button type="button" class="ex-hero-cta" tabindex="-1" data-exp="primavolta" data-exp-name="Prima volta in studio" onclick="exOpen(this)"><span data-lang="it">Richiedi informazioni →</span><span data-lang="en">Request information →</span>
+          <span data-lang="es">Solicitar información →</span>
+          <span data-lang="fr">Demander des informations →</span></button>
+        </div>
+        <div class="ex-scene" data-scene="3" aria-hidden="true">
+          <div class="ex-hero-eyebrow"><span data-lang="it">In arrivo · Art Learning e Art Walking</span><span data-lang="en">Coming soon · Art Learning and Art Walking</span>
+          <span data-lang="es">Próximamente · Art Learning y Art Walking</span>
+          <span data-lang="fr">Bientôt · Art Learning et Art Walking</span></div>
+          <h2 class="ex-hero-title"><span data-lang="it">Esperienza sensoriale <em>e culturale.</em></span><span data-lang="en">Sensory <em>and cultural experience.</em></span>
+          <span data-lang="es">Experiencia sensorial <em>y cultural.</em></span>
+          <span data-lang="fr">Expérience sensorielle <em>et culturelle.</em></span></h2>
+          <p class="ex-hero-desc"><span data-lang="it">Esplorare e discutere l'arte con Francesco Cascino, tra incontri dialogici e passeggiate a Trastevere, con partenza o arrivo a Studio 33.</span><span data-lang="en">Exploring and discussing art with Francesco Cascino, through dialogic sessions and walks in Trastevere, starting or ending at Studio 33.</span>
+          <span data-lang="es">Explorar y debatir el arte con Francesco Cascino, entre encuentros dialógicos y paseos por Trastevere, con salida o llegada en Studio 33.</span>
+          <span data-lang="fr">Explorer et discuter l'art avec Francesco Cascino, entre rencontres dialogiques et balades à Trastevere, départ ou arrivée à Studio 33.</span></p>
+          <button type="button" class="ex-hero-cta" tabindex="-1" data-exp="cascino" data-exp-name="Esperienza sensoriale e culturale · Art Learning e Art Walking" onclick="exOpen(this)"><span data-lang="it">Richiedi informazioni →</span><span data-lang="en">Request information →</span>
+          <span data-lang="es">Solicitar información →</span>
+          <span data-lang="fr">Demander des informations →</span></button>
+        </div>
+        <div class="ex-scene" data-scene="4" aria-hidden="true">
+          <div class="ex-hero-eyebrow"><span data-lang="it">In arrivo · Per adulti</span><span data-lang="en">Coming soon · For adults</span>
+          <span data-lang="es">Próximamente · Para adultos</span>
+          <span data-lang="fr">Bientôt · Pour adultes</span></div>
+          <h2 class="ex-hero-title"><span data-lang="it">Arte <em>e suono.</em></span><span data-lang="en">Art <em>and sound.</em></span>
+          <span data-lang="es">Arte <em>y sonido.</em></span>
+          <span data-lang="fr">Art <em>et son.</em></span></h2>
+          <p class="ex-hero-desc"><span data-lang="it">Un'opera proiettata e la musica del suo tempo sull'impianto hi-fi: le due anime dello spazio, con Francesco Cascino ed Enzo Abbate.</span><span data-lang="en">A projected artwork and the music of its time on the hi-fi system: the two souls of the space, with Francesco Cascino and Enzo Abbate.</span>
+          <span data-lang="es">Una obra proyectada y la música de su tiempo en el sistema hi-fi: las dos almas del espacio, con Francesco Cascino y Enzo Abbate.</span>
+          <span data-lang="fr">Une œuvre projetée et la musique de son époque sur le système hi-fi : les deux âmes du lieu, avec Francesco Cascino et Enzo Abbate.</span></p>
+          <button type="button" class="ex-hero-cta" tabindex="-1" data-exp="artesuono" data-exp-name="Arte e suono · per adulti" onclick="exOpen(this)"><span data-lang="it">Richiedi informazioni →</span><span data-lang="en">Request information →</span>
+          <span data-lang="es">Solicitar información →</span>
+          <span data-lang="fr">Demander des informations →</span></button>
+        </div>
       </div>
       <div class="ex-hero-reviews">
         <div class="ex-hero-review">
@@ -1492,7 +1562,7 @@ body.lang-fr [data-lang="fr"]{display:inline}
           <cite><span data-lang="it">Danielle · New York</span><span data-lang="en">Danielle · New York</span><span data-lang="es">Danielle · Nueva York</span><span data-lang="fr">Danielle · New York</span></cite>
         </div>
         <div class="ex-hero-review">
-          <p><span data-lang="it">"Un'esperienza unica che non puoi perderti."</span><span data-lang="en">"A unique experience you can't miss."</span><span data-lang="es">"Una experiencia única que no puedes perderte."</span><span data-lang="fr">"Une expérience unique à ne pas manquer."</span></p>
+          <p><span data-lang="it">"È un'esperienza unica che non puoi perderti."</span><span data-lang="en">"It's a unique experience you can't miss."</span><span data-lang="es">"Es una experiencia única que no puedes perderte."</span><span data-lang="fr">"C'est une expérience unique à ne pas manquer."</span></p>
           <cite><span data-lang="it">Varvn · Londra</span><span data-lang="en">Varvn · London</span><span data-lang="es">Varvn · Londres</span><span data-lang="fr">Varvn · Londres</span></cite>
         </div>
         <div class="ex-hero-review">
@@ -1501,114 +1571,53 @@ body.lang-fr [data-lang="fr"]{display:inline}
         </div>
       </div>
     </div>
+    <div class="ex-hero-dots" role="tablist" aria-label="Esperienze">
+      <button type="button" class="on" data-go="0" aria-label="Airbnb Experience"></button>
+      <button type="button" data-go="1" aria-label="Il cinema italiano, ascoltato"></button>
+      <button type="button" data-go="2" aria-label="Prima volta in studio"></button>
+      <button type="button" data-go="3" aria-label="Esperienza sensoriale e culturale"></button>
+      <button type="button" data-go="4" aria-label="Arte e suono"></button>
+    </div>
   </section>
   <script>
   (function(){
-    var slides = document.querySelectorAll('.ex-hero-bg');
-    if(slides.length < 2) return;
-    var i = 0;
-    setInterval(function(){
-      slides[i].classList.remove('on');
-      i = (i + 1) % slides.length;
-      slides[i].classList.add('on');
-    }, 4200);
+    var hero=document.querySelector('.ex-hero'); if(!hero) return;
+    var scenes=hero.querySelectorAll('.ex-scene'), bgs=hero.querySelectorAll('.ex-hero-bg'),
+        dots=hero.querySelectorAll('.ex-hero-dots button'), reviews=hero.querySelector('.ex-hero-reviews');
+    var cur=0, timer=null, paused=false;
+    var DUR=[11000,8000,8000,8000];
+    function show(n){
+      cur=n;
+      scenes.forEach(function(s,i){
+        var on=i===n; s.classList.toggle('on',on); s.setAttribute('aria-hidden',on?'false':'true');
+        var b=s.querySelector('button'); if(b) b.tabIndex=on?0:-1;
+      });
+      bgs.forEach(function(b,i){ b.classList.toggle('on',i===n); });
+      dots.forEach(function(d,i){ d.classList.toggle('on',i===n); });
+      if(reviews) reviews.classList.toggle('off',n!==0);
+    }
+    function next(){ show((cur+1)%scenes.length); }
+    function schedule(){
+      clearTimeout(timer);
+      if(paused||!window.matchMedia||window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+      timer=setTimeout(function(){ next(); schedule(); }, DUR[cur]||8000);
+    }
+    dots.forEach(function(d){ d.addEventListener('click',function(){ show(parseInt(d.getAttribute('data-go'),10)); schedule(); }); });
+    hero.addEventListener('mouseenter',function(){ paused=true; clearTimeout(timer); });
+    hero.addEventListener('mouseleave',function(){ paused=false; schedule(); });
+    hero.addEventListener('focusin',function(){ paused=true; clearTimeout(timer); });
+    hero.addEventListener('focusout',function(){ paused=false; schedule(); });
+    document.addEventListener('visibilitychange',function(){ if(document.hidden){ clearTimeout(timer); } else { schedule(); } });
+    var m=document.getElementById('exModal');
+    if(m && window.MutationObserver) new MutationObserver(function(){ paused=m.classList.contains('open'); if(paused) clearTimeout(timer); else schedule(); }).observe(m,{attributes:true,attributeFilter:['class']});
+    show(0); schedule();
   })();
   </script>
-<script>
+
+  <script>
   (function(){
-    // pool di recensioni: quote in 4 lingue + città localizzata (il nome resta invariato)
-    var pool = [
-      { name: "Danielle", city: { it: "New York", en: "New York", es: "Nueva York", fr: "New York" },
-        it: "Uno dei migliori pomeriggi che abbia trascorso da molto tempo.",
-        en: "One of the best afternoons I've spent in a long time.",
-        es: "Una de las mejores tardes que he pasado en mucho tiempo.",
-        fr: "L'un des meilleurs après-midi que j'aie passés depuis longtemps." },
-      { name: "Varvn", city: { it: "Londra", en: "London", es: "Londres", fr: "Londres" },
-        it: "Un'esperienza unica che non puoi perderti.",
-        en: "A unique experience you can't miss.",
-        es: "Una experiencia única que no puedes perderte.",
-        fr: "Une expérience unique à ne pas manquer." },
-      { name: "Mariana", city: { it: "Rio de Janeiro", en: "Rio de Janeiro", es: "Río de Janeiro", fr: "Rio de Janeiro" },
-        it: "Una tappa imperdibile a Roma.",
-        en: "An unmissable stop in Rome.",
-        es: "Una parada imprescindible en Roma.",
-        fr: "Une étape incontournable à Rome." },
-      { name: "Thomas", city: { it: "Berlino", en: "Berlin", es: "Berlín", fr: "Berlin" },
-        it: "Non avevo mai ascoltato la musica in questo modo. Da brividi.",
-        en: "I had never listened to music like this. Goosebumps.",
-        es: "Nunca había escuchado música así. Piel de gallina.",
-        fr: "Je n'avais jamais écouté la musique ainsi. Frissons garantis." },
-      { name: "Sophie", city: { it: "Parigi", en: "Paris", es: "París", fr: "Paris" },
-        it: "Ospiti generosi e un impianto che ti cambia le orecchie per sempre.",
-        en: "Generous hosts and a system that changes your ears forever.",
-        es: "Anfitriones generosos y un equipo que te cambia los oídos para siempre.",
-        fr: "Des hôtes généreux et un système qui transforme votre oreille à jamais." },
-      { name: "Kenji", city: { it: "Tokyo", en: "Tokyo", es: "Tokio", fr: "Tokyo" },
-        it: "Tre ore volate. Vorrei poterlo rifare ogni settimana.",
-        en: "Three hours flew by. I wish I could do it every week.",
-        es: "Tres horas que volaron. Ojalá pudiera repetirlo cada semana.",
-        fr: "Trois heures envolées. J'aimerais pouvoir recommencer chaque semaine." },
-      { name: "Elena", city: { it: "Madrid", en: "Madrid", es: "Madrid", fr: "Madrid" },
-        it: "Il posto perfetto per chi ama il cinema e il vinile.",
-        en: "The perfect place for anyone who loves cinema and vinyl.",
-        es: "El lugar perfecto para quien ama el cine y el vinilo.",
-        fr: "L'endroit parfait pour qui aime le cinéma et le vinyle." },
-      { name: "Michael", city: { it: "Melbourne", en: "Melbourne", es: "Melbourne", fr: "Melbourne" },
-        it: "Un ascolto così profondo che ti dimentichi del tempo.",
-        en: "Listening so deep you lose track of time.",
-        es: "Una escucha tan profunda que pierdes la noción del tiempo.",
-        fr: "Une écoute si profonde qu'on en oublie l'heure." },
-      { name: "Laura", city: { it: "Amsterdam", en: "Amsterdam", es: "Ámsterdam", fr: "Amsterdam" },
-        it: "Competenza, passione e un aperitivo che ci sta tutto.",
-        en: "Expertise, passion and an aperitivo that hits the spot.",
-        es: "Conocimiento, pasión y un aperitivo que cae perfecto.",
-        fr: "Expertise, passion et un apéritif qui tombe à pic." },
-      { name: "Andrés", city: { it: "Città del Messico", en: "Mexico City", es: "Ciudad de México", fr: "Mexico" },
-        it: "L'esperienza audio più bella che abbia fatto in Europa.",
-        en: "The finest audio experience I've had in Europe.",
-        es: "La mejor experiencia de audio que he tenido en Europa.",
-        fr: "La plus belle expérience audio que j'aie vécue en Europe." },
-      { name: "Rachel", city: { it: "Toronto", en: "Toronto", es: "Toronto", fr: "Toronto" },
-        it: "Fellini e Leone come non li avevo mai sentiti.",
-        en: "Fellini and Leone like I had never heard them before.",
-        es: "Fellini y Leone como nunca los había escuchado.",
-        fr: "Fellini et Leone comme je ne les avais jamais entendus." },
-      { name: "Nils", city: { it: "Copenaghen", en: "Copenhagen", es: "Copenhague", fr: "Copenhague" },
-        it: "Piccola boutique del suono, grande cuore. Consigliatissimo.",
-        en: "A small boutique of sound with a big heart. Highly recommended.",
-        es: "Una pequeña boutique del sonido con un gran corazón. Muy recomendable.",
-        fr: "Une petite boutique du son au grand cœur. Vivement recommandé." },
-      { name: "Yuki", city: { it: "Osaka", en: "Osaka", es: "Osaka", fr: "Osaka" },
-        it: "Sono partito con una playlist di brani da riscoprire da capo.",
-        en: "I left with a playlist of songs to rediscover from scratch.",
-        es: "Me fui con una lista de canciones para redescubrir desde cero.",
-        fr: "Je suis reparti avec une playlist de morceaux à redécouvrir." },
-      { name: "Clara", city: { it: "Lisbona", en: "Lisbon", es: "Lisboa", fr: "Lisbonne" },
-        it: "Un rifugio dal caos di Trastevere. Silenzio e musica vera.",
-        en: "A refuge from the chaos of Trastevere. Silence and real music.",
-        es: "Un refugio del caos de Trastevere. Silencio y música de verdad.",
-        fr: "Un refuge loin du chaos de Trastevere. Silence et vraie musique." },
-      { name: "David", city: { it: "San Francisco", en: "San Francisco", es: "San Francisco", fr: "San Francisco" },
-        it: "Pensavo di conoscere il mio disco preferito. Mi sbagliavo.",
-        en: "I thought I knew my favourite record. I was wrong.",
-        es: "Creía que conocía mi disco favorito. Estaba equivocado.",
-        fr: "Je croyais connaître mon disque préféré. Je me trompais." },
-      { name: "Ingrid", city: { it: "Stoccolma", en: "Stockholm", es: "Estocolmo", fr: "Stockholm" },
-        it: "Curati, appassionati, mai pretenziosi. Un pomeriggio raro.",
-        en: "Attentive, passionate, never pretentious. A rare afternoon.",
-        es: "Atentos, apasionados, nunca pretenciosos. Una tarde poco común.",
-        fr: "Attentionnés, passionnés, jamais prétentieux. Un après-midi rare." },
-      { name: "Marco", city: { it: "Milano", en: "Milan", es: "Milán", fr: "Milan" },
-        it: "Vengo da Milano apposta per riascoltare i miei vinili qui.",
-        en: "I come from Milan just to hear my vinyl again in this room.",
-        es: "Vengo desde Milán solo para volver a escuchar mis vinilos aquí.",
-        fr: "Je viens de Milan exprès pour réécouter mes vinyles ici." },
-      { name: "Amara", city: { it: "Lagos", en: "Lagos", es: "Lagos", fr: "Lagos" },
-        it: "Non è una demo tecnica, è un racconto sulla musica.",
-        en: "It's not a tech demo, it's a story told through music.",
-        es: "No es una demo técnica, es un relato a través de la música.",
-        fr: "Ce n'est pas une démo technique, c'est un récit par la musique." }
-    ];
+    // Solo recensioni reali Airbnb (Experience 5953956). Tre diverse a ogni caricamento.
+    var pool = [{"name": "Chris", "city": {"it": "Berkeley, California", "en": "Berkeley, California", "es": "Berkeley, California", "fr": "Berkeley, Californie"}, "q": {"it": "Assolutamente delizioso. Ideale per appassionati di musica, audiofili, cinefili e amanti di Roma.", "en": "Absolutely delightful. Perfect for music lovers, audiophiles, film buffs and lovers of Rome.", "es": "Absolutamente delicioso. Ideal para amantes de la música, audiófilos, cinéfilos y amantes de Roma.", "fr": "Absolument délicieux. Idéal pour les passionnés de musique, les audiophiles, les cinéphiles et les amoureux de Rome."}}, {"name": "Lucia", "city": null, "q": {"it": "La sua passione per il cinema e la musica italiani è incredibile e ci ha guidato attraverso la loro storia in modo coinvolgente, stimolante e facile da seguire.", "en": "His passion for Italian cinema and music is incredible, and he guided us through their history in a way that was engaging, stimulating and easy to follow.", "es": "Su pasión por el cine y la música italianos es increíble y nos guio por su historia de forma cautivadora, estimulante y fácil de seguir.", "fr": "Sa passion pour le cinéma et la musique italiens est incroyable, et il nous a guidés à travers leur histoire de façon captivante, stimulante et facile à suivre."}}, {"name": "Danielle", "city": {"it": "New York", "en": "New York", "es": "Nueva York", "fr": "New York"}, "q": {"it": "È stato uno dei migliori pomeriggi che abbia trascorso da molto tempo.", "en": "One of the best afternoons I've spent in a long time.", "es": "Una de las mejores tardes que he pasado en mucho tiempo.", "fr": "L'un des meilleurs après-midi que j'aie passés depuis longtemps."}}, {"name": "Varvn", "city": {"it": "Londra", "en": "London", "es": "Londres", "fr": "Londres"}, "q": {"it": "È un'esperienza unica che non puoi perderti.", "en": "It's a unique experience you can't miss.", "es": "Es una experiencia única que no puedes perderte.", "fr": "C'est une expérience unique à ne pas manquer."}}, {"name": "시현", "city": {"it": "Seul", "en": "Seoul", "es": "Seúl", "fr": "Séoul"}, "q": {"it": "Lo spazio è bello, il suono è buono e l'host è ancora meglio.", "en": "The space is beautiful, the sound is good and the host is even better.", "es": "El espacio es hermoso, el sonido es bueno y el anfitrión es aún mejor.", "fr": "Le lieu est beau, le son est bon et l'hôte est encore mieux."}}, {"name": "Mariana", "city": {"it": "Rio de Janeiro", "en": "Rio de Janeiro", "es": "Río de Janeiro", "fr": "Rio de Janeiro"}, "q": {"it": "Una tappa imperdibile a Roma.", "en": "An unmissable stop in Rome.", "es": "Una parada imprescindible en Roma.", "fr": "Une étape incontournable à Rome."}}, {"name": "Michelle", "city": {"it": "Mammoth Lakes, California", "en": "Mammoth Lakes, California", "es": "Mammoth Lakes, California", "fr": "Mammoth Lakes, Californie"}, "q": {"it": "Lo studio ha una qualità del suono straordinaria e un ambiente caldo e accogliente.", "en": "The studio has extraordinary sound quality and a warm, welcoming atmosphere.", "es": "El estudio tiene una calidad de sonido extraordinaria y un ambiente cálido y acogedor.", "fr": "Le studio offre une qualité sonore extraordinaire et une atmosphère chaleureuse et accueillante."}}, {"name": "Margherita", "city": {"it": "Roma", "en": "Rome", "es": "Roma", "fr": "Rome"}, "q": {"it": "Se ami la musica o il cinema, questa Esperienza è assolutamente imperdibile!", "en": "If you love music or cinema, this Experience is an absolute must!", "es": "Si amas la música o el cine, ¡esta experiencia es absolutamente imperdible!", "fr": "Si vous aimez la musique ou le cinéma, cette expérience est absolument incontournable !"}}, {"name": "Luca", "city": null, "q": {"it": "È un viaggio incredibile in una posizione sorprendente con un sistema hi-fi di alta qualità.", "en": "An incredible journey in a surprising location with a high-quality hi-fi system.", "es": "Un viaje increíble en un lugar sorprendente con un sistema hi-fi de alta calidad.", "fr": "Un voyage incroyable dans un lieu surprenant, avec un système hi-fi de haute qualité."}}, {"name": "Alize", "city": {"it": "Roma", "en": "Rome", "es": "Roma", "fr": "Rome"}, "q": {"it": "Questa Esperienza è stata un'immersione in grandi film e musica straordinaria.", "en": "This Experience was an immersion in great films and extraordinary music.", "es": "Esta experiencia fue una inmersión en grandes películas y música extraordinaria.", "fr": "Cette expérience a été une immersion dans de grands films et une musique extraordinaire."}}, {"name": "Valerio", "city": {"it": "Roma", "en": "Rome", "es": "Roma", "fr": "Rome"}, "q": {"it": "Un viaggio immersivo ed emozionale tra film e colonne sonore italiani.", "en": "An immersive, emotional journey through Italian films and soundtracks.", "es": "Un viaje inmersivo y emocional entre películas y bandas sonoras italianas.", "fr": "Un voyage immersif et émouvant entre films et bandes originales italiens."}}, {"name": "Beatriz", "city": {"it": "Roma", "en": "Rome", "es": "Roma", "fr": "Rome"}, "q": {"it": "Esperienza davvero molto interessante, musica top, il suono unico come il suo spazio accogliente e decorato con grande stile.", "en": "A really interesting experience, top music, a sound as unique as its welcoming space, decorated with great style.", "es": "Una experiencia realmente muy interesante, música top, un sonido único como su espacio acogedor y decorado con gran estilo.", "fr": "Une expérience vraiment très intéressante, une musique top, un son unique comme son espace accueillant et décoré avec beaucoup de style."}}, {"name": "Andrea", "city": {"it": "Roma", "en": "Rome", "es": "Roma", "fr": "Rome"}, "q": {"it": "Studio 33, nel cuore di Trastevere, è una gemma nascosta: elegante, accogliente e lontana dai cliché turistici.", "en": "Studio 33, in the heart of Trastevere, is a hidden gem: elegant, welcoming and far from tourist clichés.", "es": "Studio 33, en el corazón de Trastevere, es una joya escondida: elegante, acogedor y lejos de los clichés turísticos.", "fr": "Studio 33, au cœur de Trastevere, est une pépite cachée : élégant, accueillant et loin des clichés touristiques."}}, {"name": "Valentina", "city": {"it": "Roma", "en": "Rome", "es": "Roma", "fr": "Rome"}, "q": {"it": "Il top del top! La location è bellissima, elegante ma non ingessata, confortevole ma di classe.", "en": "The top of the top! The location is gorgeous, elegant but not stuffy, comfortable but classy.", "es": "¡Lo mejor de lo mejor! El lugar es precioso, elegante pero sin rigidez, cómodo pero con clase.", "fr": "Le top du top ! Le lieu est magnifique, élégant sans être guindé, confortable mais classe."}}, {"name": "Caterina", "city": {"it": "Roma", "en": "Rome", "es": "Roma", "fr": "Rome"}, "q": {"it": "Enzo è un grande narratore, molto appassionato e incredibilmente ben informato, quindi abbiamo imparato molto.", "en": "Enzo is a great storyteller, very passionate and incredibly well informed, so we learned a lot.", "es": "Enzo es un gran narrador, muy apasionado e increíblemente bien informado, así que aprendimos mucho.", "fr": "Enzo est un grand conteur, très passionné et incroyablement bien informé, nous avons donc beaucoup appris."}}, {"name": "Pierpaolo", "city": {"it": "Roma", "en": "Rome", "es": "Roma", "fr": "Rome"}, "q": {"it": "È stata un'esperienza unica nel suo genere.", "en": "It was a one-of-a-kind experience.", "es": "Fue una experiencia única en su género.", "fr": "Une expérience unique en son genre."}}, {"name": "Manuel", "city": null, "q": {"it": "Esperienza unica in una posizione incredibile.", "en": "A unique experience in an incredible location.", "es": "Una experiencia única en un lugar increíble.", "fr": "Une expérience unique dans un lieu incroyable."}}];
     var slots = document.querySelectorAll('.ex-hero-review');
     if(!slots.length) return;
     var langs = ['it','en','es','fr'];
@@ -1619,14 +1628,9 @@ body.lang-fr [data-lang="fr"]{display:inline}
     }
     slots.forEach(function(slot, k){
       var item = pool[k % pool.length];
-      var p = slot.querySelector('p');
-      var cite = slot.querySelector('cite');
-      if(p) p.innerHTML = langs.map(function(l){
-        return '<span data-lang="' + l + '">"' + esc(item[l]) + '"</span>';
-      }).join('');
-      if(cite) cite.innerHTML = langs.map(function(l){
-        return '<span data-lang="' + l + '">' + esc(item.name + ' · ' + item.city[l]) + '</span>';
-      }).join('');
+      var p = slot.querySelector('p'), cite = slot.querySelector('cite');
+      if(p) p.innerHTML = langs.map(function(l){ return '<span data-lang="' + l + '">"' + esc(item.q[l]) + '"</span>'; }).join('');
+      if(cite) cite.innerHTML = langs.map(function(l){ return '<span data-lang="' + l + '">' + esc(item.name + (item.city ? ' · ' + item.city[l] : '')) + '</span>'; }).join('');
     });
   })();
   </script>
@@ -1723,12 +1727,12 @@ body.lang-fr [data-lang="fr"]{display:inline}
         <div class="badge"><span data-lang="it">In arrivo</span><span data-lang="en">Coming soon</span>
         <span data-lang="es">Próximamente</span>
         <span data-lang="fr">Bientôt</span></div>
-        <h3 class="ex-card-t"><span data-lang="it">Art Learning e Art Walking</span><span data-lang="en">Art Learning and Art Walking</span>
-        <span data-lang="es">Art Learning y Art Walking</span>
-        <span data-lang="fr">Art Learning et Art Walking</span></h3>
-        <p class="ex-card-d"><span data-lang="it">Due formati per vivere l'arte in prima persona: Art Learning, incontri dialogici indoor per guardare e discutere l'arte, e Art Walking, esplorazioni a piedi nei luoghi della città. Li conduce Francesco Cascino.</span><span data-lang="en">Two formats to experience art first-hand: Art Learning, indoor dialogic sessions to look at and discuss art, and Art Walking, explorations on foot through the places of the city. Led by Francesco Cascino.</span>
-        <span data-lang="es">Dos formatos para vivir el arte en primera persona: Art Learning, encuentros dialógicos indoor para mirar y debatir el arte, y Art Walking, exploraciones a pie por los lugares de la ciudad. Los dirige Francesco Cascino.</span>
-        <span data-lang="fr">Deux formats pour vivre l'art en première personne : Art Learning, rencontres dialogiques en intérieur pour regarder et discuter l'art, et Art Walking, explorations à pied dans les lieux de la ville. Animés par Francesco Cascino.</span></p>
+        <h3 class="ex-card-t"><span data-lang="it">Esperienza sensoriale e culturale</span><span data-lang="en">Sensory and cultural experience</span>
+        <span data-lang="es">Experiencia sensorial y cultural</span>
+        <span data-lang="fr">Expérience sensorielle et culturelle</span><em>Art Learning e Art Walking</em></h3>
+        <p class="ex-card-d"><span data-lang="it">Due formati per vivere l'arte in prima persona: Art Learning, incontri dialogici indoor per esplorare e discutere l'arte, e Art Walking, esplorazioni a piedi nei luoghi della città. Li conduce Francesco Cascino. Il percorso a Trastevere parte o arriva a Studio 33, unendo l'esperienza di ascolto di Enzo Abbate e quella di Cascino.</span><span data-lang="en">Two formats to experience art first-hand: Art Learning, indoor dialogic sessions to explore and discuss art, and Art Walking, explorations on foot through the places of the city. Led by Francesco Cascino. The route through Trastevere starts or ends at Studio 33, bringing together Enzo Abbate's listening experience and Cascino's.</span>
+        <span data-lang="es">Dos formatos para vivir el arte en primera persona: Art Learning, encuentros dialógicos indoor para explorar y debatir el arte, y Art Walking, exploraciones a pie por los lugares de la ciudad. Los dirige Francesco Cascino. El recorrido por Trastevere parte o termina en Studio 33, uniendo la experiencia de escucha de Enzo Abbate y la de Cascino.</span>
+        <span data-lang="fr">Deux formats pour vivre l'art en première personne : Art Learning, rencontres dialogiques en intérieur pour explorer et discuter l'art, et Art Walking, explorations à pied dans les lieux de la ville. Animés par Francesco Cascino. Le parcours dans Trastevere part de Studio 33 ou y arrive, réunissant l'expérience d'écoute d'Enzo Abbate et celle de Cascino.</span></p>
         <dl class="ex-facts">
           <div><dt><span data-lang="it">Formato</span><span data-lang="en">Format</span>
             <span data-lang="es">Formato</span>
@@ -1740,13 +1744,49 @@ body.lang-fr [data-lang="fr"]{display:inline}
             <span data-lang="fr">Animé par</span></dt><dd><span data-lang="it">Francesco Cascino</span><span data-lang="en">Francesco Cascino</span>
             <span data-lang="es">Francesco Cascino</span>
             <span data-lang="fr">Francesco Cascino</span></dd></div>
-          <div><dt><span data-lang="it">Cosa</span><span data-lang="en">What</span>
-            <span data-lang="es">Qué</span>
-            <span data-lang="fr">Au programme</span></dt><dd><span data-lang="it">Incontri dialogici e passeggiate d'arte</span><span data-lang="en">Dialogic sessions and art walks</span>
-            <span data-lang="es">Encuentros dialógicos y paseos de arte</span>
-            <span data-lang="fr">Rencontres dialogiques et balades d'art</span></dd></div>
+          <div><dt><span data-lang="it">Percorso</span><span data-lang="en">Route</span>
+            <span data-lang="es">Recorrido</span>
+            <span data-lang="fr">Parcours</span></dt><dd><span data-lang="it">Art Walking a Trastevere, con partenza o arrivo a Studio 33</span><span data-lang="en">Art Walking in Trastevere, starting or ending at Studio 33</span>
+            <span data-lang="es">Art Walking por Trastevere, con salida o llegada en Studio 33</span>
+            <span data-lang="fr">Art Walking à Trastevere, départ ou arrivée à Studio 33</span></dd></div>
         </dl>
-        <button type="button" class="ex-cta" data-exp="cascino" data-exp-name="Art Learning e Art Walking" onclick="exOpen(this)"><span data-lang="it">Richiedi informazioni →</span><span data-lang="en">Request information →</span>
+        <button type="button" class="ex-cta" data-exp="cascino" data-exp-name="Esperienza sensoriale e culturale · Art Learning e Art Walking" onclick="exOpen(this)"><span data-lang="it">Richiedi informazioni →</span><span data-lang="en">Request information →</span>
+        <span data-lang="es">Solicitar información →</span>
+        <span data-lang="fr">Demander des informations →</span></button>
+      </div>
+    </article>
+    <article class="ex-card">
+      <div class="ex-card-img" role="img" aria-label="La sala di Studio 33 con il proiettore e le trombe dell'impianto hi-fi" data-bg="../loc-05.jpg" style="background-position:center 55%"></div>
+      <div class="ex-card-body">
+        <div class="badge"><span data-lang="it">In arrivo</span><span data-lang="en">Coming soon</span>
+        <span data-lang="es">Próximamente</span>
+        <span data-lang="fr">Bientôt</span></div>
+        <h3 class="ex-card-t"><span data-lang="it">Arte e suono</span><span data-lang="en">Art and sound</span>
+        <span data-lang="es">Arte y sonido</span>
+        <span data-lang="fr">Art et son</span><em><span data-lang="it">per adulti</span><span data-lang="en">for adults</span>
+          <span data-lang="es">para adultos</span>
+          <span data-lang="fr">pour adultes</span></em></h3>
+        <p class="ex-card-d"><span data-lang="it">Arte e suono mette insieme le due anime dello spazio: un'opera proiettata e la musica del suo tempo sull'impianto hi-fi.</span><span data-lang="en">Art and sound brings together the two souls of the space: a projected artwork and the music of its time on the hi-fi system.</span>
+        <span data-lang="es">Arte y sonido une las dos almas del espacio: una obra proyectada y la música de su tiempo en el sistema hi-fi.</span>
+        <span data-lang="fr">Art et son réunit les deux âmes du lieu : une œuvre projetée et la musique de son époque sur le système hi-fi.</span></p>
+        <dl class="ex-facts">
+          <div><dt><span data-lang="it">Durata</span><span data-lang="en">Duration</span>
+            <span data-lang="es">Duración</span>
+            <span data-lang="fr">Durée</span></dt><dd><span data-lang="it">2 ore</span><span data-lang="en">2 hours</span>
+            <span data-lang="es">2 horas</span>
+            <span data-lang="fr">2 heures</span></dd></div>
+          <div><dt><span data-lang="it">Posti</span><span data-lang="en">Places</span>
+            <span data-lang="es">Plazas</span>
+            <span data-lang="fr">Places</span></dt><dd><span data-lang="it">Fino a 25 persone</span><span data-lang="en">Up to 25 people</span>
+            <span data-lang="es">Hasta 25 personas</span>
+            <span data-lang="fr">Jusqu'à 25 personnes</span></dd></div>
+          <div><dt><span data-lang="it">Conducono</span><span data-lang="en">Hosted by</span>
+            <span data-lang="es">Conducen</span>
+            <span data-lang="fr">Animé par</span></dt><dd><span data-lang="it">Francesco Cascino ed Enzo Abbate</span><span data-lang="en">Francesco Cascino and Enzo Abbate</span>
+            <span data-lang="es">Francesco Cascino y Enzo Abbate</span>
+            <span data-lang="fr">Francesco Cascino et Enzo Abbate</span></dd></div>
+        </dl>
+        <button type="button" class="ex-cta" data-exp="artesuono" data-exp-name="Arte e suono · per adulti" onclick="exOpen(this)"><span data-lang="it">Richiedi informazioni →</span><span data-lang="en">Request information →</span>
         <span data-lang="es">Solicitar información →</span>
         <span data-lang="fr">Demander des informations →</span></button>
       </div>
@@ -1855,9 +1895,14 @@ body.lang-fr [data-lang="fr"]{display:inline}
       <span data-lang="fr">Première fois en studio</span></b><br><span data-lang="it">Lascia i tuoi dati: ti ricontatteremo con tutti i dettagli.</span><span data-lang="en">Leave your details: we will get back to you with all the information.</span>
       <span data-lang="es">Deja tus datos: te contactaremos con todos los detalles.</span>
       <span data-lang="fr">Laissez vos coordonnées : nous vous recontacterons avec tous les détails.</span></div>
-      <div class="ex-modal-sub" data-for="cascino" style="display:none"><b><span data-lang="it">Art Learning e Art Walking</span><span data-lang="en">Art Learning and Art Walking</span>
-      <span data-lang="es">Art Learning y Art Walking</span>
-      <span data-lang="fr">Art Learning et Art Walking</span></b><br><span data-lang="it">Lascia i tuoi dati: ti ricontatteremo con tutti i dettagli.</span><span data-lang="en">Leave your details: we will get back to you with all the information.</span>
+      <div class="ex-modal-sub" data-for="artesuono" style="display:none"><b><span data-lang="it">Arte e suono · per adulti</span><span data-lang="en">Art and sound · for adults</span>
+      <span data-lang="es">Arte y sonido · para adultos</span>
+      <span data-lang="fr">Art et son · pour adultes</span></b><br><span data-lang="it">Lascia i tuoi dati: ti ricontatteremo con tutti i dettagli.</span><span data-lang="en">Leave your details: we will get back to you with all the information.</span>
+      <span data-lang="es">Deja tus datos: te contactaremos con todos los detalles.</span>
+      <span data-lang="fr">Laissez vos coordonnées : nous vous recontacterons avec tous les détails.</span></div>
+      <div class="ex-modal-sub" data-for="cascino" style="display:none"><b><span data-lang="it">Esperienza sensoriale e culturale · Art Learning e Art Walking</span><span data-lang="en">Sensory and cultural experience · Art Learning and Art Walking</span>
+      <span data-lang="es">Experiencia sensorial y cultural · Art Learning y Art Walking</span>
+      <span data-lang="fr">Expérience sensorielle et culturelle · Art Learning et Art Walking</span></b><br><span data-lang="it">Lascia i tuoi dati: ti ricontatteremo con tutti i dettagli.</span><span data-lang="en">Leave your details: we will get back to you with all the information.</span>
       <span data-lang="es">Deja tus datos: te contactaremos con todos los detalles.</span>
       <span data-lang="fr">Laissez vos coordonnées : nous vous recontacterons avec tous les détails.</span></div>
       <form id="expForm" action="https://formspree.io/f/xkjwkybq" method="POST">
