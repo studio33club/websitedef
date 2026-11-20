@@ -1992,7 +1992,7 @@ body.lang-fr [data-lang="fr"]{display:inline}
       e.preventDefault(); err.classList.remove('show'); btn.disabled=true;
       fetch(form.getAttribute('action'),{method:'POST',body:new FormData(form),headers:{'Accept':'application/json'}})
         .then(function(r){
-          if(r.ok){ form.style.display='none'; ok.classList.add('show'); form.reset(); }
+          if(r.ok){ form.style.display='none'; ok.classList.add('show'); form.reset(); if(window.s33Conv) s33Conv('esperienze'); }
           else{ err.classList.add('show'); btn.disabled=false; }
         }).catch(function(){ err.classList.add('show'); btn.disabled=false; });
     });
@@ -2232,7 +2232,7 @@ document.addEventListener('keydown', function(e){ if(e.key==='Escape') closeDraw
   var KEY = 's33cookieConsent';
   var ADS = 'AW-18287143012';
   // Etichette delle conversioni (Google Ads > Obiettivi > Conversioni > azione > Impostazione tag)
-  var LABELS = { form: 'l_8CCPTp36UdEOTQ_o9E', whatsapp: 'gei3CPfp36UdEOTQ_o9E', phone: '5C-mCPrp36UdEOTQ_o9E' };
+  var LABELS = { form: 'l_8CCPTp36UdEOTQ_o9E', whatsapp: 'gei3CPfp36UdEOTQ_o9E', phone: '5C-mCPrp36UdEOTQ_o9E', esperienze: '6x1ACP2JkbwdEOTQ_o9E' };
   window.dataLayer = window.dataLayer || [];
   function gtag(){ dataLayer.push(arguments); }
   window.gtag = gtag;
