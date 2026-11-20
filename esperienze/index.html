@@ -1610,7 +1610,12 @@ body.lang-fr [data-lang="fr"]{display:inline}
     document.addEventListener('visibilitychange',function(){ if(document.hidden){ clearTimeout(timer); } else { schedule(); } });
     var m=document.getElementById('exModal');
     if(m && window.MutationObserver) new MutationObserver(function(){ paused=m.classList.contains('open'); if(paused) clearTimeout(timer); else schedule(); }).observe(m,{attributes:true,attributeFilter:['class']});
-    show(0); schedule();
+    // parte da una scena diversa a ogni caricamento (diversa da quella dell'ultima visita)
+    var start=Math.floor(Math.random()*scenes.length), last=-1;
+    try{ last=parseInt(localStorage.getItem('s33exp'),10); }catch(e){}
+    if(scenes.length>1 && start===last) start=(start+1+Math.floor(Math.random()*(scenes.length-1)))%scenes.length;
+    try{ localStorage.setItem('s33exp',String(start)); }catch(e){}
+    show(start); schedule();
   })();
   </script>
 
